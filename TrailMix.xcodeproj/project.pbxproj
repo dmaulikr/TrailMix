@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D22232C1B696C8B00788C41 /* NaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D22232B1B696C8B00788C41 /* NaviViewController.m */; };
 		72F9A3361B69681B00E8494F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A3351B69681B00E8494F /* main.m */; };
 		72F9A3391B69681B00E8494F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A3381B69681B00E8494F /* AppDelegate.m */; };
 		72F9A33F1B69681B00E8494F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F9A33D1B69681B00E8494F /* Main.storyboard */; };
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D22232A1B696C8B00788C41 /* NaviViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviViewController.h; sourceTree = "<group>"; };
+		3D22232B1B696C8B00788C41 /* NaviViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviViewController.m; sourceTree = "<group>"; };
 		72F9A3301B69681B00E8494F /* TrailMix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailMix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F9A3341B69681B00E8494F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72F9A3351B69681B00E8494F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -57,6 +60,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D22232D1B696C9200788C41 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3D22232E1B696C9B00788C41 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D22232A1B696C8B00788C41 /* NaviViewController.h */,
+				3D22232B1B696C8B00788C41 /* NaviViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3D22232F1B696CA200788C41 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		72F9A3271B69681B00E8494F = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +104,9 @@
 		72F9A3321B69681B00E8494F /* TrailMix */ = {
 			isa = PBXGroup;
 			children = (
+				3D22232F1B696CA200788C41 /* Models */,
+				3D22232E1B696C9B00788C41 /* Controllers */,
+				3D22232D1B696C9200788C41 /* Views */,
 				72F9A3371B69681B00E8494F /* AppDelegate.h */,
 				72F9A3381B69681B00E8494F /* AppDelegate.m */,
 				72F9A33D1B69681B00E8494F /* Main.storyboard */,
@@ -215,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F9A3391B69681B00E8494F /* AppDelegate.m in Sources */,
+				3D22232C1B696C8B00788C41 /* NaviViewController.m in Sources */,
 				72F9A3361B69681B00E8494F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +446,7 @@
 				72F9A3551B69681C00E8494F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		72F9A3561B69681C00E8494F /* Build configuration list for PBXNativeTarget "TrailMixTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +455,7 @@
 				72F9A3581B69681C00E8494F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
