@@ -4,6 +4,7 @@
 target 'TrailMix' do
     
 pod 'AFNetworking'
+pod 'BDBOAuth1Manager'
 
 end
 
