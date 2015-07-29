@@ -2,6 +2,8 @@
 # platform :ios, '6.0'
 
 target 'TrailMix' do
+    
+pod 'AFNetworking'
 
 end
 
