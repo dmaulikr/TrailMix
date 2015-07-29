@@ -107,11 +107,11 @@
     
     if([self.visitButton.titleLabel.text isEqualToString:@"Visit This Place"]){
         [self.visitButton setTitle:@"Continue to Your Food" forState:UIControlStateNormal];
-        self.foodImage.image = [UIImage imageNamed:@"1438127893_safari"];
+        self.foodImage.image = [UIImage imageNamed:@"safari"];
         self.destLocation = attractionLocation;
     }else{
         [self.visitButton setTitle:@"Visit This Place" forState:UIControlStateNormal];
-        self.foodImage.image = [UIImage imageNamed:@"food-2"];
+        self.foodImage.image = [UIImage imageNamed:@"food"];
         self.destLocation = foodLocation;
     }
 }
