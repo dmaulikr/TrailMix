@@ -7,16 +7,20 @@
 //
 
 #import "RestaurantPreferenceTableViewController.h"
+#import "YelpAPIClient.h"
 
 @interface RestaurantPreferenceTableViewController ()
-
+@property (strong, nonatomic) YelpAPIClient *yelpClient;
 @end
 
 @implementation RestaurantPreferenceTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.yelpClient = [YelpAPIClient sharedYelpClient];
+    self.yelpClient.longitude = self.currentLongitude;
+    self.yelpClient.latitude = self.currentLatitude;
+    self.yelpClient.radius = [NSString stringWithFormat:@"%f",self.timeInMinute*83.1495];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -27,6 +31,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)requestData{
+    [self.yelpClient searchForTerm:@"food" success:^(AFHTTPRequestOperation *operation, id response) {
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 }
 
 #pragma mark - Table view data source
