@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "WikiArticle.h"
 
-@interface WikiAPI : NSObject
+@interface WikiAPIClient : NSObject
 
 + (void) getArticlesAroundLocation:(CLLocationCoordinate2D)coordinate completion:(void(^)(NSArray*wikiArticles))completion;
 + (void) getArticleExtract:(NSNumber *)articleID completion:(void(^)(NSString *extract))completion;
