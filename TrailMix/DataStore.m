@@ -28,6 +28,15 @@
     return _sharedDataStore;
 }
 
+-(instancetype)init{
+    self = [super init];
+    if(self){
+        _selectedFoodTypes = [[NSMutableArray alloc]init];
+        _restaurantDictionary = [[NSMutableDictionary alloc]init];
+    }
+    return  self;
+}
+
 - (void)saveContext
 {
     NSError *error = nil;

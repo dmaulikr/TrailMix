@@ -19,6 +19,6 @@
 + (void)getCuisineTypesAndRestaurantWithLatitude:(double)latitude
                                   Longitude:(double)longitude
                                      Radius:(double)radius
-                            CompletionBlock:(void(^)(NSDictionary *cuisineDictionary))completionBlock;
+                            CompletionBlock:(void(^)(void))completionBlock;
 @end
 

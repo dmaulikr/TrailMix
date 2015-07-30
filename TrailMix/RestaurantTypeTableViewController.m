@@ -1,36 +1,25 @@
 //
-//  RestaurantPreferenceTableViewController.m
+//  RestaurantTypeTableViewController.m
 //  TrailMix
 //
 //  Created by Cong Sun on 7/30/15.
 //  Copyright (c) 2015 Team Fax Machine. All rights reserved.
 //
 
-#import "RestaurantPreferenceTableViewController.h"
-#import "YelpAPIClient.h"
+#import "RestaurantTypeTableViewController.h"
 #import "DataStore.h"
-#import <SVProgressHUD/SVProgressHUD.h>
 
-@interface RestaurantPreferenceTableViewController ()
-@property (strong, nonatomic) YelpAPIClient *yelpClient;
-@property (strong, nonatomic) NSDictionary *restaurantDictionary;
-@property (strong, nonatomic) NSMutableArray *contentOfFoodTypeSection;
-@property (strong, nonatomic) NSMutableArray *selectedFoodTypeArray;
-@property (weak, nonatomic) IBOutlet UITableViewCell *restaurantTypeCell;
+@interface RestaurantTypeTableViewController ()
+@property (strong, nonatomic) NSArray *foodTypes;
+@property (strong, nonatomic) NSMutableArray *selectedFoodTypes;
 @end
 
-@implementation RestaurantPreferenceTableViewController
+@implementation RestaurantTypeTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"minutes selected: %ld",self.timeInMinute);
-    [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
-    [YelpAPIClient getCuisineTypesAndRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^(void) {
-        NSLog(@"finished!");
-        [SVProgressHUD dismiss];
-    }];
-    self.contentOfFoodTypeSection = [[NSMutableArray alloc]init];
-    [self.contentOfFoodTypeSection addObject:@"Random(Default)"];
+    self.foodTypes = [DataStore sharedDataStore].restaurantDictionary.allKeys;
+    self.selectedFoodTypes = [DataStore sharedDataStore].selectedFoodTypes;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -38,32 +27,58 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    if([DataStore sharedDataStore].selectedFoodTypes.count){
-        NSMutableString *string = [[NSMutableString alloc]initWithString:[DataStore sharedDataStore].selectedFoodTypes[0]];
-        for(NSInteger i=1;i< [DataStore sharedDataStore].selectedFoodTypes.count;i++){
-            [string appendString:[NSString stringWithFormat:@",%@",[DataStore sharedDataStore].selectedFoodTypes[i]]];
-        }
-        self.restaurantTypeCell.textLabel.text = string;
-        
-    }else{
-        self.restaurantTypeCell.textLabel.text = @"Random";
-    }
-    
-    
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.foodTypes.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"foodTypeCell" forIndexPath:indexPath];
+    
+    cell.textLabel.text = self.foodTypes[indexPath.row];
+    BOOL isSelected = NO;
+    for(NSString *string in self.selectedFoodTypes){
+        if ([self.foodTypes[indexPath.row] isEqualToString:string]) {
+            isSelected = YES;
+        }
+    }
+    if(isSelected){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    return cell;
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(cell.accessoryType == UITableViewCellAccessoryNone){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.selectedFoodTypes addObject: self.foodTypes[indexPath.row]];
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.selectedFoodTypes removeObject:self.foodTypes[indexPath.row]];
+    }
+    
 }
+
 
 /*
 // Override to support conditional editing of the table view.
