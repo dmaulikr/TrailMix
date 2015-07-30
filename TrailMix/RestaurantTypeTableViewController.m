@@ -67,8 +67,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    [self.selectedFoodTypes addObject: self.foodTypes[indexPath.row]];
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(cell.accessoryType == UITableViewCellAccessoryNone){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.selectedFoodTypes addObject: self.foodTypes[indexPath.row]];
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.selectedFoodTypes removeObject:self.foodTypes[indexPath.row]];
+    }
     
 }
 
