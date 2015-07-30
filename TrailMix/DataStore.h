@@ -14,7 +14,7 @@
 +(instancetype) sharedDataStore;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSMutableArray *selectedFoodType;
+@property (strong, nonatomic) NSMutableArray *selectedFoodTypes;
 @property (strong, nonatomic) NSMutableDictionary *restaurantDictionary;
 -(void)saveContext;
 

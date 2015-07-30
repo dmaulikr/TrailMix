@@ -31,7 +31,7 @@
 -(instancetype)init{
     self = [super init];
     if(self){
-        _selectedFoodType = [[NSMutableArray alloc]init];
+        _selectedFoodTypes = [[NSMutableArray alloc]init];
         _restaurantDictionary = [[NSMutableDictionary alloc]init];
     }
     return  self;
