@@ -8,6 +8,7 @@
 
 #import "RestaurantPreferenceTableViewController.h"
 #import "YelpAPIClient.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface RestaurantPreferenceTableViewController ()
 @property (strong, nonatomic) YelpAPIClient *yelpClient;
@@ -21,9 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"minutes selected: %ld",self.timeInMinute);
-    
+    [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
     [YelpAPIClient getCuisineTypesAndRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^(void) {
         NSLog(@"finished!");
+        [SVProgressHUD dismiss];
     }];
     self.contentOfFoodTypeSection = [[NSMutableArray alloc]init];
     [self.contentOfFoodTypeSection addObject:@"Random(Default)"];
