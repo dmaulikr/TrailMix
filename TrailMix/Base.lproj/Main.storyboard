@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="863" y="173"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Restaurant Preference Table View Controller-->
         <scene sceneID="Bl4-Hw-uM6">
             <objects>
-                <tableViewController id="6qj-zw-Jjh" sceneMemberID="viewController">
+                <tableViewController id="6qj-zw-Jjh" customClass="RestaurantPreferenceTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Hx9-fn-Q0O">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
