@@ -12,16 +12,23 @@
 @interface RestaurantPreferenceTableViewController ()
 @property (strong, nonatomic) YelpAPIClient *yelpClient;
 @property (strong, nonatomic) NSDictionary *restaurantDictionary;
+@property (strong, nonatomic) NSMutableArray *contentOfFoodTypeSection;
+@property (strong, nonatomic) NSMutableArray *selectedFoodTypeArray;
 @end
 
 @implementation RestaurantPreferenceTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"minutes selected: %ld",self.timeInMinute);
+    
     [YelpAPIClient getCuisineTypesAndRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^(NSDictionary *cuisineDictionary) {
+        self.restaurantDictionary = cuisineDictionary;
+        [self.tableView reloadData];
         NSLog(@"finished!");
     }];
-    
+    self.contentOfFoodTypeSection = [[NSMutableArray alloc]init];
+    [self.contentOfFoodTypeSection addObject:@"Random(Default)"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -41,26 +48,91 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    if(section==0){
+        return self.contentOfFoodTypeSection.count;
+    }else{
+        return 1;
+    }
+    
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"restaurantCell" forIndexPath:indexPath];
+    if(indexPath.section == 0){
+        cell.textLabel.text = self.contentOfFoodTypeSection[indexPath.row];
+    }
     // Configure the cell...
     
     return cell;
 }
-*/
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    
+    switch (section) {
+        case 0:
+            return @"Restaurant Type";
+            break;
+            
+        default:
+            return @"To Be Edited";
+            break;
+    }
+    
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return UITableViewAutomaticDimension;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case 0:
+            //Food Type
+            if([self.tableView numberOfRowsInSection:0]==1){//not expand yet
+                NSArray *restaurantTypeArray = self.restaurantDictionary.allKeys;
+                [self.contentOfFoodTypeSection addObjectsFromArray:restaurantTypeArray];
+                NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:0];
+                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+                
+            }else{//already expand
+                
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            break;
+
+        default:
+            break;
+    }
+    
+    
+    
+    
+}
 
 /*
 // Override to support conditional editing of the table view.
