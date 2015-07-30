@@ -30,39 +30,76 @@
     }
     return self;
 }
-
-- (AFHTTPRequestOperation *)searchForTerm:(NSString *)term success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+//FIX THIS
+- (AFHTTPRequestOperation *)searchForRestaurants:(double)latitude
+                                       longitude:(double)longitude
+                                          radius:(double)radius
+                                         success:(void (^)(AFHTTPRequestOperation *operation, id response))success
+                                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
     // For additional parameters, see http://www.yelp.com/developers/documentation/v2/search_api
-    NSString *coordinates = [NSString stringWithFormat:@"%f,%f", self.latitude, self.longitude];
-    
-    NSDictionary *parameters = @{@"term": term, @"ll" : coordinates, @"radius_filter": self.radius};
+    NSString *coordinates = [NSString stringWithFormat:@"%f,%f", latitude, longitude];
+    NSString *radiusFilter = [NSString stringWithFormat:@"%f", radius];
+    NSDictionary *parameters = @{@"term": @"restaurant", @"ll" : coordinates, @"radius_filter": radiusFilter};
     
     return [self GET:@"search" parameters:parameters success:success failure:failure];
 }
 
-- (AFHTTPRequestOperation *)searchForTerm:(NSString *)term options:(NSDictionary *)options success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
++ (void)getCuisineTypesAndRestaurantWithLatitude:(double)latitude
+                                 Longitude:(double)longitude
+                                    Radius:(double)radius
+                           CompletionBlock:(void(^)(NSDictionary *cuisineDictionary))completionBlock
+{
+    YelpAPIClient *client = [[YelpAPIClient alloc] initWithConsumerKey:YELP_CONSUMER_KEY consumerSecret:YELP_CONSUMER_SECRET accessToken:YELP_TOKEN accessSecret:YELP_TOKEN_SECRET];
     
-    NSLog(@"Applying Filters.....");
-    
-    NSString *coordinates = [NSString stringWithFormat:@"%f,%f", self.latitude, self.longitude];
-    
-    NSMutableDictionary *parameters = [@{@"term": term, @"ll" : coordinates, @"radius_filter": self.radius} mutableCopy];
-    
-    if (!options) {
-        if (options[@"deals_filter"]) {
-            parameters[@"deals_filter"] = options[@"deals_filter"];
+    [client searchForRestaurants:latitude longitude:longitude radius:radius success:^(AFHTTPRequestOperation *operation, id response) {
+        NSDictionary *responseDictionary = response;
+        NSArray *restaurantDictionaries = responseDictionary[@"businesses"];
+        NSMutableDictionary *cuisineTypeDictWithRestaurantObjects = [[NSMutableDictionary alloc] init];
+        for (NSDictionary *restaurant in restaurantDictionaries) {
+            Restaurant *restaurantObject = [Restaurant createRestaurantObject:restaurant];
+            if(cuisineTypeDictWithRestaurantObjects[restaurantObject.foodType]){
+                [(NSMutableArray *)cuisineTypeDictWithRestaurantObjects[restaurantObject.foodType] addObject:restaurantObject];
+            }else{
+                NSMutableArray *array = [[NSMutableArray alloc]init];
+                [array addObject:restaurantObject];
+                [cuisineTypeDictWithRestaurantObjects setObject:array forKey:restaurantObject.foodType];
+            }
         }
-        if (options[@"sort"]) {
-            parameters[@"sort"] = options[@"sort"];
-        }
-        
-        if (options[@"category_filter"]) {
-            parameters[@"category_filter"] = options[@"category_filter"];
-        }
-    }
-    return [self GET:@"search" parameters:parameters success:success failure:failure];
+        NSLog(@"%@",cuisineTypeDictWithRestaurantObjects);
+        completionBlock(cuisineTypeDictWithRestaurantObjects);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //
+    }];
+    
+    
+    
+    
 }
+
+//- (AFHTTPRequestOperation *)searchForTerm:(NSString *)term options:(NSDictionary *)options success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+//    
+//    NSLog(@"Applying Filters.....");
+//    
+//    NSString *coordinates = [NSString stringWithFormat:@"%f,%f", self.latitude, self.longitude];
+//    
+//    NSMutableDictionary *parameters = [@{@"term": term, @"ll" : coordinates, @"radius_filter": self.radius} mutableCopy];
+//    
+//    if (!options) {
+//        if (options[@"deals_filter"]) {
+//            parameters[@"deals_filter"] = options[@"deals_filter"];
+//        }
+//        if (options[@"sort"]) {
+//            parameters[@"sort"] = options[@"sort"];
+//        }
+//        
+//        if (options[@"category_filter"]) {
+//            parameters[@"category_filter"] = options[@"category_filter"];
+//        }
+//    }
+//    return [self GET:@"search" parameters:parameters success:success failure:failure];
+//}
+
 
 
 
