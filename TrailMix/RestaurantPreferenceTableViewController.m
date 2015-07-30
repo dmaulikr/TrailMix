@@ -11,6 +11,7 @@
 
 @interface RestaurantPreferenceTableViewController ()
 @property (strong, nonatomic) YelpAPIClient *yelpClient;
+@property (strong, nonatomic) NSDictionary *restaurantDictionary;
 @end
 
 @implementation RestaurantPreferenceTableViewController
@@ -34,11 +35,7 @@
 }
 
 -(void)requestData{
-    [self.yelpClient searchForTerm:@"food" success:^(AFHTTPRequestOperation *operation, id response) {
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
+    
 }
 
 #pragma mark - Table view data source
