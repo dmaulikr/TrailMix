@@ -8,6 +8,7 @@
 
 #import "YelpAPIClient.h"
 #import "Constants.h"
+#import "DataStore.h"
 @implementation YelpAPIClient
 
 
@@ -48,14 +49,15 @@
 + (void)getCuisineTypesAndRestaurantWithLatitude:(double)latitude
                                  Longitude:(double)longitude
                                     Radius:(double)radius
-                           CompletionBlock:(void(^)(NSDictionary *cuisineDictionary))completionBlock
+                           CompletionBlock:(void(^)(void))completionBlock
 {
     YelpAPIClient *client = [[YelpAPIClient alloc] initWithConsumerKey:YELP_CONSUMER_KEY consumerSecret:YELP_CONSUMER_SECRET accessToken:YELP_TOKEN accessSecret:YELP_TOKEN_SECRET];
     
     [client searchForRestaurants:latitude longitude:longitude radius:radius success:^(AFHTTPRequestOperation *operation, id response) {
         NSDictionary *responseDictionary = response;
         NSArray *restaurantDictionaries = responseDictionary[@"businesses"];
-        NSMutableDictionary *cuisineTypeDictWithRestaurantObjects = [[NSMutableDictionary alloc] init];
+        
+        NSMutableDictionary *cuisineTypeDictWithRestaurantObjects = [DataStore sharedDataStore].restaurantDictionary;
         for (NSDictionary *restaurant in restaurantDictionaries) {
             Restaurant *restaurantObject = [Restaurant createRestaurantObject:restaurant];
             if(cuisineTypeDictWithRestaurantObjects[restaurantObject.foodType]){
@@ -67,7 +69,7 @@
             }
         }
         NSLog(@"%@",cuisineTypeDictWithRestaurantObjects);
-        completionBlock(cuisineTypeDictWithRestaurantObjects);
+        completionBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //
     }];

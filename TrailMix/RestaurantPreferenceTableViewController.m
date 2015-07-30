@@ -22,9 +22,7 @@
     [super viewDidLoad];
     NSLog(@"minutes selected: %ld",self.timeInMinute);
     
-    [YelpAPIClient getCuisineTypesAndRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^(NSDictionary *cuisineDictionary) {
-        self.restaurantDictionary = cuisineDictionary;
-        [self.tableView reloadData];
+    [YelpAPIClient getCuisineTypesAndRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^(void) {
         NSLog(@"finished!");
     }];
     self.contentOfFoodTypeSection = [[NSMutableArray alloc]init];
@@ -41,96 +39,9 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)requestData{
-    
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 3;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    if(section==0){
-        return self.contentOfFoodTypeSection.count;
-    }else{
-        return 1;
-    }
-    
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"restaurantCell" forIndexPath:indexPath];
-    if(indexPath.section == 0){
-        cell.textLabel.text = self.contentOfFoodTypeSection[indexPath.row];
-    }
-    // Configure the cell...
-    
-    return cell;
-}
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    
-    switch (section) {
-        case 0:
-            return @"Restaurant Type";
-            break;
-            
-        default:
-            return @"To Be Edited";
-            break;
-    }
-    
-    
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    
-    return UITableViewAutomaticDimension;
-}
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.section) {
-        case 0:
-            //Food Type
-            if([self.tableView numberOfRowsInSection:0]==1){//not expand yet
-                NSArray *restaurantTypeArray = self.restaurantDictionary.allKeys;
-                [self.contentOfFoodTypeSection addObjectsFromArray:restaurantTypeArray];
-                NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:0];
-                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
-                
-            }else{//already expand
-                
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            break;
-
-        default:
-            break;
-    }
-    
-    
-    
     
 }
 
