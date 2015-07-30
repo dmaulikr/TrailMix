@@ -9,7 +9,6 @@
 #import "DurationPickerViewController.h"
 #import "RestaurantPreferenceTableViewController.h"
 #import <CoreLocation/CoreLocation.h>
-
 @interface DurationPickerViewController ()<UIPickerViewDataSource,UIPickerViewDelegate,CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIPickerView *durationPickerView;
 @property (strong, nonatomic) CLLocation *currentLocation;
@@ -22,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.delegate = self;
     self.locationManager.pausesLocationUpdatesAutomatically = YES;

@@ -18,10 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.yelpClient = [YelpAPIClient sharedYelpClient];
-    self.yelpClient.longitude = self.currentLongitude;
-    self.yelpClient.latitude = self.currentLatitude;
-    self.yelpClient.radius = [NSString stringWithFormat:@"%f",self.timeInMinute*83.1495];
+    [YelpAPIClient getCuisineTypesAndRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^(NSDictionary *cuisineDictionary) {
+        NSLog(@"finished!");
+    }];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
