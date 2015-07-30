@@ -10,6 +10,8 @@
 		3DA6ADAD1B6977400022EF4D /* NaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6ADAC1B6977400022EF4D /* NaviViewController.m */; };
 		3DDD99331B6A740600178632 /* DurationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99321B6A740600178632 /* DurationPickerViewController.m */; };
 		3DDD99361B6A761B00178632 /* RestaurantPreferenceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99351B6A761B00178632 /* RestaurantPreferenceTableViewController.m */; };
+		3DDD99391B6A7C1100178632 /* TrailMix.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99371B6A7C1100178632 /* TrailMix.xcdatamodeld */; };
+		3DDD993C1B6A7C2F00178632 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD993B1B6A7C2F00178632 /* DataStore.m */; };
 		63C8B38244F3ABD6D75E8AB9 /* libPods-TrailMix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D40E02762E4FD5B07430F174 /* libPods-TrailMix.a */; };
 		72F9A3361B69681B00E8494F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A3351B69681B00E8494F /* main.m */; };
 		72F9A3391B69681B00E8494F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A3381B69681B00E8494F /* AppDelegate.m */; };
@@ -42,6 +44,9 @@
 		3DDD99321B6A740600178632 /* DurationPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DurationPickerViewController.m; sourceTree = "<group>"; };
 		3DDD99341B6A761B00178632 /* RestaurantPreferenceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantPreferenceTableViewController.h; sourceTree = "<group>"; };
 		3DDD99351B6A761B00178632 /* RestaurantPreferenceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantPreferenceTableViewController.m; sourceTree = "<group>"; };
+		3DDD99381B6A7C1100178632 /* TrailMix.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrailMix.xcdatamodel; sourceTree = "<group>"; };
+		3DDD993A1B6A7C2F00178632 /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
+		3DDD993B1B6A7C2F00178632 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		72F9A3301B69681B00E8494F /* TrailMix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailMix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F9A3341B69681B00E8494F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72F9A3351B69681B00E8494F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -146,6 +151,8 @@
 				3D22232D1B696C9200788C41 /* Views */,
 				72F9A3371B69681B00E8494F /* AppDelegate.h */,
 				72F9A3381B69681B00E8494F /* AppDelegate.m */,
+				3DDD993A1B6A7C2F00178632 /* DataStore.h */,
+				3DDD993B1B6A7C2F00178632 /* DataStore.m */,
 				DB416F431B697D3800A1E41B /* Constants.h */,
 				DB416F441B697D3800A1E41B /* Constants.m */,
 				DB416F401B697D2B00A1E41B /* YelpAPIClient.h */,
@@ -155,6 +162,7 @@
 				72F9A33D1B69681B00E8494F /* Main.storyboard */,
 				3DDD99341B6A761B00178632 /* RestaurantPreferenceTableViewController.h */,
 				3DDD99351B6A761B00178632 /* RestaurantPreferenceTableViewController.m */,
+				3DDD99371B6A7C1100178632 /* TrailMix.xcdatamodeld */,
 				3DDD99311B6A740600178632 /* DurationPickerViewController.h */,
 				3DDD99321B6A740600178632 /* DurationPickerViewController.m */,
 				72FEAD7D1B697C4400F0FF33 /* WikiAPIClient.h */,
@@ -342,8 +350,10 @@
 				DB416F421B697D2B00A1E41B /* YelpAPIClient.m in Sources */,
 				3DA6ADAD1B6977400022EF4D /* NaviViewController.m in Sources */,
 				72FEAD811B697C4400F0FF33 /* WikiAPIClient.m in Sources */,
+				3DDD993C1B6A7C2F00178632 /* DataStore.m in Sources */,
 				3DDD99331B6A740600178632 /* DurationPickerViewController.m in Sources */,
 				DB416F481B697DDA00A1E41B /* Restaurant.m in Sources */,
+				3DDD99391B6A7C1100178632 /* TrailMix.xcdatamodeld in Sources */,
 				3DDD99361B6A761B00178632 /* RestaurantPreferenceTableViewController.m in Sources */,
 				72F9A3361B69681B00E8494F /* main.m in Sources */,
 				72FEAD821B697C4400F0FF33 /* WikiArticle.m in Sources */,
@@ -561,6 +571,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3DDD99371B6A7C1100178632 /* TrailMix.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3DDD99381B6A7C1100178632 /* TrailMix.xcdatamodel */,
+			);
+			currentVersion = 3DDD99381B6A7C1100178632 /* TrailMix.xcdatamodel */;
+			path = TrailMix.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 72F9A3281B69681B00E8494F /* Project object */;
 }
