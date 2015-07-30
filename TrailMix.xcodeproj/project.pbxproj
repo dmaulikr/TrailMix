@@ -15,7 +15,7 @@
 		72F9A3411B69681B00E8494F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F9A3401B69681B00E8494F /* Images.xcassets */; };
 		72F9A3441B69681B00E8494F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F9A3421B69681B00E8494F /* LaunchScreen.xib */; };
 		72F9A3501B69681C00E8494F /* TrailMixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A34F1B69681C00E8494F /* TrailMixTests.m */; };
-		72FEAD811B697C4400F0FF33 /* WikiAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FEAD7E1B697C4400F0FF33 /* WikiAPI.m */; };
+		72FEAD811B697C4400F0FF33 /* WikiAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FEAD7E1B697C4400F0FF33 /* WikiAPIClient.m */; };
 		72FEAD821B697C4400F0FF33 /* WikiArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FEAD801B697C4400F0FF33 /* WikiArticle.m */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +44,8 @@
 		72F9A3491B69681C00E8494F /* TrailMixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrailMixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F9A34E1B69681C00E8494F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72F9A34F1B69681C00E8494F /* TrailMixTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrailMixTests.m; sourceTree = "<group>"; };
-		72FEAD7D1B697C4400F0FF33 /* WikiAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiAPI.h; sourceTree = "<group>"; };
-		72FEAD7E1B697C4400F0FF33 /* WikiAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiAPI.m; sourceTree = "<group>"; };
+		72FEAD7D1B697C4400F0FF33 /* WikiAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiAPIClient.h; sourceTree = "<group>"; };
+		72FEAD7E1B697C4400F0FF33 /* WikiAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiAPIClient.m; sourceTree = "<group>"; };
 		72FEAD7F1B697C4400F0FF33 /* WikiArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiArticle.h; sourceTree = "<group>"; };
 		72FEAD801B697C4400F0FF33 /* WikiArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiArticle.m; sourceTree = "<group>"; };
 		A4F8ED7375ED3F133E3C75AE /* Pods-TrailMix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailMix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrailMix/Pods-TrailMix.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 				72F9A3371B69681B00E8494F /* AppDelegate.h */,
 				72F9A3381B69681B00E8494F /* AppDelegate.m */,
 				72F9A33D1B69681B00E8494F /* Main.storyboard */,
-				72FEAD7D1B697C4400F0FF33 /* WikiAPI.h */,
-				72FEAD7E1B697C4400F0FF33 /* WikiAPI.m */,
+				72FEAD7D1B697C4400F0FF33 /* WikiAPIClient.h */,
+				72FEAD7E1B697C4400F0FF33 /* WikiAPIClient.m */,
 				72FEAD7F1B697C4400F0FF33 /* WikiArticle.h */,
 				72FEAD801B697C4400F0FF33 /* WikiArticle.m */,
 				72F9A3401B69681B00E8494F /* Images.xcassets */,
@@ -314,7 +314,7 @@
 			files = (
 				72F9A3391B69681B00E8494F /* AppDelegate.m in Sources */,
 				3DA6ADAD1B6977400022EF4D /* NaviViewController.m in Sources */,
-				72FEAD811B697C4400F0FF33 /* WikiAPI.m in Sources */,
+				72FEAD811B697C4400F0FF33 /* WikiAPIClient.m in Sources */,
 				72F9A3361B69681B00E8494F /* main.m in Sources */,
 				72FEAD821B697C4400F0FF33 /* WikiArticle.m in Sources */,
 			);
