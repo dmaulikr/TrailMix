@@ -10,6 +10,7 @@
 #import "YelpAPIClient.h"
 #import "DataStore.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "Restaurant.h"
 
 @interface RestaurantPreferenceTableViewController ()
 @property (strong, nonatomic) YelpAPIClient *yelpClient;
@@ -59,11 +60,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (IBAction)startButtonTapped:(id)sender {
+    //randomly pick a restaurant
+    NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.selectedFoodTypeArray.count);
+    NSArray *restaurantArray = self.restaurantDictionary[self.selectedFoodTypeArray[randomIndex]];
+    NSInteger randomRestaurantIndex = arc4random_uniform((u_int32_t)restaurantArray.count);
+    Restaurant *selectedRestaurant = restaurantArray[randomRestaurantIndex];
+    //store into CoreData
     
+    [self.navigationController performSegueWithIdentifier:@"goToCompass" sender:sender];
 }
+
+
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//}
 
 /*
 // Override to support conditional editing of the table view.

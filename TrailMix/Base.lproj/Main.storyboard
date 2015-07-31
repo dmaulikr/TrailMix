@@ -121,14 +121,21 @@
                             <outlet property="delegate" destination="6qj-zw-Jjh" id="PqY-Nm-dns"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="fhh-XF-jAH"/>
+                    <navigationItem key="navigationItem" id="fhh-XF-jAH">
+                        <barButtonItem key="rightBarButtonItem" title="Start The Adventure" id="0Av-zE-a3u">
+                            <connections>
+                                <action selector="startButtonTapped:" destination="6qj-zw-Jjh" id="vhC-4A-4Vi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="restaurantTypeCell" destination="vDW-47-RXy" id="FBd-FE-U52"/>
+                        <segue destination="LA8-22-ULE" kind="show" identifier="goToCompass" id="qu6-22-wiS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lb2-t0-WeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="898"/>
+            <point key="canvasLocation" x="1207" y="787"/>
         </scene>
         <!--Restaurant Type Table View Controller-->
         <scene sceneID="cZU-0A-vyX">
@@ -155,7 +162,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TnC-Db-DAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1526" y="903"/>
+            <point key="canvasLocation" x="1692" y="1247"/>
         </scene>
         <!--Navi View Controller-->
         <scene sceneID="ban-XR-uxc">

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D825F101B6BB731007783D7 /* RestaurantCDObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D825F0F1B6BB731007783D7 /* RestaurantCDObject.m */; };
+		3D825F131B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D825F121B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m */; };
 		3DA6ADAD1B6977400022EF4D /* NaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6ADAC1B6977400022EF4D /* NaviViewController.m */; };
 		3DDD99331B6A740600178632 /* DurationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99321B6A740600178632 /* DurationPickerViewController.m */; };
 		3DDD99361B6A761B00178632 /* RestaurantPreferenceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99351B6A761B00178632 /* RestaurantPreferenceTableViewController.m */; };
@@ -39,6 +41,10 @@
 
 /* Begin PBXFileReference section */
 		2BEC84171143140FF8DED365 /* Pods-TrailMix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailMix.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrailMix/Pods-TrailMix.release.xcconfig"; sourceTree = "<group>"; };
+		3D825F0E1B6BB731007783D7 /* RestaurantCDObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantCDObject.h; path = Models/RestaurantCDObject.h; sourceTree = "<group>"; };
+		3D825F0F1B6BB731007783D7 /* RestaurantCDObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantCDObject.m; path = Models/RestaurantCDObject.m; sourceTree = "<group>"; };
+		3D825F111B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RestaurantCDObject+InitWithRestaurantObject.h"; path = "Models/RestaurantCDObject+InitWithRestaurantObject.h"; sourceTree = "<group>"; };
+		3D825F121B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RestaurantCDObject+InitWithRestaurantObject.m"; path = "Models/RestaurantCDObject+InitWithRestaurantObject.m"; sourceTree = "<group>"; };
 		3DA6ADAB1B6977400022EF4D /* NaviViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NaviViewController.h; path = Controllers/NaviViewController.h; sourceTree = "<group>"; };
 		3DA6ADAC1B6977400022EF4D /* NaviViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NaviViewController.m; path = Controllers/NaviViewController.m; sourceTree = "<group>"; };
 		3DDD99311B6A740600178632 /* DurationPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DurationPickerViewController.h; sourceTree = "<group>"; };
@@ -133,6 +139,10 @@
 		3D22232F1B696CA200788C41 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3D825F111B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.h */,
+				3D825F121B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m */,
+				3D825F0E1B6BB731007783D7 /* RestaurantCDObject.h */,
+				3D825F0F1B6BB731007783D7 /* RestaurantCDObject.m */,
 				DB416F431B697D3800A1E41B /* Constants.h */,
 				DB416F441B697D3800A1E41B /* Constants.m */,
 				72FEAD7F1B697C4400F0FF33 /* WikiArticle.h */,
@@ -358,8 +368,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D825F101B6BB731007783D7 /* RestaurantCDObject.m in Sources */,
 				DB416F451B697D3800A1E41B /* Constants.m in Sources */,
 				72F9A3391B69681B00E8494F /* AppDelegate.m in Sources */,
+				3D825F131B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m in Sources */,
 				DB416F421B697D2B00A1E41B /* YelpAPIClient.m in Sources */,
 				3DA6ADAD1B6977400022EF4D /* NaviViewController.m in Sources */,
 				72FEAD811B697C4400F0FF33 /* WikiAPIClient.m in Sources */,
