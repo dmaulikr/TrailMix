@@ -16,13 +16,15 @@
     
     RestaurantCDObject *object = [NSEntityDescription insertNewObjectForEntityForName:@"RestaurantCDObject" inManagedObjectContext:[DataStore sharedDataStore].managedObjectContext];
     
-    NSLog(@"restaurant Name saved = %@",restaurant.name);
-  
-    object.name = restaurant.name;
-    object.latitude = @(restaurant.latitude.floatValue);
-    NSLog(@"latitude = %@",object.latitude);
-    object.longitude = @(restaurant.longitude.floatValue);
-    NSLog(@"longitude = %@",object.longitude);
+//    NSLog(@"restaurant Name saved = %@",restaurant.name);
+//  
+//    object.name = restaurant.name;
+//    object.latitude = @(restaurant.latitude.floatValue);
+//    NSLog(@"latitude = %@",object.latitude);
+//    object.longitude = @(restaurant.longitude.floatValue);
+//    NSLog(@"longitude = %@",object.longitude);
+    object.name = restaurant.venueId;
+    NSLog(@"%@",restaurant.venueId);
     object.createAt = [NSDate date];
     object.isVisited = @0;
     
