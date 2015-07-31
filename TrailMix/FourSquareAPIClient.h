@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Restaurant.h"
 @interface FourSquareAPIClient : NSObject
 
 +(void)getNearbyRestaurantWithLatitude:(double)latitude
@@ -15,7 +15,7 @@
                                 Radius:(double)radius
                        CompletionBlock:(void(^)(void))completionBlock;
 
-+(void)getRestaurantInfoWithId:(NSString *)venueId CompletionBlock:(void(^)(void))completionBlock;
++(void)getRestaurantInfoWithId:(NSString *)venueId CompletionBlock:(void(^)(Restaurant *restaurant))completionBlock;
 
 +(NSString *)getCurrentDateForGetRequest;
 

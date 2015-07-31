@@ -9,7 +9,6 @@
 #import "FourSquareAPIClient.h"
 #import "Constants.h"
 #import <AFNetworking.h>
-#import "Restaurant.h"
 #import "DataStore.h"
 @implementation FourSquareAPIClient
 
@@ -58,7 +57,7 @@
     
 }
 
-+(void)getRestaurantInfoWithId:(NSString *)venueId CompletionBlock:(void(^)(void))completionBlock
++(void)getRestaurantInfoWithId:(NSString *)venueId CompletionBlock:(void(^)(Restaurant *restaurant))completionBlock
 {
     NSString *fourSquareURL = [NSString stringWithFormat:@"%@%@%@?client_id=%@&client_secret=%@",FOURSQUARE_BASE_URL, FOURSQUARE_VENUES_DETAIL,venueId, FOURSQUARE_CONSUMER_KEY, FOURSQUARE_CONSUMER_SECRET];
     NSDictionary *params = @{@"v":[self getCurrentDateForGetRequest]};
@@ -68,7 +67,9 @@
         
         NSDictionary *responseDictionary = responseObject;
         
-        [Restaurant createRestaurantDetailObject:responseDictionary];
+        Restaurant *theRestaurant = [Restaurant createRestaurantDetailObject:responseDictionary];
+        
+        completionBlock(theRestaurant);
 
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@",error.description);
