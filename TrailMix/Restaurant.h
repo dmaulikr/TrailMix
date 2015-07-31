@@ -10,22 +10,26 @@
 
 @interface Restaurant : NSObject
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *rating;
-@property (nonatomic, strong) NSString *imageString;
-@property (nonatomic, strong) NSString *address;
+//@property (nonatomic, strong) NSString *name;
+//@property (nonatomic, strong) NSString *rating;
+//@property (nonatomic, strong) NSString *imageString;
+//@property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSString *foodType;
-@property (nonatomic, strong) NSString *latitude;
-@property (nonatomic, strong) NSString *longitude;
+//@property (nonatomic, strong) NSString *latitude;
+//@property (nonatomic, strong) NSString *longitude;
+@property (nonatomic, strong) NSString *venueId;
 
-- (instancetype) initWithName:(NSString *)name
-                       rating:(NSString *)rating
-                  imageString:(NSString *)imageString
-                      address:(NSString *)address
-                     foodType:(NSString *)foodType
-                     latitude:(NSString *)latitude
-                    longitude:(NSString *)longitude;
+//-(instancetype)initWithName:(NSString *)name
+//                     Rating:(NSString *)rating
+//                ImageString:(NSString *)imageString
+//                    Address:(NSString *)address
+//                   FoodType:(NSString *)foodType
+//                   Latitude:(NSString *)latitude
+//                  Longitude:(NSString *)longitude
+//                    VenueId:(NSString *)venueID;
+
+- (instancetype) initWithCuisineType:(NSString *)foodType
+                             VenueId:(NSString *)venueId;
 
 + (instancetype)createRestaurantObject:(NSDictionary *)restaurantDictionary;
-
 @end
