@@ -59,6 +59,7 @@
         
         NSMutableDictionary *cuisineTypeDictWithRestaurantObjects = [DataStore sharedDataStore].restaurantDictionary;
         for (NSDictionary *restaurant in restaurantDictionaries) {
+            
             Restaurant *restaurantObject = [Restaurant createRestaurantObject:restaurant];
             if(cuisineTypeDictWithRestaurantObjects[restaurantObject.foodType]){
                 [(NSMutableArray *)cuisineTypeDictWithRestaurantObjects[restaurantObject.foodType] addObject:restaurantObject];
