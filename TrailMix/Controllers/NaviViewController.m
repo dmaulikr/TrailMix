@@ -12,6 +12,8 @@
 
 @interface NaviViewController ()<CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
+@property (strong, nonatomic) CLLocation *attractionLocation;
+@property (strong, nonatomic) CLLocation *restaurantLocation;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet UIImageView *foodImage;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
@@ -35,8 +37,14 @@
     
     RestaurantCDObject *destRestaurant = [RestaurantCDObject getLatestRestaurant];
     
-    self.destLocation = [[CLLocation alloc]initWithLatitude:destRestaurant.latitude.floatValue longitude:destRestaurant.longitude.floatValue];
-    self.currentLocation = [[CLLocation alloc]init];
+    self.restaurantLocation = [[CLLocation alloc]initWithLatitude:destRestaurant.latitude.floatValue longitude:destRestaurant.longitude.floatValue];
+    
+    NSLog(@"%@",self.restaurantLocation);
+    
+    self.attractionLocation = [[CLLocation alloc]initWithLatitude:40.7764584 longitude:-73.9624175];
+    
+    self.destLocation = self.restaurantLocation;
+    
     [self startLocationService];
 }
 
@@ -106,17 +114,15 @@
     
 }
 - (IBAction)visitButtonTapped:(id)sender {
-    CLLocation *foodLocation = [[CLLocation alloc]initWithLatitude:40.7049096 longitude:-74.0133519];
-    CLLocation *attractionLocation = [[CLLocation alloc]initWithLatitude:40.7764584 longitude:-73.9624175];
     
     if([self.visitButton.titleLabel.text isEqualToString:@"Visit This Place"]){
         [self.visitButton setTitle:@"Continue to Your Food" forState:UIControlStateNormal];
         self.foodImage.image = [UIImage imageNamed:@"safari"];
-        self.destLocation = attractionLocation;
+        self.destLocation = self.attractionLocation;
     }else{
         [self.visitButton setTitle:@"Visit This Place" forState:UIControlStateNormal];
         self.foodImage.image = [UIImage imageNamed:@"food"];
-        self.destLocation = foodLocation;
+        self.destLocation = self.restaurantLocation;
     }
 }
 

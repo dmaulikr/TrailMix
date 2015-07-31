@@ -20,7 +20,9 @@
   
     object.name = restaurant.name;
     object.latitude = @(restaurant.latitude.floatValue);
+    NSLog(@"latitude = %@",object.latitude);
     object.longitude = @(restaurant.longitude.floatValue);
+    NSLog(@"longitude = %@",object.longitude);
     object.createAt = [NSDate date];
     object.isVisited = @0;
     

@@ -73,6 +73,7 @@
     [RestaurantCDObject initWithRestaurantObject:selectedRestaurant];
     
 //    [self.navigationController performSegueWithIdentifier:@"goToCompass" sender:sender];
+    
     [self performSegueWithIdentifier:@"goToCompass" sender:nil];
 }
 

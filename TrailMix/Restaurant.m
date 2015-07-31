@@ -46,8 +46,8 @@
                                                   imageString:restaurantDictionary[@"image_url"]
                                                       address:restaurantDictionary[@"location"][@"address"]
                                                      foodType:restaurantDictionary[@"categories"][0][0]
-                                                     latitude:restaurantDictionary[@"coordinate"][@"latitude"]
-                                                    longitude:restaurantDictionary[@"coordinate"][@"latitude"]];
+                                                     latitude:restaurantDictionary[@"location"][@"coordinate"][@"latitude"]
+                                                    longitude:restaurantDictionary[@"location"][@"coordinate"][@"longitude"]];
     
     return restaurant;
 }
