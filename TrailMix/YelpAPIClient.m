@@ -57,6 +57,7 @@
         NSArray *restaurantDictionaries = responseDictionary[@"businesses"];
         NSMutableDictionary *cuisineTypeDictWithRestaurantObjects = [[NSMutableDictionary alloc] init];
         for (NSDictionary *restaurant in restaurantDictionaries) {
+            
             Restaurant *restaurantObject = [Restaurant createRestaurantObject:restaurant];
             if(cuisineTypeDictWithRestaurantObjects[restaurantObject.foodType]){
                 [(NSMutableArray *)cuisineTypeDictWithRestaurantObjects[restaurantObject.foodType] addObject:restaurantObject];

@@ -8,7 +8,7 @@
 
 #import "RestaurantPreferenceTableViewController.h"
 #import "YelpAPIClient.h"
-
+#import "FourSquareAPIClient.h"
 @interface RestaurantPreferenceTableViewController ()
 @property (strong, nonatomic) YelpAPIClient *yelpClient;
 @end
@@ -16,10 +16,15 @@
 @implementation RestaurantPreferenceTableViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    [YelpAPIClient getCuisineTypesAndRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^(NSDictionary *cuisineDictionary) {
-        NSLog(@"finished!");
+    
+    [FourSquareAPIClient getNearbyRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^(NSDictionary *cuisineDictionary) {
+        NSLog(@"finished");
     }];
+//    [YelpAPIClient getCuisineTypesAndRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^(NSDictionary *cuisineDictionary) {
+//        NSLog(@"finished!");
+//    }];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
