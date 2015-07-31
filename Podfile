@@ -5,7 +5,7 @@ target 'TrailMix' do
     
 pod 'AFNetworking'
 pod 'BDBOAuth1Manager'
-
+pod 'SVProgressHUD'
 end
 
 target 'TrailMixTests' do
