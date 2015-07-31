@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSDate * createAt;
 @property (nonatomic, retain) NSNumber * isVisited;
+@property (nonatomic, retain) NSString * name;
 
 @end

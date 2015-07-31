@@ -11,6 +11,7 @@
 #import "DataStore.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "Restaurant.h"
+#import "RestaurantCDObject+InitWithRestaurantObject.h"
 
 @interface RestaurantPreferenceTableViewController ()
 @property (strong, nonatomic) YelpAPIClient *yelpClient;
@@ -32,6 +33,8 @@
     }];
     self.contentOfFoodTypeSection = [[NSMutableArray alloc]init];
     [self.contentOfFoodTypeSection addObject:@"Random(Default)"];
+    self.restaurantDictionary = [DataStore sharedDataStore].restaurantDictionary;
+    self.selectedFoodTypeArray = [DataStore sharedDataStore].selectedFoodTypes;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -67,8 +70,10 @@
     NSInteger randomRestaurantIndex = arc4random_uniform((u_int32_t)restaurantArray.count);
     Restaurant *selectedRestaurant = restaurantArray[randomRestaurantIndex];
     //store into CoreData
+    [RestaurantCDObject initWithRestaurantObject:selectedRestaurant];
     
-    [self.navigationController performSegueWithIdentifier:@"goToCompass" sender:sender];
+//    [self.navigationController performSegueWithIdentifier:@"goToCompass" sender:sender];
+    [self performSegueWithIdentifier:@"goToCompass" sender:nil];
 }
 
 

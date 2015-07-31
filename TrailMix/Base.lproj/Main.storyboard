@@ -135,7 +135,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lb2-t0-WeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207" y="787"/>
+            <point key="canvasLocation" x="1198" y="903"/>
         </scene>
         <!--Restaurant Type Table View Controller-->
         <scene sceneID="cZU-0A-vyX">
@@ -162,7 +162,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TnC-Db-DAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1692" y="1247"/>
+            <point key="canvasLocation" x="394" y="1141"/>
         </scene>
         <!--Navi View Controller-->
         <scene sceneID="ban-XR-uxc">

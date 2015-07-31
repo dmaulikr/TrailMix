@@ -15,5 +15,6 @@
 @dynamic longitude;
 @dynamic createAt;
 @dynamic isVisited;
+@dynamic name;
 
 @end

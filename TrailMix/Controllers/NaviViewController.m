@@ -8,6 +8,7 @@
 
 #import "NaviViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "RestaurantCDObject+InitWithRestaurantObject.h"
 
 @interface NaviViewController ()<CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
@@ -31,7 +32,10 @@
     
     //change when select other transporation type
     self.locationManager.activityType = CLActivityTypeFitness;
-    self.destLocation = [[CLLocation alloc]initWithLatitude:40.7049096 longitude:-74.0133519];
+    
+    RestaurantCDObject *destRestaurant = [RestaurantCDObject getLatestRestaurant];
+    
+    self.destLocation = [[CLLocation alloc]initWithLatitude:destRestaurant.latitude.floatValue longitude:destRestaurant.longitude.floatValue];
     self.currentLocation = [[CLLocation alloc]init];
     [self startLocationService];
 }

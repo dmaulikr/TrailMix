@@ -10,6 +10,8 @@
 
 @interface RestaurantCDObject (InitWithRestaurantObject)
 
--(void)initWithRestaurantObject:(Restaurant *)restaurant;
++(void)initWithRestaurantObject:(Restaurant *)restaurant;
+
++(RestaurantCDObject *)getLatestRestaurant;
 
 @end
