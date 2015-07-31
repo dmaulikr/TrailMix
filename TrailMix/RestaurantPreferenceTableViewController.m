@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
     NSLog(@"minutes selected: %ld",self.timeInMinute);
     [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
     [FourSquareAPIClient getNearbyRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^() {

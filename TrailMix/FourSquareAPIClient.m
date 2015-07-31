@@ -58,6 +58,25 @@
     
 }
 
++(void)getRestaurantInfoWithId:(NSString *)venueId CompletionBlock:(void(^)(void))completionBlock
+{
+    NSString *fourSquareURL = [NSString stringWithFormat:@"%@%@%@?client_id=%@&client_secret=%@",FOURSQUARE_BASE_URL, FOURSQUARE_VENUES_DETAIL,venueId, FOURSQUARE_CONSUMER_KEY, FOURSQUARE_CONSUMER_SECRET];
+    NSDictionary *params = @{@"v":[self getCurrentDateForGetRequest]};
+    AFHTTPSessionManager *clientManager = [AFHTTPSessionManager manager];
+    
+    [clientManager GET:fourSquareURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary *responseDictionary = responseObject;
+        
+        [Restaurant createRestaurantDetailObject:responseDictionary];
+
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@",error.description);
+    }];
+
+    
+}
+
 +(NSString *)getCurrentDateForGetRequest
 {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];

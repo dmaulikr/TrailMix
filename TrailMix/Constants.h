@@ -19,6 +19,7 @@ extern NSString *const FOURSQUARE_CONSUMER_KEY;
 extern NSString *const FOURSQUARE_CONSUMER_SECRET;
 extern NSString *const FOURSQUARE_BASE_URL;
 extern NSString *const FOURSQUARE_VENUES_SEARCH;
+extern NSString *const FOURSQUARE_VENUES_DETAIL;
 extern NSString *const FOURSQUARE_RESTAURANT_SEARCH;
 
 @end
