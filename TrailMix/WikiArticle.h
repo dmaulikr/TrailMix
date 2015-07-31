@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic) CLLocationDistance distance;
+@property (nonatomic, strong) NSString *extract;
 
 - (instancetype) initWithPageID:(NSNumber*)pageID title:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate distance:(CLLocationDistance)distance;
 
