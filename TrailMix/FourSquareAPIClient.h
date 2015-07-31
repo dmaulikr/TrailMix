@@ -13,7 +13,7 @@
 +(void)getNearbyRestaurantWithLatitude:(double)latitude
                              Longitude:(double)longitude
                                 Radius:(double)radius
-                       CompletionBlock:(void(^)(NSDictionary *cuisineDictionary))completionBlock;
+                       CompletionBlock:(void(^)(void))completionBlock;
 
 +(NSString *)getCurrentDateForGetRequest;
 

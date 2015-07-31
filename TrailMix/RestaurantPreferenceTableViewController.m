@@ -11,6 +11,8 @@
 #import "DataStore.h"
 #import "YelpAPIClient.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "Restaurant.h"
+#import "RestaurantCDObject+InitWithRestaurantObject.h"
 
 
 @interface RestaurantPreferenceTableViewController ()
@@ -28,12 +30,14 @@
     [super viewDidLoad];
     NSLog(@"minutes selected: %ld",self.timeInMinute);
     [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
-    [FourSquareAPIClient getNearbyRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^(NSDictionary *cuisineDictionary) {
+    [FourSquareAPIClient getNearbyRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^() {
         NSLog(@"finished");
         [SVProgressHUD dismiss];
     }];
     self.contentOfFoodTypeSection = [[NSMutableArray alloc]init];
     [self.contentOfFoodTypeSection addObject:@"Random(Default)"];
+    self.restaurantDictionary = [DataStore sharedDataStore].restaurantDictionary;
+    self.selectedFoodTypeArray = [DataStore sharedDataStore].selectedFoodTypes;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -62,11 +66,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (IBAction)startButtonTapped:(id)sender {
+    //randomly pick a restaurant
+    NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.selectedFoodTypeArray.count);
+    NSArray *restaurantArray = self.restaurantDictionary[self.selectedFoodTypeArray[randomIndex]];
+    NSInteger randomRestaurantIndex = arc4random_uniform((u_int32_t)restaurantArray.count);
+    Restaurant *selectedRestaurant = restaurantArray[randomRestaurantIndex];
+    //store into CoreData
+    [RestaurantCDObject initWithRestaurantObject:selectedRestaurant];
     
+//    [self.navigationController performSegueWithIdentifier:@"goToCompass" sender:sender];
+    
+    [self performSegueWithIdentifier:@"goToCompass" sender:nil];
 }
+
+
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//}
 
 /*
 // Override to support conditional editing of the table view.

@@ -10,12 +10,13 @@
 #import "Constants.h"
 #import <AFNetworking.h>
 #import "Restaurant.h"
+#import "DataStore.h"
 @implementation FourSquareAPIClient
 
 +(void)getNearbyRestaurantWithLatitude:(double)latitude
                              Longitude:(double)longitude
                                 Radius:(double)radius
-                       CompletionBlock:(void(^)(NSDictionary *cuisineDictionary))completionBlock
+                       CompletionBlock:(void(^)(void))completionBlock
 {
     NSDictionary *params = @{@"v":[self getCurrentDateForGetRequest],
                              @"radius":[NSString stringWithFormat:@"%f",radius],
@@ -30,7 +31,7 @@
         
         NSDictionary *responseDictionary = responseObject;
         NSArray *restaurantDictionaries = responseDictionary[@"response"][@"venues"];
-        NSMutableDictionary *cuisineTypeWithRestaurantObjects = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *cuisineTypeWithRestaurantObjects = [DataStore sharedDataStore].restaurantDictionary;
         for (NSDictionary *restaurant in restaurantDictionaries){
             
             Restaurant *restaurantObject = [Restaurant createRestaurantObject:restaurant];
@@ -46,7 +47,7 @@
             }
         }
         
-        completionBlock(cuisineTypeWithRestaurantObjects);
+        completionBlock();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         

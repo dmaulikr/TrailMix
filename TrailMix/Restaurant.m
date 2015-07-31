@@ -72,14 +72,15 @@
     
     Restaurant *restaurant = [[Restaurant alloc] initWithCuisineType:restaurantDictionary[@"categories"][0][@"shortName"] VenueId:restaurantDictionary[@"id"]];
     //need to fix the catorgories
-    // Restaurant *restaurant = [[Restaurant alloc] initWithName:restaurantDictionary[@"name"]
-    //                                                    rating:restaurantDictionary[@"rating_img_url"]
-    //                                               imageString:restaurantDictionary[@"image_url"]
-    //                                                   address:restaurantDictionary[@"location"][@"address"]
-    //                                                  foodType:restaurantDictionary[@"categories"][0][0]
-    //                                                  latitude:restaurantDictionary[@"coordinate"][@"latitude"]
-    //                                                 longitude:restaurantDictionary[@"coordinate"][@"latitude"]];
     
+//    Restaurant *restaurant = [[Restaurant alloc] initWithName:restaurantDictionary[@"name"]
+//                                                       rating:restaurantDictionary[@"rating_img_url"]
+//                                                  imageString:restaurantDictionary[@"image_url"]
+//                                                      address:restaurantDictionary[@"location"][@"address"]
+//                                                     foodType:restaurantDictionary[@"categories"][0][0]
+//                                                     latitude:restaurantDictionary[@"location"][@"coordinate"][@"latitude"]
+//                                                    longitude:restaurantDictionary[@"location"][@"coordinate"][@"longitude"]];
+   
     return restaurant;
 }
 @end
