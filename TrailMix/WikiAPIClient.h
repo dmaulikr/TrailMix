@@ -11,7 +11,7 @@
 
 @interface WikiAPIClient : NSObject
 
-+ (void) getArticlesAroundLocation:(CLLocationCoordinate2D)coordinate completion:(void(^)(NSArray*wikiArticles))completion;
++ (void) getArticlesAroundLocation:(CLLocationCoordinate2D)coordinate radius:(CLLocationDistance)radius completion:(void(^)(NSArray*wikiArticles))completion;
 + (void) getArticleExtract:(NSNumber *)articleID completion:(void(^)(NSString *extract))completion;
 
 @end

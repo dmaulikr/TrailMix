@@ -11,7 +11,7 @@
 
 @implementation WikiAPIClient
 
-+ (void) getArticlesAroundLocation:(CLLocationCoordinate2D)coordinate completion:(void(^)(NSArray*wikiArticles))completion {
++ (void) getArticlesAroundLocation:(CLLocationCoordinate2D)coordinate radius:(CLLocationDistance)radius completion:(void(^)(NSArray*wikiArticles))completion {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
@@ -19,7 +19,7 @@
                                  @"action" : @"query",
                                  @"format" : @"json",
                                  @"list" : @"geosearch",
-                                 @"gsradius" : @100,
+                                 @"gsradius" : @(radius),
                                  @"gscoord" : [NSString stringWithFormat:@"%f|%f",coordinate.latitude, coordinate.longitude]
                                  };
     
@@ -49,6 +49,7 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
         // need to implement failure
+        completion(nil);
         
     }];
     
@@ -68,19 +69,20 @@
                                  };
     
     [manager GET:@"https://en.wikipedia.org/w/api.php" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-    
+        
         NSDictionary *article = responseObject[@"query"][@"pages"][[articleID stringValue]];
-    
+        
         
         completion(article[@"extract"]);
         
-     
-     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-         
-         // need to implement failure
-         
-     }];
-
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        // need to implement failure
+        completion(nil);
+        
+    }];
+    
 }
 
 @end
