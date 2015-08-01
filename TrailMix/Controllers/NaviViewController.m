@@ -82,34 +82,34 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     self.currentLocation = (CLLocation *)locations[0];
-    CLLocationDistance distance = [self.destLocation distanceFromLocation:self.currentLocation];
-    self.distanceLabel.text = [NSString stringWithFormat:@"Remaining Distance: %f",distance];
+//    CLLocationDistance distance = [self.destLocation distanceFromLocation:self.currentLocation];
+//    self.distanceLabel.text = [NSString stringWithFormat:@"Remaining Distance: %f",distance];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
-    CGFloat xAxis = self.destLocation.coordinate.longitude - self.currentLocation.coordinate.longitude;
-    CGFloat yAxis = self.destLocation.coordinate.latitude - self.currentLocation.coordinate.latitude;
-    CGFloat radianOffset = atan(yAxis/xAxis);
-    if(radianOffset<0) radianOffset = -radianOffset;
-    
-    if(yAxis>=0&&xAxis>=0){
-//        NSLog(@"1");
-    }else if(yAxis<0&&xAxis>=0){
-        radianOffset = M_PI - radianOffset;
-//        NSLog(@"2");
-        
-    }else if(xAxis<0&&yAxis>=0){
-        radianOffset = -radianOffset;
-//        NSLog(@"3");
-        
-    }else{
-        radianOffset = radianOffset - M_PI;
-//        NSLog(@"4");
-    }
-    
+//    CGFloat xAxis = self.destLocation.coordinate.longitude - self.currentLocation.coordinate.longitude;
+//    CGFloat yAxis = self.destLocation.coordinate.latitude - self.currentLocation.coordinate.latitude;
+//    CGFloat radianOffset = atan(yAxis/xAxis);
+//    if(radianOffset<0) radianOffset = -radianOffset;
+//    
+//    if(yAxis>=0&&xAxis>=0){
+////        NSLog(@"1");
+//    }else if(yAxis<0&&xAxis>=0){
+//        radianOffset = M_PI - radianOffset;
+////        NSLog(@"2");
+//        
+//    }else if(xAxis<0&&yAxis>=0){
+//        radianOffset = -radianOffset;
+////        NSLog(@"3");
+//        
+//    }else{
+//        radianOffset = radianOffset - M_PI;
+////        NSLog(@"4");
+//    }
+//    
     self.heading = newHeading.trueHeading;
-    CGFloat headingRadian = (-self.heading*M_PI/180);
-    self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian+radianOffset);
+//    CGFloat headingRadian = (-self.heading*M_PI/180);
+//    self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian+radianOffset);
 //    self.compassImage.transform = CGAffineTransformMakeRotation(headingRadian);
     
 }
@@ -131,9 +131,30 @@
     [self updateCompass];
 }
 
+-(void)setHeading:(CLLocationDirection)heading{
+    _heading = heading;
+    [self updateHeader];
+    
+}
+
 -(void)updateCompass{
+    [self updateDistance];
+    [self updateHeader];
+    
+}
+
+-(void)setCurrentLocation:(CLLocation *)currentLocation{
+    _currentLocation = currentLocation;
+    [self updateDistance];
+}
+
+
+-(void)updateDistance{
     CLLocationDistance distance = [self.destLocation distanceFromLocation:self.currentLocation];
     self.distanceLabel.text = [NSString stringWithFormat:@"Remaining Distance: %f",distance];
+}
+
+-(void)updateHeader{
     CGFloat xAxis = self.destLocation.coordinate.longitude - self.currentLocation.coordinate.longitude;
     CGFloat yAxis = self.destLocation.coordinate.latitude - self.currentLocation.coordinate.latitude;
     CGFloat radianOffset = atan(yAxis/xAxis);
