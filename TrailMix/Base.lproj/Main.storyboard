@@ -189,7 +189,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
                                 <rect key="frame" x="480" y="33" width="104" height="30"/>
                                 <state key="normal" title="Visit This Place">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,15 +198,26 @@
                                     <action selector="visitButtonTapped:" destination="LA8-22-ULE" eventType="touchUpInside" id="xto-wr-jDq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apu-gy-1gU">
+                                <rect key="frame" x="16" y="72" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="15F-ki-IBR" kind="presentation" id="JFM-7v-quU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="13" id="9lG-ab-QAJ"/>
                             <constraint firstAttribute="centerY" secondItem="bxr-TE-A5s" secondAttribute="centerY" id="ED5-Au-251"/>
                             <constraint firstItem="nwY-c2-R14" firstAttribute="top" secondItem="bxr-TE-A5s" secondAttribute="bottom" constant="45" id="aK2-em-QCR"/>
+                            <constraint firstItem="Apu-gy-1gU" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leadingMargin" id="d7X-8q-fSq"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="trailing" secondItem="oh2-k0-mBE" secondAttribute="trailingMargin" id="msq-Gl-SdC"/>
                             <constraint firstAttribute="centerX" secondItem="nwY-c2-R14" secondAttribute="centerX" id="uOc-RA-pa0"/>
                             <constraint firstAttribute="centerX" secondItem="bxr-TE-A5s" secondAttribute="centerX" id="y2u-qu-6Yc"/>
+                            <constraint firstItem="Apu-gy-1gU" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="8" id="zm3-ZY-bh9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -218,6 +229,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEV-Pj-PUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2303" y="416"/>
+        </scene>
+        <!--Wiki Table View Controller-->
+        <scene sceneID="deN-k1-4z0">
+            <objects>
+                <tableViewController id="wrd-fp-x0l" customClass="WikiTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HyR-y9-KRG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ArticleCell" textLabel="KhX-g3-PDo" detailTextLabel="RaU-sq-Itt" style="IBUITableViewCellStyleValue1" id="hTG-wM-f93">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hTG-wM-f93" id="FzN-01-qIQ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KhX-g3-PDo">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RaU-sq-Itt">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="vLH-Qi-Iv2" kind="show" id="yFV-Ek-rpO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wrd-fp-x0l" id="Ccj-Bn-gjg"/>
+                            <outlet property="delegate" destination="wrd-fp-x0l" id="Isg-OH-KHz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="xEh-UF-9Ob">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="wK2-fG-Goe">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="wrd-fp-x0l" id="oZk-Fh-twf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D6D-lr-L2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3553" y="1199"/>
+        </scene>
+        <!--Wiki Web View Controller-->
+        <scene sceneID="axX-PL-02c">
+            <objects>
+                <viewController id="vLH-Qi-Iv2" customClass="WikiWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Yab-IK-7Qn"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Bh-1U-uKy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="erh-fW-LFm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgQ-j7-Ey6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GgQ-j7-Ey6" firstAttribute="height" secondItem="erh-fW-LFm" secondAttribute="height" id="Lqa-r5-efa"/>
+                            <constraint firstItem="GgQ-j7-Ey6" firstAttribute="centerX" secondItem="erh-fW-LFm" secondAttribute="centerX" id="bGD-GO-5SC"/>
+                            <constraint firstItem="GgQ-j7-Ey6" firstAttribute="centerY" secondItem="erh-fW-LFm" secondAttribute="centerY" id="t8Q-yZ-ViU"/>
+                            <constraint firstItem="GgQ-j7-Ey6" firstAttribute="width" secondItem="erh-fW-LFm" secondAttribute="width" id="yqQ-rm-Ia2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="GgQ-j7-Ey6" id="URq-bg-3Rt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6El-1B-YUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4394" y="1199"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZWw-R7-DbJ">
@@ -236,6 +330,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUE-f5-OGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="51" y="173"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cd8-7j-D5A">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="15F-ki-IBR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qTM-v1-ZmF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wrd-fp-x0l" kind="relationship" relationship="rootViewController" id="yNn-xr-kM7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w5C-Zg-byl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2741" y="1199"/>
         </scene>
     </scenes>
     <resources>

@@ -16,6 +16,8 @@
 		3DDD993C1B6A7C2F00178632 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD993B1B6A7C2F00178632 /* DataStore.m */; };
 		3DDD993F1B6AC24D00178632 /* RestaurantTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */; };
 		63C8B38244F3ABD6D75E8AB9 /* libPods-TrailMix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D40E02762E4FD5B07430F174 /* libPods-TrailMix.a */; };
+		72A9DDA61B6FECE600870BD7 /* WikiTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9DDA31B6FECE600870BD7 /* WikiTableViewController.m */; };
+		72A9DDA71B6FECE600870BD7 /* WikiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9DDA51B6FECE600870BD7 /* WikiWebViewController.m */; };
 		72F9A3361B69681B00E8494F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A3351B69681B00E8494F /* main.m */; };
 		72F9A3391B69681B00E8494F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A3381B69681B00E8494F /* AppDelegate.m */; };
 		72F9A33F1B69681B00E8494F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F9A33D1B69681B00E8494F /* Main.storyboard */; };
@@ -57,6 +59,10 @@
 		3DDD993B1B6A7C2F00178632 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		3DDD993D1B6AC24D00178632 /* RestaurantTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTypeTableViewController.h; sourceTree = "<group>"; };
 		3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTypeTableViewController.m; sourceTree = "<group>"; };
+		72A9DDA21B6FECE600870BD7 /* WikiTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiTableViewController.h; sourceTree = "<group>"; };
+		72A9DDA31B6FECE600870BD7 /* WikiTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiTableViewController.m; sourceTree = "<group>"; };
+		72A9DDA41B6FECE600870BD7 /* WikiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiWebViewController.h; sourceTree = "<group>"; };
+		72A9DDA51B6FECE600870BD7 /* WikiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiWebViewController.m; sourceTree = "<group>"; };
 		72F9A3301B69681B00E8494F /* TrailMix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailMix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F9A3341B69681B00E8494F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72F9A3351B69681B00E8494F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -136,6 +142,10 @@
 				3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */,
 				3DDD99341B6A761B00178632 /* RestaurantPreferenceTableViewController.h */,
 				3DDD99351B6A761B00178632 /* RestaurantPreferenceTableViewController.m */,
+				72A9DDA21B6FECE600870BD7 /* WikiTableViewController.h */,
+				72A9DDA31B6FECE600870BD7 /* WikiTableViewController.m */,
+				72A9DDA41B6FECE600870BD7 /* WikiWebViewController.h */,
+				72A9DDA51B6FECE600870BD7 /* WikiWebViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -386,8 +396,10 @@
 				DBE4F9A91B6BE26200569F7D /* FourSquareAPIClient.m in Sources */,
 				3DDD993F1B6AC24D00178632 /* RestaurantTypeTableViewController.m in Sources */,
 				3DDD99391B6A7C1100178632 /* TrailMix.xcdatamodeld in Sources */,
+				72A9DDA71B6FECE600870BD7 /* WikiWebViewController.m in Sources */,
 				3DDD99361B6A761B00178632 /* RestaurantPreferenceTableViewController.m in Sources */,
 				72F9A3361B69681B00E8494F /* main.m in Sources */,
+				72A9DDA61B6FECE600870BD7 /* WikiTableViewController.m in Sources */,
 				72FEAD821B697C4400F0FF33 /* WikiArticle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
