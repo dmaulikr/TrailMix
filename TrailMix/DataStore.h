@@ -16,6 +16,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSMutableArray *selectedFoodTypes;
 @property (strong, nonatomic) NSMutableDictionary *restaurantDictionary;
+@property (strong, nonatomic) NSMutableArray *selectedDollarSign;
 -(void)saveContext;
 
 
