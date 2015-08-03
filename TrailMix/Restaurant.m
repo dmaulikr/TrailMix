@@ -10,64 +10,22 @@
 
 @implementation Restaurant
 
-//-(instancetype)initWithName:(NSString *)name
-//                     Rating:(NSString *)rating
-//                ImageString:(NSString *)imageString
-//                    Address:(NSString *)address
-//                   FoodType:(NSString *)foodType
-//                   Latitude:(NSString *)latitude
-//                  Longitude:(NSString *)longitude
-//                    VenueId:(NSString *)venueID
-//{
-//    self = [super init];
-//
-//    if (self) {
-//        _name = name;
-//        _rating = rating;
-//        _imageString = imageString;
-//        _address = address;
-//        _foodType = foodType;
-//        _latitude = latitude;
-//        _longitude = longitude;
-//        _venueId = venueID;
-//    }
-//
-//    return self;
-//}
-
-//-(instancetype)init
-//{
-//    return [self initWithName:@""
-//                       Rating:@""
-//                  ImageString:@""
-//                      Address:@""
-//                     FoodType:@""
-//                     Latitude:@""
-//                    Longitude:@""
-//                      VenueId:@""];
-//}
-
--(instancetype)initWithCuisineType:(NSString *)foodType
-                           VenueId:(NSString *)venueId
+- (instancetype) initWithCuisineType:(NSString *)foodType
+                             VenueId:(NSString *)venueId
+                                Name:(NSString *)name
+                            Latitude:(NSString *)latitude
+                           Longitude:(NSString *)longitude
+                         DollarSigns:(NSString *)dollarSigns;
 {
     self = [super init];
     
     if (self) {
         _foodType = foodType;
         _venueId = venueId;
-    }
-    
-    return self;
-}
-
-- (instancetype) initWithName:(NSString *)name Latitude:(NSString *)latitude Longitude:(NSString *)longitude
-{
-    self = [super init];
-    
-    if (self) {
         _name = name;
         _latitude = latitude;
         _longitude = longitude;
+        _dollarSigns = dollarSigns;
     }
     
     return self;
@@ -76,15 +34,15 @@
 + (instancetype)createRestaurantObject:(NSDictionary *)restaurantDictionary
 
 {
-    Restaurant *restaurant = [[Restaurant alloc] initWithCuisineType:restaurantDictionary[@"categories"][0][@"shortName"] VenueId:restaurantDictionary[@"id"]];
+    Restaurant *restaurant = [[Restaurant alloc] initWithCuisineType:restaurantDictionary[@"venue"][@"categories"][0][@"shortName"] VenueId:restaurantDictionary[@"venue"][@"categories"][0][@"id"] Name:restaurantDictionary[@"venue"][@"name"] Latitude:restaurantDictionary[@"venue"][@"location"][@"lat"] Longitude:restaurantDictionary[@"venue"][@"location"][@"lng"] DollarSigns:restaurantDictionary[@"venue"][@"price"][@"currency"]];
     
     return restaurant;
 }
 
-+ (instancetype)createRestaurantDetailObject:(NSDictionary *)restaurantDetailsDictionary
-{
-    Restaurant *restaurant = [[Restaurant alloc] initWithName:restaurantDetailsDictionary[@"response"][@"venue"][@"name"] Latitude:restaurantDetailsDictionary[@"response"][@"venue"][@"location"][@"lat"] Longitude:restaurantDetailsDictionary[@"response"][@"venue"][@"location"][@"lng"]];
-    
-    return restaurant;
-}
+//+ (instancetype)createRestaurantDetailObject:(NSDictionary *)restaurantDetailsDictionary
+//{
+//    Restaurant *restaurant = [[Restaurant alloc] initWithName:restaurantDetailsDictionary[@"response"][@"venue"][@"name"] Latitude:restaurantDetailsDictionary[@"response"][@"venue"][@"location"][@"lat"] Longitude:restaurantDetailsDictionary[@"response"][@"venue"][@"location"][@"lng"] DollarSigns:restaurantDetailsDictionary[@"response"][@"venue"][@"price"][@"tier"]];
+//    
+//    return restaurant;
+//}
 @end
