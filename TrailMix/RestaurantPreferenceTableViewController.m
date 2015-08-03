@@ -81,10 +81,12 @@
 //    NSArray *restaurantArray = self.restaurantDictionary[self.selectedFoodTypeArray[randomIndex]];
     NSInteger randomRestaurantIndex = arc4random_uniform((u_int32_t)restaurantArray.count);
     Restaurant *selectedRestaurant = restaurantArray[randomRestaurantIndex];
-    [FourSquareAPIClient getRestaurantInfoWithId:selectedRestaurant.venueId CompletionBlock:^(Restaurant *restaurant) {
-        [RestaurantCDObject initWithRestaurantObject:restaurant];
-        [self performSegueWithIdentifier:@"goToCompass" sender:nil];
-    }];
+    [RestaurantCDObject initWithRestaurantObject:selectedRestaurant];
+    [self performSegueWithIdentifier:@"goToCompass" sender:nil];
+//    [FourSquareAPIClient getRestaurantInfoWithId:selectedRestaurant.venueId CompletionBlock:^(Restaurant *restaurant) {
+//        [RestaurantCDObject initWithRestaurantObject:restaurant];
+//        [self performSegueWithIdentifier:@"goToCompass" sender:nil];
+//    }];
     //store into CoreData
     
     
