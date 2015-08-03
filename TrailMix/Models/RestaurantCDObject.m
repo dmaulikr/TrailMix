@@ -2,7 +2,7 @@
 //  RestaurantCDObject.m
 //  TrailMix
 //
-//  Created by Cong Sun on 7/31/15.
+//  Created by Cong Sun on 8/3/15.
 //  Copyright (c) 2015 Team Fax Machine. All rights reserved.
 //
 
@@ -11,10 +11,11 @@
 
 @implementation RestaurantCDObject
 
-@dynamic latitude;
-@dynamic longitude;
 @dynamic createAt;
 @dynamic isVisited;
+@dynamic latitude;
+@dynamic longitude;
 @dynamic name;
+@dynamic venueId;
 
 @end

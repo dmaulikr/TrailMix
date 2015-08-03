@@ -26,6 +26,7 @@
     object.name = restaurant.name;
     object.createAt = [NSDate date];
     object.isVisited = @0;
+    object.venueId = restaurant.venueId;
     
     [[DataStore sharedDataStore] saveContext];
 }
