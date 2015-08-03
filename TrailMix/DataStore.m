@@ -32,8 +32,15 @@
 
 -(void)filteredRestaurant{
     NSMutableArray *resultRestaurantArray = [[NSMutableArray alloc]init];
+    NSArray *tempArray;
+    if(!self.selectedFoodTypes.count){
+        tempArray = self.restaurantDictionary.allKeys;
+    }else{
+        tempArray = self.selectedFoodTypes;
+    }
     
-    for(NSString *restType in self.selectedFoodTypes){
+    
+    for(NSString *restType in tempArray){
         NSArray *restaurantsOfType = self.restaurantDictionary[restType];
         for(Restaurant *restaurant in restaurantsOfType){
             NSNumber *selection = self.selectedDollarSign[restaurant.dollarSigns.integerValue];
