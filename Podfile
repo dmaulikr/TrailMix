@@ -6,6 +6,8 @@ target 'TrailMix' do
 pod 'AFNetworking'
 pod 'BDBOAuth1Manager'
 pod 'SVProgressHUD'
+pod 'JDStatusBarNotification'
+
 end
 
 target 'TrailMixTests' do
