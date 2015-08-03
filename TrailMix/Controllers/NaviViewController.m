@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *visitButton;
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (assign, nonatomic) CLLocationDirection heading;
+@property (strong, nonatomic) NSMutableArray *headingArray;
 @end
 
 @implementation NaviViewController
@@ -53,6 +54,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSMutableArray *)headingArray{
+    if(!_headingArray){
+        _headingArray = [[NSMutableArray alloc]init];
+    }
+    return _headingArray;
+}
+
 
 -(void)startLocationService{
     if([CLLocationManager locationServicesEnabled]){
@@ -82,36 +90,10 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     self.currentLocation = (CLLocation *)locations[0];
-//    CLLocationDistance distance = [self.destLocation distanceFromLocation:self.currentLocation];
-//    self.distanceLabel.text = [NSString stringWithFormat:@"Remaining Distance: %f",distance];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
-//    CGFloat xAxis = self.destLocation.coordinate.longitude - self.currentLocation.coordinate.longitude;
-//    CGFloat yAxis = self.destLocation.coordinate.latitude - self.currentLocation.coordinate.latitude;
-//    CGFloat radianOffset = atan(yAxis/xAxis);
-//    if(radianOffset<0) radianOffset = -radianOffset;
-//    
-//    if(yAxis>=0&&xAxis>=0){
-////        NSLog(@"1");
-//    }else if(yAxis<0&&xAxis>=0){
-//        radianOffset = M_PI - radianOffset;
-////        NSLog(@"2");
-//        
-//    }else if(xAxis<0&&yAxis>=0){
-//        radianOffset = -radianOffset;
-////        NSLog(@"3");
-//        
-//    }else{
-//        radianOffset = radianOffset - M_PI;
-////        NSLog(@"4");
-//    }
-//    
     self.heading = newHeading.trueHeading;
-//    CGFloat headingRadian = (-self.heading*M_PI/180);
-//    self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian+radianOffset);
-//    self.compassImage.transform = CGAffineTransformMakeRotation(headingRadian);
-    
 }
 - (IBAction)visitButtonTapped:(id)sender {
     
@@ -157,8 +139,8 @@
 -(void)updateHeader{
     CGFloat xAxis = self.destLocation.coordinate.longitude - self.currentLocation.coordinate.longitude;
     CGFloat yAxis = self.destLocation.coordinate.latitude - self.currentLocation.coordinate.latitude;
-    CGFloat radianOffset = atan(yAxis/xAxis);
-    if(radianOffset<0) radianOffset = -radianOffset;
+    CGFloat radianOffset = fabs(atan(xAxis/yAxis));
+//    if(radianOffset<0) radianOffset = -radianOffset;
     
     if(yAxis>=0&&xAxis>=0){
         //        NSLog(@"1");
@@ -167,21 +149,50 @@
         //        NSLog(@"2");
         
     }else if(xAxis<0&&yAxis>=0){
-        radianOffset = -radianOffset;
+        radianOffset = M_PI+radianOffset;
         //        NSLog(@"3");
         
     }else{
-        radianOffset = radianOffset - M_PI;
+        radianOffset = 2*M_PI-radianOffset;
         //        NSLog(@"4");
     }
+    CGFloat aveHeading = [self calculateRotationRadian];
     
-    CGFloat headingRadian = (-self.heading*M_PI/180);
+    CGFloat headingRadian = (-aveHeading*M_PI/180);
     self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian+radianOffset);
 }
-//-(void)setDestLocation:(CLLocation *)destLocation{
-//    _destLocation = destLocation;
-//    [self startLocationService];
-//}
+
+-(CGFloat)calculateRotationRadian{
+    CGFloat result = 0.0f;
+    NSLog(@"this is %@",@(self.heading));
+    CGFloat number = self.heading;
+    if(number>180){
+        number = number-360;
+    }
+    NSLog(@"this is %@",@(number));
+
+    [self.headingArray addObject:@(number)];
+    CGFloat baseNumber = ((NSNumber *)self.headingArray[0]).floatValue;
+    
+    
+    if(self.headingArray.count>10){
+        [self.headingArray removeObjectAtIndex:0];
+    }
+    for(NSNumber *number in self.headingArray){
+        CGFloat offset = number.floatValue-baseNumber;
+        if(offset>180){
+            offset = offset-360;
+        }
+        if(offset<-180){
+            offset = 360+offset;
+        }
+        result+= offset;
+    }
+    result = result/self.headingArray.count;
+    
+    NSLog(@"%f",result);
+    return result+baseNumber;
+}
 
 
 /*
