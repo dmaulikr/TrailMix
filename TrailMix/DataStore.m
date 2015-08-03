@@ -28,6 +28,22 @@
     return _sharedDataStore;
 }
 
++(void)filteredRestaurant{
+    NSArray *restaurantArray;
+//    if(self.selectedFoodTypeArray.count==0){
+//        NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.restaurantDictionary.allKeys.count);
+//        restaurantArray = self.restaurantDictionary[self.restaurantDictionary.allKeys[randomIndex]];
+//    }else{
+//        NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.selectedFoodTypeArray.count);
+//        restaurantArray = self.restaurantDictionary[self.selectedFoodTypeArray[randomIndex]];
+//    }
+//    //    NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.selectedFoodTypeArray.count);
+//    //    NSArray *restaurantArray = self.restaurantDictionary[self.selectedFoodTypeArray[randomIndex]];
+//    NSInteger randomRestaurantIndex = arc4random_uniform((u_int32_t)restaurantArray.count);
+//    Restaurant *selectedRestaurant = restaurantArray[randomRestaurantIndex];
+//    [RestaurantCDObject initWithRestaurantObject:selectedRestaurant];
+}
+
 //-(instancetype)init{
 //    self = [super init];
 //    if(self){

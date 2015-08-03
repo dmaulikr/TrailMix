@@ -5,7 +5,7 @@
 //  Created by Cong Sun on 7/30/15.
 //  Copyright (c) 2015 Team Fax Machine. All rights reserved.
 //
-
+@class Restaurant;
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
@@ -18,6 +18,8 @@
 @property (strong, nonatomic) NSMutableDictionary *restaurantDictionary;
 @property (strong, nonatomic) NSMutableArray *selectedDollarSign;
 -(void)saveContext;
+
++(void)filteredRestaurant;
 
 
 @end
