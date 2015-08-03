@@ -15,6 +15,7 @@
 		3DDD993C1B6A7C2F00178632 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD993B1B6A7C2F00178632 /* DataStore.m */; };
 		3DDD993F1B6AC24D00178632 /* RestaurantTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */; };
 		3DEA3B341B6FEDEA00D4022B /* RestaurantCDObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA3B331B6FEDEA00D4022B /* RestaurantCDObject.m */; };
+		3DEA3B371B6FF0CD00D4022B /* DollarSignTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA3B361B6FF0CD00D4022B /* DollarSignTableViewController.m */; };
 		63C8B38244F3ABD6D75E8AB9 /* libPods-TrailMix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D40E02762E4FD5B07430F174 /* libPods-TrailMix.a */; };
 		72F9A3361B69681B00E8494F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A3351B69681B00E8494F /* main.m */; };
 		72F9A3391B69681B00E8494F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A3381B69681B00E8494F /* AppDelegate.m */; };
@@ -57,6 +58,8 @@
 		3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTypeTableViewController.m; sourceTree = "<group>"; };
 		3DEA3B321B6FEDEA00D4022B /* RestaurantCDObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantCDObject.h; path = Models/RestaurantCDObject.h; sourceTree = "<group>"; };
 		3DEA3B331B6FEDEA00D4022B /* RestaurantCDObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantCDObject.m; path = Models/RestaurantCDObject.m; sourceTree = "<group>"; };
+		3DEA3B351B6FF0CD00D4022B /* DollarSignTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DollarSignTableViewController.h; path = Controllers/DollarSignTableViewController.h; sourceTree = "<group>"; };
+		3DEA3B361B6FF0CD00D4022B /* DollarSignTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DollarSignTableViewController.m; path = Controllers/DollarSignTableViewController.m; sourceTree = "<group>"; };
 		72F9A3301B69681B00E8494F /* TrailMix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailMix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F9A3341B69681B00E8494F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72F9A3351B69681B00E8494F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */,
 				3DDD99341B6A761B00178632 /* RestaurantPreferenceTableViewController.h */,
 				3DDD99351B6A761B00178632 /* RestaurantPreferenceTableViewController.m */,
+				3DEA3B351B6FF0CD00D4022B /* DollarSignTableViewController.h */,
+				3DEA3B361B6FF0CD00D4022B /* DollarSignTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				3DEA3B341B6FEDEA00D4022B /* RestaurantCDObject.m in Sources */,
 				3DDD993C1B6A7C2F00178632 /* DataStore.m in Sources */,
 				3DDD99331B6A740600178632 /* DurationPickerViewController.m in Sources */,
+				3DEA3B371B6FF0CD00D4022B /* DollarSignTableViewController.m in Sources */,
 				DB416F481B697DDA00A1E41B /* Restaurant.m in Sources */,
 				DBE4F9A91B6BE26200569F7D /* FourSquareAPIClient.m in Sources */,
 				3DDD993F1B6AC24D00178632 /* RestaurantTypeTableViewController.m in Sources */,

@@ -28,13 +28,37 @@
     return _sharedDataStore;
 }
 
--(instancetype)init{
-    self = [super init];
-    if(self){
+//-(instancetype)init{
+//    self = [super init];
+//    if(self){
+//        _selectedFoodTypes = [[NSMutableArray alloc]init];
+//        _restaurantDictionary = [[NSMutableDictionary alloc]init];
+//    }
+//    return  self;
+//}
+
+-(NSMutableArray *)selectedFoodTypes{
+    if(!_selectedFoodTypes){
         _selectedFoodTypes = [[NSMutableArray alloc]init];
+    }
+    return _selectedFoodTypes;
+}
+
+-(NSMutableDictionary *)restaurantDictionary{
+    if(!_restaurantDictionary){
         _restaurantDictionary = [[NSMutableDictionary alloc]init];
     }
-    return  self;
+    return _restaurantDictionary;
+}
+
+-(NSMutableArray *)selectedDollarSign{
+    if(!_selectedDollarSign){
+        _selectedDollarSign = [[NSMutableArray alloc]init];
+        for(NSInteger i = 0; i < 4; i++){
+            [_selectedDollarSign addObject:@0];
+        }
+    }
+    return _selectedDollarSign;
 }
 
 - (void)saveContext
