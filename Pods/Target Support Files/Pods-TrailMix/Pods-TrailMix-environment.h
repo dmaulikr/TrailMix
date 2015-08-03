@@ -54,6 +54,12 @@
 #define COCOAPODS_VERSION_MINOR_BDBOAuth1Manager 5
 #define COCOAPODS_VERSION_PATCH_BDBOAuth1Manager 0
 
+// JDStatusBarNotification
+#define COCOAPODS_POD_AVAILABLE_JDStatusBarNotification
+#define COCOAPODS_VERSION_MAJOR_JDStatusBarNotification 1
+#define COCOAPODS_VERSION_MINOR_JDStatusBarNotification 5
+#define COCOAPODS_VERSION_PATCH_JDStatusBarNotification 2
+
 // SVProgressHUD
 #define COCOAPODS_POD_AVAILABLE_SVProgressHUD
 #define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1
