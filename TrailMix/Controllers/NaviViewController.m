@@ -12,6 +12,7 @@
 #import "WikiTableViewController.h"
 #import "DataStore.h"
 #import "WikiAPIClient.h"
+#import <JDStatusBarNotification/JDStatusBarNotification.h>
 
 @interface NaviViewController ()<CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
@@ -43,6 +44,8 @@
     self.locationManager.activityType = CLActivityTypeFitness;
     
     RestaurantCDObject *destRestaurant = [RestaurantCDObject getLatestRestaurant];
+    
+    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@",destRestaurant.name]];
     
     self.restaurantLocation = [[CLLocation alloc]initWithLatitude:destRestaurant.latitude.floatValue longitude:destRestaurant.longitude.floatValue];
     

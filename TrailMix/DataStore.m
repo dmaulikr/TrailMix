@@ -75,7 +75,7 @@
     if(!_selectedDollarSign){
         _selectedDollarSign = [[NSMutableArray alloc]init];
         for(NSInteger i = 0; i < 4; i++){
-            [_selectedDollarSign addObject:@0];
+            [_selectedDollarSign addObject:@1];
         }
     }
     return _selectedDollarSign;
