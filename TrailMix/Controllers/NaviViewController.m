@@ -196,11 +196,14 @@
         //        NSLog(@"2");
         
     }else if(xAxis<0&&yAxis>=0){
-        radianOffset = M_PI+radianOffset;
+        //radianOffset = M_PI+radianOffset;
+        radianOffset = radianOffset-M_PI;
         //        NSLog(@"3");
         
     }else{
-        radianOffset = 2*M_PI-radianOffset;
+        radianOffset = -radianOffset;
+        
+        //radianOffset = 2*M_PI-radianOffset;
         //        NSLog(@"4");
     }
     CGFloat aveHeading = [self calculateRotationRadian];
