@@ -25,7 +25,7 @@
         _name = name;
         _latitude = latitude;
         _longitude = longitude;
-        _dollarSigns = dollarSigns;
+        _dollarSigns = @(dollarSigns.integerValue-1);
     }
     
     return self;

@@ -141,8 +141,6 @@
 				72FEAD7E1B697C4400F0FF33 /* WikiAPIClient.m */,
 				3DDD99311B6A740600178632 /* DurationPickerViewController.h */,
 				3DDD99321B6A740600178632 /* DurationPickerViewController.m */,
-				3DDD993D1B6AC24D00178632 /* RestaurantTypeTableViewController.h */,
-				3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */,
 				3DDD99341B6A761B00178632 /* RestaurantPreferenceTableViewController.h */,
 				3DDD99351B6A761B00178632 /* RestaurantPreferenceTableViewController.m */,
 				72A9DDA21B6FECE600870BD7 /* WikiTableViewController.h */,
@@ -151,6 +149,8 @@
 				72A9DDA51B6FECE600870BD7 /* WikiWebViewController.m */,
 				3DEA3B351B6FF0CD00D4022B /* DollarSignTableViewController.h */,
 				3DEA3B361B6FF0CD00D4022B /* DollarSignTableViewController.m */,
+				3DDD993D1B6AC24D00178632 /* RestaurantTypeTableViewController.h */,
+				3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

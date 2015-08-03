@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSMutableArray *contentOfFoodTypeSection;
 @property (strong, nonatomic) NSMutableArray *selectedFoodTypeArray;
 @property (weak, nonatomic) IBOutlet UITableViewCell *restaurantTypeCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *priceCell;
 @end
 
 @implementation RestaurantPreferenceTableViewController
@@ -48,6 +49,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    //update restaurant type
     if([DataStore sharedDataStore].selectedFoodTypes.count){
         NSMutableString *string = [[NSMutableString alloc]initWithString:[DataStore sharedDataStore].selectedFoodTypes[0]];
         for(NSInteger i=1;i< [DataStore sharedDataStore].selectedFoodTypes.count;i++){
@@ -59,7 +61,29 @@
         self.restaurantTypeCell.textLabel.text = @"Random";
     }
     
-    
+    //update Price
+    BOOL hasSelectedPriceLogic = NO;
+    NSMutableString *titleString = [[NSMutableString alloc]init];
+    for(NSInteger i = 0 ;i <[DataStore sharedDataStore].selectedDollarSign.count; i++){
+        if(((NSNumber *)[DataStore sharedDataStore].selectedDollarSign[i]).integerValue){
+            hasSelectedPriceLogic = YES;
+            [titleString appendString:[NSString stringWithFormat:@"%@  ",[self returnDollarSignWithNumber:i]]];
+        }
+    }
+    if(hasSelectedPriceLogic){
+        self.priceCell.textLabel.text = titleString;
+    }else{
+        self.priceCell.textLabel.text = @"Random";
+    }
+}
+
+
+-(NSString *)returnDollarSignWithNumber:(NSInteger)count{
+    NSMutableString *string = [[NSMutableString alloc]initWithString:@"$"];
+    for(NSInteger i = 0; i < count; i++){
+        [string appendString:@"$"];
+    }
+    return string;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,28 +93,21 @@
 
 - (IBAction)startButtonTapped:(id)sender {
     //randomly pick a restaurant
-    NSArray *restaurantArray;
-    if(self.selectedFoodTypeArray.count==0){
-        NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.restaurantDictionary.allKeys.count);
-        restaurantArray = self.restaurantDictionary[self.restaurantDictionary.allKeys[randomIndex]];
-    }else{
-        NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.selectedFoodTypeArray.count);
-        restaurantArray = self.restaurantDictionary[self.selectedFoodTypeArray[randomIndex]];
-    }
-//    NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.selectedFoodTypeArray.count);
-//    NSArray *restaurantArray = self.restaurantDictionary[self.selectedFoodTypeArray[randomIndex]];
-    NSInteger randomRestaurantIndex = arc4random_uniform((u_int32_t)restaurantArray.count);
-    Restaurant *selectedRestaurant = restaurantArray[randomRestaurantIndex];
-    [RestaurantCDObject initWithRestaurantObject:selectedRestaurant];
+//    NSArray *restaurantArray;
+//    if(self.selectedFoodTypeArray.count==0){
+//        NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.restaurantDictionary.allKeys.count);
+//        restaurantArray = self.restaurantDictionary[self.restaurantDictionary.allKeys[randomIndex]];
+//    }else{
+//        NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.selectedFoodTypeArray.count);
+//        restaurantArray = self.restaurantDictionary[self.selectedFoodTypeArray[randomIndex]];
+//    }
+//    NSInteger randomRestaurantIndex = arc4random_uniform((u_int32_t)restaurantArray.count);
+//    Restaurant *selectedRestaurant = restaurantArray[randomRestaurantIndex];
+//    [RestaurantCDObject initWithRestaurantObject:selectedRestaurant];
+    
+    [[DataStore sharedDataStore] filteredRestaurant];
     [self performSegueWithIdentifier:@"goToCompass" sender:nil];
-//    [FourSquareAPIClient getRestaurantInfoWithId:selectedRestaurant.venueId CompletionBlock:^(Restaurant *restaurant) {
-//        [RestaurantCDObject initWithRestaurantObject:restaurant];
-//        [self performSegueWithIdentifier:@"goToCompass" sender:nil];
-//    }];
-    //store into CoreData
-    
-    
-//    [self.navigationController performSegueWithIdentifier:@"goToCompass" sender:sender];
+
     
     
 }

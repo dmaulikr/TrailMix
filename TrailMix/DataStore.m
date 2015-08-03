@@ -7,6 +7,8 @@
 //
 
 #import "DataStore.h"
+#import "Restaurant.h"
+#import "RestaurantCDObject+InitWithRestaurantObject.h"
 
 @interface DataStore()
 
@@ -26,6 +28,24 @@
     });
     
     return _sharedDataStore;
+}
+
+-(void)filteredRestaurant{
+    NSMutableArray *resultRestaurantArray = [[NSMutableArray alloc]init];
+    
+    for(NSString *restType in self.selectedFoodTypes){
+        NSArray *restaurantsOfType = self.restaurantDictionary[restType];
+        for(Restaurant *restaurant in restaurantsOfType){
+            NSNumber *selection = self.selectedDollarSign[restaurant.dollarSigns.integerValue];
+            if(selection.integerValue){
+                [resultRestaurantArray addObject:restaurant];
+            }
+        }
+    }
+    
+    NSInteger randomIndex = arc4random_uniform((u_int32_t)resultRestaurantArray.count);
+    [RestaurantCDObject initWithRestaurantObject:resultRestaurantArray[randomIndex]];
+
 }
 
 //-(instancetype)init{

@@ -79,14 +79,14 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="0ZF-xu-CFX">
+                            <tableViewSection headerTitle="Price" id="0ZF-xu-CFX">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="restaurantCell" textLabel="qCk-aP-TLa" style="IBUITableViewCellStyleDefault" id="xR4-Gy-Pel">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="restaurantCell" textLabel="qCk-aP-TLa" style="IBUITableViewCellStyleDefault" id="xR4-Gy-Pel">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xR4-Gy-Pel" id="mWm-w1-6pl">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qCk-aP-TLa">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Random" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qCk-aP-TLa">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -94,6 +94,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="DUG-nQ-x18" kind="show" id="FAq-b1-R0U"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -129,6 +132,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="priceCell" destination="xR4-Gy-Pel" id="x4f-DI-Rw4"/>
                         <outlet property="restaurantTypeCell" destination="vDW-47-RXy" id="FBd-FE-U52"/>
                         <segue destination="LA8-22-ULE" kind="show" identifier="goToCompass" id="qu6-22-wiS"/>
                     </connections>
@@ -136,6 +140,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lb2-t0-WeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1198" y="903"/>
+        </scene>
+        <!--Dollar Sign Table View Controller-->
+        <scene sceneID="wg5-vv-vir">
+            <objects>
+                <tableViewController id="DUG-nQ-x18" customClass="DollarSignTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dYt-WY-yQF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dollarSignCell" textLabel="jgT-rb-3OY" style="IBUITableViewCellStyleDefault" id="7dL-Kb-cdp">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7dL-Kb-cdp" id="vek-Yz-LqU">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jgT-rb-3OY">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="DUG-nQ-x18" id="dG8-d9-QSE"/>
+                            <outlet property="delegate" destination="DUG-nQ-x18" id="WvU-Xp-7Tl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="QUY-8d-Uov"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cl9-9x-Wzu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2021" y="1455"/>
         </scene>
         <!--Restaurant Type Table View Controller-->
         <scene sceneID="cZU-0A-vyX">
