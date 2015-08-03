@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSMutableDictionary *restaurantDictionary;
 @property (nonatomic, strong) NSArray *wikiArticles;
 @property (nonatomic, strong) CLLocation *lastWikiUpdateLocation;
+@property (strong, nonatomic) NSMutableArray *selectedDollarSign;
 -(void)saveContext;
 
 

@@ -2,7 +2,7 @@
 //  RestaurantCDObject.h
 //  TrailMix
 //
-//  Created by Cong Sun on 7/31/15.
+//  Created by Cong Sun on 8/3/15.
 //  Copyright (c) 2015 Team Fax Machine. All rights reserved.
 //
 
@@ -12,10 +12,11 @@
 
 @interface RestaurantCDObject : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * latitude;
-@property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSDate * createAt;
 @property (nonatomic, retain) NSNumber * isVisited;
+@property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * venueId;
 
 @end
