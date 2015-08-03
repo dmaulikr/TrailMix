@@ -22,29 +22,35 @@
                              @"ll":[NSString stringWithFormat:@"%f,%f",latitude, longitude],
                              @"query":FOURSQUARE_RESTAURANT_SEARCH};
     
-    NSString *fourSquareURL = [NSString stringWithFormat:@"%@%@?client_id=%@&client_secret=%@",FOURSQUARE_BASE_URL, FOURSQUARE_VENUES_SEARCH, FOURSQUARE_CONSUMER_KEY, FOURSQUARE_CONSUMER_SECRET];
+    NSString *fourSquareURL = [NSString stringWithFormat:@"%@%@?client_id=%@&client_secret=%@&%@",FOURSQUARE_BASE_URL, FOURSQUARE_VENUES_SEARCH, FOURSQUARE_CONSUMER_KEY, FOURSQUARE_CONSUMER_SECRET,FOURSQUARE_DOLLARSIGNS];
     
     AFHTTPSessionManager *clientManager = [AFHTTPSessionManager manager];
     
     [clientManager GET:fourSquareURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSDictionary *responseDictionary = responseObject;
-        NSArray *restaurantDictionaries = responseDictionary[@"response"][@"venues"];
+        NSArray *restaurantDictionaries = responseDictionary[@"response"][@"groups"][0][@"items"];
         NSMutableDictionary *cuisineTypeWithRestaurantObjects = [DataStore sharedDataStore].restaurantDictionary;
         for (NSDictionary *restaurant in restaurantDictionaries){
+            NSNumber *isOpen = @1;
+            NSNumber *ifRestaurantIsOpen = restaurant[@"venue"][@"hours"][@"isOpen"];
             
-            Restaurant *restaurantObject = [Restaurant createRestaurantObject:restaurant];
-            
-            if (cuisineTypeWithRestaurantObjects[restaurantObject.foodType]) {
+            if ([ifRestaurantIsOpen isEqualToNumber: isOpen]){
+                Restaurant *restaurantObject = [Restaurant createRestaurantObject:restaurant];
                 
-                [(NSMutableArray *)cuisineTypeWithRestaurantObjects[restaurantObject.foodType]addObject:restaurantObject];
-            } else {
+                if (cuisineTypeWithRestaurantObjects[restaurantObject.foodType]){
                 
-                NSMutableArray *array = [NSMutableArray array];
-                [array addObject:restaurantObject];
-                [cuisineTypeWithRestaurantObjects setObject:array forKey:restaurantObject.foodType];
+                    [(NSMutableArray *)cuisineTypeWithRestaurantObjects[restaurantObject.foodType]addObject:restaurantObject];
+                    
+                } else {
+                    
+                    NSMutableArray *array = [NSMutableArray array];
+                    [array addObject:restaurantObject];
+                    [cuisineTypeWithRestaurantObjects setObject:array forKey:restaurantObject.foodType];
+                }
+
             }
-        }
+                    }
         
         completionBlock();
         
