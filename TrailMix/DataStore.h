@@ -22,7 +22,7 @@
 @property (strong, nonatomic) NSMutableArray *selectedDollarSign;
 -(void)saveContext;
 
-+(void)filteredRestaurant;
+-(void)filteredRestaurant;
 
 
 @end
