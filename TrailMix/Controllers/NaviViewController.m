@@ -9,6 +9,9 @@
 #import "NaviViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "RestaurantCDObject+InitWithRestaurantObject.h"
+#import "WikiTableViewController.h"
+#import "DataStore.h"
+#import "WikiAPIClient.h"
 
 @interface NaviViewController ()<CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
@@ -21,6 +24,7 @@
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (assign, nonatomic) CLLocationDirection heading;
 @property (strong, nonatomic) NSMutableArray *headingArray;
+@property (nonatomic, strong) DataStore *dataStore;
 @end
 
 @implementation NaviViewController
@@ -32,6 +36,8 @@
     self.locationManager.pausesLocationUpdatesAutomatically = YES;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    
+    self.dataStore = [DataStore sharedDataStore];
     
     //change when select other transporation type
     self.locationManager.activityType = CLActivityTypeFitness;
@@ -90,6 +96,44 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     self.currentLocation = (CLLocation *)locations[0];
+    
+    if (!self.dataStore.lastWikiUpdateLocation) {
+        
+        self.dataStore.lastWikiUpdateLocation = self.currentLocation;
+        
+        [self updateWikiArticles];
+        
+    } else {
+        
+        double distanceFromLastWikiUpdateLocation = [self.currentLocation distanceFromLocation:self.dataStore.lastWikiUpdateLocation];
+        
+//        [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%fm away from last wiki update location", distanceFromLastWikiUpdateLocation]];
+        
+        if (distanceFromLastWikiUpdateLocation > 400) { // every quarter mile?
+            
+            self.dataStore.lastWikiUpdateLocation = self.currentLocation;
+            
+            [self updateWikiArticles];
+            
+        }
+        
+    }
+    
+}
+
+- (void) updateWikiArticles {
+    
+    CLLocationCoordinate2D coordinates = self.dataStore.lastWikiUpdateLocation.coordinate;
+    [WikiAPIClient getArticlesAroundLocation:coordinates radius:400 completion:^(NSArray *wikiArticles) {
+        
+        self.dataStore.wikiArticles = wikiArticles;
+        
+//        [self.tableView reloadData];
+        
+//        [SVProgressHUD dismiss];
+        
+    }];
+    
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{

@@ -8,6 +8,7 @@
 @class Restaurant;
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface DataStore : NSObject
 
@@ -16,6 +17,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSMutableArray *selectedFoodTypes;
 @property (strong, nonatomic) NSMutableDictionary *restaurantDictionary;
+@property (nonatomic, strong) NSArray *wikiArticles;
+@property (nonatomic, strong) CLLocation *lastWikiUpdateLocation;
 @property (strong, nonatomic) NSMutableArray *selectedDollarSign;
 -(void)saveContext;
 
