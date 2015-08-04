@@ -15,8 +15,6 @@
                                 Radius:(double)radius
                        CompletionBlock:(void(^)(void))completionBlock;
 
-+(void)getRestaurantInfoWithId:(NSString *)venueId CompletionBlock:(void(^)(Restaurant *restaurant))completionBlock;
-
 +(NSString *)getCurrentDateForGetRequest;
 
 @end
