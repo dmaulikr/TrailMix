@@ -62,6 +62,13 @@
 }
 
 -(void)updateDestination{
+    if(!self.dataStore.pointOfInterest){
+        self.visitButton.enabled = NO;
+        self.visitButton.alpha = 0;
+    }else{
+        self.visitButton.enabled = YES;
+        self.visitButton.alpha = 1;
+    }
     if(self.dataStore.destinationIsResaurant){
         [self showRestaurantDirection];
     }else{
