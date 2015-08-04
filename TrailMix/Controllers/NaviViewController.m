@@ -16,7 +16,6 @@
 
 @interface NaviViewController ()<CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
-@property (strong, nonatomic) CLLocation *attractionLocation;
 @property (strong, nonatomic) CLLocation *restaurantLocation;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet UIImageView *foodImage;
@@ -51,11 +50,15 @@
     
     NSLog(@"%@",self.restaurantLocation);
     
-    self.attractionLocation = [[CLLocation alloc]initWithLatitude:40.7764584 longitude:-73.9624175];
-    
     self.destLocation = self.restaurantLocation;
     
     [self startLocationService];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -147,7 +150,11 @@
     if([self.visitButton.titleLabel.text isEqualToString:@"Visit This Place"]){
         [self.visitButton setTitle:@"Continue to Your Food" forState:UIControlStateNormal];
         self.foodImage.image = [UIImage imageNamed:@"safari"];
-        self.destLocation = self.attractionLocation;
+        
+        CLLocation *location = [[CLLocation new] initWithLatitude:self.dataStore.pointOfInterest.coordinate.latitude longitude:self.dataStore.pointOfInterest.coordinate.latitude];
+        
+        self.destLocation = location;
+        
     }else{
         [self.visitButton setTitle:@"Visit This Place" forState:UIControlStateNormal];
         self.foodImage.image = [UIImage imageNamed:@"food"];

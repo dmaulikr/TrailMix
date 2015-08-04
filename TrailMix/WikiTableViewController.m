@@ -133,9 +133,8 @@
     
     WikiArticle *selectedArticle = self.dataStore.wikiArticles[self.tableView.indexPathForSelectedRow.row];
     
-    NSString *urlString = [NSString stringWithFormat:@"https://en.wikipedia.org/wiki/%@", [selectedArticle.title stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
-
-    destVC.url = [NSURL URLWithString:urlString];
+    destVC.wikiArticle = selectedArticle;
+    
     
 }
 
