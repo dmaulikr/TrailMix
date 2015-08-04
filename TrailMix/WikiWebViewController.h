@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class WikiArticle;
 
 @interface WikiWebViewController : UIViewController
 
-@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong) WikiArticle *wikiArticle;
 
 @end

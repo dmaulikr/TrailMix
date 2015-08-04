@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import <CoreLocation/CoreLocation.h>
+#import "WikiArticle.h"
+
 
 @interface DataStore : NSObject
 
@@ -19,6 +21,7 @@
 @property (strong, nonatomic) NSMutableDictionary *restaurantDictionary;
 @property (nonatomic, strong) NSArray *wikiArticles;
 @property (nonatomic, strong) CLLocation *lastWikiUpdateLocation;
+@property (nonatomic, strong) WikiArticle *pointOfInterest;
 @property (strong, nonatomic) NSMutableArray *selectedDollarSign;
 -(void)saveContext;
 
