@@ -22,5 +22,4 @@
 
 + (instancetype)createRestaurantObject:(NSDictionary *)restaurantDictionary;
 
-+ (instancetype)createRestaurantDetailObject:(NSDictionary *)restaurantDetailsDictionary;
 @end

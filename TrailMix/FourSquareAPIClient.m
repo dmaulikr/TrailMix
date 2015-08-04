@@ -33,24 +33,24 @@
         NSMutableDictionary *cuisineTypeWithRestaurantObjects = [DataStore sharedDataStore].restaurantDictionary;
         for (NSDictionary *restaurant in restaurantDictionaries){
             NSNumber *isOpen = @1;
-            NSNumber *ifRestaurantIsOpen = restaurant[@"venue"][@"hours"][@"isOpen"];
-            
-            if ([ifRestaurantIsOpen isEqualToNumber: isOpen]){
-                Restaurant *restaurantObject = [Restaurant createRestaurantObject:restaurant];
-                
-                if (cuisineTypeWithRestaurantObjects[restaurantObject.foodType]){
-                
-                    [(NSMutableArray *)cuisineTypeWithRestaurantObjects[restaurantObject.foodType]addObject:restaurantObject];
+                NSNumber *ifRestaurantIsOpen = restaurant[@"venue"][@"hours"][@"isOpen"];
+            NSNumber *validDollarSign = restaurant[@"venue"][@"price"][@"tier"];
+                if ([ifRestaurantIsOpen isEqualToNumber: isOpen] && validDollarSign.intValue >= 1 && validDollarSign.intValue <= 4){
+                    Restaurant *restaurantObject = [Restaurant createRestaurantObject:restaurant];
                     
-                } else {
-                    
-                    NSMutableArray *array = [NSMutableArray array];
-                    [array addObject:restaurantObject];
-                    [cuisineTypeWithRestaurantObjects setObject:array forKey:restaurantObject.foodType];
-                }
+                    if (cuisineTypeWithRestaurantObjects[restaurantObject.foodType]){
+                        
+                        [(NSMutableArray *)cuisineTypeWithRestaurantObjects[restaurantObject.foodType]addObject:restaurantObject];
+                        
+                    } else {
+                        
+                        NSMutableArray *array = [NSMutableArray array];
+                        [array addObject:restaurantObject];
+                        [cuisineTypeWithRestaurantObjects setObject:array forKey:restaurantObject.foodType];
+                    }
 
             }
-                    }
+                                }
         
         NSLog(@"before call back %@",[DataStore sharedDataStore].restaurantDictionary);
         [DataStore sharedDataStore].selectedFoodTypes = [[NSMutableArray alloc]initWithArray:cuisineTypeWithRestaurantObjects.allKeys];
@@ -62,27 +62,6 @@
     }];
     
     
-    
-}
-
-+(void)getRestaurantInfoWithId:(NSString *)venueId CompletionBlock:(void(^)(Restaurant *restaurant))completionBlock
-{
-    NSString *fourSquareURL = [NSString stringWithFormat:@"%@%@%@?client_id=%@&client_secret=%@",FOURSQUARE_BASE_URL, FOURSQUARE_VENUES_DETAIL,venueId, FOURSQUARE_CONSUMER_KEY, FOURSQUARE_CONSUMER_SECRET];
-    NSDictionary *params = @{@"v":[self getCurrentDateForGetRequest]};
-    AFHTTPSessionManager *clientManager = [AFHTTPSessionManager manager];
-    
-    [clientManager GET:fourSquareURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        NSDictionary *responseDictionary = responseObject;
-        
-        Restaurant *theRestaurant = [Restaurant createRestaurantDetailObject:responseDictionary];
-        
-        completionBlock(theRestaurant);
-
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@",error.description);
-    }];
-
     
 }
 
