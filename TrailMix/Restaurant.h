@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSString *latitude;
 @property (nonatomic, strong) NSString *longitude;
 @property (nonatomic, strong) NSString *venueId;
-@property (nonatomic, strong) NSString *dollarSigns;
+@property (nonatomic, strong) NSNumber *dollarSigns;
 
 - (instancetype) initWithCuisineType:(NSString *)foodType
                              VenueId:(NSString *)venueId Name:(NSString *)name Latitude:(NSString *)latitude Longitude:(NSString *)longitude DollarSigns:(NSString *)dollarSigns;

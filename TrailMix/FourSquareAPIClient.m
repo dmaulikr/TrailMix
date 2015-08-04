@@ -52,6 +52,8 @@
             }
                     }
         
+        NSLog(@"before call back %@",[DataStore sharedDataStore].restaurantDictionary);
+        [DataStore sharedDataStore].selectedFoodTypes = [[NSMutableArray alloc]initWithArray:cuisineTypeWithRestaurantObjects.allKeys];
         completionBlock();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

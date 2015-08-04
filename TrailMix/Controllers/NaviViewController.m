@@ -12,6 +12,7 @@
 #import "WikiTableViewController.h"
 #import "DataStore.h"
 #import "WikiAPIClient.h"
+#import <JDStatusBarNotification/JDStatusBarNotification.h>
 
 @interface NaviViewController ()<CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
@@ -42,6 +43,8 @@
     self.locationManager.activityType = CLActivityTypeFitness;
     
     RestaurantCDObject *destRestaurant = [RestaurantCDObject getLatestRestaurant];
+    
+    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@",destRestaurant.name]];
     
     self.restaurantLocation = [[CLLocation alloc]initWithLatitude:destRestaurant.latitude.floatValue longitude:destRestaurant.longitude.floatValue];
     
@@ -200,11 +203,14 @@
         //        NSLog(@"2");
         
     }else if(xAxis<0&&yAxis>=0){
-        radianOffset = M_PI+radianOffset;
+        //radianOffset = M_PI+radianOffset;
+        radianOffset = radianOffset-M_PI;
         //        NSLog(@"3");
         
     }else{
-        radianOffset = 2*M_PI-radianOffset;
+        radianOffset = -radianOffset;
+        
+        //radianOffset = 2*M_PI-radianOffset;
         //        NSLog(@"4");
     }
     CGFloat aveHeading = [self calculateRotationRadian];

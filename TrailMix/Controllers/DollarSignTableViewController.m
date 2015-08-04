@@ -25,9 +25,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 4;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dollarSignCell" forIndexPath:indexPath];
+    
+    NSMutableString *titleString = [[NSMutableString alloc]initWithString:@"$"];
+    
+    for(NSInteger i = 0; i<indexPath.row;i++){
+        [titleString appendString:@"$"];
+    }
+    
+    cell.textLabel.text = titleString;
+    
     if(((NSNumber *)self.selectedDollarSign[indexPath.row]).integerValue){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }else{
