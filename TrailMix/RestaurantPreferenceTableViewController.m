@@ -34,12 +34,13 @@
     [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
     [FourSquareAPIClient getNearbyRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^() {
         NSLog(@"finished");
+        [self updateUI];
         [SVProgressHUD dismiss];
     }];
-    self.contentOfFoodTypeSection = [[NSMutableArray alloc]init];
-    [self.contentOfFoodTypeSection addObject:@"Random(Default)"];
-    self.restaurantDictionary = [DataStore sharedDataStore].restaurantDictionary;
-    self.selectedFoodTypeArray = [DataStore sharedDataStore].selectedFoodTypes;
+//    self.contentOfFoodTypeSection = [[NSMutableArray alloc]init];
+//    [self.contentOfFoodTypeSection addObject:@"Random(Default)"];
+//    self.restaurantDictionary = [DataStore sharedDataStore].restaurantDictionary;
+//    self.selectedFoodTypeArray = [DataStore sharedDataStore].selectedFoodTypes;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -49,13 +50,18 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [self updateUI];
+}
+
+-(void)updateUI{
     //update restaurant type
-    if([DataStore sharedDataStore].selectedFoodTypes.count){
-        NSMutableString *string = [[NSMutableString alloc]initWithString:[DataStore sharedDataStore].selectedFoodTypes[0]];
-        for(NSInteger i=1;i< [DataStore sharedDataStore].selectedFoodTypes.count;i++){
-            [string appendString:[NSString stringWithFormat:@",%@",[DataStore sharedDataStore].selectedFoodTypes[i]]];
-        }
+    
+    NSLog(@"%@",[DataStore sharedDataStore].selectedFoodTypes);
+    
+    if([DataStore sharedDataStore].selectedFoodTypes.count<[DataStore sharedDataStore].restaurantDictionary.allKeys.count){
+        NSString *string = [NSString stringWithFormat:@"%lu",[DataStore sharedDataStore].selectedFoodTypes.count];
         self.restaurantTypeCell.textLabel.text = string;
+
         
     }else{
         self.restaurantTypeCell.textLabel.text = @"Random";
@@ -92,30 +98,14 @@
 }
 
 - (IBAction)startButtonTapped:(id)sender {
-    //randomly pick a restaurant
-//    NSArray *restaurantArray;
-//    if(self.selectedFoodTypeArray.count==0){
-//        NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.restaurantDictionary.allKeys.count);
-//        restaurantArray = self.restaurantDictionary[self.restaurantDictionary.allKeys[randomIndex]];
-//    }else{
-//        NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.selectedFoodTypeArray.count);
-//        restaurantArray = self.restaurantDictionary[self.selectedFoodTypeArray[randomIndex]];
-//    }
-//    NSInteger randomRestaurantIndex = arc4random_uniform((u_int32_t)restaurantArray.count);
-//    Restaurant *selectedRestaurant = restaurantArray[randomRestaurantIndex];
-//    [RestaurantCDObject initWithRestaurantObject:selectedRestaurant];
-    
     [[DataStore sharedDataStore] filteredRestaurant];
     [self performSegueWithIdentifier:@"goToCompass" sender:nil];
-
-    
-    
 }
 
 
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.
