@@ -66,6 +66,7 @@
 
 -(NSMutableArray *)selectedFoodTypes{
     if(!_selectedFoodTypes){
+        NSLog(@"FIRST TIME INIT %@",self.restaurantDictionary);
         _selectedFoodTypes = [[NSMutableArray alloc]init];
     }
     return _selectedFoodTypes;
