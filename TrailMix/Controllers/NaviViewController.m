@@ -58,7 +58,27 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-    
+    [self updateDestination];
+}
+
+-(void)updateDestination{
+    if(self.dataStore.destinationIsResaurant){
+        [self showRestaurantDirection];
+    }else{
+        [self showAttractionDirection];
+    }
+}
+
+-(void)showAttractionDirection{
+    self.foodImage.image = [UIImage imageNamed:@"safari"];
+    self.destLocation = [[CLLocation alloc]initWithLatitude:self.dataStore.pointOfInterest.coordinate.latitude longitude:self.dataStore.pointOfInterest.coordinate.longitude];
+    [self.visitButton setTitle:@"Continue to Your Food" forState:UIControlStateNormal];
+}
+
+-(void)showRestaurantDirection{
+    self.foodImage.image = [UIImage imageNamed:@"food"];
+    self.destLocation = self.restaurantLocation;
+    [self.visitButton setTitle:@"Visit This Place" forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -147,19 +167,33 @@
 }
 - (IBAction)visitButtonTapped:(id)sender {
     
-    if([self.visitButton.titleLabel.text isEqualToString:@"Visit This Place"]){
-        [self.visitButton setTitle:@"Continue to Your Food" forState:UIControlStateNormal];
-        self.foodImage.image = [UIImage imageNamed:@"safari"];
-        
-        CLLocation *location = [[CLLocation new] initWithLatitude:self.dataStore.pointOfInterest.coordinate.latitude longitude:self.dataStore.pointOfInterest.coordinate.latitude];
-        
-        self.destLocation = location;
-        
+//    if([self.visitButton.titleLabel.text isEqualToString:@"Visit This Place"]){
+//        [self.visitButton setTitle:@"Continue to Your Food" forState:UIControlStateNormal];
+//        self.foodImage.image = [UIImage imageNamed:@"safari"];
+//        
+//        CLLocation *location = [[CLLocation new] initWithLatitude:self.dataStore.pointOfInterest.coordinate.latitude longitude:self.dataStore.pointOfInterest.coordinate.latitude];
+//        
+//        self.destLocation = location;
+//        
+//    }else{
+//        [self.visitButton setTitle:@"Visit This Place" forState:UIControlStateNormal];
+//        self.foodImage.image = [UIImage imageNamed:@"food"];
+//        self.destLocation = self.restaurantLocation;
+//    }
+    
+    if(self.dataStore.destinationIsResaurant){
+        [self showAttractionDirection];
+        self.dataStore.destinationIsResaurant = NO;
     }else{
-        [self.visitButton setTitle:@"Visit This Place" forState:UIControlStateNormal];
-        self.foodImage.image = [UIImage imageNamed:@"food"];
-        self.destLocation = self.restaurantLocation;
+        [self showRestaurantDirection];
+        self.dataStore.destinationIsResaurant = YES;
     }
+    
+    
+    
+    
+    
+    
 }
 
 -(void)setDestLocation:(CLLocation *)destLocation{

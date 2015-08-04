@@ -52,6 +52,7 @@
 - (void) setHeadingToWikiLocation {
  
     self.dataStore.pointOfInterest = self.wikiArticle;
+    self.dataStore.destinationIsResaurant = NO;
     
     [SVProgressHUD dismiss];
     

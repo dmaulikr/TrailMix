@@ -99,6 +99,7 @@
 
 - (IBAction)startButtonTapped:(id)sender {
     [[DataStore sharedDataStore] filteredRestaurant];
+    [DataStore sharedDataStore].destinationIsResaurant = YES;
     [self performSegueWithIdentifier:@"goToCompass" sender:nil];
 }
 

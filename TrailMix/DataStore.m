@@ -58,8 +58,7 @@
 //-(instancetype)init{
 //    self = [super init];
 //    if(self){
-//        _selectedFoodTypes = [[NSMutableArray alloc]init];
-//        _restaurantDictionary = [[NSMutableDictionary alloc]init];
+//        _destinationIsResaurant = YES;
 //    }
 //    return  self;
 //}
@@ -81,6 +80,7 @@
 
 -(NSMutableArray *)selectedDollarSign{
     if(!_selectedDollarSign){
+        NSLog(@"init the dollar sign");
         _selectedDollarSign = [[NSMutableArray alloc]init];
         for(NSInteger i = 0; i < 4; i++){
             [_selectedDollarSign addObject:@1];
