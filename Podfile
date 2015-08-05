@@ -8,6 +8,7 @@ pod 'BDBOAuth1Manager'
 pod 'SVProgressHUD'
 pod 'JDStatusBarNotification'
 pod 'MaterialControls'
+pod 'SDWebImage'
 
 end
 
