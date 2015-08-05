@@ -232,32 +232,35 @@
 }
 
 -(void)updateHeader{
-    CGFloat xAxis = self.destLocation.coordinate.longitude - self.currentLocation.coordinate.longitude;
-    CGFloat yAxis = self.destLocation.coordinate.latitude - self.currentLocation.coordinate.latitude;
-    CGFloat radianOffset = fabs(atan(xAxis/yAxis));
-//    if(radianOffset<0) radianOffset = -radianOffset;
     
-    if(yAxis>=0&&xAxis>=0){
-        //        NSLog(@"1");
-    }else if(yAxis<0&&xAxis>=0){
-        radianOffset = M_PI - radianOffset;
-        //        NSLog(@"2");
-        
-    }else if(xAxis<0&&yAxis>=0){
-        //radianOffset = M_PI+radianOffset;
-        radianOffset = radianOffset-M_PI;
-        //        NSLog(@"3");
-        
-    }else{
-        radianOffset = -radianOffset;
-        
-        //radianOffset = 2*M_PI-radianOffset;
-        //        NSLog(@"4");
-    }
+    CLLocationDegrees destinationOffset = [self offsetOfTargetLocation:self.destLocation fromLocation:self.currentLocation];
+    
+//    CGFloat xAxis = self.destLocation.coordinate.longitude - self.currentLocation.coordinate.longitude;
+//    CGFloat yAxis = self.destLocation.coordinate.latitude - self.currentLocation.coordinate.latitude;
+//    CGFloat radianOffset = fabs(atan(xAxis/yAxis));
+////    if(radianOffset<0) radianOffset = -radianOffset;
+//    
+//    if(yAxis>=0&&xAxis>=0){
+//        //        NSLog(@"1");
+//    }else if(yAxis<0&&xAxis>=0){
+//        radianOffset = M_PI - radianOffset;
+//        //        NSLog(@"2");
+//        
+//    }else if(xAxis<0&&yAxis>=0){
+//        //radianOffset = M_PI+radianOffset;
+//        radianOffset = radianOffset-M_PI;
+//        //        NSLog(@"3");
+//        
+//    }else{
+//        radianOffset = -radianOffset;
+//        
+//        //radianOffset = 2*M_PI-radianOffset;
+//        //        NSLog(@"4");
+//    }
     CGFloat aveHeading = [self calculateRotationRadian];
     
-    CGFloat headingRadian = (-aveHeading*M_PI/180);
-    self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian+radianOffset);
+    CGFloat headingRadian = ((0-aveHeading+destinationOffset)*M_PI/180);
+    self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian);
 }
 
 -(CGFloat)calculateRotationRadian{
@@ -273,7 +276,7 @@
     CGFloat baseNumber = ((NSNumber *)self.headingArray[0]).floatValue;
     
     
-    if(self.headingArray.count>10){
+    if(self.headingArray.count>5){
         [self.headingArray removeObjectAtIndex:0];
     }
     for(NSNumber *number in self.headingArray){
@@ -292,7 +295,73 @@
     return result+baseNumber;
 }
 
-
+- (CLLocationDegrees) offsetOfTargetLocation:(CLLocation *)targetLocation fromLocation:(CLLocation*)referenceLocation {
+    
+    // Give an offset in degrees away from north
+    
+    double offsetRadians = 0;
+    
+    
+    double tarLat = targetLocation.coordinate.latitude;
+    double tarLng = targetLocation.coordinate.longitude;
+    
+    double curLat = referenceLocation.coordinate.latitude;
+    double curLng = referenceLocation.coordinate.longitude;
+    
+    double deltaY = tarLat - curLat;
+    double deltaX = tarLng - curLng;
+    
+    // We need to calculate arc tan and arrange it depending on quadrant
+    // tan(θ) = Opposite / Adjacent
+    
+    // Quadrants
+    //    lat   +,+
+    // VI  |  I
+    // -------- long
+    // III | II +,-
+    
+    // Lat = y Coords
+    // Long = x Coords
+    
+    if (tarLat > curLat && tarLng > curLng) { // Quadrant I
+        
+        offsetRadians = atan(fabs(deltaX / deltaY));
+        
+    } else if (tarLat < curLat && tarLng > curLng) { // Quadrant II
+        
+        offsetRadians = (M_PI / 2) + atan(fabs(deltaY / deltaX));
+        
+    } else if (tarLat < curLat && tarLng < curLng) { // Quadrant III
+        
+        offsetRadians = M_PI + atan(fabs(deltaX / deltaY));
+        
+    } else if (tarLat > curLat && tarLng < curLng) { // Quadrant IV
+        
+        offsetRadians = (3 * M_PI / 2) + atan(fabs(deltaY / deltaX));
+        
+    } else if (tarLat > curLat && deltaX == 0) { // Directly North
+        
+        // offset is zero for north
+        
+    } else if (tarLat < curLat && deltaX == 0) { // Directly South
+        
+        offsetRadians = M_PI;
+        
+    } else if (deltaY == 0 && tarLng < curLng) { // Directly West
+        
+        offsetRadians = 3 * M_PI / 2;
+        
+    } else if (deltaY == 0 && tarLng > curLng) { // Directly East
+        
+        offsetRadians = M_PI / 2;
+        
+    }
+    
+    CLLocationDegrees offsetDegress = offsetRadians * ( 180.0 / M_PI );
+    
+    return offsetDegress;
+    
+}
 /*
 #pragma mark - Navigation
 
