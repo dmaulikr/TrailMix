@@ -232,32 +232,35 @@
 }
 
 -(void)updateHeader{
-    CGFloat xAxis = self.destLocation.coordinate.longitude - self.currentLocation.coordinate.longitude;
-    CGFloat yAxis = self.destLocation.coordinate.latitude - self.currentLocation.coordinate.latitude;
-    CGFloat radianOffset = fabs(atan(xAxis/yAxis));
-//    if(radianOffset<0) radianOffset = -radianOffset;
     
-    if(yAxis>=0&&xAxis>=0){
-        //        NSLog(@"1");
-    }else if(yAxis<0&&xAxis>=0){
-        radianOffset = M_PI - radianOffset;
-        //        NSLog(@"2");
-        
-    }else if(xAxis<0&&yAxis>=0){
-        //radianOffset = M_PI+radianOffset;
-        radianOffset = radianOffset-M_PI;
-        //        NSLog(@"3");
-        
-    }else{
-        radianOffset = -radianOffset;
-        
-        //radianOffset = 2*M_PI-radianOffset;
-        //        NSLog(@"4");
-    }
+    CLLocationDegrees destinationOffset = [self offsetOfTargetLocation:self.destLocation fromLocation:self.currentLocation];
+    
+//    CGFloat xAxis = self.destLocation.coordinate.longitude - self.currentLocation.coordinate.longitude;
+//    CGFloat yAxis = self.destLocation.coordinate.latitude - self.currentLocation.coordinate.latitude;
+//    CGFloat radianOffset = fabs(atan(xAxis/yAxis));
+////    if(radianOffset<0) radianOffset = -radianOffset;
+//    
+//    if(yAxis>=0&&xAxis>=0){
+//        //        NSLog(@"1");
+//    }else if(yAxis<0&&xAxis>=0){
+//        radianOffset = M_PI - radianOffset;
+//        //        NSLog(@"2");
+//        
+//    }else if(xAxis<0&&yAxis>=0){
+//        //radianOffset = M_PI+radianOffset;
+//        radianOffset = radianOffset-M_PI;
+//        //        NSLog(@"3");
+//        
+//    }else{
+//        radianOffset = -radianOffset;
+//        
+//        //radianOffset = 2*M_PI-radianOffset;
+//        //        NSLog(@"4");
+//    }
     CGFloat aveHeading = [self calculateRotationRadian];
     
-    CGFloat headingRadian = (-aveHeading*M_PI/180);
-    self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian+radianOffset);
+    CGFloat headingRadian = ((0-aveHeading+destinationOffset)*M_PI/180);
+    self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian);
 }
 
 -(CGFloat)calculateRotationRadian{
@@ -273,7 +276,7 @@
     CGFloat baseNumber = ((NSNumber *)self.headingArray[0]).floatValue;
     
     
-    if(self.headingArray.count>10){
+    if(self.headingArray.count>5){
         [self.headingArray removeObjectAtIndex:0];
     }
     for(NSNumber *number in self.headingArray){
