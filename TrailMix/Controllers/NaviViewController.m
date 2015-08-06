@@ -168,7 +168,11 @@
     }];
     
 }
-
+- (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
+    
+    return YES;
+    
+}
 -(void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
     self.heading = newHeading.trueHeading;
 }
