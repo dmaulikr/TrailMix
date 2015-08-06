@@ -16,9 +16,8 @@
 
 @interface WikiCollectionViewController () <CLLocationManagerDelegate>
 
-@property (nonatomic, strong) NSArray *wikiArticles;
+//@property (nonatomic, strong) NSArray *wikiArticles;
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) CLLocation *lastWikiUpdateLocation;
 @property (nonatomic, strong) DataStore *dataStore;
 
 @end
@@ -41,6 +40,8 @@ static NSString * const reuseIdentifier = @"WikiCell";
     
     // Do any additional setup after loading the view.
     
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    
     self.collectionView.allowsMultipleSelection = NO; // only allow one selection for delegate method below
     
     self.dataStore = [DataStore sharedDataStore];
@@ -57,16 +58,22 @@ static NSString * const reuseIdentifier = @"WikiCell";
     [SVProgressHUD showWithStatus:@"Updating POI"];
     
     //    CLLocationCoordinate2D coordinates = CLLocationCoordinate2DMake(40.7061682, -74.0136262);
-    CLLocationCoordinate2D coordinates = self.lastWikiUpdateLocation.coordinate;
+    CLLocationCoordinate2D coordinates = self.dataStore.lastWikiUpdateLocation.coordinate;
     [WikiAPIClient getArticlesAroundLocation:coordinates radius:400 completion:^(NSArray *wikiArticles) {
         
-        self.wikiArticles = wikiArticles;
+        self.dataStore.wikiArticles = wikiArticles;
         
         [self.collectionView reloadData];
         
         [SVProgressHUD dismiss];
         
     }];
+}
+
+- (IBAction)doneButtonTapped:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -79,7 +86,7 @@ static NSString * const reuseIdentifier = @"WikiCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 //#warning Incomplete method implementation -- Return the number of items in the section
-    return self.wikiArticles.count;
+    return self.dataStore.wikiArticles.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,7 +94,7 @@ static NSString * const reuseIdentifier = @"WikiCell";
     
     // Configure the cell
     
-    WikiArticle *currentArticle = self.wikiArticles[indexPath.row];
+    WikiArticle *currentArticle = self.dataStore.wikiArticles[indexPath.row];
     
     UILabel *label = (UILabel*)[cell viewWithTag:100];
     label.text = currentArticle.title;
@@ -95,9 +102,11 @@ static NSString * const reuseIdentifier = @"WikiCell";
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:99];
     
     imageView.clipsToBounds = YES;
-    imageView.image = [UIImage imageNamed:@"default-placeholder"];
+//    imageView.image = [UIImage imageNamed:@"default-placeholder"];
     
     if (!currentArticle.image) {
+        
+        imageView.image = nil;
         
         [WikiAPIClient getArticleImageList:currentArticle.pageID completion:^(NSArray *imageList) {
             
@@ -108,7 +117,20 @@ static NSString * const reuseIdentifier = @"WikiCell";
                     
                     [imageView sd_setImageWithURL:imageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                         
-                        currentArticle.image = image;
+                        if (image)
+                        {
+                            imageView.alpha = 0.0;
+                            
+                            currentArticle.image = image;
+                            
+                            [UIView animateWithDuration:0.5 animations:^{
+                                
+                                imageView.alpha = 1.0;
+                                
+                            }];
+                        }
+                        
+                        
                     }];
                     
                 }];
@@ -137,7 +159,11 @@ static NSString * const reuseIdentifier = @"WikiCell";
         
     }
     
-    
+    cell.layer.masksToBounds = NO;
+//    cell.layer.cornerRadius = 8; // if you like rounded corners
+    cell.layer.shadowOffset = CGSizeMake(1, 1);
+//    cell.layer.shadowRadius = 5;
+    cell.layer.shadowOpacity = 0.7;
     
     return cell;
 }
@@ -178,21 +204,21 @@ static NSString * const reuseIdentifier = @"WikiCell";
     
     CLLocation *currentLocation = (CLLocation *)[locations firstObject];
     
-    if (!self.lastWikiUpdateLocation) {
+    if (!self.dataStore.lastWikiUpdateLocation) {
         
-        self.lastWikiUpdateLocation = currentLocation;
+        self.dataStore.lastWikiUpdateLocation = currentLocation;
         
         [self updateWikiArticles];
         
     } else {
         
-        double distanceFromLastWikiUpdateLocation = [currentLocation distanceFromLocation:self.lastWikiUpdateLocation];
+        double distanceFromLastWikiUpdateLocation = [currentLocation distanceFromLocation:self.dataStore.lastWikiUpdateLocation];
         
         [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%fm away from last wiki update location", distanceFromLastWikiUpdateLocation]];
         
         if (distanceFromLastWikiUpdateLocation > 400) { // every quarter mile?
             
-            self.lastWikiUpdateLocation = currentLocation;
+            self.dataStore.lastWikiUpdateLocation = currentLocation;
             
             [self updateWikiArticles];
             
@@ -209,7 +235,7 @@ static NSString * const reuseIdentifier = @"WikiCell";
     
     NSIndexPath *indexPath = [self.collectionView.indexPathsForSelectedItems firstObject];
     
-    WikiArticle *selectedArticle = self.wikiArticles[indexPath.row];
+    WikiArticle *selectedArticle = self.dataStore.wikiArticles[indexPath.row];
     
     destVC.wikiArticle = selectedArticle;
     
