@@ -20,6 +20,7 @@
                                  @"format" : @"json",
                                  @"list" : @"geosearch",
                                  @"gsradius" : @(radius),
+                                 @"gslimit" : @20,
                                  @"gscoord" : [NSString stringWithFormat:@"%f|%f",coordinate.latitude, coordinate.longitude]
                                  };
     
@@ -79,6 +80,77 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
         // need to implement failure
+        completion(nil);
+        
+    }];
+    
+}
+
++ (void) getArticleImageList:(NSNumber *)articleID completion:(void(^)(NSArray *imageList))completion {
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSDictionary *parameters = @{
+                                 @"action" : @"query",
+                                 @"format" : @"json",
+                                 @"prop" : @"images",
+                                 @"pageids" : articleID
+                                 };
+    
+    [manager GET:@"https://en.wikipedia.org/w/api.php" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSArray *imageList = responseObject[@"query"][@"pages"][[articleID stringValue]][@"images"];
+        
+        //        NSArray *array = [NSArray arrayWithObject:[NSMutableDictionary dictionaryWithObject:@"filter string" forKey:@"email"]];   // you can also do same for Name key...
+        NSArray *filteredarray = [imageList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(title CONTAINS[c] %@)", @".jpg"]];
+        
+        //        NSLog(@"%@",filteredarray);
+        
+        completion(filteredarray);
+        
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        // need to implement failure
+        NSLog(@"%@",error);
+        
+        completion(nil);
+        
+    }];
+    
+}
+
++ (void) getArticleImageURL:(NSString *)fileName completion:(void(^)(NSURL *imageURL))completion {
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSDictionary *parameters = @{
+                                 @"action" : @"query",
+                                 @"format" : @"json",
+                                 @"prop" : @"imageinfo",
+                                 @"iiprop" : @"url",
+                                 @"titles" : fileName
+                                 };
+    
+    [manager GET:@"https://en.wikipedia.org/w/api.php" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSArray *responseValues = [responseObject[@"query"][@"pages"] allValues]; // only one value
+        // strangly we get -1 back for some dictionaries...
+        
+        NSString *urlString = [responseValues firstObject][@"imageinfo"][0][@"url"];
+        
+        //        NSLog(@"%@",urlString);
+        
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        completion(url);
+        
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        // need to implement failure
+        NSLog(@"%@",error);
+        
         completion(nil);
         
     }];

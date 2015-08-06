@@ -19,6 +19,7 @@
 		63C8B38244F3ABD6D75E8AB9 /* libPods-TrailMix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D40E02762E4FD5B07430F174 /* libPods-TrailMix.a */; };
 		72A9DDA61B6FECE600870BD7 /* WikiTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9DDA31B6FECE600870BD7 /* WikiTableViewController.m */; };
 		72A9DDA71B6FECE600870BD7 /* WikiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9DDA51B6FECE600870BD7 /* WikiWebViewController.m */; };
+		72DA65931B73D86E00B35DBB /* WikiCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DA65921B73D86E00B35DBB /* WikiCollectionViewController.m */; };
 		72F9A3361B69681B00E8494F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A3351B69681B00E8494F /* main.m */; };
 		72F9A3391B69681B00E8494F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A3381B69681B00E8494F /* AppDelegate.m */; };
 		72F9A33F1B69681B00E8494F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F9A33D1B69681B00E8494F /* Main.storyboard */; };
@@ -58,14 +59,16 @@
 		3DDD993B1B6A7C2F00178632 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		3DDD993D1B6AC24D00178632 /* RestaurantTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTypeTableViewController.h; sourceTree = "<group>"; };
 		3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTypeTableViewController.m; sourceTree = "<group>"; };
-		72A9DDA21B6FECE600870BD7 /* WikiTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiTableViewController.h; sourceTree = "<group>"; };
-		72A9DDA31B6FECE600870BD7 /* WikiTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiTableViewController.m; sourceTree = "<group>"; };
-		72A9DDA41B6FECE600870BD7 /* WikiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiWebViewController.h; sourceTree = "<group>"; };
-		72A9DDA51B6FECE600870BD7 /* WikiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiWebViewController.m; sourceTree = "<group>"; };
 		3DEA3B321B6FEDEA00D4022B /* RestaurantCDObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantCDObject.h; path = Models/RestaurantCDObject.h; sourceTree = "<group>"; };
 		3DEA3B331B6FEDEA00D4022B /* RestaurantCDObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantCDObject.m; path = Models/RestaurantCDObject.m; sourceTree = "<group>"; };
 		3DEA3B351B6FF0CD00D4022B /* DollarSignTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DollarSignTableViewController.h; path = Controllers/DollarSignTableViewController.h; sourceTree = "<group>"; };
 		3DEA3B361B6FF0CD00D4022B /* DollarSignTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DollarSignTableViewController.m; path = Controllers/DollarSignTableViewController.m; sourceTree = "<group>"; };
+		72A9DDA21B6FECE600870BD7 /* WikiTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiTableViewController.h; sourceTree = "<group>"; };
+		72A9DDA31B6FECE600870BD7 /* WikiTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiTableViewController.m; sourceTree = "<group>"; };
+		72A9DDA41B6FECE600870BD7 /* WikiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiWebViewController.h; sourceTree = "<group>"; };
+		72A9DDA51B6FECE600870BD7 /* WikiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiWebViewController.m; sourceTree = "<group>"; };
+		72DA65911B73D86E00B35DBB /* WikiCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiCollectionViewController.h; sourceTree = "<group>"; };
+		72DA65921B73D86E00B35DBB /* WikiCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiCollectionViewController.m; sourceTree = "<group>"; };
 		72F9A3301B69681B00E8494F /* TrailMix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailMix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F9A3341B69681B00E8494F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72F9A3351B69681B00E8494F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				3DDD99351B6A761B00178632 /* RestaurantPreferenceTableViewController.m */,
 				72A9DDA21B6FECE600870BD7 /* WikiTableViewController.h */,
 				72A9DDA31B6FECE600870BD7 /* WikiTableViewController.m */,
+				72DA65911B73D86E00B35DBB /* WikiCollectionViewController.h */,
+				72DA65921B73D86E00B35DBB /* WikiCollectionViewController.m */,
 				72A9DDA41B6FECE600870BD7 /* WikiWebViewController.h */,
 				72A9DDA51B6FECE600870BD7 /* WikiWebViewController.m */,
 				3DEA3B351B6FF0CD00D4022B /* DollarSignTableViewController.h */,
@@ -392,6 +397,7 @@
 				72F9A3391B69681B00E8494F /* AppDelegate.m in Sources */,
 				3D825F131B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m in Sources */,
 				DB416F421B697D2B00A1E41B /* YelpAPIClient.m in Sources */,
+				72DA65931B73D86E00B35DBB /* WikiCollectionViewController.m in Sources */,
 				3DA6ADAD1B6977400022EF4D /* NaviViewController.m in Sources */,
 				72FEAD811B697C4400F0FF33 /* WikiAPIClient.m in Sources */,
 				3DEA3B341B6FEDEA00D4022B /* RestaurantCDObject.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <UIKit/UIKit.h>
 
 @interface WikiArticle : NSObject
 
@@ -16,6 +17,7 @@
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic) CLLocationDistance distance;
 @property (nonatomic, strong) NSString *extract;
+@property (nonatomic, strong) UIImage *image;
 
 - (instancetype) initWithPageID:(NSNumber*)pageID title:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate distance:(CLLocationDistance)distance;
 
