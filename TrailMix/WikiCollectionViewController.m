@@ -38,17 +38,19 @@
     
     self.dataStore = [DataStore sharedDataStore];
     
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    
+    [notificationCenter addObserver:self selector:@selector(startedGettingArticlesAroundLocation) name:@"startedGettingArticlesAroundLocation" object:nil];
+    
+    [notificationCenter addObserver:self selector:@selector(finishedGettingArticlesAroundLocation) name:@"finishedGettingArticlesAroundLocation" object:nil];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
     
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
-    [notificationCenter addObserver:self selector:@selector(startedGettingArticlesAroundLocation) name:@"startedGettingArticlesAroundLocation" object:nil];
-    
-    [notificationCenter addObserver:self selector:@selector(finishedGettingArticlesAroundLocation) name:@"finishedGettingArticlesAroundLocation" object:nil];
     
 }
 
@@ -66,17 +68,17 @@
     
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    
-    [self viewDidDisappear:animated];
-    
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-    
-    [notificationCenter removeObserver:self name:@"startedGettingArticlesAroundLocation" object:nil];
-    
-    [notificationCenter removeObserver:self name:@"finishedGettingArticlesAroundLocation" object:nil];
-    
-}
+//- (void)viewWillDisappear:(BOOL)animated {
+//    
+//    [self viewWillDisappear:animated];
+//    
+//    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+//    
+//    [notificationCenter removeObserver:self name:@"startedGettingArticlesAroundLocation" object:nil];
+//    
+//    [notificationCenter removeObserver:self name:@"finishedGettingArticlesAroundLocation" object:nil];
+//    
+//}
 
 - (IBAction)doneButtonTapped:(id)sender {
     
