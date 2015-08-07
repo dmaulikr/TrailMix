@@ -7,16 +7,13 @@
 //
 
 #import "WikiCollectionViewController.h"
-#import "WikiAPIClient.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-#import <JDStatusBarNotification/JDStatusBarNotification.h>
 #import "DataStore.h"
 #import "WikiWebViewController.h"
 #import "WikiCollectionViewCell.h"
 
-@interface WikiCollectionViewController () <CLLocationManagerDelegate>
+@interface WikiCollectionViewController ()
 
-@property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) DataStore *dataStore;
 
 @end
@@ -41,28 +38,44 @@
     
     self.dataStore = [DataStore sharedDataStore];
     
-    self.locationManager = [CLLocationManager new];
-    
-    self.locationManager.delegate = self;
-    
-    [self.locationManager startUpdatingLocation];
 }
 
-- (void) updateWikiArticles {
+- (void)viewDidAppear:(BOOL)animated {
     
+    [super viewDidAppear:animated];
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    
+    [notificationCenter addObserver:self selector:@selector(startedGettingArticlesAroundLocation) name:@"startedGettingArticlesAroundLocation" object:nil];
+    
+    [notificationCenter addObserver:self selector:@selector(finishedGettingArticlesAroundLocation) name:@"finishedGettingArticlesAroundLocation" object:nil];
+    
+}
+
+- (void) startedGettingArticlesAroundLocation {
+
     [SVProgressHUD showWithStatus:@"Updating POI"];
     
-    //    CLLocationCoordinate2D coordinates = CLLocationCoordinate2DMake(40.7061682, -74.0136262);
-    CLLocationCoordinate2D coordinates = self.dataStore.lastWikiUpdateLocation.coordinate;
-    [WikiAPIClient getArticlesAroundLocation:coordinates radius:400 completion:^(NSArray *wikiArticles) {
-        
-        self.dataStore.wikiArticles = wikiArticles;
-        
-        [self.collectionView reloadData];
-        
-        [SVProgressHUD dismiss];
-        
-    }];
+}
+
+- (void) finishedGettingArticlesAroundLocation {
+ 
+    [self.collectionView reloadData];
+    
+    [SVProgressHUD dismiss];
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    
+    [self viewDidDisappear:animated];
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    
+    [notificationCenter removeObserver:self name:@"startedGettingArticlesAroundLocation" object:nil];
+    
+    [notificationCenter removeObserver:self name:@"finishedGettingArticlesAroundLocation" object:nil];
+    
 }
 
 - (IBAction)doneButtonTapped:(id)sender {
@@ -134,36 +147,6 @@
 }
 */
 
-#pragma mark - CLLocation Protocol Methods
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    
-    CLLocation *currentLocation = (CLLocation *)[locations firstObject];
-    
-    if (!self.dataStore.lastWikiUpdateLocation) {
-        
-        self.dataStore.lastWikiUpdateLocation = currentLocation;
-        
-        [self updateWikiArticles];
-        
-    } else {
-        
-        double distanceFromLastWikiUpdateLocation = [currentLocation distanceFromLocation:self.dataStore.lastWikiUpdateLocation];
-        
-        [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%fm away from last wiki update location", distanceFromLastWikiUpdateLocation]];
-        
-        if (distanceFromLastWikiUpdateLocation > 400) { // every quarter mile?
-            
-            self.dataStore.lastWikiUpdateLocation = currentLocation;
-            
-            [self updateWikiArticles];
-            
-        }
-        
-    }
-    
-}
-
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     WikiWebViewController *destVC = segue.destinationViewController;
@@ -173,10 +156,6 @@
     WikiArticle *selectedArticle = self.dataStore.wikiArticles[indexPath.row];
     
     destVC.wikiArticle = selectedArticle;
-    
-//    NSString *urlString = [NSString stringWithFormat:@"https://en.wikipedia.org/wiki/%@", [selectedArticle.title stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
-    
-//    destVC.url = [NSURL URLWithString:urlString];
     
 }
 
