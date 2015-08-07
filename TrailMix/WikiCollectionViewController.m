@@ -12,11 +12,10 @@
 #import <JDStatusBarNotification/JDStatusBarNotification.h>
 #import "DataStore.h"
 #import "WikiWebViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "WikiCollectionViewCell.h"
 
 @interface WikiCollectionViewController () <CLLocationManagerDelegate>
 
-//@property (nonatomic, strong) NSArray *wikiArticles;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) DataStore *dataStore;
 
@@ -24,14 +23,10 @@
 
 @implementation WikiCollectionViewController
 
-static NSString * const reuseIdentifier = @"WikiCell";
-
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // https://developer.apple.com/library/ios/documentation/UIKit/Reference/UICollectionViewDelegateFlowLayout_protocol/
    
-    
-    
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
 //    self.collectionViewLayout =
@@ -89,75 +84,15 @@ static NSString * const reuseIdentifier = @"WikiCell";
     return self.dataStore.wikiArticles.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+- (WikiCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    WikiCollectionViewCell *cell = (WikiCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"WikiCell" forIndexPath:indexPath];
     
     // Configure the cell
     
     WikiArticle *currentArticle = self.dataStore.wikiArticles[indexPath.row];
     
-    UILabel *label = (UILabel*)[cell viewWithTag:100];
-    label.text = currentArticle.title;
-    
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:99];
-    
-    imageView.clipsToBounds = YES;
-//    imageView.image = [UIImage imageNamed:@"default-placeholder"];
-    
-    if (!currentArticle.image) {
-        
-        imageView.image = nil;
-        
-        [WikiAPIClient getArticleImageList:currentArticle.pageID completion:^(NSArray *imageList) {
-            
-            NSString *imageFileName = [imageList firstObject][@"title"];
-            
-            if (imageFileName) {
-                [WikiAPIClient getArticleImageURL:imageFileName completion:^(NSURL *imageURL) {
-                    
-                    [imageView sd_setImageWithURL:imageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                        
-                        if (image)
-                        {
-                            imageView.alpha = 0.0;
-                            
-                            currentArticle.image = image;
-                            
-                            [UIView animateWithDuration:0.5 animations:^{
-                                
-                                imageView.alpha = 1.0;
-                                
-                            }];
-                        }
-                        
-                        
-                    }];
-                    
-                }];
-            } else {
-  
-                NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/staticmap?center=%f,%f&zoom=17&size=400x400&maptype=terrain&markers=color:red%%7C%f,%f", currentArticle.coordinate.latitude, currentArticle.coordinate.longitude,currentArticle.coordinate.latitude, currentArticle.coordinate.longitude];
-                
-                
-//                NSLog(@"%@",urlString);
-                NSURL *imageURL = [NSURL URLWithString: urlString];
-                
-                [imageView sd_setImageWithURL:imageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                    NSLog(@"%@",error);
-                    currentArticle.image = image;
-                    
-                }];
-                
-            }
-            
-            
-        }];
-        
-    } else {
-        
-        imageView.image = currentArticle.image;
-        
-    }
+    cell.article = currentArticle;
     
     cell.layer.masksToBounds = NO;
 //    cell.layer.cornerRadius = 8; // if you like rounded corners

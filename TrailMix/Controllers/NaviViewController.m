@@ -269,12 +269,12 @@
 
 -(CGFloat)calculateRotationRadian{
     CGFloat result = 0.0f;
-    NSLog(@"this is %@",@(self.heading));
+//    NSLog(@"this is %@",@(self.heading));
     CGFloat number = self.heading;
     if(number>180){
         number = number-360;
     }
-    NSLog(@"this is %@",@(number));
+//    NSLog(@"this is %@",@(number));
 
     [self.headingArray addObject:@(number)];
     CGFloat baseNumber = ((NSNumber *)self.headingArray[0]).floatValue;
@@ -295,7 +295,7 @@
     }
     result = result/self.headingArray.count;
     
-    NSLog(@"%f",result);
+//    NSLog(@"%f",result);
     return result+baseNumber;
 }
 
