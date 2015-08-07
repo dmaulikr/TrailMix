@@ -142,7 +142,7 @@
         
         [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%fm away from last wiki update location", distanceFromLastWikiUpdateLocation]];
         
-        if (distanceFromLastWikiUpdateLocation > 20) { // every quarter mile?
+        if (distanceFromLastWikiUpdateLocation > 400) { // every quarter mile?
             
             self.dataStore.lastWikiUpdateLocation = self.currentLocation;
             
