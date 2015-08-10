@@ -223,7 +223,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
                                 <rect key="frame" x="480" y="33" width="104" height="30"/>
                                 <state key="normal" title="Visit This Place">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -232,7 +232,7 @@
                                     <action selector="visitButtonTapped:" destination="LA8-22-ULE" eventType="touchUpInside" id="xto-wr-jDq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apu-gy-1gU">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apu-gy-1gU">
                                 <rect key="frame" x="16" y="72" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -327,35 +327,58 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5IY-d2-o5B">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c8D-Pc-txF">
-                            <size key="itemSize" width="135" height="170"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="8" id="c8D-Pc-txF">
+                            <size key="itemSize" width="138" height="170"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WikiCell" id="1Wu-Ym-gYZ" customClass="WikiCollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="135" height="170"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="138" height="170"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="99" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8EC-Pq-k26">
-                                            <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Re1-Ax-0v1">
-                                            <rect key="frame" x="8" y="134" width="119" height="36"/>
-                                            <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFW-ji-XWl">
+                                            <rect key="frame" x="0.0" y="0.0" width="138" height="170"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="99" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8EC-Pq-k26">
+                                                    <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="8EC-Pq-k26" secondAttribute="height" multiplier="1:1" id="mw3-W3-bBe"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Re1-Ax-0v1">
+                                                    <rect key="frame" x="8" y="138" width="122" height="32"/>
+                                                    <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="8EC-Pq-k26" secondAttribute="centerX" id="4Ri-r6-wbY"/>
+                                                <constraint firstItem="8EC-Pq-k26" firstAttribute="top" secondItem="VFW-ji-XWl" secondAttribute="top" id="6JL-tO-B64"/>
+                                                <constraint firstItem="Re1-Ax-0v1" firstAttribute="width" secondItem="VFW-ji-XWl" secondAttribute="width" constant="-16" id="98U-Jc-WQA"/>
+                                                <constraint firstItem="8EC-Pq-k26" firstAttribute="width" secondItem="VFW-ji-XWl" secondAttribute="width" id="DWe-2w-3Jx"/>
+                                                <constraint firstItem="Re1-Ax-0v1" firstAttribute="top" secondItem="8EC-Pq-k26" secondAttribute="bottom" id="Wn4-GW-sdz"/>
+                                                <constraint firstAttribute="bottom" secondItem="Re1-Ax-0v1" secondAttribute="bottom" id="XXA-RM-DEk"/>
+                                                <constraint firstAttribute="centerX" secondItem="Re1-Ax-0v1" secondAttribute="centerX" id="qTc-gI-Bd6"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="VFW-ji-XWl" firstAttribute="bottom" secondItem="1Wu-Ym-gYZ" secondAttribute="bottom" id="gRg-Tf-Zzp"/>
+                                    <constraint firstItem="VFW-ji-XWl" firstAttribute="trailing" secondItem="1Wu-Ym-gYZ" secondAttribute="trailing" id="kfc-38-bjC"/>
+                                    <constraint firstAttribute="top" secondItem="VFW-ji-XWl" secondAttribute="top" id="sLS-36-k1U"/>
+                                    <constraint firstItem="VFW-ji-XWl" firstAttribute="leading" secondItem="1Wu-Ym-gYZ" secondAttribute="leading" id="sf3-m0-SUP"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="8EC-Pq-k26" id="m9J-BE-35E"/>
                                     <outlet property="titleLabel" destination="Re1-Ax-0v1" id="mTg-49-NqL"/>

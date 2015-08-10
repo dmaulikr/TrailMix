@@ -160,7 +160,7 @@
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
-    NSNotification *startedNotification = [NSNotification notificationWithName:@"startedGettingArticlesAroundLocation" object:nil userInfo:nil];
+    NSNotification *startedNotification = [NSNotification notificationWithName:@"didStartGettingArticlesAroundLocation" object:nil userInfo:nil];
     
     [notificationCenter postNotification:startedNotification];
 
@@ -169,7 +169,7 @@
         
         self.dataStore.wikiArticles = wikiArticles;
         
-        NSNotification *finishedNotification = [NSNotification notificationWithName:@"finishedGettingArticlesAroundLocation" object:nil userInfo:nil];
+        NSNotification *finishedNotification = [NSNotification notificationWithName:@"didFinishGettingArticlesAroundLocation" object:nil userInfo:nil];
         
         [notificationCenter postNotification:finishedNotification];
         
