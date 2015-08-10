@@ -247,15 +247,23 @@
                                     <constraint firstAttribute="width" secondItem="bxr-TE-A5s" secondAttribute="height" multiplier="1:1" id="h3r-vj-nNb"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ox-Bz-047">
+                                <rect key="frame" x="281" y="72" width="38" height="30"/>
+                                <state key="normal" title="Abort">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bxr-TE-A5s" firstAttribute="width" secondItem="oh2-k0-mBE" secondAttribute="width" multiplier="0.5" id="5AA-hV-1CE"/>
+                            <constraint firstAttribute="centerX" secondItem="4ox-Bz-047" secondAttribute="centerX" id="5lB-og-wNc"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="13" id="9lG-ab-QAJ"/>
                             <constraint firstAttribute="centerY" secondItem="bxr-TE-A5s" secondAttribute="centerY" id="acd-VL-7Bd"/>
                             <constraint firstItem="Apu-gy-1gU" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leadingMargin" id="d7X-8q-fSq"/>
                             <constraint firstAttribute="centerX" secondItem="bxr-TE-A5s" secondAttribute="centerX" id="l7W-10-7k2"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="trailing" secondItem="oh2-k0-mBE" secondAttribute="trailingMargin" id="msq-Gl-SdC"/>
+                            <constraint firstItem="4ox-Bz-047" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="52" id="p19-8A-Dql"/>
                             <constraint firstAttribute="centerX" secondItem="nwY-c2-R14" secondAttribute="centerX" id="uOc-RA-pa0"/>
                             <constraint firstItem="Apu-gy-1gU" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="8" id="zm3-ZY-bh9"/>
                         </constraints>
