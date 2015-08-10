@@ -12,7 +12,7 @@
 #import "WikiWebViewController.h"
 #import "WikiCollectionViewCell.h"
 
-@interface WikiCollectionViewController ()
+@interface WikiCollectionViewController () <UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) DataStore *dataStore;
 
@@ -40,9 +40,9 @@
     
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     
-    [notificationCenter addObserver:self selector:@selector(startedGettingArticlesAroundLocation) name:@"startedGettingArticlesAroundLocation" object:nil];
+    [notificationCenter addObserver:self selector:@selector(didStartGettingArticlesAroundLocation) name:@"didStartGettingArticlesAroundLocation" object:nil];
     
-    [notificationCenter addObserver:self selector:@selector(finishedGettingArticlesAroundLocation) name:@"finishedGettingArticlesAroundLocation" object:nil];
+    [notificationCenter addObserver:self selector:@selector(didFinishGettingArticlesAroundLocation) name:@"didFinishGettingArticlesAroundLocation" object:nil];
     
 }
 
@@ -54,13 +54,13 @@
     
 }
 
-- (void) startedGettingArticlesAroundLocation {
+- (void) didStartGettingArticlesAroundLocation {
 
     [SVProgressHUD showWithStatus:@"Updating POI"];
     
 }
 
-- (void) finishedGettingArticlesAroundLocation {
+- (void) didFinishGettingArticlesAroundLocation {
  
     [self.collectionView reloadData];
     
@@ -74,9 +74,9 @@
 //    
 //    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 //    
-//    [notificationCenter removeObserver:self name:@"startedGettingArticlesAroundLocation" object:nil];
+//    [notificationCenter removeObserver:self name:@"didStartGettingArticlesAroundLocation" object:nil];
 //    
-//    [notificationCenter removeObserver:self name:@"finishedGettingArticlesAroundLocation" object:nil];
+//    [notificationCenter removeObserver:self name:@"didFinishGettingArticlesAroundLocation" object:nil];
 //    
 //}
 
@@ -107,6 +107,10 @@
     
     WikiArticle *currentArticle = self.dataStore.wikiArticles[indexPath.row];
     
+    // http://stackoverflow.com/questions/3248201/why-is-scrolling-performance-poor-for-custom-table-view-cells-having-uisegmented
+    cell.layer.shouldRasterize = YES;
+    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    
     cell.article = currentArticle;
     
     cell.layer.masksToBounds = NO;
@@ -116,6 +120,27 @@
     cell.layer.shadowOpacity = 0.7;
     
     return cell;
+}
+
+#pragma mark <UICollectionViewDelegateFlowLayout>
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    if (indexPath.row == 0) {
+//       return CGSizeMake(200, 200);
+//    } else {
+//       
+//    }
+    
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    
+//    (WikiCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath].
+    
+    CGFloat cellWidth = (width - 8*3) / 2;
+    
+    return CGSizeMake(cellWidth, cellWidth * 1.2); // assuming 8 px margins for now...
+    
+    
 }
 
 #pragma mark <UICollectionViewDelegate>
