@@ -140,6 +140,10 @@
                                     <action selector="fourDollarTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="ve6-8X-aqU"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="4VM-lB-l0S">
+                                <rect key="frame" x="150" y="256" width="300" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -147,11 +151,13 @@
                             <constraint firstItem="034-NV-S3O" firstAttribute="centerY" secondItem="0cc-MI-MpS" secondAttribute="centerY" constant="52" id="1mO-sK-sFc"/>
                             <constraint firstItem="XBx-q6-4oM" firstAttribute="leading" secondItem="1Iw-AX-FSm" secondAttribute="trailing" constant="18" id="2YB-lg-6MV"/>
                             <constraint firstItem="Sim-th-EWD" firstAttribute="top" secondItem="5VJ-ze-pTE" secondAttribute="bottom" constant="8" id="3ZE-5c-IWw"/>
+                            <constraint firstAttribute="centerX" secondItem="4VM-lB-l0S" secondAttribute="centerX" id="3v3-N2-79X"/>
                             <constraint firstItem="tjp-qH-Pfe" firstAttribute="centerX" secondItem="5VJ-ze-pTE" secondAttribute="centerX" id="59P-gL-USq"/>
                             <constraint firstItem="HT6-PK-YfT" firstAttribute="top" secondItem="BmM-G4-NzV" secondAttribute="top" id="8xs-1W-KP2"/>
                             <constraint firstItem="F3J-og-PZb" firstAttribute="leading" secondItem="0eJ-UL-Xer" secondAttribute="trailing" constant="25" id="BGd-XX-Dip"/>
                             <constraint firstItem="034-NV-S3O" firstAttribute="top" secondItem="0cc-MI-MpS" secondAttribute="bottom" constant="22" id="Ckh-nN-mbW"/>
                             <constraint firstAttribute="centerY" secondItem="Ltt-4s-bbP" secondAttribute="centerY" constant="248" id="E9f-k8-g7o"/>
+                            <constraint firstItem="4VM-lB-l0S" firstAttribute="width" secondItem="5VJ-ze-pTE" secondAttribute="width" id="ETE-8I-8i1"/>
                             <constraint firstItem="034-NV-S3O" firstAttribute="centerX" secondItem="0cc-MI-MpS" secondAttribute="centerX" id="GZr-fO-cR9"/>
                             <constraint firstAttribute="trailing" secondItem="HT6-PK-YfT" secondAttribute="trailing" id="Oee-WB-JYO"/>
                             <constraint firstItem="1Iw-AX-FSm" firstAttribute="centerY" secondItem="tjp-qH-Pfe" secondAttribute="centerY" id="Scx-CU-dnX"/>
@@ -169,6 +175,7 @@
                             <constraint firstItem="0eJ-UL-Xer" firstAttribute="centerY" secondItem="F3J-og-PZb" secondAttribute="centerY" id="ld7-Js-Iqt"/>
                             <constraint firstItem="TLD-Hk-ysn" firstAttribute="leading" secondItem="0cc-MI-MpS" secondAttribute="trailing" constant="18" id="lvN-pe-67y"/>
                             <constraint firstItem="h6M-1J-nH6" firstAttribute="leading" secondItem="034-NV-S3O" secondAttribute="trailing" constant="26" id="mRk-Ml-Fld"/>
+                            <constraint firstItem="5VJ-ze-pTE" firstAttribute="top" secondItem="4VM-lB-l0S" secondAttribute="bottom" id="mva-Mk-iGr"/>
                             <constraint firstItem="tjp-qH-Pfe" firstAttribute="leading" secondItem="TLD-Hk-ysn" secondAttribute="trailing" constant="18" id="nhT-iX-pDO"/>
                             <constraint firstItem="TLD-Hk-ysn" firstAttribute="centerY" secondItem="tjp-qH-Pfe" secondAttribute="centerY" id="o0f-EP-Ile"/>
                             <constraint firstItem="1Iw-AX-FSm" firstAttribute="leading" secondItem="tjp-qH-Pfe" secondAttribute="trailing" constant="18" id="qcH-zj-imP"/>
