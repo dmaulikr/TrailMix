@@ -17,6 +17,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    
+    //4 means all stars, which is the default
+    if(![userDefault integerForKey:@"ratingPref"]){
+        [userDefault setInteger:0 forKey:@"ratingPref"];
+    }
+    
+    if(![userDefault integerForKey:@"pricingPref"]){
+        [userDefault setInteger:0 forKey:@"pricingPref"];
+    }
+    
+    
+    
+    
+    
     return YES;
 }
 

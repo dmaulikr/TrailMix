@@ -15,16 +15,8 @@
 @property (strong, nonatomic) FAKFontAwesome *filledStarIcon;
 @property (strong, nonatomic) FAKFontAwesome *unSelectedDollarIcon;
 @property (strong, nonatomic) FAKFontAwesome *selectedDollarIcon;
-@property (weak, nonatomic) IBOutlet UIButton *starOne;
-- (IBAction)starOneTapped:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *starTwo;
-- (IBAction)starTwoTapped:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *starThree;
-- (IBAction)starThreeTapped:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *starFour;
-- (IBAction)starFourTapped:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *starFive;
-- (IBAction)starFiveTapped:(id)sender;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *fourDollar;
 @property (weak, nonatomic) IBOutlet UIButton *threeDollar;
 @property (weak, nonatomic) IBOutlet UIButton *twoDollar;
@@ -35,6 +27,18 @@
 - (IBAction)oneDollarTapped:(id)sender;
 -(void)selectDollar:(UIButton *)button;
 - (void)unSelectDollar:(UIButton *)button;
+
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *starButtons;
+@property (strong, nonatomic) NSUserDefaults *userDefaults;
+
+
+
+
+
+
+
+
 @end
 
 @implementation FilterViewController
@@ -42,21 +46,10 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-    //Setup star icons
     
-    [self setUpStarIcons:self.starOne];
-    [self setUpStarIcons:self.starTwo];
-    [self setUpStarIcons:self.starThree];
-    [self setUpStarIcons:self.starFour];
-    [self setUpStarIcons:self.starFive];
+    self.userDefaults = [NSUserDefaults standardUserDefaults];
     
     
-    //Star Icons in selected state
-    [self selectStarState:self.starOne];
-    [self selectStarState:self.starTwo];
-    [self selectStarState:self.starThree];
-    [self selectStarState:self.starFour];
-    [self selectStarState:self.starFive];
     
     //Setup Dollar Icons
     [self fourDollarSigns:self.fourDollar];
@@ -70,6 +63,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    //Setup star icons
+    [self initTheStars];
+    //Star Icons in selected state
+    NSUInteger starPref = [self.userDefaults integerForKey:@"starPref"];
+    [self updateStarPrefWithTagNum:starPref];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,6 +75,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)initTheStars{
+    for(UIButton *button in self.starButtons){
+        [self setUpStarIcons:button];
+    }
+}
+
+-(void)updateStarPrefWithTagNum:(NSInteger)tag{
+    for(UIButton *button in self.starButtons){
+        [self.userDefaults setInteger:tag forKey:@"starPref"];
+        if (button.tag<=tag) {
+            [self selectStarState:button];
+        }else{
+            [self unselectStarState:button];
+        }
+    }
+    
+}
 
 
 -(void)formatTimeButton:(UIButton *)button
@@ -177,108 +192,12 @@
         
     }];
 }
-- (IBAction)starOneTapped:(UIButton *)sender {
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.filledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self unselectStarState:self.starTwo];
-        [self unselectStarState:self.starThree];
-        [self unselectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-    }
-}
-- (IBAction)starTwoTapped:(UIButton *)sender {
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.filledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self unselectStarState:self.starThree];
-        [self unselectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-    }
-    
-        if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.unFilledStarIcon attributedString]]) {
-            
-            [self selectStarState:self.starOne];
-            [self selectStarState:self.starTwo];
-            [self unselectStarState:self.starThree];
-            [self unselectStarState:self.starFour];
-            [self unselectStarState:self.starFive];
-    
-            
-        }
 
+- (IBAction)starButtonTapped:(UIButton *)sender {
+    [self updateStarPrefWithTagNum:sender.tag];
 }
-- (IBAction)starThreeTapped:(UIButton *)sender{
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.filledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self unselectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-    }
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.unFilledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self unselectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-        
-        
-    }
 
-}
-- (IBAction)starFourTapped:(UIButton *)sender {
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.filledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self selectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-    }
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.unFilledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self selectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-        
-        
-    }
 
-}
-- (IBAction)starFiveTapped:(UIButton *)sender {
-
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.filledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self selectStarState:self.starFour];
-        [self selectStarState:self.starFive];
-    }
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.unFilledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self selectStarState:self.starFour];
-        [self selectStarState:self.starFive];
-        
-        
-    }
-
-}
 
 - (IBAction)fourDollarTapped:(UIButton *)sender {
     

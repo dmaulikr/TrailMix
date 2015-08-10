@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *tenMinuteButton;
 @property (weak, nonatomic) IBOutlet UIButton *twentyMinuteButton;
 @property (weak, nonatomic) IBOutlet UIButton *thirtyMinuteButton;
+@property (assign, nonatomic) NSInteger selectedTime;
 
 @end
 
@@ -42,14 +43,20 @@
 
 }
 
-/*
+- (IBAction)timeButtonTapped:(id)sender {
+    UIButton *button = sender;
+    self.selectedTime = button.tag;
+    [self performSegueWithIdentifier:@"goToCompass" sender:nil];
+}
+
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
 }
-*/
+
 
 @end

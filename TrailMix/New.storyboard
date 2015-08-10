@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7OE-XJ-RSs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4VR-eh-Pu2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -55,44 +55,43 @@
                                 <rect key="frame" x="149" y="146" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="starOneTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="XAw-rR-vxy"/>
+                                    <action selector="starButtonTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="QE1-pn-mVT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLD-Hk-ysn" userLabel="twoStar">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLD-Hk-ysn" userLabel="twoStar">
                                 <rect key="frame" x="213" y="146" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="starTwoTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="Zux-J1-mfv"/>
+                                    <action selector="starButtonTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="bM5-Sl-FFa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Iw-AX-FSm" userLabel="fourStar">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Iw-AX-FSm" userLabel="fourStar">
                                 <rect key="frame" x="341" y="146" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="starFourTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="bdk-aB-Tsp"/>
+                                    <action selector="starButtonTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="agN-z7-KSi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBx-q6-4oM" userLabel="fiveStar">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBx-q6-4oM" userLabel="fiveStar">
                                 <rect key="frame" x="405" y="146" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="starFiveTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="7zI-1a-qFW"/>
+                                    <action selector="starButtonTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="4IU-tU-PAS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjp-qH-Pfe" userLabel="threeStar">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjp-qH-Pfe" userLabel="threeStar">
                                 <rect key="frame" x="277" y="146" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="starFourTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="u4U-af-mIs"/>
-                                    <action selector="starThreeTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="UrE-LX-Jgr"/>
+                                    <action selector="starButtonTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="36x-YU-Om0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferences" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRy-Ea-Y8C">
@@ -191,13 +190,13 @@
                         <outlet property="foodTypesTableView" destination="5VJ-ze-pTE" id="o6p-WZ-UMD"/>
                         <outlet property="fourDollar" destination="034-NV-S3O" id="w5q-Io-9oY"/>
                         <outlet property="oneDollar" destination="F3J-og-PZb" id="tUl-K6-U8n"/>
-                        <outlet property="starFive" destination="XBx-q6-4oM" id="t5I-VW-oJ1"/>
-                        <outlet property="starFour" destination="1Iw-AX-FSm" id="bU5-eb-7Ak"/>
-                        <outlet property="starOne" destination="0cc-MI-MpS" id="IbQ-lV-gfz"/>
-                        <outlet property="starThree" destination="tjp-qH-Pfe" id="vMo-Lo-Ff0"/>
-                        <outlet property="starTwo" destination="TLD-Hk-ysn" id="eRH-hc-qGe"/>
                         <outlet property="threeDollar" destination="h6M-1J-nH6" id="amP-0j-Ajx"/>
                         <outlet property="twoDollar" destination="0eJ-UL-Xer" id="JTW-BX-UVD"/>
+                        <outletCollection property="starButtons" destination="0cc-MI-MpS" id="wFi-Tl-yfg"/>
+                        <outletCollection property="starButtons" destination="TLD-Hk-ysn" id="6Kk-oO-nEt"/>
+                        <outletCollection property="starButtons" destination="tjp-qH-Pfe" id="DIN-eG-dFw"/>
+                        <outletCollection property="starButtons" destination="1Iw-AX-FSm" id="gKg-OC-p9p"/>
+                        <outletCollection property="starButtons" destination="XBx-q6-4oM" id="BgQ-mM-lpy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jp9-zJ-3WZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -219,7 +218,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="authentic-mexican-foods" translatesAutoresizingMaskIntoConstraints="NO" id="vdW-90-hlZ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdQ-Ce-n84">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdQ-Ce-n84">
                                 <rect key="frame" x="151" y="275" width="297" height="49"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <inset key="contentEdgeInsets" minX="99" minY="10" maxX="100" maxY="10"/>
@@ -228,10 +227,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gED-Fo-zPu" kind="show" identifier="fiveMinutes" id="rm0-9l-cIq"/>
+                                    <action selector="timeButtonTapped:" destination="7OE-XJ-RSs" eventType="touchUpInside" id="PTu-hi-BTT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V54-ca-f1Z">
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V54-ca-f1Z">
                                 <rect key="frame" x="151" y="345" width="297" height="49"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
@@ -240,10 +239,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gED-Fo-zPu" kind="show" identifier="tenMinutes" id="0fb-k6-EdG"/>
+                                    <action selector="timeButtonTapped:" destination="7OE-XJ-RSs" eventType="touchUpInside" id="w3g-qh-nhT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AB6-Bd-i7S">
+                            <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AB6-Bd-i7S">
                                 <rect key="frame" x="151" y="415" width="297" height="49"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
@@ -252,10 +251,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gED-Fo-zPu" kind="show" identifier="twentyMinutes" id="h7T-LL-jaS"/>
+                                    <action selector="timeButtonTapped:" destination="7OE-XJ-RSs" eventType="touchUpInside" id="QWf-kf-oP7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2j-aw-3Io">
+                            <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2j-aw-3Io">
                                 <rect key="frame" x="151" y="485" width="297" height="49"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
@@ -264,11 +263,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gED-Fo-zPu" kind="show" identifier="thirtyMinutes" id="OxK-Po-fgm"/>
+                                    <action selector="timeButtonTapped:" destination="7OE-XJ-RSs" eventType="touchUpInside" id="aWb-1D-i2A"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a travel time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8X-z9-C2W">
-                                <rect key="frame" x="146" y="79" width="307" height="42.5"/>
+                                <rect key="frame" x="146" y="79" width="307" height="43"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -318,17 +317,19 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="LXZ-AB-QGU"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="fiveMinuteButton" destination="tdQ-Ce-n84" id="qej-VV-rnD"/>
                         <outlet property="tenMinuteButton" destination="V54-ca-f1Z" id="EZd-vB-UWQ"/>
                         <outlet property="thirtyMinuteButton" destination="m2j-aw-3Io" id="ghn-7Q-9f5"/>
                         <outlet property="twentyMinuteButton" destination="AB6-Bd-i7S" id="gJK-HV-qGJ"/>
+                        <segue destination="gED-Fo-zPu" kind="show" identifier="goToCompass" id="gDe-WG-ICM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2X-KT-A8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="582" y="412"/>
+            <point key="canvasLocation" x="1259" y="511"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nac-DY-aMq">
@@ -346,14 +347,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vhv-tS-Cma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1226" y="412"/>
+            <point key="canvasLocation" x="2038" y="412"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vZO-2k-ufj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="4VR-eh-Pu2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y3h-i3-KgW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7OE-XJ-RSs" kind="relationship" relationship="rootViewController" id="7iY-zZ-K56"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sN-Q6-xMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447" y="511"/>
         </scene>
     </scenes>
     <resources>
         <image name="authentic-mexican-foods" width="375" height="667"/>
         <image name="foodiesfeed.com_chicken-steak-egg-spinach-broccoli-avocado-carrot" width="375" height="667"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="rm0-9l-cIq"/>
-    </inferredMetricsTieBreakers>
 </document>
