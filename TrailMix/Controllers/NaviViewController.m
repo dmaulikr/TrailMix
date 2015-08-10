@@ -14,7 +14,7 @@
 #import "WikiAPIClient.h"
 #import <JDStatusBarNotification/JDStatusBarNotification.h>
 
-@interface NaviViewController ()<CLLocationManagerDelegate>
+@interface NaviViewController () <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
 @property (strong, nonatomic) CLLocation *restaurantLocation;
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -140,7 +140,7 @@
         
         double distanceFromLastWikiUpdateLocation = [self.currentLocation distanceFromLocation:self.dataStore.lastWikiUpdateLocation];
         
-//        [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%fm away from last wiki update location", distanceFromLastWikiUpdateLocation]];
+        [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%fm away from last wiki update location", distanceFromLastWikiUpdateLocation]];
         
         if (distanceFromLastWikiUpdateLocation > 400) { // every quarter mile?
             
@@ -157,9 +157,21 @@
 - (void) updateWikiArticles {
     
     CLLocationCoordinate2D coordinates = self.dataStore.lastWikiUpdateLocation.coordinate;
+    
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    
+    NSNotification *startedNotification = [NSNotification notificationWithName:@"startedGettingArticlesAroundLocation" object:nil userInfo:nil];
+    
+    [notificationCenter postNotification:startedNotification];
+
+    
     [WikiAPIClient getArticlesAroundLocation:coordinates radius:400 completion:^(NSArray *wikiArticles) {
         
         self.dataStore.wikiArticles = wikiArticles;
+        
+        NSNotification *finishedNotification = [NSNotification notificationWithName:@"finishedGettingArticlesAroundLocation" object:nil userInfo:nil];
+        
+        [notificationCenter postNotification:finishedNotification];
         
 //        [self.tableView reloadData];
         
@@ -168,7 +180,11 @@
     }];
     
 }
-
+- (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
+    
+    return YES;
+    
+}
 -(void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
     self.heading = newHeading.trueHeading;
 }
@@ -265,12 +281,12 @@
 
 -(CGFloat)calculateRotationRadian{
     CGFloat result = 0.0f;
-    NSLog(@"this is %@",@(self.heading));
+//    NSLog(@"this is %@",@(self.heading));
     CGFloat number = self.heading;
     if(number>180){
         number = number-360;
     }
-    NSLog(@"this is %@",@(number));
+//    NSLog(@"this is %@",@(number));
 
     [self.headingArray addObject:@(number)];
     CGFloat baseNumber = ((NSNumber *)self.headingArray[0]).floatValue;
@@ -291,7 +307,7 @@
     }
     result = result/self.headingArray.count;
     
-    NSLog(@"%f",result);
+//    NSLog(@"%f",result);
     return result+baseNumber;
 }
 

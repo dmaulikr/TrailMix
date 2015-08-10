@@ -204,7 +204,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TnC-Db-DAi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="394" y="1141"/>
+            <point key="canvasLocation" x="403" y="1171"/>
         </scene>
         <!--Navi View Controller-->
         <scene sceneID="ban-XR-uxc">
@@ -321,6 +321,66 @@
             </objects>
             <point key="canvasLocation" x="3553" y="1199"/>
         </scene>
+        <!--Points of Interest-->
+        <scene sceneID="p2A-KN-NIb">
+            <objects>
+                <collectionViewController id="Sov-ms-rNH" customClass="WikiCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5IY-d2-o5B">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c8D-Pc-txF">
+                            <size key="itemSize" width="135" height="170"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WikiCell" id="1Wu-Ym-gYZ" customClass="WikiCollectionViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="135" height="170"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="99" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8EC-Pq-k26">
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Re1-Ax-0v1">
+                                            <rect key="frame" x="8" y="134" width="119" height="36"/>
+                                            <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="imageView" destination="8EC-Pq-k26" id="m9J-BE-35E"/>
+                                    <outlet property="titleLabel" destination="Re1-Ax-0v1" id="mTg-49-NqL"/>
+                                    <segue destination="vLH-Qi-Iv2" kind="show" id="0p4-Ny-eXw"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Sov-ms-rNH" id="Tco-B3-SGd"/>
+                            <outlet property="delegate" destination="Sov-ms-rNH" id="0TE-al-RFM"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Points of Interest" id="Bi1-9J-qod">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="RM0-dL-B3v">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="Sov-ms-rNH" id="R3Q-Bz-Uwk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vvA-7h-gZf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3486" y="1908"/>
+        </scene>
         <!--Wiki Web View Controller-->
         <scene sceneID="axX-PL-02c">
             <objects>
@@ -383,7 +443,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wrd-fp-x0l" kind="relationship" relationship="rootViewController" id="yNn-xr-kM7"/>
+                        <segue destination="Sov-ms-rNH" kind="relationship" relationship="rootViewController" id="j91-bJ-d3G"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5C-Zg-byl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -394,4 +454,7 @@
     <resources>
         <image name="food" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="0p4-Ny-eXw"/>
+    </inferredMetricsTieBreakers>
 </document>
