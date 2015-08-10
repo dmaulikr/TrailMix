@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4VR-eh-Pu2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4VR-eh-Pu2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -104,22 +104,22 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6M-1J-nH6">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6M-1J-nH6">
                                 <rect key="frame" x="248" y="198" width="40" height="30"/>
                                 <state key="normal" title="Dollar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="threeDollarTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="IcD-mn-xiK"/>
+                                    <action selector="dollarButtontapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="Vki-T2-78c"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eJ-UL-Xer">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eJ-UL-Xer">
                                 <rect key="frame" x="311" y="198" width="40" height="30"/>
                                 <state key="normal" title="Dollar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="twoDollarTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="2FX-Nt-wf6"/>
+                                    <action selector="dollarButtontapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="qY1-3q-k53"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3J-og-PZb">
@@ -128,22 +128,44 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="oneDollarTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="m2j-6x-EAj"/>
+                                    <action selector="dollarButtontapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="ERi-Qc-bKj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="034-NV-S3O">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="034-NV-S3O">
                                 <rect key="frame" x="182" y="198" width="40" height="30"/>
                                 <state key="normal" title="Dollar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="fourDollarTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="ve6-8X-aqU"/>
+                                    <action selector="dollarButtontapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="keO-Uw-Awg"/>
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="4VM-lB-l0S">
                                 <rect key="frame" x="150" y="256" width="300" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lX6-Gd-npD">
+                                <rect key="frame" x="512" y="67" width="72" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0s2-3c-gNC"/>
+                                    <constraint firstAttribute="width" constant="72" id="Lfw-uB-kb6"/>
+                                    <constraint firstAttribute="height" constant="30" id="k1K-oU-282"/>
+                                    <constraint firstAttribute="width" constant="72" id="why-w5-Xnf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="GO!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0s2-3c-gNC"/>
+                                        <exclude reference="Lfw-uB-kb6"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="UKm-j1-P28" kind="show" id="3Jk-F7-qln"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -153,6 +175,7 @@
                             <constraint firstItem="Sim-th-EWD" firstAttribute="top" secondItem="5VJ-ze-pTE" secondAttribute="bottom" constant="8" id="3ZE-5c-IWw"/>
                             <constraint firstAttribute="centerX" secondItem="4VM-lB-l0S" secondAttribute="centerX" id="3v3-N2-79X"/>
                             <constraint firstItem="tjp-qH-Pfe" firstAttribute="centerX" secondItem="5VJ-ze-pTE" secondAttribute="centerX" id="59P-gL-USq"/>
+                            <constraint firstItem="xRy-Ea-Y8C" firstAttribute="centerY" secondItem="lX6-Gd-npD" secondAttribute="centerY" id="75e-Y0-VxL"/>
                             <constraint firstItem="HT6-PK-YfT" firstAttribute="top" secondItem="BmM-G4-NzV" secondAttribute="top" id="8xs-1W-KP2"/>
                             <constraint firstItem="F3J-og-PZb" firstAttribute="leading" secondItem="0eJ-UL-Xer" secondAttribute="trailing" constant="25" id="BGd-XX-Dip"/>
                             <constraint firstItem="034-NV-S3O" firstAttribute="top" secondItem="0cc-MI-MpS" secondAttribute="bottom" constant="22" id="Ckh-nN-mbW"/>
@@ -160,6 +183,7 @@
                             <constraint firstItem="4VM-lB-l0S" firstAttribute="width" secondItem="5VJ-ze-pTE" secondAttribute="width" id="ETE-8I-8i1"/>
                             <constraint firstItem="034-NV-S3O" firstAttribute="centerX" secondItem="0cc-MI-MpS" secondAttribute="centerX" id="GZr-fO-cR9"/>
                             <constraint firstAttribute="trailing" secondItem="HT6-PK-YfT" secondAttribute="trailing" id="Oee-WB-JYO"/>
+                            <constraint firstItem="xRy-Ea-Y8C" firstAttribute="centerY" secondItem="lX6-Gd-npD" secondAttribute="centerY" id="RxT-Ta-CKw"/>
                             <constraint firstItem="1Iw-AX-FSm" firstAttribute="centerY" secondItem="tjp-qH-Pfe" secondAttribute="centerY" id="Scx-CU-dnX"/>
                             <constraint firstItem="HT6-PK-YfT" firstAttribute="leading" secondItem="BmM-G4-NzV" secondAttribute="leading" id="T1K-JG-3oC"/>
                             <constraint firstItem="034-NV-S3O" firstAttribute="top" secondItem="0cc-MI-MpS" secondAttribute="bottom" constant="22" id="YtG-To-fhl"/>
@@ -169,10 +193,12 @@
                             <constraint firstItem="0eJ-UL-Xer" firstAttribute="leading" secondItem="h6M-1J-nH6" secondAttribute="trailing" constant="23" id="ctp-kZ-odB"/>
                             <constraint firstItem="0eJ-UL-Xer" firstAttribute="centerY" secondItem="h6M-1J-nH6" secondAttribute="centerY" id="eAh-NU-YWq"/>
                             <constraint firstItem="XBx-q6-4oM" firstAttribute="centerY" secondItem="1Iw-AX-FSm" secondAttribute="centerY" id="f8c-86-j8t"/>
+                            <constraint firstItem="lX6-Gd-npD" firstAttribute="trailing" secondItem="BmM-G4-NzV" secondAttribute="trailingMargin" id="gTk-RE-iT0"/>
                             <constraint firstItem="tjp-qH-Pfe" firstAttribute="top" secondItem="xRy-Ea-Y8C" secondAttribute="bottom" constant="49" id="hQa-R6-OH7"/>
                             <constraint firstItem="TLD-Hk-ysn" firstAttribute="centerY" secondItem="0cc-MI-MpS" secondAttribute="centerY" id="jT6-yA-65c"/>
                             <constraint firstAttribute="centerX" secondItem="034-NV-S3O" secondAttribute="centerX" constant="98" id="l3e-EG-HkQ"/>
                             <constraint firstItem="0eJ-UL-Xer" firstAttribute="centerY" secondItem="F3J-og-PZb" secondAttribute="centerY" id="ld7-Js-Iqt"/>
+                            <constraint firstItem="lX6-Gd-npD" firstAttribute="leading" secondItem="xRy-Ea-Y8C" secondAttribute="trailing" constant="123" id="ltH-Dx-8h0"/>
                             <constraint firstItem="TLD-Hk-ysn" firstAttribute="leading" secondItem="0cc-MI-MpS" secondAttribute="trailing" constant="18" id="lvN-pe-67y"/>
                             <constraint firstItem="h6M-1J-nH6" firstAttribute="leading" secondItem="034-NV-S3O" secondAttribute="trailing" constant="26" id="mRk-Ml-Fld"/>
                             <constraint firstItem="5VJ-ze-pTE" firstAttribute="top" secondItem="4VM-lB-l0S" secondAttribute="bottom" id="mva-Mk-iGr"/>
@@ -186,29 +212,49 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="75e-Y0-VxL"/>
                                 <exclude reference="Ckh-nN-mbW"/>
                                 <exclude reference="GZr-fO-cR9"/>
                                 <exclude reference="59P-gL-USq"/>
                                 <exclude reference="u3V-b7-HNx"/>
+                                <exclude reference="ltH-Dx-8h0"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="foodTypesTableView" destination="5VJ-ze-pTE" id="o6p-WZ-UMD"/>
-                        <outlet property="fourDollar" destination="034-NV-S3O" id="w5q-Io-9oY"/>
-                        <outlet property="oneDollar" destination="F3J-og-PZb" id="tUl-K6-U8n"/>
-                        <outlet property="threeDollar" destination="h6M-1J-nH6" id="amP-0j-Ajx"/>
-                        <outlet property="twoDollar" destination="0eJ-UL-Xer" id="JTW-BX-UVD"/>
                         <outletCollection property="starButtons" destination="0cc-MI-MpS" id="wFi-Tl-yfg"/>
                         <outletCollection property="starButtons" destination="TLD-Hk-ysn" id="6Kk-oO-nEt"/>
                         <outletCollection property="starButtons" destination="tjp-qH-Pfe" id="DIN-eG-dFw"/>
                         <outletCollection property="starButtons" destination="1Iw-AX-FSm" id="gKg-OC-p9p"/>
                         <outletCollection property="starButtons" destination="XBx-q6-4oM" id="BgQ-mM-lpy"/>
+                        <outletCollection property="dollarButtons" destination="034-NV-S3O" id="Y2V-6x-ESk"/>
+                        <outletCollection property="dollarButtons" destination="h6M-1J-nH6" id="ew2-GD-IOP"/>
+                        <outletCollection property="dollarButtons" destination="0eJ-UL-Xer" id="apR-sB-3uy"/>
+                        <outletCollection property="dollarButtons" destination="F3J-og-PZb" id="3LT-0Q-IaY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jp9-zJ-3WZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="395" y="-252"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="BNn-D1-RcN">
+            <objects>
+                <viewController id="UKm-j1-P28" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gGS-aA-Cx0"/>
+                        <viewControllerLayoutGuide type="bottom" id="C5J-KI-2Lv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="84T-8s-Tce">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6eN-LC-w9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022" y="-250"/>
         </scene>
         <!--Travel Time View Controller-->
         <scene sceneID="LSq-yi-OtF">

@@ -16,21 +16,13 @@
 @property (strong, nonatomic) FAKFontAwesome *unSelectedDollarIcon;
 @property (strong, nonatomic) FAKFontAwesome *selectedDollarIcon;
 
-
-@property (weak, nonatomic) IBOutlet UIButton *fourDollar;
-@property (weak, nonatomic) IBOutlet UIButton *threeDollar;
-@property (weak, nonatomic) IBOutlet UIButton *twoDollar;
-@property (weak, nonatomic) IBOutlet UIButton *oneDollar;
-- (IBAction)fourDollarTapped:(id)sender;
-- (IBAction)threeDollarTapped:(id)sender;
-- (IBAction)twoDollarTapped:(id)sender;
-- (IBAction)oneDollarTapped:(id)sender;
 -(void)selectDollar:(UIButton *)button;
 - (void)unSelectDollar:(UIButton *)button;
 
-
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *starButtons;
 @property (strong, nonatomic) NSUserDefaults *userDefaults;
+
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *dollarButtons;
 
 
 
@@ -48,23 +40,23 @@
     [super viewDidLoad];
     
     self.userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    
-    
-    //Setup Dollar Icons
-    [self fourDollarSigns:self.fourDollar];
-    [self threeDollarSigns:self.threeDollar];
-    [self twoDollarSigns:self.twoDollar];
-    [self oneDollarSign:self.oneDollar];
-
     self.foodTypesTableView.backgroundColor = [UIColor clearColor];
+    
+    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
+    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
+    self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
+    [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    
+    [self initTheDollars];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    
     //Setup star icons
     [self initTheStars];
+    
     //Star Icons in selected state
     NSUInteger starPref = [self.userDefaults integerForKey:@"starPref"];
     [self updateStarPrefWithTagNum:starPref];
@@ -75,16 +67,47 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)initTheStars{
+-(void)initTheStars
+{
     for(UIButton *button in self.starButtons){
         [self setUpStarIcons:button];
     }
 }
 
+-(void)initTheDollars
+{
+    for (UIButton *button in self.dollarButtons) {
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:[self.selectedDollarIcon attributedString]];
+        for(NSInteger i = 0; i<button.tag;i++){
+            [string appendAttributedString:[self.selectedDollarIcon attributedString]];
+        }
+        [button setAttributedTitle:string forState:UIControlStateNormal];
+    }
+    
+}
+
+-(void)selectDollar:(UIButton *)button
+{
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:[self.selectedDollarIcon attributedString]];
+        for(NSInteger i = 0; i < button.tag; i++){
+            [string appendAttributedString:[self.selectedDollarIcon attributedString]];
+        }
+        [button setAttributedTitle:string forState:UIControlStateNormal];
+}
+- (void)unSelectDollar:(UIButton *)button
+{
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:[self.unSelectedDollarIcon attributedString]];
+        for(NSInteger i = 0; i < button.tag; i++){
+            [string appendAttributedString:[self.unSelectedDollarIcon attributedString]];
+        }
+        [button setAttributedTitle:string forState:UIControlStateNormal];
+}
+
+
 -(void)updateStarPrefWithTagNum:(NSInteger)tag{
     for(UIButton *button in self.starButtons){
         [self.userDefaults setInteger:tag forKey:@"starPref"];
-        if (button.tag<=tag) {
+        if (button.tag <= tag) {
             [self selectStarState:button];
         }else{
             [self unselectStarState:button];
@@ -92,7 +115,16 @@
     }
     
 }
-
+-(void)updateDollarPreWithTagNum:(NSInteger)tag
+{
+    for (UIButton *button in self.dollarButtons) {
+        if (button.tag > tag) {
+            [self unSelectDollar:button];
+        } else {
+            [self selectDollar:button];
+        }
+    }
+}
 
 -(void)formatTimeButton:(UIButton *)button
 {
@@ -103,60 +135,7 @@
     
 }
 #pragma mark - Dollar Icon Setup and Logic
--(void)fourDollarSigns:(UIButton *)button
-{
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
-    NSMutableAttributedString *fiveDollarString = [[NSMutableAttributedString alloc] initWithAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [button setAttributedTitle:fiveDollarString forState:UIControlStateNormal];
-}
 
--(void)threeDollarSigns:(UIButton *)button
-{
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
-    NSMutableAttributedString *fiveDollarString = [[NSMutableAttributedString alloc] initWithAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [button setAttributedTitle:fiveDollarString forState:UIControlStateNormal];
-}
-
--(void)twoDollarSigns:(UIButton *)button
-{
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
-    NSMutableAttributedString *fiveDollarString = [[NSMutableAttributedString alloc] initWithAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [button setAttributedTitle:fiveDollarString forState:UIControlStateNormal];
-}
-
--(void)oneDollarSign:(UIButton *)button
-{
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
-    NSMutableAttributedString *fiveDollarString = [[NSMutableAttributedString alloc] initWithAttributedString:[self.selectedDollarIcon attributedString]];
-    [button setAttributedTitle:fiveDollarString forState:UIControlStateNormal];
-}
-
-- (void)setUpDollarIcons:(UIButton *)button
-{
-    self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
-    [button setAttributedTitle:[self.selectedDollarIcon attributedString] forState:UIControlStateNormal];
-}
--(void)selectDollar:(UIButton *)button
-{
-    [button setAttributedTitle:[self.selectedDollarIcon attributedString] forState:UIControlStateNormal];
-}
-- (void)unSelectDollar:(UIButton *)button
-{
-           [button setAttributedTitle:[self.unSelectedDollarIcon attributedString] forState:UIControlStateNormal];
-}
 #pragma mark - Star Icon Setup and Logic
 
 - (void)setUpStarIcons:(UIButton *)button
@@ -176,12 +155,6 @@
 -(void)unselectStarState:(UIButton *)button
 {
     [button setAttributedTitle:[self.unFilledStarIcon attributedString] forState:UIControlStateNormal];
-
-}
-
-- (NSAttributedString *)starState:(UIButton *)button
-{
-    return button.titleLabel.attributedText;
 }
 
 #pragma mark - Button Actions
@@ -193,24 +166,14 @@
     }];
 }
 
-- (IBAction)starButtonTapped:(UIButton *)sender {
+- (IBAction)starButtonTapped:(UIButton *)sender
+{
     [self updateStarPrefWithTagNum:sender.tag];
 }
 
-
-
-- (IBAction)fourDollarTapped:(UIButton *)sender {
-    
-}
-
-- (IBAction)threeDollarTapped:(UIButton *)sender {
-    
-}
-
-- (IBAction)twoDollarTapped:(id)sender {
-}
-
-- (IBAction)oneDollarTapped:(id)sender {
+- (IBAction)dollarButtontapped:(UIButton *)sender
+{
+    [self updateDollarPreWithTagNum:sender.tag];
 }
 
 
