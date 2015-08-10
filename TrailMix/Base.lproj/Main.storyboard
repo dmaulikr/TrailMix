@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dyH-Sr-WmR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LA8-22-ULE">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -136,7 +136,6 @@
                     <connections>
                         <outlet property="priceCell" destination="xR4-Gy-Pel" id="x4f-DI-Rw4"/>
                         <outlet property="restaurantTypeCell" destination="vDW-47-RXy" id="FBd-FE-U52"/>
-                        <segue destination="LA8-22-ULE" kind="show" identifier="goToCompass" id="qu6-22-wiS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lb2-t0-WeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -224,7 +223,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
                                 <rect key="frame" x="480" y="33" width="104" height="30"/>
                                 <state key="normal" title="Visit This Place">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -233,7 +232,7 @@
                                     <action selector="visitButtonTapped:" destination="LA8-22-ULE" eventType="touchUpInside" id="xto-wr-jDq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apu-gy-1gU">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apu-gy-1gU">
                                 <rect key="frame" x="16" y="72" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -248,15 +247,23 @@
                                     <constraint firstAttribute="width" secondItem="bxr-TE-A5s" secondAttribute="height" multiplier="1:1" id="h3r-vj-nNb"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ox-Bz-047">
+                                <rect key="frame" x="281" y="72" width="38" height="30"/>
+                                <state key="normal" title="Abort">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bxr-TE-A5s" firstAttribute="width" secondItem="oh2-k0-mBE" secondAttribute="width" multiplier="0.5" id="5AA-hV-1CE"/>
+                            <constraint firstAttribute="centerX" secondItem="4ox-Bz-047" secondAttribute="centerX" id="5lB-og-wNc"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="13" id="9lG-ab-QAJ"/>
                             <constraint firstAttribute="centerY" secondItem="bxr-TE-A5s" secondAttribute="centerY" id="acd-VL-7Bd"/>
                             <constraint firstItem="Apu-gy-1gU" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leadingMargin" id="d7X-8q-fSq"/>
                             <constraint firstAttribute="centerX" secondItem="bxr-TE-A5s" secondAttribute="centerX" id="l7W-10-7k2"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="trailing" secondItem="oh2-k0-mBE" secondAttribute="trailingMargin" id="msq-Gl-SdC"/>
+                            <constraint firstItem="4ox-Bz-047" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="52" id="p19-8A-Dql"/>
                             <constraint firstAttribute="centerX" secondItem="nwY-c2-R14" secondAttribute="centerX" id="uOc-RA-pa0"/>
                             <constraint firstItem="Apu-gy-1gU" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="8" id="zm3-ZY-bh9"/>
                         </constraints>
