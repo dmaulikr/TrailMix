@@ -9,20 +9,25 @@
 #import "FilterViewController.h"
 #import <FAKFontAwesome.h>
 #import <MultiSelectSegmentedControl.h>
+#import "NaviViewController.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "FourSquareAPIClient.h"
+#import "DataStore.h"
+
 @interface FilterViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *foodTypesTableView;
 @property (strong, nonatomic) FAKFontAwesome *unFilledStarIcon;
 @property (strong, nonatomic) FAKFontAwesome *filledStarIcon;
 @property (strong, nonatomic) FAKFontAwesome *unSelectedDollarIcon;
 @property (strong, nonatomic) FAKFontAwesome *selectedDollarIcon;
-
--(void)selectDollar:(UIButton *)button;
-- (void)unSelectDollar:(UIButton *)button;
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *starButtons;
 @property (strong, nonatomic) NSUserDefaults *userDefaults;
-
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *dollarButtons;
+
+@property (strong, nonatomic) NSArray *foodTypes;
+@property (strong, nonatomic) NSMutableArray *selectedFoodTypes;
+
 
 @end
 
@@ -31,6 +36,22 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    
+    [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
+    [FourSquareAPIClient getNearbyRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^() {
+        NSLog(@"finished");
+        self.foodTypes = [DataStore sharedDataStore].restaurantDictionary.allKeys;
+        self.selectedFoodTypes = [DataStore sharedDataStore].selectedFoodTypes;
+        [self.tableView reloadData];
+        
+        [SVProgressHUD dismiss];
+    }];
+    
+    
+    
     
     self.userDefaults = [NSUserDefaults standardUserDefaults];
     self.foodTypesTableView.backgroundColor = [UIColor clearColor];
@@ -40,15 +61,24 @@
     self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
     [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
     
-    [self initTheDollars];
+    
+}
+- (IBAction)goButtonTapped:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NaviViewController *destVC = [storyboard instantiateInitialViewController];
+    [[DataStore sharedDataStore] filteredRestaurant];
+    [DataStore sharedDataStore].destinationIsResaurant = YES;
+    [self presentViewController:destVC animated:YES completion:nil];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     
-    //Setup star icons
+    //Setup icons
     [self initTheStars];
+    [self initTheDollars];
     
     //Star Icons in selected state
     NSUInteger starPref = [self.userDefaults integerForKey:@"starPref"];
@@ -59,6 +89,54 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.foodTypes.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"foodTypeCell" forIndexPath:indexPath];
+    
+    cell.textLabel.text = self.foodTypes[indexPath.row];
+    BOOL isSelected = NO;
+    for(NSString *string in self.selectedFoodTypes){
+        if ([self.foodTypes[indexPath.row] isEqualToString:string]) {
+            isSelected = YES;
+        }
+    }
+    if(isSelected){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(cell.accessoryType == UITableViewCellAccessoryNone){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.selectedFoodTypes addObject: self.foodTypes[indexPath.row]];
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.selectedFoodTypes removeObject:self.foodTypes[indexPath.row]];
+    }
+    
+}
+
 
 -(void)initTheStars
 {

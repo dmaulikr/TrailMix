@@ -32,6 +32,23 @@
                                     <constraint firstAttribute="height" constant="292" id="bMU-i6-7tC"/>
                                     <constraint firstAttribute="width" constant="300" id="z9x-of-CG7"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="foodTypeCell" textLabel="pCs-dM-C9s" style="IBUITableViewCellStyleDefault" id="9PZ-SV-9Lq">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9PZ-SV-9Lq" id="cCB-eg-rQT">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pCs-dM-C9s">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="RFT-c7-7gm"/>
@@ -163,7 +180,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="UKm-j1-P28" kind="show" id="3Jk-F7-qln"/>
+                                    <action selector="goButtonTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="cUB-9c-oag"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -223,6 +240,7 @@
                     </view>
                     <connections>
                         <outlet property="foodTypesTableView" destination="5VJ-ze-pTE" id="o6p-WZ-UMD"/>
+                        <outlet property="tableView" destination="5VJ-ze-pTE" id="vbP-F4-A3p"/>
                         <outletCollection property="starButtons" destination="0cc-MI-MpS" id="wFi-Tl-yfg"/>
                         <outletCollection property="starButtons" destination="TLD-Hk-ysn" id="6Kk-oO-nEt"/>
                         <outletCollection property="starButtons" destination="tjp-qH-Pfe" id="DIN-eG-dFw"/>

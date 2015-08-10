@@ -15,8 +15,8 @@
                                 Name:(NSString *)name
                             Latitude:(NSString *)latitude
                            Longitude:(NSString *)longitude
-                         DollarSigns:(NSString *)dollarSigns
-                              Rating:(NSString *)rating;
+                         DollarSigns:(NSNumber *)dollarSigns
+                              Rating:(NSNumber *)rating;
 {
     self = [super init];
     
@@ -26,7 +26,7 @@
         _name = name;
         _latitude = latitude;
         _longitude = longitude;
-        _rating = [NSString stringWithFormat:@"%li",(rating.integerValue)/2];
+        _rating = @((rating.integerValue)/2-1);
         _dollarSigns = @(dollarSigns.integerValue-1);
     }
     

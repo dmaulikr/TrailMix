@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface FilterViewController : UIViewController 
+
+@interface FilterViewController : UIViewController
+
+@property (assign, nonatomic) NSInteger timeInMinute;
+@property (assign, nonatomic) double currentLatitude;
+@property (assign, nonatomic) double currentLongitude;
 
 @end
