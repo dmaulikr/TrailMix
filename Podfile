@@ -9,7 +9,8 @@ pod 'SVProgressHUD'
 pod 'JDStatusBarNotification'
 pod 'MaterialControls'
 pod 'SDWebImage'
-
+pod 'FontAwesomeKit', '~> 2.1.0'
+pod 'MultiSelectSegmentedControl'
 end
 
 target 'TrailMixTests' do

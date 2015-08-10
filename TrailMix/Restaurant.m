@@ -15,7 +15,8 @@
                                 Name:(NSString *)name
                             Latitude:(NSString *)latitude
                            Longitude:(NSString *)longitude
-                         DollarSigns:(NSString *)dollarSigns;
+                         DollarSigns:(NSString *)dollarSigns
+                              Rating:(NSString *)rating;
 {
     self = [super init];
     
@@ -25,6 +26,7 @@
         _name = name;
         _latitude = latitude;
         _longitude = longitude;
+        _rating = [NSString stringWithFormat:@"%li",(rating.integerValue)/2];
         _dollarSigns = @(dollarSigns.integerValue-1);
     }
     
@@ -34,7 +36,7 @@
 + (instancetype)createRestaurantObject:(NSDictionary *)restaurantDictionary
 
 {
-        Restaurant *restaurant = [[Restaurant alloc] initWithCuisineType:restaurantDictionary[@"venue"][@"categories"][0][@"shortName"] VenueId:restaurantDictionary[@"venue"][@"categories"][0][@"id"] Name:restaurantDictionary[@"venue"][@"name"] Latitude:restaurantDictionary[@"venue"][@"location"][@"lat"] Longitude:restaurantDictionary[@"venue"][@"location"][@"lng"] DollarSigns:restaurantDictionary[@"venue"][@"price"][@"tier"]];
+        Restaurant *restaurant = [[Restaurant alloc] initWithCuisineType:restaurantDictionary[@"venue"][@"categories"][0][@"shortName"] VenueId:restaurantDictionary[@"venue"][@"categories"][0][@"id"] Name:restaurantDictionary[@"venue"][@"name"] Latitude:restaurantDictionary[@"venue"][@"location"][@"lat"] Longitude:restaurantDictionary[@"venue"][@"location"][@"lng"] DollarSigns:restaurantDictionary[@"venue"][@"price"][@"tier"]Rating:restaurantDictionary[@"venue"][@"rating"]];
         
     return restaurant;
     
