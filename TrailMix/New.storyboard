@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4VR-eh-Pu2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4VR-eh-Pu2">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -236,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jp9-zJ-3WZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="395" y="-252"/>
+            <point key="canvasLocation" x="1447" y="17"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="BNn-D1-RcN">
@@ -254,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eN-LC-w9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="-250"/>
+            <point key="canvasLocation" x="2140" y="-272"/>
         </scene>
         <!--Travel Time View Controller-->
         <scene sceneID="LSq-yi-OtF">
@@ -325,16 +325,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVN-nE-h60">
-                                <rect key="frame" x="530" y="28" width="54" height="31"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="IiV-kw-1Cq" kind="presentation" id="D5L-vD-2IP"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -345,16 +335,12 @@
                             <constraint firstItem="vdW-90-hlZ" firstAttribute="leading" secondItem="z6l-Bv-rdq" secondAttribute="leading" id="HCP-JO-mfa"/>
                             <constraint firstItem="QLF-Uq-Hk8" firstAttribute="top" secondItem="vdW-90-hlZ" secondAttribute="bottom" id="Iwm-sA-a0d"/>
                             <constraint firstAttribute="centerY" secondItem="tdQ-Ce-n84" secondAttribute="centerY" id="Ra0-Bn-k1y"/>
-                            <constraint firstAttribute="centerX" secondItem="rVN-nE-h60" secondAttribute="centerX" multiplier="0.57" id="RuM-SF-n2Q"/>
                             <constraint firstAttribute="centerX" secondItem="V54-ca-f1Z" secondAttribute="centerX" id="S3q-pP-PQ3"/>
                             <constraint firstAttribute="centerX" secondItem="AB6-Bd-i7S" secondAttribute="centerX" constant="-0.25" id="Wr7-ut-m2j"/>
-                            <constraint firstItem="rVN-nE-h60" firstAttribute="top" secondItem="hsv-WL-Zhz" secondAttribute="bottom" constant="8" id="aXN-f1-qWl"/>
                             <constraint firstItem="tdQ-Ce-n84" firstAttribute="top" secondItem="V8X-z9-C2W" secondAttribute="bottom" constant="153.5" id="bB5-st-cSm"/>
                             <constraint firstAttribute="trailing" secondItem="vdW-90-hlZ" secondAttribute="trailing" id="duy-qj-NDP"/>
                             <constraint firstItem="V8X-z9-C2W" firstAttribute="top" secondItem="hsv-WL-Zhz" secondAttribute="bottom" constant="54" id="fB1-PF-BmL"/>
-                            <constraint firstItem="rVN-nE-h60" firstAttribute="trailing" secondItem="z6l-Bv-rdq" secondAttribute="trailingMargin" id="k1g-w2-vOM"/>
                             <constraint firstItem="m2j-aw-3Io" firstAttribute="top" secondItem="AB6-Bd-i7S" secondAttribute="bottom" constant="21" id="lhO-qT-Lha"/>
-                            <constraint firstAttribute="centerY" secondItem="rVN-nE-h60" secondAttribute="centerY" multiplier="9" id="n3r-gf-wcd"/>
                             <constraint firstItem="tdQ-Ce-n84" firstAttribute="centerX" secondItem="V8X-z9-C2W" secondAttribute="centerX" id="rdH-we-cCm"/>
                             <constraint firstItem="V54-ca-f1Z" firstAttribute="top" secondItem="tdQ-Ce-n84" secondAttribute="bottom" constant="21" id="tdA-Uc-6fp"/>
                             <constraint firstItem="vdW-90-hlZ" firstAttribute="top" secondItem="z6l-Bv-rdq" secondAttribute="top" id="uRj-tt-hDY"/>
@@ -365,8 +351,6 @@
                                 <exclude reference="Bkb-Xr-0xT"/>
                                 <exclude reference="fB1-PF-BmL"/>
                                 <exclude reference="vjO-KX-9u3"/>
-                                <exclude reference="RuM-SF-n2Q"/>
-                                <exclude reference="n3r-gf-wcd"/>
                             </mask>
                         </variation>
                     </view>
@@ -377,30 +361,12 @@
                         <outlet property="tenMinuteButton" destination="V54-ca-f1Z" id="EZd-vB-UWQ"/>
                         <outlet property="thirtyMinuteButton" destination="m2j-aw-3Io" id="ghn-7Q-9f5"/>
                         <outlet property="twentyMinuteButton" destination="AB6-Bd-i7S" id="gJK-HV-qGJ"/>
-                        <segue destination="gED-Fo-zPu" kind="show" identifier="goToCompass" id="gDe-WG-ICM"/>
+                        <segue destination="IiV-kw-1Cq" kind="show" identifier="goToPreference" id="4MQ-VK-rWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2X-KT-A8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1259" y="511"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="nac-DY-aMq">
-            <objects>
-                <viewController id="gED-Fo-zPu" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2jU-JM-cR0"/>
-                        <viewControllerLayoutGuide type="bottom" id="h0L-jS-HY9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ocQ-e1-G6s">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vhv-tS-Cma" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2038" y="412"/>
+            <point key="canvasLocation" x="631" y="17"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vZO-2k-ufj">
@@ -418,7 +384,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0sN-Q6-xMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="447" y="511"/>
+            <point key="canvasLocation" x="-55" y="17"/>
         </scene>
     </scenes>
     <resources>

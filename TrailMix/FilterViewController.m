@@ -9,7 +9,7 @@
 #import "FilterViewController.h"
 #import <FAKFontAwesome.h>
 #import <MultiSelectSegmentedControl.h>
-@interface FilterViewController ()
+@interface FilterViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *foodTypesTableView;
 @property (strong, nonatomic) FAKFontAwesome *unFilledStarIcon;
 @property (strong, nonatomic) FAKFontAwesome *filledStarIcon;
@@ -23,13 +23,6 @@
 @property (strong, nonatomic) NSUserDefaults *userDefaults;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *dollarButtons;
-
-
-
-
-
-
-
 
 @end
 
@@ -161,9 +154,10 @@
 
 - (IBAction)dismissButtonTapped:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        
+//    }];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)starButtonTapped:(UIButton *)sender

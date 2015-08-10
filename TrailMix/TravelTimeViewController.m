@@ -46,7 +46,7 @@
 - (IBAction)timeButtonTapped:(id)sender {
     UIButton *button = sender;
     self.selectedTime = button.tag;
-    [self performSegueWithIdentifier:@"goToCompass" sender:nil];
+    [self performSegueWithIdentifier:@"goToPreference" sender:nil];
 }
 
 
