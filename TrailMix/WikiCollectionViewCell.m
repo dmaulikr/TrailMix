@@ -74,7 +74,12 @@
     
     self.titleLabel.text = self.article.title;
     
-    if (!self.article.image) {
+    
+    
+    
+    
+    
+    if (!self.article.imageURL) {
         
         self.imageView.image = nil;
         
@@ -87,24 +92,26 @@
             if (imageFileName) {
                 
                 [WikiAPIClient getArticleImageURL:imageFileName completion:^(NSURL *imageURL) {
+
                     
-//                    NSLog(@"%@, %@",self.article, article);
+                    // NSLog(@"%@, %@",self.article, article);
                     
                     // This check prevents the download of images if the cell isn't what is currently being displayed
+                    
                     if (self.article == article) { // we need to reference the previous article...
-                        
+                    
                         [self.imageView sd_setImageWithURL:imageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                            
-                            
+  
                             
                             if (image)
                             {
                                 self.imageView.alpha = 0.0;
-
-                                self.article.image = image;
-
+                                
+                                //                                self.article.image = image;
+                                self.article.imageURL = imageURL;
+                                
                                 [UIView animateWithDuration:0.5 animations:^{
-
+                                    
                                     self.imageView.alpha = 1.0;
                                     
                                 }];
@@ -114,21 +121,19 @@
                         }];
                     }
                     
-                    
-                    
                 }];
                 
             } else {
                 
                 NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/staticmap?center=%f,%f&zoom=17&size=400x400&maptype=terrain&markers=color:red%%7C%f,%f", self.article.coordinate.latitude, self.article.coordinate.longitude,self.article.coordinate.latitude, self.article.coordinate.longitude];
                 
-                
                 //                NSLog(@"%@",urlString);
                 NSURL *imageURL = [NSURL URLWithString: urlString];
                 
                 [self.imageView sd_setImageWithURL:imageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                     NSLog(@"%@",error);
-                    self.article.image = image;
+                    //                    self.article.image = image;
+                    self.article.imageURL = imageURL;
                     
                 }];
                 
@@ -136,12 +141,31 @@
             
             
         }];
+            
+        
         
     } else {
         
-        self.imageView.image = self.article.image;
+        [self.imageView sd_setImageWithURL:self.article.imageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            
+            //            if (image)
+            //            {
+            //                self.imageView.alpha = 0.0;
+            //
+            ////                self.article.image = image;
+            //                
+            //                [UIView animateWithDuration:0.5 animations:^{
+            //                    
+            //                    self.imageView.alpha = 1.0;
+            //                    
+            //                }];
+            //            }
+            
+            
+        }];
         
     }
+
     
     
 }

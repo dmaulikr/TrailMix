@@ -17,7 +17,8 @@
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic) CLLocationDistance distance;
 @property (nonatomic, strong) NSString *extract;
-@property (nonatomic, strong) UIImage *image;
+//@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) NSURL *imageURL;
 
 - (instancetype) initWithPageID:(NSNumber*)pageID title:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate distance:(CLLocationDistance)distance;
 
