@@ -120,41 +120,60 @@
     
 }
 
-+ (void) getArticleImageURL:(NSString *)fileName completion:(void(^)(NSURL *imageURL))completion {
++ (void) getArticleImageURL:(NSNumber *)articleID completion:(void(^)(NSURL *imageURL))completion {
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    NSDictionary *parameters = @{
-                                 @"action" : @"query",
-                                 @"format" : @"json",
-                                 @"prop" : @"imageinfo",
-                                 @"iiprop" : @"url",
-                                 @"titles" : fileName
-                                 };
-    
-    [manager GET:@"https://en.wikipedia.org/w/api.php" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+    [WikiAPIClient getArticleImageList:articleID completion:^(NSArray *imageList) {
         
-        NSArray *responseValues = [responseObject[@"query"][@"pages"] allValues]; // only one value
-        // strangly we get -1 back for some dictionaries...
+        if (imageList.count > 0) {
+            
+            NSString *fileName = [imageList firstObject][@"title"];
+            
+            AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+            
+            NSDictionary *parameters = @{
+                                         @"action" : @"query",
+                                         @"format" : @"json",
+                                         @"prop" : @"imageinfo",
+                                         @"iiprop" : @"url",
+                                         @"titles" : fileName
+                                         };
+            
+            [manager GET:@"https://en.wikipedia.org/w/api.php" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                
+                NSArray *responseValues = [responseObject[@"query"][@"pages"] allValues]; // only one value
+                // strangly we get -1 back for some dictionaries...
+                
+                NSString *urlString = [responseValues firstObject][@"imageinfo"][0][@"url"];
+                
+                //        NSLog(@"%@",urlString);
+                
+                NSURL *url = [NSURL URLWithString:urlString];
+                
+                completion(url);
+                
+                
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                
+                // need to implement failure
+                NSLog(@"%@",error);
+                
+                completion(nil);
+                
+            }];
+            
+        } else {
+            
+            completion(nil);
+            
+        }
         
-        NSString *urlString = [responseValues firstObject][@"imageinfo"][0][@"url"];
-        
-        //        NSLog(@"%@",urlString);
-        
-        NSURL *url = [NSURL URLWithString:urlString];
-        
-        completion(url);
-        
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-        // need to implement failure
-        NSLog(@"%@",error);
-        
-        completion(nil);
         
     }];
     
+    
+    
 }
+
+
 
 @end
