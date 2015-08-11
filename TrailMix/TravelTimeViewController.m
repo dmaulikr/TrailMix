@@ -7,12 +7,18 @@
 //
 
 #import "TravelTimeViewController.h"
+#import <CoreLocation/CoreLocation.h>
+#import "FilterViewController.h"
 
-@interface TravelTimeViewController ()
+@interface TravelTimeViewController ()<CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *fiveMinuteButton;
 @property (weak, nonatomic) IBOutlet UIButton *tenMinuteButton;
 @property (weak, nonatomic) IBOutlet UIButton *twentyMinuteButton;
 @property (weak, nonatomic) IBOutlet UIButton *thirtyMinuteButton;
+@property (assign, nonatomic) NSInteger selectedTime;
+
+@property (strong, nonatomic) CLLocation *currentLocation;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -26,11 +32,39 @@
         [self formatTimeButton:button];
     }
     
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    self.locationManager.pausesLocationUpdatesAutomatically = YES;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    [self startLocationService];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)startLocationService{
+    if([CLLocationManager locationServicesEnabled]){
+        
+        if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined){
+            if([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]){
+                [self.locationManager requestAlwaysAuthorization];
+            }
+            [self.locationManager startUpdatingLocation];
+            [self.locationManager startUpdatingHeading];
+        }else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied){
+            //ask user to enable location permission on settings
+            
+        }else{
+            [self.locationManager startUpdatingLocation];
+            [self.locationManager startUpdatingHeading];
+        }
+    }else{
+        //give warning to enable the location service
+    }
+    
 }
 
 -(void)formatTimeButton:(UIButton *)button
@@ -42,14 +76,28 @@
 
 }
 
-/*
+- (IBAction)timeButtonTapped:(id)sender {
+    UIButton *button = sender;
+    self.selectedTime = button.tag;
+    [self performSegueWithIdentifier:@"goToPreference" sender:nil];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    self.currentLocation = (CLLocation *)locations[0];
+}
+
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    FilterViewController *destVC = segue.destinationViewController;
+    NSInteger timeInMinute = self.selectedTime;
+    destVC.timeInMinute = timeInMinute;
+    destVC.currentLatitude = self.currentLocation.coordinate.latitude;
+    destVC.currentLongitude = self.currentLocation.coordinate.longitude;
 }
-*/
+
 
 @end

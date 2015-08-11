@@ -9,32 +9,26 @@
 #import "FilterViewController.h"
 #import <FAKFontAwesome.h>
 #import <MultiSelectSegmentedControl.h>
-@interface FilterViewController ()
+#import "NaviViewController.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "FourSquareAPIClient.h"
+#import "DataStore.h"
+
+@interface FilterViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *foodTypesTableView;
 @property (strong, nonatomic) FAKFontAwesome *unFilledStarIcon;
 @property (strong, nonatomic) FAKFontAwesome *filledStarIcon;
 @property (strong, nonatomic) FAKFontAwesome *unSelectedDollarIcon;
 @property (strong, nonatomic) FAKFontAwesome *selectedDollarIcon;
-@property (weak, nonatomic) IBOutlet UIButton *starOne;
-- (IBAction)starOneTapped:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *starTwo;
-- (IBAction)starTwoTapped:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *starThree;
-- (IBAction)starThreeTapped:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *starFour;
-- (IBAction)starFourTapped:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *starFive;
-- (IBAction)starFiveTapped:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *fourDollar;
-@property (weak, nonatomic) IBOutlet UIButton *threeDollar;
-@property (weak, nonatomic) IBOutlet UIButton *twoDollar;
-@property (weak, nonatomic) IBOutlet UIButton *oneDollar;
-- (IBAction)fourDollarTapped:(id)sender;
-- (IBAction)threeDollarTapped:(id)sender;
-- (IBAction)twoDollarTapped:(id)sender;
-- (IBAction)oneDollarTapped:(id)sender;
--(void)selectDollar:(UIButton *)button;
-- (void)unSelectDollar:(UIButton *)button;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *starButtons;
+@property (strong, nonatomic) NSUserDefaults *userDefaults;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *dollarButtons;
+
+@property (strong, nonatomic) NSArray *foodTypes;
+@property (strong, nonatomic) NSMutableArray *selectedFoodTypes;
+
+
 @end
 
 @implementation FilterViewController
@@ -42,34 +36,54 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-    //Setup star icons
-    
-    [self setUpStarIcons:self.starOne];
-    [self setUpStarIcons:self.starTwo];
-    [self setUpStarIcons:self.starThree];
-    [self setUpStarIcons:self.starFour];
-    [self setUpStarIcons:self.starFive];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     
-    //Star Icons in selected state
-    [self selectStarState:self.starOne];
-    [self selectStarState:self.starTwo];
-    [self selectStarState:self.starThree];
-    [self selectStarState:self.starFour];
-    [self selectStarState:self.starFive];
+    [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
+    [FourSquareAPIClient getNearbyRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^() {
+        NSLog(@"finished");
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]initWithKey:nil ascending:YES];
+        self.foodTypes = [[DataStore sharedDataStore].restaurantDictionary.allKeys sortedArrayUsingDescriptors:@[descriptor]];
+        self.selectedFoodTypes = [DataStore sharedDataStore].selectedFoodTypes;
+        [self.tableView reloadData];
+        
+        [SVProgressHUD dismiss];
+    }];
     
-    //Setup Dollar Icons
-    [self fourDollarSigns:self.fourDollar];
-    [self threeDollarSigns:self.threeDollar];
-    [self twoDollarSigns:self.twoDollar];
-    [self oneDollarSign:self.oneDollar];
-
+    
+    
+    
+    self.userDefaults = [NSUserDefaults standardUserDefaults];
     self.foodTypesTableView.backgroundColor = [UIColor clearColor];
+    
+    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:25];
+    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:25];
+    [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor]];
+    
+    
+}
+- (IBAction)goButtonTapped:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NaviViewController *destVC = [storyboard instantiateInitialViewController];
+    [[DataStore sharedDataStore] filteredRestaurant];
+    [DataStore sharedDataStore].destinationIsResaurant = YES;
+    [self presentViewController:destVC animated:YES completion:nil];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    
+    //Setup icons
+    [self initTheStars];
+    [self initTheDollars];
+    
+    //Star Icons in selected state
+    NSUInteger starPref = [self.userDefaults integerForKey:@"starPref"];
+    [self updateStarPrefWithTagNum:starPref];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,7 +91,112 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.foodTypes.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"foodTypeCell" forIndexPath:indexPath];
+    
+    cell.textLabel.text = self.foodTypes[indexPath.row];
+    BOOL isSelected = NO;
+    for(NSString *string in self.selectedFoodTypes){
+        if ([self.foodTypes[indexPath.row] isEqualToString:string]) {
+            isSelected = YES;
+        }
+    }
+    if(isSelected){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(cell.accessoryType == UITableViewCellAccessoryNone){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.selectedFoodTypes addObject: self.foodTypes[indexPath.row]];
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.selectedFoodTypes removeObject:self.foodTypes[indexPath.row]];
+    }
+    
+}
+
+
+-(void)initTheStars
+{
+    for(UIButton *button in self.starButtons){
+        [self setUpStarIcons:button];
+    }
+}
+
+-(void)initTheDollars
+{
+    for (UIButton *button in self.dollarButtons) {
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:[self.selectedDollarIcon attributedString]];
+        for(NSInteger i = 0; i<button.tag;i++){
+            [string appendAttributedString:[self.selectedDollarIcon attributedString]];
+        }
+        [button setAttributedTitle:string forState:UIControlStateNormal];
+    }
+    
+}
+
+-(void)selectDollar:(UIButton *)button
+{
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:[self.selectedDollarIcon attributedString]];
+        for(NSInteger i = 0; i < button.tag; i++){
+            [string appendAttributedString:[self.selectedDollarIcon attributedString]];
+        }
+        [button setAttributedTitle:string forState:UIControlStateNormal];
+}
+- (void)unSelectDollar:(UIButton *)button
+{
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:[self.unSelectedDollarIcon attributedString]];
+        for(NSInteger i = 0; i < button.tag; i++){
+            [string appendAttributedString:[self.unSelectedDollarIcon attributedString]];
+        }
+        [button setAttributedTitle:string forState:UIControlStateNormal];
+}
+
+
+-(void)updateStarPrefWithTagNum:(NSInteger)tag{
+    for(UIButton *button in self.starButtons){
+        [self.userDefaults setInteger:tag forKey:@"starPref"];
+        if (button.tag <= tag) {
+            [self selectStarState:button];
+        }else{
+            [self unselectStarState:button];
+        }
+    }
+    
+}
+-(void)updateDollarPreWithTagNum:(NSInteger)tag
+{
+    for (UIButton *button in self.dollarButtons) {
+        if (button.tag > tag) {
+            [self unSelectDollar:button];
+        } else {
+            [self selectDollar:button];
+        }
+    }
+}
 
 -(void)formatTimeButton:(UIButton *)button
 {
@@ -88,69 +207,16 @@
     
 }
 #pragma mark - Dollar Icon Setup and Logic
--(void)fourDollarSigns:(UIButton *)button
-{
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
-    NSMutableAttributedString *fiveDollarString = [[NSMutableAttributedString alloc] initWithAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [button setAttributedTitle:fiveDollarString forState:UIControlStateNormal];
-}
 
--(void)threeDollarSigns:(UIButton *)button
-{
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
-    NSMutableAttributedString *fiveDollarString = [[NSMutableAttributedString alloc] initWithAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [button setAttributedTitle:fiveDollarString forState:UIControlStateNormal];
-}
-
--(void)twoDollarSigns:(UIButton *)button
-{
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
-    NSMutableAttributedString *fiveDollarString = [[NSMutableAttributedString alloc] initWithAttributedString:[self.selectedDollarIcon attributedString]];
-    [fiveDollarString appendAttributedString:[self.selectedDollarIcon attributedString]];
-    [button setAttributedTitle:fiveDollarString forState:UIControlStateNormal];
-}
-
--(void)oneDollarSign:(UIButton *)button
-{
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
-    NSMutableAttributedString *fiveDollarString = [[NSMutableAttributedString alloc] initWithAttributedString:[self.selectedDollarIcon attributedString]];
-    [button setAttributedTitle:fiveDollarString forState:UIControlStateNormal];
-}
-
-- (void)setUpDollarIcons:(UIButton *)button
-{
-    self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
-    [button setAttributedTitle:[self.selectedDollarIcon attributedString] forState:UIControlStateNormal];
-}
--(void)selectDollar:(UIButton *)button
-{
-    [button setAttributedTitle:[self.selectedDollarIcon attributedString] forState:UIControlStateNormal];
-}
-- (void)unSelectDollar:(UIButton *)button
-{
-           [button setAttributedTitle:[self.unSelectedDollarIcon attributedString] forState:UIControlStateNormal];
-}
 #pragma mark - Star Icon Setup and Logic
 
 - (void)setUpStarIcons:(UIButton *)button
 {
     self.unFilledStarIcon = [FAKFontAwesome starOIconWithSize:30];
-    [self.unFilledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor yellowColor]];
+    [self.unFilledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
     [button setAttributedTitle:[self.filledStarIcon attributedString] forState:UIControlStateNormal];
     self.filledStarIcon = [FAKFontAwesome starIconWithSize:30];
-    [self.filledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor yellowColor]];
+    [self.filledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
 }
 
 -(void)selectStarState:(UIButton *)button
@@ -161,137 +227,30 @@
 -(void)unselectStarState:(UIButton *)button
 {
     [button setAttributedTitle:[self.unFilledStarIcon attributedString] forState:UIControlStateNormal];
-
-}
-
-- (NSAttributedString *)starState:(UIButton *)button
-{
-    return button.titleLabel.attributedText;
 }
 
 #pragma mark - Button Actions
 
 - (IBAction)dismissButtonTapped:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
-- (IBAction)starOneTapped:(UIButton *)sender {
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.filledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self unselectStarState:self.starTwo];
-        [self unselectStarState:self.starThree];
-        [self unselectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-    }
-}
-- (IBAction)starTwoTapped:(UIButton *)sender {
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.filledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self unselectStarState:self.starThree];
-        [self unselectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-    }
-    
-        if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.unFilledStarIcon attributedString]]) {
-            
-            [self selectStarState:self.starOne];
-            [self selectStarState:self.starTwo];
-            [self unselectStarState:self.starThree];
-            [self unselectStarState:self.starFour];
-            [self unselectStarState:self.starFive];
-    
-            
-        }
 
-}
-- (IBAction)starThreeTapped:(UIButton *)sender{
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.filledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self unselectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-    }
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.unFilledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self unselectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-        
-        
-    }
-
-}
-- (IBAction)starFourTapped:(UIButton *)sender {
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.filledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self selectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-    }
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.unFilledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self selectStarState:self.starFour];
-        [self unselectStarState:self.starFive];
-        
-        
-    }
-
-}
-- (IBAction)starFiveTapped:(UIButton *)sender {
-
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.filledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self selectStarState:self.starFour];
-        [self selectStarState:self.starFive];
-    }
-    
-    if ([sender.titleLabel.attributedText isEqualToAttributedString:[self.unFilledStarIcon attributedString]]) {
-        
-        [self selectStarState:self.starOne];
-        [self selectStarState:self.starTwo];
-        [self selectStarState:self.starThree];
-        [self selectStarState:self.starFour];
-        [self selectStarState:self.starFive];
-        
-        
-    }
-
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)fourDollarTapped:(UIButton *)sender {
-    
+- (IBAction)starButtonTapped:(UIButton *)sender
+{
+    [DataStore sharedDataStore].starPref = sender.tag;
+    [self updateStarPrefWithTagNum:sender.tag];
+    self.foodTypes = [[DataStore sharedDataStore] filteredRestaurantArray];
+    [self.tableView reloadData];
 }
 
-- (IBAction)threeDollarTapped:(UIButton *)sender {
-    
-}
-
-- (IBAction)twoDollarTapped:(id)sender {
-}
-
-- (IBAction)oneDollarTapped:(id)sender {
+- (IBAction)dollarButtontapped:(UIButton *)sender
+{
+    [DataStore sharedDataStore].dollarPref = sender.tag;
+    [self updateDollarPreWithTagNum:sender.tag];
+    self.foodTypes = [[DataStore sharedDataStore] filteredRestaurantArray];
+    [self.tableView reloadData];
 }
 
 

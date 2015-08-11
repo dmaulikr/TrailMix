@@ -15,8 +15,9 @@
                                 Name:(NSString *)name
                             Latitude:(NSString *)latitude
                            Longitude:(NSString *)longitude
-                         DollarSigns:(NSString *)dollarSigns
-                              Rating:(NSString *)rating;
+                         DollarSigns:(NSNumber *)dollarSigns
+                              Rating:(NSNumber *)rating
+                             WebLink:(NSURL *)webLink;
 {
     self = [super init];
     
@@ -26,8 +27,9 @@
         _name = name;
         _latitude = latitude;
         _longitude = longitude;
-        _rating = [NSString stringWithFormat:@"%li",(rating.integerValue)/2];
+        _rating = @((rating.integerValue)/2-1);
         _dollarSigns = @(dollarSigns.integerValue-1);
+        _webLink = webLink;
     }
     
     return self;
@@ -36,7 +38,7 @@
 + (instancetype)createRestaurantObject:(NSDictionary *)restaurantDictionary
 
 {
-        Restaurant *restaurant = [[Restaurant alloc] initWithCuisineType:restaurantDictionary[@"venue"][@"categories"][0][@"shortName"] VenueId:restaurantDictionary[@"venue"][@"categories"][0][@"id"] Name:restaurantDictionary[@"venue"][@"name"] Latitude:restaurantDictionary[@"venue"][@"location"][@"lat"] Longitude:restaurantDictionary[@"venue"][@"location"][@"lng"] DollarSigns:restaurantDictionary[@"venue"][@"price"][@"tier"]Rating:restaurantDictionary[@"venue"][@"rating"]];
+        Restaurant *restaurant = [[Restaurant alloc] initWithCuisineType:restaurantDictionary[@"venue"][@"categories"][0][@"shortName"] VenueId:restaurantDictionary[@"venue"][@"id"] Name:restaurantDictionary[@"venue"][@"name"] Latitude:restaurantDictionary[@"venue"][@"location"][@"lat"] Longitude:restaurantDictionary[@"venue"][@"location"][@"lng"] DollarSigns:restaurantDictionary[@"venue"][@"price"][@"tier"]Rating:restaurantDictionary[@"venue"][@"rating"] WebLink:[NSURL URLWithString:[NSString stringWithFormat:@"https://foursquare.com/v/%@",restaurantDictionary[@"venue"][@"id"]]]];
         
     return restaurant;
     
