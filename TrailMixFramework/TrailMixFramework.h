@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Constants.h"
+
 
 //! Project version number for TrailMixFramework.
 FOUNDATION_EXPORT double TrailMixFrameworkVersionNumber;

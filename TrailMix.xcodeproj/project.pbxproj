@@ -26,6 +26,23 @@
 		3DE2E84A1B7A802F005E71C6 /* TrailMixFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E8491B7A802F005E71C6 /* TrailMixFrameworkTests.m */; };
 		3DE2E84D1B7A802F005E71C6 /* TrailMixFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE2E8361B7A802F005E71C6 /* TrailMixFramework.framework */; };
 		3DE2E84E1B7A802F005E71C6 /* TrailMixFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE2E8361B7A802F005E71C6 /* TrailMixFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3DE2E8561B7A8F89005E71C6 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF444EB1B726B0C00B97BAD /* New.storyboard */; };
+		3DE2E8571B7A9088005E71C6 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = DB416F431B697D3800A1E41B /* Constants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DE2E8581B7A9088005E71C6 /* DataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DDD993A1B6A7C2F00178632 /* DataStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DE2E8591B7A9088005E71C6 /* RestaurantCDObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DEA3B321B6FEDEA00D4022B /* RestaurantCDObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DE2E85A1B7A9088005E71C6 /* Restaurant.h in Headers */ = {isa = PBXBuildFile; fileRef = DB416F461B697DDA00A1E41B /* Restaurant.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DE2E85B1B7A9088005E71C6 /* RestaurantCDObject+InitWithRestaurantObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D825F111B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DE2E85C1B7A9088005E71C6 /* WikiArticle.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FEAD7F1B697C4400F0FF33 /* WikiArticle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DE2E85E1B7A9101005E71C6 /* FourSquareAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = DBE4F9A71B6BE26200569F7D /* FourSquareAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DE2E85F1B7A9101005E71C6 /* WikiAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FEAD7D1B697C4400F0FF33 /* WikiAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DE2E8601B7A9122005E71C6 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = DB416F441B697D3800A1E41B /* Constants.m */; };
+		3DE2E8611B7A9122005E71C6 /* FourSquareAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9A81B6BE26200569F7D /* FourSquareAPIClient.m */; };
+		3DE2E8621B7A9122005E71C6 /* WikiAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FEAD7E1B697C4400F0FF33 /* WikiAPIClient.m */; };
+		3DE2E8631B7A9122005E71C6 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD993B1B6A7C2F00178632 /* DataStore.m */; };
+		3DE2E8641B7A9122005E71C6 /* RestaurantCDObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA3B331B6FEDEA00D4022B /* RestaurantCDObject.m */; };
+		3DE2E8651B7A9122005E71C6 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = DB416F471B697DDA00A1E41B /* Restaurant.m */; };
+		3DE2E8661B7A9122005E71C6 /* RestaurantCDObject+InitWithRestaurantObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D825F121B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m */; };
+		3DE2E8671B7A9122005E71C6 /* WikiArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FEAD801B697C4400F0FF33 /* WikiArticle.m */; };
 		3DEA3B341B6FEDEA00D4022B /* RestaurantCDObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA3B331B6FEDEA00D4022B /* RestaurantCDObject.m */; };
 		3DEA3B371B6FF0CD00D4022B /* DollarSignTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA3B361B6FF0CD00D4022B /* DollarSignTableViewController.m */; };
 		63C8B38244F3ABD6D75E8AB9 /* libPods-TrailMix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D40E02762E4FD5B07430F174 /* libPods-TrailMix.a */; };
@@ -176,22 +193,22 @@
 		72F9A3491B69681C00E8494F /* TrailMixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrailMixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F9A34E1B69681C00E8494F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72F9A34F1B69681C00E8494F /* TrailMixTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrailMixTests.m; sourceTree = "<group>"; };
-		72FEAD7D1B697C4400F0FF33 /* WikiAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiAPIClient.h; sourceTree = "<group>"; };
-		72FEAD7E1B697C4400F0FF33 /* WikiAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiAPIClient.m; sourceTree = "<group>"; };
+		72FEAD7D1B697C4400F0FF33 /* WikiAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WikiAPIClient.h; path = ../TrailMix/WikiAPIClient.h; sourceTree = "<group>"; };
+		72FEAD7E1B697C4400F0FF33 /* WikiAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WikiAPIClient.m; path = ../TrailMix/WikiAPIClient.m; sourceTree = "<group>"; };
 		72FEAD7F1B697C4400F0FF33 /* WikiArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiArticle.h; sourceTree = "<group>"; };
 		72FEAD801B697C4400F0FF33 /* WikiArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiArticle.m; sourceTree = "<group>"; };
 		A4F8ED7375ED3F133E3C75AE /* Pods-TrailMix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailMix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrailMix/Pods-TrailMix.debug.xcconfig"; sourceTree = "<group>"; };
 		D40E02762E4FD5B07430F174 /* libPods-TrailMix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrailMix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB416F401B697D2B00A1E41B /* YelpAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpAPIClient.h; sourceTree = "<group>"; };
 		DB416F411B697D2B00A1E41B /* YelpAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpAPIClient.m; sourceTree = "<group>"; };
-		DB416F431B697D3800A1E41B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		DB416F441B697D3800A1E41B /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		DB416F431B697D3800A1E41B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../TrailMix/Constants.h; sourceTree = "<group>"; };
+		DB416F441B697D3800A1E41B /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = ../TrailMix/Constants.m; sourceTree = "<group>"; };
 		DB416F461B697DDA00A1E41B /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
 		DB416F471B697DDA00A1E41B /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		DBB6CE1D1B73CDED00FA0D81 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		DBB6CE1E1B73CDED00FA0D81 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
-		DBE4F9A71B6BE26200569F7D /* FourSquareAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourSquareAPIClient.h; sourceTree = "<group>"; };
-		DBE4F9A81B6BE26200569F7D /* FourSquareAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareAPIClient.m; sourceTree = "<group>"; };
+		DBE4F9A71B6BE26200569F7D /* FourSquareAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FourSquareAPIClient.h; path = ../TrailMix/FourSquareAPIClient.h; sourceTree = "<group>"; };
+		DBE4F9A81B6BE26200569F7D /* FourSquareAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FourSquareAPIClient.m; path = ../TrailMix/FourSquareAPIClient.m; sourceTree = "<group>"; };
 		DBF444EB1B726B0C00B97BAD /* New.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		DBF444ED1B728A5C00B97BAD /* TravelTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelTimeViewController.h; sourceTree = "<group>"; };
 		DBF444EE1B728A5C00B97BAD /* TravelTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelTimeViewController.m; sourceTree = "<group>"; };
@@ -251,6 +268,10 @@
 		3D22232D1B696C9200788C41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				72DA65941B74F47700B35DBB /* WikiCollectionViewCell.h */,
+				72DA65951B74F47700B35DBB /* WikiCollectionViewCell.m */,
+				72F9A33D1B69681B00E8494F /* Main.storyboard */,
+				DBF444EB1B726B0C00B97BAD /* New.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -262,10 +283,6 @@
 				3DA6ADAC1B6977400022EF4D /* NaviViewController.m */,
 				DB416F401B697D2B00A1E41B /* YelpAPIClient.h */,
 				DB416F411B697D2B00A1E41B /* YelpAPIClient.m */,
-				DBE4F9A71B6BE26200569F7D /* FourSquareAPIClient.h */,
-				DBE4F9A81B6BE26200569F7D /* FourSquareAPIClient.m */,
-				72FEAD7D1B697C4400F0FF33 /* WikiAPIClient.h */,
-				72FEAD7E1B697C4400F0FF33 /* WikiAPIClient.m */,
 				3DDD99311B6A740600178632 /* DurationPickerViewController.h */,
 				3DDD99321B6A740600178632 /* DurationPickerViewController.m */,
 				3DDD99341B6A761B00178632 /* RestaurantPreferenceTableViewController.h */,
@@ -280,6 +297,10 @@
 				3DEA3B361B6FF0CD00D4022B /* DollarSignTableViewController.m */,
 				3DDD993D1B6AC24D00178632 /* RestaurantTypeTableViewController.h */,
 				3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */,
+				DBB6CE1D1B73CDED00FA0D81 /* FilterViewController.h */,
+				DBB6CE1E1B73CDED00FA0D81 /* FilterViewController.m */,
+				DBF444ED1B728A5C00B97BAD /* TravelTimeViewController.h */,
+				DBF444EE1B728A5C00B97BAD /* TravelTimeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -297,6 +318,7 @@
 				72FEAD801B697C4400F0FF33 /* WikiArticle.m */,
 			);
 			name = Models;
+			path = ../TrailMix;
 			sourceTree = "<group>";
 		};
 		3DDD99401B6AC50C00178632 /* CoreData */ = {
@@ -307,6 +329,7 @@
 				3DDD99371B6A7C1100178632 /* TrailMix.xcdatamodeld */,
 			);
 			name = CoreData;
+			path = ../TrailMix;
 			sourceTree = "<group>";
 		};
 		3DE2E80D1B7A7F6F005E71C6 /* TrailMix WatchKit Extension */ = {
@@ -352,6 +375,11 @@
 		3DE2E8371B7A802F005E71C6 /* TrailMixFramework */ = {
 			isa = PBXGroup;
 			children = (
+				DB416F431B697D3800A1E41B /* Constants.h */,
+				DB416F441B697D3800A1E41B /* Constants.m */,
+				3DE2E85D1B7A90A5005E71C6 /* Controllers */,
+				3DDD99401B6AC50C00178632 /* CoreData */,
+				3D22232F1B696CA200788C41 /* Models */,
 				3DE2E83A1B7A802F005E71C6 /* TrailMixFramework.h */,
 				3DE2E8381B7A802F005E71C6 /* Supporting Files */,
 			);
@@ -382,6 +410,18 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		3DE2E85D1B7A90A5005E71C6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DBE4F9A71B6BE26200569F7D /* FourSquareAPIClient.h */,
+				DBE4F9A81B6BE26200569F7D /* FourSquareAPIClient.m */,
+				72FEAD7D1B697C4400F0FF33 /* WikiAPIClient.h */,
+				72FEAD7E1B697C4400F0FF33 /* WikiAPIClient.m */,
+			);
+			name = Controllers;
+			path = TrailMixFramework;
+			sourceTree = SOURCE_ROOT;
 		};
 		72F9A3271B69681B00E8494F = {
 			isa = PBXGroup;
@@ -414,22 +454,10 @@
 		72F9A3321B69681B00E8494F /* TrailMix */ = {
 			isa = PBXGroup;
 			children = (
-				DB416F431B697D3800A1E41B /* Constants.h */,
-				DB416F441B697D3800A1E41B /* Constants.m */,
-				3DDD99401B6AC50C00178632 /* CoreData */,
-				3D22232F1B696CA200788C41 /* Models */,
 				3D22232E1B696C9B00788C41 /* Controllers */,
 				3D22232D1B696C9200788C41 /* Views */,
 				72F9A3371B69681B00E8494F /* AppDelegate.h */,
 				72F9A3381B69681B00E8494F /* AppDelegate.m */,
-				72DA65941B74F47700B35DBB /* WikiCollectionViewCell.h */,
-				72DA65951B74F47700B35DBB /* WikiCollectionViewCell.m */,
-				72F9A33D1B69681B00E8494F /* Main.storyboard */,
-				DBF444EB1B726B0C00B97BAD /* New.storyboard */,
-				DBB6CE1D1B73CDED00FA0D81 /* FilterViewController.h */,
-				DBB6CE1E1B73CDED00FA0D81 /* FilterViewController.m */,
-				DBF444ED1B728A5C00B97BAD /* TravelTimeViewController.h */,
-				DBF444EE1B728A5C00B97BAD /* TravelTimeViewController.m */,
 				72F9A3401B69681B00E8494F /* Images.xcassets */,
 				72F9A3421B69681B00E8494F /* LaunchScreen.xib */,
 				72F9A3331B69681B00E8494F /* Supporting Files */,
@@ -479,6 +507,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DE2E83B1B7A802F005E71C6 /* TrailMixFramework.h in Headers */,
+				3DE2E8571B7A9088005E71C6 /* Constants.h in Headers */,
+				3DE2E8581B7A9088005E71C6 /* DataStore.h in Headers */,
+				3DE2E8591B7A9088005E71C6 /* RestaurantCDObject.h in Headers */,
+				3DE2E85A1B7A9088005E71C6 /* Restaurant.h in Headers */,
+				3DE2E85B1B7A9088005E71C6 /* RestaurantCDObject+InitWithRestaurantObject.h in Headers */,
+				3DE2E85C1B7A9088005E71C6 /* WikiArticle.h in Headers */,
+				3DE2E85E1B7A9101005E71C6 /* FourSquareAPIClient.h in Headers */,
+				3DE2E85F1B7A9101005E71C6 /* WikiAPIClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +709,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DE2E8561B7A8F89005E71C6 /* New.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,6 +787,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DE2E8601B7A9122005E71C6 /* Constants.m in Sources */,
+				3DE2E8611B7A9122005E71C6 /* FourSquareAPIClient.m in Sources */,
+				3DE2E8621B7A9122005E71C6 /* WikiAPIClient.m in Sources */,
+				3DE2E8631B7A9122005E71C6 /* DataStore.m in Sources */,
+				3DE2E8641B7A9122005E71C6 /* RestaurantCDObject.m in Sources */,
+				3DE2E8651B7A9122005E71C6 /* Restaurant.m in Sources */,
+				3DE2E8661B7A9122005E71C6 /* RestaurantCDObject+InitWithRestaurantObject.m in Sources */,
+				3DE2E8671B7A9122005E71C6 /* WikiArticle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
