@@ -63,10 +63,10 @@
 }
 
 - (IBAction)abortButtonTapped:(id)sender {
-    UIViewController *controller = self.presentingViewController;
+    UINavigationController *controller = (UINavigationController *)self.presentingViewController;
     
     [self dismissViewControllerAnimated:YES completion:^{
-        [controller.navigationController popToRootViewControllerAnimated:YES];
+        [controller popToRootViewControllerAnimated:YES];
         NSLog(@"to the end");
     }];
 }
