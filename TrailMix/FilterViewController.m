@@ -212,8 +212,8 @@
 
 - (void)setUpStarIcons:(UIButton *)button
 {
-    self.unFilledStarIcon = [FAKFontAwesome starOIconWithSize:30];
-    [self.unFilledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    self.unFilledStarIcon = [FAKFontAwesome starIconWithSize:30];
+    [self.unFilledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor]];
     [button setAttributedTitle:[self.filledStarIcon attributedString] forState:UIControlStateNormal];
     self.filledStarIcon = [FAKFontAwesome starIconWithSize:30];
     [self.filledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
