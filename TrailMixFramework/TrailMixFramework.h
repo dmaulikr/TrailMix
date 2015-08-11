@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Constants.h"
+#import "DataStore.h"
+#import "RestaurantCDObject.h"
+#import "Restaurant.h"
+#import "RestaurantCDObject+InitWithRestaurantObject.h"
+#import "WikiArticle.h"
+#import "FourSquareAPIClient.h"
+#import "WikiAPIClient.h"
 
 
 //! Project version number for TrailMixFramework.

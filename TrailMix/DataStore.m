@@ -132,7 +132,7 @@
 
     NSError *error = nil;
 
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"TrailMix" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle bundleForClass:self.class] URLForResource:@"TrailMix" withExtension:@"momd"];
     NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
 
@@ -150,7 +150,7 @@
 // Returns the URL to the application's Documents directory.
 - (NSURL *)applicationDocumentsDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    return [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.flatironschool.trailmix"];
 }
 
 

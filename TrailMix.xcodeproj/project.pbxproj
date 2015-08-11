@@ -139,6 +139,8 @@
 
 /* Begin PBXFileReference section */
 		2BEC84171143140FF8DED365 /* Pods-TrailMix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailMix.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrailMix/Pods-TrailMix.release.xcconfig"; sourceTree = "<group>"; };
+		3D5FE54E1B7AA5C30040B31B /* TrailMix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TrailMix.entitlements; sourceTree = "<group>"; };
+		3D5FE54F1B7AA5DB0040B31B /* TrailMix WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TrailMix WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		3D825F111B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RestaurantCDObject+InitWithRestaurantObject.h"; path = "Models/RestaurantCDObject+InitWithRestaurantObject.h"; sourceTree = "<group>"; };
 		3D825F121B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RestaurantCDObject+InitWithRestaurantObject.m"; path = "Models/RestaurantCDObject+InitWithRestaurantObject.m"; sourceTree = "<group>"; };
 		3DA6ADAB1B6977400022EF4D /* NaviViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NaviViewController.h; path = Controllers/NaviViewController.h; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 		3DE2E80D1B7A7F6F005E71C6 /* TrailMix WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				3D5FE54F1B7AA5DB0040B31B /* TrailMix WatchKit Extension.entitlements */,
 				3DE2E8111B7A7F6F005E71C6 /* InterfaceController.h */,
 				3DE2E8121B7A7F6F005E71C6 /* InterfaceController.m */,
 				3DE2E8141B7A7F6F005E71C6 /* NotificationController.h */,
@@ -454,6 +457,7 @@
 		72F9A3321B69681B00E8494F /* TrailMix */ = {
 			isa = PBXGroup;
 			children = (
+				3D5FE54E1B7AA5C30040B31B /* TrailMix.entitlements */,
 				3D22232E1B696C9B00788C41 /* Controllers */,
 				3D22232D1B696C9200788C41 /* Views */,
 				72F9A3371B69681B00E8494F /* AppDelegate.h */,
@@ -643,6 +647,12 @@
 				TargetAttributes = {
 					3DE2E80B1B7A7F6F005E71C6 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 4RAX8778CE;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3DE2E81A1B7A7F6F005E71C6 = {
 						CreatedOnToolsVersion = 6.4;
@@ -656,6 +666,12 @@
 					};
 					72F9A32F1B69681B00E8494F = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 4RAX8778CE;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					72F9A3481B69681C00E8494F = {
 						CreatedOnToolsVersion = 6.4;
@@ -910,6 +926,9 @@
 		3DE2E82A1B7A7F6F005E71C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "TrailMix WatchKit Extension/TrailMix WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -917,6 +936,7 @@
 				INFOPLIST_FILE = "TrailMix WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -924,9 +944,13 @@
 		3DE2E82B1B7A7F6F005E71C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "TrailMix WatchKit Extension/TrailMix WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "TrailMix WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1123,6 +1147,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TrailMix/TrailMix.entitlements;
 				INFOPLIST_FILE = TrailMix/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1137,6 +1162,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TrailMix/TrailMix.entitlements;
 				INFOPLIST_FILE = TrailMix/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1189,6 +1215,7 @@
 				3DE2E82D1B7A7F6F005E71C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DE2E82F1B7A7F6F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMix WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -1197,6 +1224,7 @@
 				3DE2E82B1B7A7F6F005E71C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DE2E84F1B7A802F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMixFramework" */ = {
 			isa = XCConfigurationList;
@@ -1205,6 +1233,7 @@
 				3DE2E8511B7A802F005E71C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3DE2E8531B7A802F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMixFrameworkTests" */ = {
 			isa = XCConfigurationList;
@@ -1213,6 +1242,7 @@
 				3DE2E8551B7A802F005E71C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		72F9A32B1B69681B00E8494F /* Build configuration list for PBXProject "TrailMix" */ = {
 			isa = XCConfigurationList;
