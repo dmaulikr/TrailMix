@@ -240,11 +240,13 @@
 
 - (IBAction)starButtonTapped:(UIButton *)sender
 {
+    [DataStore sharedDataStore].starPref = sender.tag;
     [self updateStarPrefWithTagNum:sender.tag];
 }
 
 - (IBAction)dollarButtontapped:(UIButton *)sender
 {
+    [DataStore sharedDataStore].dollarPref = sender.tag;
     [self updateDollarPreWithTagNum:sender.tag];
 }
 

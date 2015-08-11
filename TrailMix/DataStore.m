@@ -43,25 +43,22 @@
     for(NSString *restType in tempArray){
         NSArray *restaurantsOfType = self.restaurantDictionary[restType];
         for(Restaurant *restaurant in restaurantsOfType){
-            NSNumber *selection = self.selectedDollarSign[restaurant.dollarSigns.integerValue];
-            if(selection.integerValue){
-                [resultRestaurantArray addObject:restaurant];
+            NSNumber *dollarPref = restaurant.dollarSigns;
+            NSNumber *starPref = restaurant.rating;
+            if(dollarPref.integerValue>=[DataStore sharedDataStore].dollarPref){
+                if(starPref.integerValue>=[DataStore sharedDataStore].starPref){
+                    [resultRestaurantArray addObject:restaurant];
+                }
             }
         }
     }
     
     NSInteger randomIndex = arc4random_uniform((u_int32_t)resultRestaurantArray.count);
+    Restaurant *selectedRestaurant = resultRestaurantArray[randomIndex];
     [RestaurantCDObject initWithRestaurantObject:resultRestaurantArray[randomIndex]];
 
 }
 
-//-(instancetype)init{
-//    self = [super init];
-//    if(self){
-//        _destinationIsResaurant = YES;
-//    }
-//    return  self;
-//}
 
 -(NSMutableArray *)selectedFoodTypes{
     if(!_selectedFoodTypes){
