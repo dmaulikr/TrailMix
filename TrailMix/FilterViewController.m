@@ -51,18 +51,20 @@
         [SVProgressHUD dismiss];
     }];
     
-    
-    
-    
     self.userDefaults = [NSUserDefaults standardUserDefaults];
     self.foodTypesTableView.backgroundColor = [UIColor clearColor];
     
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:25];
+    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:20];
     [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
-    self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:25];
+    self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:20];
     [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor]];
     
     
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 - (IBAction)goButtonTapped:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -146,6 +148,28 @@
     }
 }
 
+-(void)updateStarPrefWithTagNum:(NSInteger)tag{
+    for(UIButton *button in self.starButtons){
+        [self.userDefaults setInteger:tag forKey:@"starPref"];
+        if (button.tag <= tag) {
+            [self selectStarState:button];
+        }else{
+            [self unselectStarState:button];
+        }
+    }
+    
+}
+
+-(void)formatTimeButton:(UIButton *)button
+{
+    button.backgroundColor = [UIColor clearColor];
+    button.layer.cornerRadius = 5;
+    button.layer.borderWidth = 1;
+    button.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+}
+#pragma mark - Dollar Icon Setup and Logic
+
 -(void)initTheDollars
 {
     for (UIButton *button in self.dollarButtons) {
@@ -160,33 +184,21 @@
 
 -(void)selectDollar:(UIButton *)button
 {
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:[self.selectedDollarIcon attributedString]];
-        for(NSInteger i = 0; i < button.tag; i++){
-            [string appendAttributedString:[self.selectedDollarIcon attributedString]];
-        }
-        [button setAttributedTitle:string forState:UIControlStateNormal];
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:[self.selectedDollarIcon attributedString]];
+    for(NSInteger i = 0; i < button.tag; i++){
+        [string appendAttributedString:[self.selectedDollarIcon attributedString]];
+    }
+    [button setAttributedTitle:string forState:UIControlStateNormal];
 }
 - (void)unSelectDollar:(UIButton *)button
 {
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:[self.unSelectedDollarIcon attributedString]];
-        for(NSInteger i = 0; i < button.tag; i++){
-            [string appendAttributedString:[self.unSelectedDollarIcon attributedString]];
-        }
-        [button setAttributedTitle:string forState:UIControlStateNormal];
-}
-
-
--(void)updateStarPrefWithTagNum:(NSInteger)tag{
-    for(UIButton *button in self.starButtons){
-        [self.userDefaults setInteger:tag forKey:@"starPref"];
-        if (button.tag <= tag) {
-            [self selectStarState:button];
-        }else{
-            [self unselectStarState:button];
-        }
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:[self.unSelectedDollarIcon attributedString]];
+    for(NSInteger i = 0; i < button.tag; i++){
+        [string appendAttributedString:[self.unSelectedDollarIcon attributedString]];
     }
-    
+    [button setAttributedTitle:string forState:UIControlStateNormal];
 }
+
 -(void)updateDollarPreWithTagNum:(NSInteger)tag
 {
     for (UIButton *button in self.dollarButtons) {
@@ -198,24 +210,14 @@
     }
 }
 
--(void)formatTimeButton:(UIButton *)button
-{
-    button.backgroundColor = [UIColor clearColor];
-    button.layer.cornerRadius = 5;
-    button.layer.borderWidth = 1;
-    button.layer.borderColor = [UIColor whiteColor].CGColor;
-    
-}
-#pragma mark - Dollar Icon Setup and Logic
-
 #pragma mark - Star Icon Setup and Logic
 
 - (void)setUpStarIcons:(UIButton *)button
 {
-    self.unFilledStarIcon = [FAKFontAwesome starIconWithSize:30];
-    [self.unFilledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor]];
+    self.unFilledStarIcon = [FAKFontAwesome starOIconWithSize:25];
+    [self.unFilledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
     [button setAttributedTitle:[self.filledStarIcon attributedString] forState:UIControlStateNormal];
-    self.filledStarIcon = [FAKFontAwesome starIconWithSize:30];
+    self.filledStarIcon = [FAKFontAwesome starIconWithSize:25];
     [self.filledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
 }
 
