@@ -14,6 +14,18 @@
 		3DDD99391B6A7C1100178632 /* TrailMix.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99371B6A7C1100178632 /* TrailMix.xcdatamodeld */; };
 		3DDD993C1B6A7C2F00178632 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD993B1B6A7C2F00178632 /* DataStore.m */; };
 		3DDD993F1B6AC24D00178632 /* RestaurantTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */; };
+		3DE2E8131B7A7F6F005E71C6 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E8121B7A7F6F005E71C6 /* InterfaceController.m */; };
+		3DE2E8161B7A7F6F005E71C6 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E8151B7A7F6F005E71C6 /* NotificationController.m */; };
+		3DE2E8181B7A7F6F005E71C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE2E8171B7A7F6F005E71C6 /* Images.xcassets */; };
+		3DE2E81C1B7A7F6F005E71C6 /* TrailMix WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 3DE2E81B1B7A7F6F005E71C6 /* TrailMix WatchKit App.app */; };
+		3DE2E8241B7A7F6F005E71C6 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE2E8221B7A7F6F005E71C6 /* Interface.storyboard */; };
+		3DE2E8261B7A7F6F005E71C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DE2E8251B7A7F6F005E71C6 /* Images.xcassets */; };
+		3DE2E8291B7A7F6F005E71C6 /* TrailMix WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3DE2E80C1B7A7F6F005E71C6 /* TrailMix WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3DE2E83B1B7A802F005E71C6 /* TrailMixFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE2E83A1B7A802F005E71C6 /* TrailMixFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DE2E8411B7A802F005E71C6 /* TrailMixFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE2E8361B7A802F005E71C6 /* TrailMixFramework.framework */; };
+		3DE2E84A1B7A802F005E71C6 /* TrailMixFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E8491B7A802F005E71C6 /* TrailMixFrameworkTests.m */; };
+		3DE2E84D1B7A802F005E71C6 /* TrailMixFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE2E8361B7A802F005E71C6 /* TrailMixFramework.framework */; };
+		3DE2E84E1B7A802F005E71C6 /* TrailMixFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE2E8361B7A802F005E71C6 /* TrailMixFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3DEA3B341B6FEDEA00D4022B /* RestaurantCDObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA3B331B6FEDEA00D4022B /* RestaurantCDObject.m */; };
 		3DEA3B371B6FF0CD00D4022B /* DollarSignTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA3B361B6FF0CD00D4022B /* DollarSignTableViewController.m */; };
 		63C8B38244F3ABD6D75E8AB9 /* libPods-TrailMix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D40E02762E4FD5B07430F174 /* libPods-TrailMix.a */; };
@@ -39,6 +51,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3DE2E81D1B7A7F6F005E71C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72F9A3281B69681B00E8494F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DE2E81A1B7A7F6F005E71C6;
+			remoteInfo = "TrailMix WatchKit App";
+		};
+		3DE2E8271B7A7F6F005E71C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72F9A3281B69681B00E8494F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DE2E80B1B7A7F6F005E71C6;
+			remoteInfo = "TrailMix WatchKit Extension";
+		};
+		3DE2E8421B7A802F005E71C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72F9A3281B69681B00E8494F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DE2E8351B7A802F005E71C6;
+			remoteInfo = TrailMixFramework;
+		};
+		3DE2E8441B7A802F005E71C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72F9A3281B69681B00E8494F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72F9A32F1B69681B00E8494F;
+			remoteInfo = TrailMix;
+		};
+		3DE2E84B1B7A802F005E71C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72F9A3281B69681B00E8494F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DE2E8351B7A802F005E71C6;
+			remoteInfo = TrailMixFramework;
+		};
 		72F9A34A1B69681C00E8494F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 72F9A3281B69681B00E8494F /* Project object */;
@@ -47,6 +94,31 @@
 			remoteInfo = TrailMix;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3DE2E8301B7A7F6F005E71C6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3DE2E8291B7A7F6F005E71C6 /* TrailMix WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE2E8521B7A802F005E71C6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3DE2E84E1B7A802F005E71C6 /* TrailMixFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2BEC84171143140FF8DED365 /* Pods-TrailMix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailMix.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrailMix/Pods-TrailMix.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +135,24 @@
 		3DDD993B1B6A7C2F00178632 /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		3DDD993D1B6AC24D00178632 /* RestaurantTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTypeTableViewController.h; sourceTree = "<group>"; };
 		3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTypeTableViewController.m; sourceTree = "<group>"; };
+		3DE2E80C1B7A7F6F005E71C6 /* TrailMix WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TrailMix WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DE2E80F1B7A7F6F005E71C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DE2E8101B7A7F6F005E71C6 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		3DE2E8111B7A7F6F005E71C6 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		3DE2E8121B7A7F6F005E71C6 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		3DE2E8141B7A7F6F005E71C6 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		3DE2E8151B7A7F6F005E71C6 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		3DE2E8171B7A7F6F005E71C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3DE2E81B1B7A7F6F005E71C6 /* TrailMix WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TrailMix WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DE2E8211B7A7F6F005E71C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DE2E8231B7A7F6F005E71C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		3DE2E8251B7A7F6F005E71C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3DE2E8361B7A802F005E71C6 /* TrailMixFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrailMixFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DE2E8391B7A802F005E71C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DE2E83A1B7A802F005E71C6 /* TrailMixFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrailMixFramework.h; sourceTree = "<group>"; };
+		3DE2E8401B7A802F005E71C6 /* TrailMixFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrailMixFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DE2E8481B7A802F005E71C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DE2E8491B7A802F005E71C6 /* TrailMixFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrailMixFrameworkTests.m; sourceTree = "<group>"; };
 		3DEA3B321B6FEDEA00D4022B /* RestaurantCDObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantCDObject.h; path = Models/RestaurantCDObject.h; sourceTree = "<group>"; };
 		3DEA3B331B6FEDEA00D4022B /* RestaurantCDObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantCDObject.m; path = Models/RestaurantCDObject.m; sourceTree = "<group>"; };
 		3DEA3B351B6FF0CD00D4022B /* DollarSignTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DollarSignTableViewController.h; path = Controllers/DollarSignTableViewController.h; sourceTree = "<group>"; };
@@ -108,11 +198,34 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3DE2E8091B7A7F6F005E71C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE2E8321B7A802F005E71C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE2E83D1B7A802F005E71C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DE2E8411B7A802F005E71C6 /* TrailMixFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		72F9A32D1B69681B00E8494F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				63C8B38244F3ABD6D75E8AB9 /* libPods-TrailMix.a in Frameworks */,
+				3DE2E84D1B7A802F005E71C6 /* TrailMixFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,11 +309,89 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		3DE2E80D1B7A7F6F005E71C6 /* TrailMix WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2E8111B7A7F6F005E71C6 /* InterfaceController.h */,
+				3DE2E8121B7A7F6F005E71C6 /* InterfaceController.m */,
+				3DE2E8141B7A7F6F005E71C6 /* NotificationController.h */,
+				3DE2E8151B7A7F6F005E71C6 /* NotificationController.m */,
+				3DE2E8171B7A7F6F005E71C6 /* Images.xcassets */,
+				3DE2E80E1B7A7F6F005E71C6 /* Supporting Files */,
+			);
+			path = "TrailMix WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		3DE2E80E1B7A7F6F005E71C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2E80F1B7A7F6F005E71C6 /* Info.plist */,
+				3DE2E8101B7A7F6F005E71C6 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DE2E81F1B7A7F6F005E71C6 /* TrailMix WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2E8221B7A7F6F005E71C6 /* Interface.storyboard */,
+				3DE2E8251B7A7F6F005E71C6 /* Images.xcassets */,
+				3DE2E8201B7A7F6F005E71C6 /* Supporting Files */,
+			);
+			path = "TrailMix WatchKit App";
+			sourceTree = "<group>";
+		};
+		3DE2E8201B7A7F6F005E71C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2E8211B7A7F6F005E71C6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DE2E8371B7A802F005E71C6 /* TrailMixFramework */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2E83A1B7A802F005E71C6 /* TrailMixFramework.h */,
+				3DE2E8381B7A802F005E71C6 /* Supporting Files */,
+			);
+			path = TrailMixFramework;
+			sourceTree = "<group>";
+		};
+		3DE2E8381B7A802F005E71C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2E8391B7A802F005E71C6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DE2E8461B7A802F005E71C6 /* TrailMixFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2E8491B7A802F005E71C6 /* TrailMixFrameworkTests.m */,
+				3DE2E8471B7A802F005E71C6 /* Supporting Files */,
+			);
+			path = TrailMixFrameworkTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		3DE2E8471B7A802F005E71C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3DE2E8481B7A802F005E71C6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		72F9A3271B69681B00E8494F = {
 			isa = PBXGroup;
 			children = (
 				72F9A3321B69681B00E8494F /* TrailMix */,
 				72F9A34C1B69681C00E8494F /* TrailMixTests */,
+				3DE2E8371B7A802F005E71C6 /* TrailMixFramework */,
+				3DE2E8461B7A802F005E71C6 /* TrailMixFrameworkTests */,
+				3DE2E80D1B7A7F6F005E71C6 /* TrailMix WatchKit Extension */,
+				3DE2E81F1B7A7F6F005E71C6 /* TrailMix WatchKit App */,
 				72F9A3311B69681B00E8494F /* Products */,
 				219C77F1C5161D6D24509109 /* Pods */,
 				D7939BA8A1B4EC7922792122 /* Frameworks */,
@@ -212,6 +403,10 @@
 			children = (
 				72F9A3301B69681B00E8494F /* TrailMix.app */,
 				72F9A3491B69681C00E8494F /* TrailMixTests.xctest */,
+				3DE2E80C1B7A7F6F005E71C6 /* TrailMix WatchKit Extension.appex */,
+				3DE2E81B1B7A7F6F005E71C6 /* TrailMix WatchKit App.app */,
+				3DE2E8361B7A802F005E71C6 /* TrailMixFramework.framework */,
+				3DE2E8401B7A802F005E71C6 /* TrailMixFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,7 +473,88 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		3DE2E8331B7A802F005E71C6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DE2E83B1B7A802F005E71C6 /* TrailMixFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		3DE2E80B1B7A7F6F005E71C6 /* TrailMix WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DE2E82F1B7A7F6F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMix WatchKit Extension" */;
+			buildPhases = (
+				3DE2E8081B7A7F6F005E71C6 /* Sources */,
+				3DE2E8091B7A7F6F005E71C6 /* Frameworks */,
+				3DE2E80A1B7A7F6F005E71C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DE2E81E1B7A7F6F005E71C6 /* PBXTargetDependency */,
+			);
+			name = "TrailMix WatchKit Extension";
+			productName = "TrailMix WatchKit Extension";
+			productReference = 3DE2E80C1B7A7F6F005E71C6 /* TrailMix WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		3DE2E81A1B7A7F6F005E71C6 /* TrailMix WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DE2E82E1B7A7F6F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMix WatchKit App" */;
+			buildPhases = (
+				3DE2E8191B7A7F6F005E71C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TrailMix WatchKit App";
+			productName = "TrailMix WatchKit App";
+			productReference = 3DE2E81B1B7A7F6F005E71C6 /* TrailMix WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
+		3DE2E8351B7A802F005E71C6 /* TrailMixFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DE2E84F1B7A802F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMixFramework" */;
+			buildPhases = (
+				3DE2E8311B7A802F005E71C6 /* Sources */,
+				3DE2E8321B7A802F005E71C6 /* Frameworks */,
+				3DE2E8331B7A802F005E71C6 /* Headers */,
+				3DE2E8341B7A802F005E71C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrailMixFramework;
+			productName = TrailMixFramework;
+			productReference = 3DE2E8361B7A802F005E71C6 /* TrailMixFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3DE2E83F1B7A802F005E71C6 /* TrailMixFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DE2E8531B7A802F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMixFrameworkTests" */;
+			buildPhases = (
+				3DE2E83C1B7A802F005E71C6 /* Sources */,
+				3DE2E83D1B7A802F005E71C6 /* Frameworks */,
+				3DE2E83E1B7A802F005E71C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DE2E8431B7A802F005E71C6 /* PBXTargetDependency */,
+				3DE2E8451B7A802F005E71C6 /* PBXTargetDependency */,
+			);
+			name = TrailMixFrameworkTests;
+			productName = TrailMixFrameworkTests;
+			productReference = 3DE2E8401B7A802F005E71C6 /* TrailMixFrameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		72F9A32F1B69681B00E8494F /* TrailMix */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72F9A3531B69681C00E8494F /* Build configuration list for PBXNativeTarget "TrailMix" */;
@@ -288,10 +564,14 @@
 				72F9A32D1B69681B00E8494F /* Frameworks */,
 				72F9A32E1B69681B00E8494F /* Resources */,
 				14D12014DB11408E014AE133 /* Copy Pods Resources */,
+				3DE2E8301B7A7F6F005E71C6 /* Embed App Extensions */,
+				3DE2E8521B7A802F005E71C6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3DE2E8281B7A7F6F005E71C6 /* PBXTargetDependency */,
+				3DE2E84C1B7A802F005E71C6 /* PBXTargetDependency */,
 			);
 			name = TrailMix;
 			productName = TrailMix;
@@ -325,6 +605,19 @@
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Team Fax Machine";
 				TargetAttributes = {
+					3DE2E80B1B7A7F6F005E71C6 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					3DE2E81A1B7A7F6F005E71C6 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					3DE2E8351B7A802F005E71C6 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					3DE2E83F1B7A802F005E71C6 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 72F9A32F1B69681B00E8494F;
+					};
 					72F9A32F1B69681B00E8494F = {
 						CreatedOnToolsVersion = 6.4;
 					};
@@ -349,11 +642,47 @@
 			targets = (
 				72F9A32F1B69681B00E8494F /* TrailMix */,
 				72F9A3481B69681C00E8494F /* TrailMixTests */,
+				3DE2E80B1B7A7F6F005E71C6 /* TrailMix WatchKit Extension */,
+				3DE2E81A1B7A7F6F005E71C6 /* TrailMix WatchKit App */,
+				3DE2E8351B7A802F005E71C6 /* TrailMixFramework */,
+				3DE2E83F1B7A802F005E71C6 /* TrailMixFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3DE2E80A1B7A7F6F005E71C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DE2E81C1B7A7F6F005E71C6 /* TrailMix WatchKit App.app in Resources */,
+				3DE2E8181B7A7F6F005E71C6 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE2E8191B7A7F6F005E71C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DE2E8241B7A7F6F005E71C6 /* Interface.storyboard in Resources */,
+				3DE2E8261B7A7F6F005E71C6 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE2E8341B7A802F005E71C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE2E83E1B7A802F005E71C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		72F9A32E1B69681B00E8494F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,6 +737,30 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3DE2E8081B7A7F6F005E71C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DE2E8161B7A7F6F005E71C6 /* NotificationController.m in Sources */,
+				3DE2E8131B7A7F6F005E71C6 /* InterfaceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE2E8311B7A802F005E71C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DE2E83C1B7A802F005E71C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DE2E84A1B7A802F005E71C6 /* TrailMixFrameworkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		72F9A32C1B69681B00E8494F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -449,6 +802,31 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3DE2E81E1B7A7F6F005E71C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DE2E81A1B7A7F6F005E71C6 /* TrailMix WatchKit App */;
+			targetProxy = 3DE2E81D1B7A7F6F005E71C6 /* PBXContainerItemProxy */;
+		};
+		3DE2E8281B7A7F6F005E71C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DE2E80B1B7A7F6F005E71C6 /* TrailMix WatchKit Extension */;
+			targetProxy = 3DE2E8271B7A7F6F005E71C6 /* PBXContainerItemProxy */;
+		};
+		3DE2E8431B7A802F005E71C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DE2E8351B7A802F005E71C6 /* TrailMixFramework */;
+			targetProxy = 3DE2E8421B7A802F005E71C6 /* PBXContainerItemProxy */;
+		};
+		3DE2E8451B7A802F005E71C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72F9A32F1B69681B00E8494F /* TrailMix */;
+			targetProxy = 3DE2E8441B7A802F005E71C6 /* PBXContainerItemProxy */;
+		};
+		3DE2E84C1B7A802F005E71C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DE2E8351B7A802F005E71C6 /* TrailMixFramework */;
+			targetProxy = 3DE2E84B1B7A802F005E71C6 /* PBXContainerItemProxy */;
+		};
 		72F9A34B1B69681C00E8494F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 72F9A32F1B69681B00E8494F /* TrailMix */;
@@ -457,6 +835,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3DE2E8221B7A7F6F005E71C6 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DE2E8231B7A7F6F005E71C6 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		72F9A33D1B69681B00E8494F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -476,6 +862,134 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3DE2E82A1B7A7F6F005E71C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TrailMix WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3DE2E82B1B7A7F6F005E71C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "TrailMix WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3DE2E82C1B7A7F6F005E71C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = TrailMix_WatchKit_Extension;
+				INFOPLIST_FILE = "TrailMix WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		3DE2E82D1B7A7F6F005E71C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = TrailMix_WatchKit_Extension;
+				INFOPLIST_FILE = "TrailMix WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		3DE2E8501B7A802F005E71C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TrailMixFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3DE2E8511B7A802F005E71C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TrailMixFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3DE2E8541B7A802F005E71C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TrailMixFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TrailMix.app/TrailMix";
+			};
+			name = Debug;
+		};
+		3DE2E8551B7A802F005E71C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TrailMixFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TrailMix.app/TrailMix";
+			};
+			name = Release;
+		};
 		72F9A3511B69681C00E8494F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -623,6 +1137,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3DE2E82E1B7A7F6F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMix WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DE2E82C1B7A7F6F005E71C6 /* Debug */,
+				3DE2E82D1B7A7F6F005E71C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3DE2E82F1B7A7F6F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMix WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DE2E82A1B7A7F6F005E71C6 /* Debug */,
+				3DE2E82B1B7A7F6F005E71C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3DE2E84F1B7A802F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMixFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DE2E8501B7A802F005E71C6 /* Debug */,
+				3DE2E8511B7A802F005E71C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3DE2E8531B7A802F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMixFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DE2E8541B7A802F005E71C6 /* Debug */,
+				3DE2E8551B7A802F005E71C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		72F9A32B1B69681B00E8494F /* Build configuration list for PBXProject "TrailMix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
