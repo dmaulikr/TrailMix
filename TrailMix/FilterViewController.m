@@ -62,10 +62,6 @@
     
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
 - (IBAction)goButtonTapped:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     NaviViewController *destVC = [storyboard instantiateInitialViewController];
