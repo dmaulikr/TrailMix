@@ -54,6 +54,8 @@
         
         NSLog(@"before call back %@",[DataStore sharedDataStore].restaurantDictionary);
         [DataStore sharedDataStore].selectedFoodTypes = [[NSMutableArray alloc]initWithArray:cuisineTypeWithRestaurantObjects.allKeys];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]initWithKey:nil ascending:YES];
+        [[DataStore sharedDataStore].selectedFoodTypes sortUsingDescriptors:@[descriptor]];
         completionBlock();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

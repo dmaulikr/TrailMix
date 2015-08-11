@@ -43,25 +43,48 @@
     for(NSString *restType in tempArray){
         NSArray *restaurantsOfType = self.restaurantDictionary[restType];
         for(Restaurant *restaurant in restaurantsOfType){
-            NSNumber *selection = self.selectedDollarSign[restaurant.dollarSigns.integerValue];
-            if(selection.integerValue){
-                [resultRestaurantArray addObject:restaurant];
+            NSNumber *dollarPref = restaurant.dollarSigns;
+            NSNumber *starPref = restaurant.rating;
+            if(dollarPref.integerValue<=[DataStore sharedDataStore].dollarPref){
+                if(starPref.integerValue>=[DataStore sharedDataStore].starPref){
+                    [resultRestaurantArray addObject:restaurant];
+                }
             }
         }
     }
     
     NSInteger randomIndex = arc4random_uniform((u_int32_t)resultRestaurantArray.count);
+    Restaurant *selectedRestaurant = resultRestaurantArray[randomIndex];
     [RestaurantCDObject initWithRestaurantObject:resultRestaurantArray[randomIndex]];
 
 }
 
-//-(instancetype)init{
-//    self = [super init];
-//    if(self){
-//        _destinationIsResaurant = YES;
-//    }
-//    return  self;
-//}
+-(NSArray *)filteredRestaurantArray{
+    NSMutableArray *allKeyArray = [[NSMutableArray alloc]initWithArray:self.restaurantDictionary.allKeys];
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]initWithKey:nil ascending:YES];
+    [allKeyArray sortUsingDescriptors:@[descriptor]];
+    NSMutableArray* foodTypeArray = [[NSMutableArray alloc]init];
+    
+    for(NSString *foodType in allKeyArray){
+        BOOL hasValidRestaurant = NO;
+        NSArray *restaurantArray = [DataStore sharedDataStore].restaurantDictionary[foodType];
+        for(Restaurant *restaurant in restaurantArray){
+            NSNumber *dollarPref = restaurant.dollarSigns;
+            NSNumber *starPref = restaurant.rating;
+            if(dollarPref.integerValue<=[DataStore sharedDataStore].dollarPref){
+                if(starPref.integerValue>=[DataStore sharedDataStore].starPref){
+                    hasValidRestaurant = YES;
+                }
+            }
+        }
+        if(hasValidRestaurant){
+            [foodTypeArray addObject:foodType];
+        }
+    }
+    return foodTypeArray;
+}
+
+
 
 -(NSMutableArray *)selectedFoodTypes{
     if(!_selectedFoodTypes){
@@ -78,16 +101,6 @@
     return _restaurantDictionary;
 }
 
--(NSMutableArray *)selectedDollarSign{
-    if(!_selectedDollarSign){
-        NSLog(@"init the dollar sign");
-        _selectedDollarSign = [[NSMutableArray alloc]init];
-        for(NSInteger i = 0; i < 4; i++){
-            [_selectedDollarSign addObject:@1];
-        }
-    }
-    return _selectedDollarSign;
-}
 
 - (void)saveContext
 {

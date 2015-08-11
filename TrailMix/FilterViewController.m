@@ -43,7 +43,8 @@
     [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
     [FourSquareAPIClient getNearbyRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^() {
         NSLog(@"finished");
-        self.foodTypes = [DataStore sharedDataStore].restaurantDictionary.allKeys;
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]initWithKey:nil ascending:YES];
+        self.foodTypes = [[DataStore sharedDataStore].restaurantDictionary.allKeys sortedArrayUsingDescriptors:@[descriptor]];
         self.selectedFoodTypes = [DataStore sharedDataStore].selectedFoodTypes;
         [self.tableView reloadData];
         
@@ -232,20 +233,24 @@
 
 - (IBAction)dismissButtonTapped:(id)sender
 {
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        
-//    }];
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)starButtonTapped:(UIButton *)sender
 {
+    [DataStore sharedDataStore].starPref = sender.tag;
     [self updateStarPrefWithTagNum:sender.tag];
+    self.foodTypes = [[DataStore sharedDataStore] filteredRestaurantArray];
+    [self.tableView reloadData];
 }
 
 - (IBAction)dollarButtontapped:(UIButton *)sender
 {
+    [DataStore sharedDataStore].dollarPref = sender.tag;
     [self updateDollarPreWithTagNum:sender.tag];
+    self.foodTypes = [[DataStore sharedDataStore] filteredRestaurantArray];
+    [self.tableView reloadData];
 }
 
 

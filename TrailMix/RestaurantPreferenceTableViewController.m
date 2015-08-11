@@ -68,19 +68,19 @@
     }
     
     //update Price
-    BOOL hasSelectedPriceLogic = NO;
-    NSMutableString *titleString = [[NSMutableString alloc]init];
-    for(NSInteger i = 0 ;i <[DataStore sharedDataStore].selectedDollarSign.count; i++){
-        if(((NSNumber *)[DataStore sharedDataStore].selectedDollarSign[i]).integerValue){
-            hasSelectedPriceLogic = YES;
-            [titleString appendString:[NSString stringWithFormat:@"%@  ",[self returnDollarSignWithNumber:i]]];
-        }
-    }
-    if(hasSelectedPriceLogic){
-        self.priceCell.textLabel.text = titleString;
-    }else{
-        self.priceCell.textLabel.text = @"Random";
-    }
+//    BOOL hasSelectedPriceLogic = NO;
+//    NSMutableString *titleString = [[NSMutableString alloc]init];
+//    for(NSInteger i = 0 ;i <[DataStore sharedDataStore].selectedDollarSign.count; i++){
+//        if(((NSNumber *)[DataStore sharedDataStore].selectedDollarSign[i]).integerValue){
+//            hasSelectedPriceLogic = YES;
+//            [titleString appendString:[NSString stringWithFormat:@"%@  ",[self returnDollarSignWithNumber:i]]];
+//        }
+//    }
+//    if(hasSelectedPriceLogic){
+//        self.priceCell.textLabel.text = titleString;
+//    }else{
+//        self.priceCell.textLabel.text = @"Random";
+//    }
 }
 
 
