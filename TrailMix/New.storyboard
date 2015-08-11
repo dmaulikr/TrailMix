@@ -19,8 +19,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foodiesfeed.com_chicken-steak-egg-spinach-broccoli-avocado-carrot" translatesAutoresizingMaskIntoConstraints="NO" id="HT6-PK-YfT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-1" translatesAutoresizingMaskIntoConstraints="NO" id="HT6-PK-YfT">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5VJ-ze-pTE">
                                 <rect key="frame" x="150" y="300" width="300" height="292"/>
@@ -429,6 +430,6 @@
     </scenes>
     <resources>
         <image name="authentic-mexican-foods" width="375" height="667"/>
-        <image name="foodiesfeed.com_chicken-steak-egg-spinach-broccoli-avocado-carrot" width="375" height="667"/>
+        <image name="food-1" width="375" height="667"/>
     </resources>
 </document>
