@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSString *venueId;
 @property (nonatomic, strong) NSNumber *dollarSigns;
 @property (nonatomic, strong) NSNumber *rating;
-@property (nonatomic, strong) NSString *webLink;
+@property (nonatomic, strong) NSURL *webLink;
 
 - (instancetype) initWithCuisineType:(NSString *)foodType
                              VenueId:(NSString *)venueId
@@ -26,7 +26,7 @@
                            Longitude:(NSString *)longitude
                          DollarSigns:(NSNumber *)dollarSigns
                               Rating:(NSNumber *)rating
-                             WebLink:(NSString *)webLink;
+                             WebLink:(NSURL *)webLink;
 
 + (instancetype)createRestaurantObject:(NSDictionary *)restaurantDictionary;
 
