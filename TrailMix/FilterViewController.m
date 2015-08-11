@@ -57,10 +57,10 @@
     self.userDefaults = [NSUserDefaults standardUserDefaults];
     self.foodTypesTableView.backgroundColor = [UIColor clearColor];
     
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greenColor]];
-    self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:30];
-    [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:25];
+    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:25];
+    [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor]];
     
     
 }
@@ -213,10 +213,10 @@
 - (void)setUpStarIcons:(UIButton *)button
 {
     self.unFilledStarIcon = [FAKFontAwesome starOIconWithSize:30];
-    [self.unFilledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor yellowColor]];
+    [self.unFilledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
     [button setAttributedTitle:[self.filledStarIcon attributedString] forState:UIControlStateNormal];
     self.filledStarIcon = [FAKFontAwesome starIconWithSize:30];
-    [self.filledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor yellowColor]];
+    [self.filledStarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
 }
 
 -(void)selectStarState:(UIButton *)button
