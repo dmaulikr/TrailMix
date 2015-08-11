@@ -93,7 +93,7 @@
 }
 
 -(void)showRestaurantDirection{
-    self.foodImage.image = [UIImage imageNamed:@"food"];
+    self.foodImage.image = [UIImage imageNamed:@"whiteArrow"];
     self.destLocation = self.restaurantLocation;
     [self.visitButton setTitle:@"Visit This Place" forState:UIControlStateNormal];
 }
