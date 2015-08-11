@@ -13,6 +13,7 @@
 #import "DataStore.h"
 #import "WikiAPIClient.h"
 #import <JDStatusBarNotification/JDStatusBarNotification.h>
+#import "FilterViewController.h"
 
 @interface NaviViewController () <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
@@ -59,6 +60,15 @@
     
     [super viewWillAppear:animated];
     [self updateDestination];
+}
+
+- (IBAction)abortButtonTapped:(id)sender {
+    UIViewController *controller = self.presentingViewController;
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        [controller.navigationController popToRootViewControllerAnimated:YES];
+        NSLog(@"to the end");
+    }];
 }
 
 -(void)updateDestination{

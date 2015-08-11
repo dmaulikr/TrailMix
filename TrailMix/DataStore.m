@@ -45,7 +45,7 @@
         for(Restaurant *restaurant in restaurantsOfType){
             NSNumber *dollarPref = restaurant.dollarSigns;
             NSNumber *starPref = restaurant.rating;
-            if(dollarPref.integerValue>=[DataStore sharedDataStore].dollarPref){
+            if(dollarPref.integerValue<=[DataStore sharedDataStore].dollarPref){
                 if(starPref.integerValue>=[DataStore sharedDataStore].starPref){
                     [resultRestaurantArray addObject:restaurant];
                 }
@@ -71,7 +71,7 @@
         for(Restaurant *restaurant in restaurantArray){
             NSNumber *dollarPref = restaurant.dollarSigns;
             NSNumber *starPref = restaurant.rating;
-            if(dollarPref.integerValue>=[DataStore sharedDataStore].dollarPref){
+            if(dollarPref.integerValue<=[DataStore sharedDataStore].dollarPref){
                 if(starPref.integerValue>=[DataStore sharedDataStore].starPref){
                     hasValidRestaurant = YES;
                 }
