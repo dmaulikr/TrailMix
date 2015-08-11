@@ -22,13 +22,14 @@
 @property (nonatomic, strong) NSArray *wikiArticles;
 @property (nonatomic, strong) CLLocation *lastWikiUpdateLocation;
 @property (nonatomic, strong) WikiArticle *pointOfInterest;
-@property (strong, nonatomic) NSMutableArray *selectedDollarSign;
 @property (assign, nonatomic) NSInteger dollarPref;
 @property (assign, nonatomic) NSInteger starPref;
 @property (assign, nonatomic) BOOL destinationIsResaurant;
 -(void)saveContext;
 
 -(void)filteredRestaurant;
+
+-(NSArray *)filteredRestaurantArray;
 
 
 @end

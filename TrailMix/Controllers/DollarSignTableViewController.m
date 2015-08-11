@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.selectedDollarSign = [DataStore sharedDataStore].selectedDollarSign;
+//    self.selectedDollarSign = [DataStore sharedDataStore].selectedDollarSign;
 }
 
 - (void)didReceiveMemoryWarning {
