@@ -20,7 +20,7 @@
                                  @"format" : @"json",
                                  @"list" : @"geosearch",
                                  @"gsradius" : @(radius),
-                                 @"gslimit" : @20,
+                                 @"gslimit" : @500, // high amount will cause memory warning
                                  @"gscoord" : [NSString stringWithFormat:@"%f|%f",coordinate.latitude, coordinate.longitude]
                                  };
     

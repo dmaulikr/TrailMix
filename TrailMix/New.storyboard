@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foodiesfeed.com_chicken-steak-egg-spinach-broccoli-avocado-carrot" translatesAutoresizingMaskIntoConstraints="NO" id="HT6-PK-YfT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food-1" translatesAutoresizingMaskIntoConstraints="NO" id="HT6-PK-YfT">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5VJ-ze-pTE">
@@ -430,6 +430,6 @@
     </scenes>
     <resources>
         <image name="authentic-mexican-foods" width="375" height="667"/>
-        <image name="foodiesfeed.com_chicken-steak-egg-spinach-broccoli-avocado-carrot" width="375" height="667"/>
+        <image name="food-1" width="375" height="667"/>
     </resources>
 </document>
