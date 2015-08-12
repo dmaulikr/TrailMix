@@ -34,22 +34,26 @@
                         <label alignment="center" text="Select Time" id="AG3-Az-AG3"/>
                         <button width="1" alignment="left" title="5 Minutes" id="FTd-KA-jtl">
                             <connections>
-                                <segue destination="3dW-e1-7AQ" kind="modal" id="5dG-Yy-NSc"/>
+                                <action selector="fiveMinuteButtonTapped" destination="bu5-br-Dw4" id="l6E-cb-1v7"/>
+                                <segue destination="3dW-e1-7AQ" kind="modal" identifier="5" id="5dG-Yy-NSc"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" title="10 Minutes" id="gFQ-DO-yyB">
                             <connections>
-                                <segue destination="3dW-e1-7AQ" kind="modal" id="IrU-aN-o7t"/>
+                                <action selector="tenMinuteButtonTapped" destination="bu5-br-Dw4" id="QoY-uo-mbs"/>
+                                <segue destination="3dW-e1-7AQ" kind="modal" identifier="10" id="IrU-aN-o7t"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" title="20 Minutes" id="ZhF-DP-SKg">
                             <connections>
-                                <segue destination="3dW-e1-7AQ" kind="modal" id="pad-bW-IyQ"/>
+                                <action selector="twentyMinuteButtonTapped" destination="bu5-br-Dw4" id="AKg-tU-zsm"/>
+                                <segue destination="3dW-e1-7AQ" kind="modal" identifier="20" id="pad-bW-IyQ"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" title="30 Minutes" id="11w-5M-VET">
                             <connections>
-                                <segue destination="3dW-e1-7AQ" kind="modal" id="yhX-Uo-Wlk"/>
+                                <action selector="thirtyMinuteButtonTapped" destination="bu5-br-Dw4" id="5oI-34-1HS"/>
+                                <segue destination="3dW-e1-7AQ" kind="modal" identifier="30" id="yhX-Uo-Wlk"/>
                             </connections>
                         </button>
                     </items>

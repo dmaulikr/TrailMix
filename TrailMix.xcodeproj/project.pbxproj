@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D0971F51B7BA191002C7722 /* WKNaviInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0971F41B7BA191002C7722 /* WKNaviInterfaceController.m */; };
 		3D0971F81B7BB13E002C7722 /* TimeSelectionInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0971F71B7BB13E002C7722 /* TimeSelectionInterfaceController.m */; };
+		3D0971F91B7BB7AA002C7722 /* TrailMixFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE2E8361B7A802F005E71C6 /* TrailMixFramework.framework */; };
 		3DA6ADAD1B6977400022EF4D /* NaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6ADAC1B6977400022EF4D /* NaviViewController.m */; };
 		3DDD99331B6A740600178632 /* DurationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99321B6A740600178632 /* DurationPickerViewController.m */; };
 		3DDD99361B6A761B00178632 /* RestaurantPreferenceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99351B6A761B00178632 /* RestaurantPreferenceTableViewController.m */; };
@@ -221,6 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0971F91B7BB7AA002C7722 /* TrailMixFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

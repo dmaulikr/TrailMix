@@ -17,4 +17,8 @@
 
 +(NSString *)getCurrentDateForGetRequest;
 
++(void)getRandomNearbyRestaurantWithLatitude:(double)latitude
+                                   Longitude:(double)longitude
+                                      Radius:(double)radius
+                             CompletionBlock:(void(^)(void))completionBlock;
 @end
