@@ -81,7 +81,6 @@
         [UIView animateWithDuration:0.75 delay:1.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
             
             self.followArrowLabel.alpha = 0;
-//            self.followArrowLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:13];
             self.followTheArrowConstraint.constant = 0;
             [self.view layoutIfNeeded];
             
