@@ -23,7 +23,7 @@
     if(self.locationManager == nil){
         self.locationManager = [[CLLocationManager alloc]init];
         self.locationManager.delegate = self;
-        self.locationManager.pausesLocationUpdatesAutomatically = YES;
+//        self.locationManager.pausesLocationUpdatesAutomatically = YES;
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
         self.locationManager.distanceFilter = kCLDistanceFilterNone;
     }
@@ -79,7 +79,9 @@
 
 - (IBAction)thirtyMinuteButtonTapped {
     [FourSquareAPIClient getRandomNearbyRestaurantWithLatitude:self.currentLocation.coordinate.latitude Longitude:self.currentLocation.coordinate.longitude Radius:30*83.1495 CompletionBlock:^{
+        
         [self presentControllerWithName:@"WKNaviInterfaceController" context:nil];
+        
     }];
 }
 
