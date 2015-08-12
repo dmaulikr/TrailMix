@@ -44,9 +44,11 @@
     for(RestaurantCDObject *object in resultArray){
         NSLog(@"Name = %@",object.name);
     }
-    
-    return (RestaurantCDObject *)resultArray[0];
-    
+    if(!resultArray.count){
+        return (RestaurantCDObject *)resultArray[0];
+    }else{
+        return nil;
+    }
     
 }
 

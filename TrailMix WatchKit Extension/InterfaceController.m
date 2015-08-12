@@ -7,9 +7,10 @@
 //
 
 #import "InterfaceController.h"
-
+#import "RestaurantCDObject+InitWithRestaurantObject.h"
 
 @interface InterfaceController()
+@property (weak, nonatomic) IBOutlet WKInterfaceButton *resumeButton;
 
 @end
 
@@ -25,6 +26,9 @@
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
+    if(![RestaurantCDObject getLatestRestaurant]){
+        [self.resumeButton setEnabled:NO];
+    }
 }
 
 - (void)didDeactivate {

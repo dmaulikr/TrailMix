@@ -8,6 +8,7 @@
 
 #import "WKNaviInterfaceController.h"
 #import "RestaurantCDObject+InitWithRestaurantObject.h"
+#import "DataStore.h"
 
 @interface WKNaviInterfaceController ()<CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *distanceLabel;
@@ -16,6 +17,7 @@
 @property (strong, nonatomic)CLLocation *currentLocation;
 @property (assign, nonatomic)CGFloat remainingDistance;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *helperLabel;
+@property (strong, nonatomic) RestaurantCDObject *restaurant;
 @end
 
 @implementation WKNaviInterfaceController
@@ -46,9 +48,9 @@
     }
     
     
-    RestaurantCDObject *restaurant = [RestaurantCDObject getLatestRestaurant];
-    [self.helperLabel setText:restaurant.name];
-    self.destinationLocation = [[CLLocation alloc]initWithLatitude:restaurant.latitude.floatValue longitude:restaurant.longitude.floatValue];
+    self.restaurant = [RestaurantCDObject getLatestRestaurant];
+    [self.helperLabel setText:self.restaurant.name];
+    self.destinationLocation = [[CLLocation alloc]initWithLatitude:self.restaurant.latitude.floatValue longitude:self.restaurant.longitude.floatValue];
     
 }
 
@@ -58,7 +60,17 @@
     [self.distanceLabel setText:[NSString stringWithFormat:@"%f",self.remainingDistance]];
 }
 
+- (IBAction)cancelTripButtonTapped {
+    //delete that from coredata
+    
+    [[DataStore sharedDataStore].managedObjectContext deleteObject:self.restaurant];
+    
+    [self popToRootController];
+}
 
+- (IBAction)pauseTripBUttonTapped {
+    [self popToRootController];
+}
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user

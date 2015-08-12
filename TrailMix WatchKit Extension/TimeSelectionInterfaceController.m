@@ -61,26 +61,26 @@
 - (IBAction)fiveMinuteButtonTapped {
     
     [FourSquareAPIClient getRandomNearbyRestaurantWithLatitude:self.currentLocation.coordinate.latitude Longitude:self.currentLocation.coordinate.longitude Radius:5*83.1495 CompletionBlock:^{
-        [self presentControllerWithName:@"WKNaviInterfaceController" context:nil];
+        [self pushControllerWithName:@"WKNaviInterfaceController" context:nil];
     }];
 }
 
 - (IBAction)tenMinuteButtonTapped {
     [FourSquareAPIClient getRandomNearbyRestaurantWithLatitude:self.currentLocation.coordinate.latitude Longitude:self.currentLocation.coordinate.longitude Radius:10*83.1495 CompletionBlock:^{
-        [self presentControllerWithName:@"WKNaviInterfaceController" context:nil];
+        [self pushControllerWithName:@"WKNaviInterfaceController" context:nil];
     }];
 }
 
 - (IBAction)twentyMinuteButtonTapped {
     [FourSquareAPIClient getRandomNearbyRestaurantWithLatitude:self.currentLocation.coordinate.latitude Longitude:self.currentLocation.coordinate.longitude Radius:20*83.1495 CompletionBlock:^{
-        [self presentControllerWithName:@"WKNaviInterfaceController" context:nil];
+        [self pushControllerWithName:@"WKNaviInterfaceController" context:nil];
     }];
 }
 
 - (IBAction)thirtyMinuteButtonTapped {
     [FourSquareAPIClient getRandomNearbyRestaurantWithLatitude:self.currentLocation.coordinate.latitude Longitude:self.currentLocation.coordinate.longitude Radius:30*83.1495 CompletionBlock:^{
         
-        [self presentControllerWithName:@"WKNaviInterfaceController" context:nil];
+        [self pushControllerWithName:@"WKNaviInterfaceController" context:nil];
         
     }];
 }

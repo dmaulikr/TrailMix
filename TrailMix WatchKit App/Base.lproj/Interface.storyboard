@@ -10,6 +10,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
+                        <imageView width="52" height="47" alignment="center" image="plate" contentMode="scaleAspectFit" id="a2J-P3-8OA"/>
                         <label alignment="center" text="TrailMix" id="O7e-Z3-cmR"/>
                         <button width="1" alignment="left" verticalAlignment="center" title="New Adventure" id="ab7-kL-5pU">
                             <connections>
@@ -18,13 +19,16 @@
                         </button>
                         <button width="1" alignment="left" verticalAlignment="center" title="Resume" id="irY-pN-uJ8">
                             <connections>
-                                <segue destination="3dW-e1-7AQ" kind="modal" id="dYz-XX-62m"/>
+                                <segue destination="3dW-e1-7AQ" kind="push" id="dYz-XX-62m"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="resumeButton" destination="irY-pN-uJ8" id="Z38-W9-iG8"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="60" y="350"/>
+            <point key="canvasLocation" x="60" y="305.75"/>
         </scene>
         <!--Time Selection Interface Controller-->
         <scene sceneID="OJH-Ms-mNP">
@@ -83,6 +87,20 @@
                         <label height="23.5" alignment="center" verticalAlignment="center" text="Meters" id="t9E-MW-UsJ"/>
                         <label alignment="center" verticalAlignment="bottom" text="Label" id="f8N-3l-93V"/>
                     </items>
+                    <menu key="menu" id="V99-dS-F7h">
+                        <items>
+                            <menuItem title="Cancel Trip" icon="decline" id="EUD-aX-LgH">
+                                <connections>
+                                    <action selector="cancelTripButtonTapped" destination="3dW-e1-7AQ" id="Ita-lp-egI"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Pause Trip" icon="pause" id="MZI-mf-3YP">
+                                <connections>
+                                    <action selector="pauseTripBUttonTapped" destination="3dW-e1-7AQ" id="3Bu-Jh-MHb"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="distanceLabel" destination="jjh-tC-3P3" id="Wvr-Zy-vi0"/>
                         <outlet property="helperLabel" destination="f8N-3l-93V" id="qIL-KB-Sih"/>
