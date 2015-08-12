@@ -14,6 +14,8 @@
 #import "WikiAPIClient.h"
 #import <JDStatusBarNotification/JDStatusBarNotification.h>
 #import "FilterViewController.h"
+#import "RestaurantDestinationWebViewController.h"
+#import "Restaurant.h"
 
 @interface NaviViewController () <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
@@ -26,6 +28,7 @@
 @property (assign, nonatomic) CLLocationDirection heading;
 @property (strong, nonatomic) NSMutableArray *headingArray;
 @property (nonatomic, strong) DataStore *dataStore;
+@property (nonatomic) BOOL destinationReached;
 @end
 
 @implementation NaviViewController
@@ -45,7 +48,7 @@
     
     RestaurantCDObject *destRestaurant = [RestaurantCDObject getLatestRestaurant];
     
-    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@",destRestaurant.name]];
+//    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@",destRestaurant.name]];
     
     self.restaurantLocation = [[CLLocation alloc]initWithLatitude:destRestaurant.latitude.floatValue longitude:destRestaurant.longitude.floatValue];
     
@@ -138,6 +141,7 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    
     self.currentLocation = (CLLocation *)locations[0];
     
     if (!self.dataStore.lastWikiUpdateLocation) {
@@ -150,7 +154,7 @@
         
         double distanceFromLastWikiUpdateLocation = [self.currentLocation distanceFromLocation:self.dataStore.lastWikiUpdateLocation];
         
-        [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%fm away from last wiki update location", distanceFromLastWikiUpdateLocation]];
+//        [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%fm away from last wiki update location", distanceFromLastWikiUpdateLocation]];
         
         if (distanceFromLastWikiUpdateLocation > 400) { // every quarter mile?
             
@@ -159,6 +163,20 @@
             [self updateWikiArticles];
             
         }
+        
+    }
+    
+    
+    if ([self.currentLocation distanceFromLocation:self.restaurantLocation] <= 30.0) { // if we're less then 30 meters away then we'll let the user know we're here!
+        
+        if (!self.destinationReached && self.view.window) { // if the current view controller is reached
+            
+            self.destinationReached = YES;
+            
+            [self performSegueWithIdentifier:@"DestinationReachedSegue" sender:self];
+            
+        }
+        
         
     }
     
@@ -221,11 +239,6 @@
         [self showRestaurantDirection];
         self.dataStore.destinationIsResaurant = YES;
     }
-    
-    
-    
-    
-    
     
 }
 
@@ -388,14 +401,23 @@
     return offsetDegress;
     
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"DestinationReachedSegue"]) {
+        
+        RestaurantDestinationWebViewController *restaurantDesinationWebViewController = segue.destinationViewController;
+        
+        restaurantDesinationWebViewController.url = self.dataStore.selectedRestaurant.webLink;
+        
+    }
+    
 }
-*/
+
 
 @end

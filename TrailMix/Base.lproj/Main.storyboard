@@ -238,7 +238,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="15F-ki-IBR" kind="presentation" id="JFM-7v-quU"/>
+                                    <segue destination="15F-ki-IBR" kind="presentation" identifier="WikiLocationSegue" id="JFM-7v-quU"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="bxr-TE-A5s">
@@ -275,11 +275,65 @@
                         <outlet property="distanceLabel" destination="nwY-c2-R14" id="kKg-z1-Q3m"/>
                         <outlet property="foodImage" destination="bxr-TE-A5s" id="rMf-ty-cP9"/>
                         <outlet property="visitButton" destination="jj0-pc-TNV" id="X1Y-Cm-0ht"/>
+                        <segue destination="AyS-1r-6Il" kind="presentation" identifier="DestinationReachedSegue" id="cJw-0w-RiT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEV-Pj-PUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2303" y="416"/>
+        </scene>
+        <!--Restaurant Destination Web View Controller-->
+        <scene sceneID="Swe-lE-dJG">
+            <objects>
+                <viewController id="AyS-1r-6Il" customClass="RestaurantDestinationWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aUN-q6-OgQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="2HA-vA-7Rv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dww-iN-Pd8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61F-Gk-YIg">
+                                <rect key="frame" x="0.0" y="72" width="600" height="528"/>
+                            </webView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5H-DK-3nZ">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <items>
+                                    <navigationItem id="1bE-xs-Waw">
+                                        <barButtonItem key="rightBarButtonItem" title="Dismiss" id="WBg-4l-2a4">
+                                            <connections>
+                                                <action selector="dismissButtonTapped:" destination="AyS-1r-6Il" id="mXV-ki-BFi"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="61F-Gk-YIg" secondAttribute="width" id="2nw-Cf-sPi"/>
+                            <constraint firstAttribute="centerX" secondItem="b5H-DK-3nZ" secondAttribute="centerX" id="Gbb-QQ-Or6"/>
+                            <constraint firstItem="61F-Gk-YIg" firstAttribute="centerX" secondItem="dww-iN-Pd8" secondAttribute="centerX" id="TB5-mP-L2E"/>
+                            <constraint firstItem="61F-Gk-YIg" firstAttribute="top" secondItem="b5H-DK-3nZ" secondAttribute="bottom" id="ZSl-7H-5nN"/>
+                            <constraint firstAttribute="width" secondItem="b5H-DK-3nZ" secondAttribute="width" id="qja-9V-hoJ"/>
+                            <constraint firstItem="b5H-DK-3nZ" firstAttribute="top" secondItem="aUN-q6-OgQ" secondAttribute="bottom" constant="8" id="sJh-51-UE8"/>
+                            <constraint firstItem="2HA-vA-7Rv" firstAttribute="top" secondItem="61F-Gk-YIg" secondAttribute="bottom" id="zF7-Uv-5hf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OgL-wg-cb1">
+                        <barButtonItem key="rightBarButtonItem" title="Dismiss" id="8W9-wF-9DU">
+                            <connections>
+                                <action selector="dismissButtonTapped:" destination="AyS-1r-6Il" id="ABC-nZ-TR4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="61F-Gk-YIg" id="UJc-AY-4cI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iWr-Ps-DBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3154" y="395"/>
         </scene>
         <!--Wiki Table View Controller-->
         <scene sceneID="deN-k1-4z0">
