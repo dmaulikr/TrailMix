@@ -25,6 +25,7 @@
 @property (assign, nonatomic) NSInteger dollarPref;
 @property (assign, nonatomic) NSInteger starPref;
 @property (assign, nonatomic) BOOL destinationIsResaurant;
+@property (nonatomic, strong) Restaurant *selectedRestaurant;
 -(void)saveContext;
 
 -(void)filteredRestaurant;

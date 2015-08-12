@@ -55,7 +55,8 @@
     
     NSInteger randomIndex = arc4random_uniform((u_int32_t)resultRestaurantArray.count);
     Restaurant *selectedRestaurant = resultRestaurantArray[randomIndex];
-    [RestaurantCDObject initWithRestaurantObject:resultRestaurantArray[randomIndex]];
+    self.selectedRestaurant = selectedRestaurant;
+    [RestaurantCDObject initWithRestaurantObject:selectedRestaurant];
 
 }
 
