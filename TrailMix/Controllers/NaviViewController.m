@@ -27,6 +27,10 @@
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (assign, nonatomic) CLLocationDirection heading;
 @property (strong, nonatomic) NSMutableArray *headingArray;
+@property (weak, nonatomic) IBOutlet UILabel *arrowLabel;
+@property (weak, nonatomic) IBOutlet UIView *arrowView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *followTheArrowConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *followArrowLabel;
 @property (nonatomic, strong) DataStore *dataStore;
 @property (nonatomic) BOOL destinationReached;
 @end
@@ -35,6 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.arrowView.backgroundColor = [UIColor clearColor];
+    self.arrowLabel.adjustsFontSizeToFitWidth = YES;
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.delegate = self;
     self.locationManager.pausesLocationUpdatesAutomatically = YES;
@@ -57,6 +63,32 @@
     self.destLocation = self.restaurantLocation;
     
     [self startLocationService];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
+    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.followArrowLabel.alpha = 1;
+        self.followArrowLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:36];
+        self.followTheArrowConstraint.constant = 80;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+        if (finished) {
+            NSLog(@"finished");
+        [UIView animateWithDuration:0.75 delay:1.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            
+            self.followArrowLabel.alpha = 0;
+//            self.followArrowLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:13];
+            self.followTheArrowConstraint.constant = 0;
+            [self.view layoutIfNeeded];
+            
+        } completion:nil];
+        }
+    }];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -96,7 +128,7 @@
 }
 
 -(void)showRestaurantDirection{
-    self.foodImage.image = [UIImage imageNamed:@"food"];
+    self.foodImage.image = [UIImage imageNamed:@"fork"];
     self.destLocation = self.restaurantLocation;
     [self.visitButton setTitle:@"Visit This Place" forState:UIControlStateNormal];
 }
@@ -299,7 +331,8 @@
     CGFloat aveHeading = [self calculateRotationRadian];
     
     CGFloat headingRadian = ((0-aveHeading+destinationOffset)*M_PI/180);
-    self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian);
+    self.arrowView.transform = CGAffineTransformMakeRotation(headingRadian);
+//    self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian);
 }
 
 -(CGFloat)calculateRotationRadian{
