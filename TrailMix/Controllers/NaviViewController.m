@@ -100,7 +100,7 @@
     UINavigationController *controller = (UINavigationController *)self.presentingViewController;
     
     [self dismissViewControllerAnimated:YES completion:^{
-//        [controller popToRootViewControllerAnimated:YES];
+        [controller popToRootViewControllerAnimated:YES];
         NSLog(@"to the end");
     }];
 }
