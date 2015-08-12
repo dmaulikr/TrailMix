@@ -8,10 +8,12 @@
 
 #import "IntroAdventureViewController.h"
 #import "NaviViewController.h"
+#import "RestaurantCDObject+InitWithRestaurantObject.h"
 
 @interface IntroAdventureViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *adventureButtons;
 
+@property (weak, nonatomic) IBOutlet UIButton *resumeButton;
 
 @end
 
@@ -21,6 +23,19 @@
     [super viewDidLoad];
     for (UIButton *button in self.adventureButtons) {
         [self formatButton:button];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if(![RestaurantCDObject getLatestRestaurant]){
+        self.resumeButton.enabled = NO;
+        [self.resumeButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        self.resumeButton.layer.borderColor = [UIColor grayColor].CGColor;
+    }else{
+        self.resumeButton.enabled = YES;
+        [self.resumeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.resumeButton.layer.borderColor = [UIColor whiteColor].CGColor;
     }
 }
 

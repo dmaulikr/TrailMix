@@ -626,6 +626,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="PqS-dC-X0O"/>
                     <connections>
+                        <outlet property="resumeButton" destination="nO5-YB-H6g" id="Osc-3J-Lhw"/>
                         <outletCollection property="adventureButtons" destination="1S1-1l-o5f" id="gNG-hC-8d8"/>
                         <outletCollection property="adventureButtons" destination="nO5-YB-H6g" id="FDO-ox-KZs"/>
                         <outletCollection property="adventureButtons" destination="GP3-zV-jnt" id="WFq-dN-Rki"/>
