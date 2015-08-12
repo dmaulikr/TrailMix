@@ -15,6 +15,7 @@
 @property (strong, nonatomic)CLLocation *destinationLocation;
 @property (strong, nonatomic)CLLocation *currentLocation;
 @property (assign, nonatomic)CGFloat remainingDistance;
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *helperLabel;
 @end
 
 @implementation WKNaviInterfaceController
@@ -46,6 +47,7 @@
     
     
     RestaurantCDObject *restaurant = [RestaurantCDObject getLatestRestaurant];
+    [self.helperLabel setText:restaurant.name];
     self.destinationLocation = [[CLLocation alloc]initWithLatitude:restaurant.latitude.floatValue longitude:restaurant.longitude.floatValue];
     
 }

@@ -85,6 +85,7 @@
                     </items>
                     <connections>
                         <outlet property="distanceLabel" destination="jjh-tC-3P3" id="Wvr-Zy-vi0"/>
+                        <outlet property="helperLabel" destination="f8N-3l-93V" id="qIL-KB-Sih"/>
                     </connections>
                 </controller>
             </objects>
