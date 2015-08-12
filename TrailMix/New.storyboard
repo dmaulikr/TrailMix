@@ -585,6 +585,9 @@
                                 <state key="normal" title="Resume">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="resumeButtonTapped:" destination="l8V-XI-qmL" eventType="touchUpInside" id="awT-Zk-9jz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GP3-zV-jnt">
                                 <rect key="frame" x="145" y="425" width="309" height="49"/>
