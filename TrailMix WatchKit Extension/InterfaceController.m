@@ -28,6 +28,8 @@
     [super willActivate];
     if(![RestaurantCDObject getLatestRestaurant]){
         [self.resumeButton setEnabled:NO];
+    }else{
+        [self.resumeButton setEnabled:YES];
     }
 }
 
