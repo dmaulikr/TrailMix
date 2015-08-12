@@ -100,9 +100,14 @@
     UINavigationController *controller = (UINavigationController *)self.presentingViewController;
     
     [self dismissViewControllerAnimated:YES completion:^{
-        [controller popToRootViewControllerAnimated:YES];
+//        [controller popToRootViewControllerAnimated:YES];
         NSLog(@"to the end");
     }];
+}
+
+-(void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion
+{
+    [super presentViewController:viewControllerToPresent animated:flag completion:completion];
 }
 
 -(void)updateDestination{

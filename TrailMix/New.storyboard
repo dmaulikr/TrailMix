@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Sci-nN-MdR">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -585,6 +584,9 @@
                                 <state key="normal" title="Resume">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="resumeButtonTapped:" destination="l8V-XI-qmL" eventType="touchUpInside" id="39C-wX-wET"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GP3-zV-jnt">
                                 <rect key="frame" x="145" y="425" width="309" height="49"/>
@@ -630,7 +632,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbv-N6-nrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1383" y="17"/>
+            <point key="canvasLocation" x="1323" y="17"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w6o-YY-rak">
@@ -648,7 +650,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THj-Ct-o6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="17"/>
+            <point key="canvasLocation" x="651" y="17"/>
         </scene>
     </scenes>
     <resources>

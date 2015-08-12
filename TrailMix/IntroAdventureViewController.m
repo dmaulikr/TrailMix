@@ -7,6 +7,7 @@
 //
 
 #import "IntroAdventureViewController.h"
+#import "NaviViewController.h"
 
 @interface IntroAdventureViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *adventureButtons;
@@ -32,5 +33,9 @@
     
 }
 
+- (IBAction)resumeButtonTapped:(id)sender {
+    UIViewController *destVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateInitialViewController];
+    [self presentViewController:destVC animated:YES completion:nil];
+}
 
 @end
