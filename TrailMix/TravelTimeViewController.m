@@ -67,6 +67,11 @@
     
 }
 
+-(BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 -(void)formatTimeButton:(UIButton *)button
 {
     button.backgroundColor = [UIColor clearColor];
