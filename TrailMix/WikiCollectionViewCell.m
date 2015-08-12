@@ -74,93 +74,51 @@
     
     self.titleLabel.text = self.article.title;
     
+    self.imageView.image = nil;
     
-    
-    
-    
+    WikiArticle *article = self.article;
     
     if (!self.article.imageURL) {
         
-        self.imageView.image = nil;
-        
-        WikiArticle *article = self.article;
-        
-        [WikiAPIClient getArticleImageList:self.article.pageID completion:^(NSArray *imageList) {
+        [WikiAPIClient getArticleImageURL:self.article.pageID completion:^(NSURL *imageURL) {
             
-            NSString *imageFileName = [imageList firstObject][@"title"];
-            
-            if (imageFileName) {
+            if (self.article == article) {
                 
-                [WikiAPIClient getArticleImageURL:imageFileName completion:^(NSURL *imageURL) {
-
+                if (imageURL) {
                     
-                    // NSLog(@"%@, %@",self.article, article);
-                    
-                    // This check prevents the download of images if the cell isn't what is currently being displayed
-                    
-                    if (self.article == article) { // we need to reference the previous article...
-                    
-                        [self.imageView sd_setImageWithURL:imageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-  
-                            
-                            if (image)
-                            {
-                                self.imageView.alpha = 0.0;
-                                
-                                //                                self.article.image = image;
-                                self.article.imageURL = imageURL;
-                                
-                                [UIView animateWithDuration:0.5 animations:^{
-                                    
-                                    self.imageView.alpha = 1.0;
-                                    
-                                }];
-                            }
-                            
-                            
-                        }];
-                    }
-                    
-                }];
-                
-            } else {
-                
-                NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/staticmap?center=%f,%f&zoom=17&size=400x400&maptype=terrain&markers=color:red%%7C%f,%f", self.article.coordinate.latitude, self.article.coordinate.longitude,self.article.coordinate.latitude, self.article.coordinate.longitude];
-                
-                //                NSLog(@"%@",urlString);
-                NSURL *imageURL = [NSURL URLWithString: urlString];
-                
-                [self.imageView sd_setImageWithURL:imageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                    NSLog(@"%@",error);
-                    //                    self.article.image = image;
                     self.article.imageURL = imageURL;
                     
-                }];
+                    [self.imageView sd_setImageWithURL:imageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                        
+                    }];
+                    
+                } else {
+                    
+                    NSString *urlString = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/staticmap?center=%f,%f&zoom=17&size=400x400&maptype=terrain&markers=color:red%%7C%f,%f", self.article.coordinate.latitude, self.article.coordinate.longitude,self.article.coordinate.latitude, self.article.coordinate.longitude];
+                    
+                    NSURL *googleMapImageURL = [NSURL URLWithString: urlString];
+                    
+                    self.article.imageURL = googleMapImageURL;
+                    
+                    [self.imageView sd_setImageWithURL:googleMapImageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                        
+                        NSLog(@"%@",error);
+                        
+                        self.article.imageURL = imageURL;
+                        
+                    }];
+                    
+                }
                 
-            }
+            } 
             
             
         }];
-            
         
-        
+    
     } else {
         
         [self.imageView sd_setImageWithURL:self.article.imageURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            
-            //            if (image)
-            //            {
-            //                self.imageView.alpha = 0.0;
-            //
-            ////                self.article.image = image;
-            //                
-            //                [UIView animateWithDuration:0.5 animations:^{
-            //                    
-            //                    self.imageView.alpha = 1.0;
-            //                    
-            //                }];
-            //            }
-            
             
         }];
         
