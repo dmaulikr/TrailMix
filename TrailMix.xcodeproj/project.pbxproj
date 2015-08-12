@@ -33,6 +33,7 @@
 		DB416F421B697D2B00A1E41B /* YelpAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DB416F411B697D2B00A1E41B /* YelpAPIClient.m */; };
 		DB416F451B697D3800A1E41B /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = DB416F441B697D3800A1E41B /* Constants.m */; };
 		DB416F481B697DDA00A1E41B /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = DB416F471B697DDA00A1E41B /* Restaurant.m */; };
+		DB428EEC1B7BD6F200303F7F /* IntroAdventureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB428EEB1B7BD6F200303F7F /* IntroAdventureViewController.m */; };
 		DBB6CE1F1B73CDED00FA0D81 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB6CE1E1B73CDED00FA0D81 /* FilterViewController.m */; };
 		DBE4F9A91B6BE26200569F7D /* FourSquareAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9A81B6BE26200569F7D /* FourSquareAPIClient.m */; };
 		DBF444EC1B726B0C00B97BAD /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF444EB1B726B0C00B97BAD /* New.storyboard */; };
@@ -101,6 +102,8 @@
 		DB416F441B697D3800A1E41B /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		DB416F461B697DDA00A1E41B /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
 		DB416F471B697DDA00A1E41B /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		DB428EEA1B7BD6F200303F7F /* IntroAdventureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroAdventureViewController.h; sourceTree = "<group>"; };
+		DB428EEB1B7BD6F200303F7F /* IntroAdventureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroAdventureViewController.m; sourceTree = "<group>"; };
 		DBB6CE1D1B73CDED00FA0D81 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		DBB6CE1E1B73CDED00FA0D81 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		DBE4F9A71B6BE26200569F7D /* FourSquareAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourSquareAPIClient.h; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 				DBF444EB1B726B0C00B97BAD /* New.storyboard */,
 				DBB6CE1D1B73CDED00FA0D81 /* FilterViewController.h */,
 				DBB6CE1E1B73CDED00FA0D81 /* FilterViewController.m */,
+				DB428EEA1B7BD6F200303F7F /* IntroAdventureViewController.h */,
+				DB428EEB1B7BD6F200303F7F /* IntroAdventureViewController.m */,
 				DBF444ED1B728A5C00B97BAD /* TravelTimeViewController.h */,
 				DBF444EE1B728A5C00B97BAD /* TravelTimeViewController.m */,
 				72F9A3401B69681B00E8494F /* Images.xcassets */,
@@ -432,6 +437,7 @@
 				3DEA3B371B6FF0CD00D4022B /* DollarSignTableViewController.m in Sources */,
 				DB416F481B697DDA00A1E41B /* Restaurant.m in Sources */,
 				DBE4F9A91B6BE26200569F7D /* FourSquareAPIClient.m in Sources */,
+				DB428EEC1B7BD6F200303F7F /* IntroAdventureViewController.m in Sources */,
 				3DDD993F1B6AC24D00178632 /* RestaurantTypeTableViewController.m in Sources */,
 				DBF444EF1B728A5C00B97BAD /* TravelTimeViewController.m in Sources */,
 				3DDD99391B6A7C1100178632 /* TrailMix.xcdatamodeld in Sources */,
