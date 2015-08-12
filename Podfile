@@ -13,6 +13,10 @@ pod 'FontAwesomeKit', '~> 2.1.0'
 pod 'MultiSelectSegmentedControl'
 end
 
+target 'TrailMixFramework' do
+pod 'AFNetworking'
+end
+
 target 'TrailMixTests' do
 
 end

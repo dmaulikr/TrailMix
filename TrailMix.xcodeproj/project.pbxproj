@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D825F131B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D825F121B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m */; };
 		3DA6ADAD1B6977400022EF4D /* NaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6ADAC1B6977400022EF4D /* NaviViewController.m */; };
 		3DDD99331B6A740600178632 /* DurationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99321B6A740600178632 /* DurationPickerViewController.m */; };
 		3DDD99361B6A761B00178632 /* RestaurantPreferenceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99351B6A761B00178632 /* RestaurantPreferenceTableViewController.m */; };
-		3DDD99391B6A7C1100178632 /* TrailMix.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99371B6A7C1100178632 /* TrailMix.xcdatamodeld */; };
-		3DDD993C1B6A7C2F00178632 /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD993B1B6A7C2F00178632 /* DataStore.m */; };
 		3DDD993F1B6AC24D00178632 /* RestaurantTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD993E1B6AC24D00178632 /* RestaurantTypeTableViewController.m */; };
 		3DE2E8131B7A7F6F005E71C6 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E8121B7A7F6F005E71C6 /* InterfaceController.m */; };
 		3DE2E8161B7A7F6F005E71C6 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E8151B7A7F6F005E71C6 /* NotificationController.m */; };
@@ -43,7 +40,6 @@
 		3DE2E8651B7A9122005E71C6 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = DB416F471B697DDA00A1E41B /* Restaurant.m */; };
 		3DE2E8661B7A9122005E71C6 /* RestaurantCDObject+InitWithRestaurantObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D825F121B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m */; };
 		3DE2E8671B7A9122005E71C6 /* WikiArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FEAD801B697C4400F0FF33 /* WikiArticle.m */; };
-		3DEA3B341B6FEDEA00D4022B /* RestaurantCDObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA3B331B6FEDEA00D4022B /* RestaurantCDObject.m */; };
 		3DEA3B371B6FF0CD00D4022B /* DollarSignTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DEA3B361B6FF0CD00D4022B /* DollarSignTableViewController.m */; };
 		63C8B38244F3ABD6D75E8AB9 /* libPods-TrailMix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D40E02762E4FD5B07430F174 /* libPods-TrailMix.a */; };
 		72A9DDA61B6FECE600870BD7 /* WikiTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9DDA31B6FECE600870BD7 /* WikiTableViewController.m */; };
@@ -56,13 +52,8 @@
 		72F9A3411B69681B00E8494F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F9A3401B69681B00E8494F /* Images.xcassets */; };
 		72F9A3441B69681B00E8494F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F9A3421B69681B00E8494F /* LaunchScreen.xib */; };
 		72F9A3501B69681C00E8494F /* TrailMixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A34F1B69681C00E8494F /* TrailMixTests.m */; };
-		72FEAD811B697C4400F0FF33 /* WikiAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FEAD7E1B697C4400F0FF33 /* WikiAPIClient.m */; };
-		72FEAD821B697C4400F0FF33 /* WikiArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FEAD801B697C4400F0FF33 /* WikiArticle.m */; };
-		DB416F421B697D2B00A1E41B /* YelpAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DB416F411B697D2B00A1E41B /* YelpAPIClient.m */; };
-		DB416F451B697D3800A1E41B /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = DB416F441B697D3800A1E41B /* Constants.m */; };
-		DB416F481B697DDA00A1E41B /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = DB416F471B697DDA00A1E41B /* Restaurant.m */; };
+		992C1C199304317AFAF304E8 /* libPods-TrailMixFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C5B914D19B61A999B76939 /* libPods-TrailMixFramework.a */; };
 		DBB6CE1F1B73CDED00FA0D81 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB6CE1E1B73CDED00FA0D81 /* FilterViewController.m */; };
-		DBE4F9A91B6BE26200569F7D /* FourSquareAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE4F9A81B6BE26200569F7D /* FourSquareAPIClient.m */; };
 		DBF444EC1B726B0C00B97BAD /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF444EB1B726B0C00B97BAD /* New.storyboard */; };
 		DBF444EF1B728A5C00B97BAD /* TravelTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF444EE1B728A5C00B97BAD /* TravelTimeViewController.m */; };
 /* End PBXBuildFile section */
@@ -176,6 +167,7 @@
 		3DEA3B331B6FEDEA00D4022B /* RestaurantCDObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantCDObject.m; path = Models/RestaurantCDObject.m; sourceTree = "<group>"; };
 		3DEA3B351B6FF0CD00D4022B /* DollarSignTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DollarSignTableViewController.h; path = Controllers/DollarSignTableViewController.h; sourceTree = "<group>"; };
 		3DEA3B361B6FF0CD00D4022B /* DollarSignTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DollarSignTableViewController.m; path = Controllers/DollarSignTableViewController.m; sourceTree = "<group>"; };
+		6AF1828410F2C380D0413C43 /* Pods-TrailMixFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailMixFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrailMixFramework/Pods-TrailMixFramework.release.xcconfig"; sourceTree = "<group>"; };
 		72A9DDA21B6FECE600870BD7 /* WikiTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiTableViewController.h; sourceTree = "<group>"; };
 		72A9DDA31B6FECE600870BD7 /* WikiTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiTableViewController.m; sourceTree = "<group>"; };
 		72A9DDA41B6FECE600870BD7 /* WikiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiWebViewController.h; sourceTree = "<group>"; };
@@ -199,8 +191,10 @@
 		72FEAD7E1B697C4400F0FF33 /* WikiAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WikiAPIClient.m; path = ../TrailMix/WikiAPIClient.m; sourceTree = "<group>"; };
 		72FEAD7F1B697C4400F0FF33 /* WikiArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiArticle.h; sourceTree = "<group>"; };
 		72FEAD801B697C4400F0FF33 /* WikiArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiArticle.m; sourceTree = "<group>"; };
+		94130C764D58DA78B6D289DE /* Pods-TrailMixFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailMixFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrailMixFramework/Pods-TrailMixFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		A4F8ED7375ED3F133E3C75AE /* Pods-TrailMix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailMix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrailMix/Pods-TrailMix.debug.xcconfig"; sourceTree = "<group>"; };
 		D40E02762E4FD5B07430F174 /* libPods-TrailMix.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrailMix.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9C5B914D19B61A999B76939 /* libPods-TrailMixFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrailMixFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB416F401B697D2B00A1E41B /* YelpAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpAPIClient.h; sourceTree = "<group>"; };
 		DB416F411B697D2B00A1E41B /* YelpAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpAPIClient.m; sourceTree = "<group>"; };
 		DB416F431B697D3800A1E41B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../TrailMix/Constants.h; sourceTree = "<group>"; };
@@ -228,6 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				992C1C199304317AFAF304E8 /* libPods-TrailMixFramework.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +258,8 @@
 			children = (
 				A4F8ED7375ED3F133E3C75AE /* Pods-TrailMix.debug.xcconfig */,
 				2BEC84171143140FF8DED365 /* Pods-TrailMix.release.xcconfig */,
+				94130C764D58DA78B6D289DE /* Pods-TrailMixFramework.debug.xcconfig */,
+				6AF1828410F2C380D0413C43 /* Pods-TrailMixFramework.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -499,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				D40E02762E4FD5B07430F174 /* libPods-TrailMix.a */,
+				D9C5B914D19B61A999B76939 /* libPods-TrailMixFramework.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -562,10 +560,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DE2E84F1B7A802F005E71C6 /* Build configuration list for PBXNativeTarget "TrailMixFramework" */;
 			buildPhases = (
+				038E63DD5B0452F8C9F63E61 /* Check Pods Manifest.lock */,
 				3DE2E8311B7A802F005E71C6 /* Sources */,
 				3DE2E8321B7A802F005E71C6 /* Frameworks */,
 				3DE2E8331B7A802F005E71C6 /* Headers */,
 				3DE2E8341B7A802F005E71C6 /* Resources */,
+				FA4ED4E0A68109CDE4C64EDF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -757,6 +757,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		038E63DD5B0452F8C9F63E61 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		14D12014DB11408E014AE133 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -785,6 +800,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA4ED4E0A68109CDE4C64EDF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrailMixFramework/Pods-TrailMixFramework-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -826,29 +856,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB416F451B697D3800A1E41B /* Constants.m in Sources */,
 				72F9A3391B69681B00E8494F /* AppDelegate.m in Sources */,
-				3D825F131B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.m in Sources */,
-				DB416F421B697D2B00A1E41B /* YelpAPIClient.m in Sources */,
 				DBB6CE1F1B73CDED00FA0D81 /* FilterViewController.m in Sources */,
 				72DA65931B73D86E00B35DBB /* WikiCollectionViewController.m in Sources */,
 				3DA6ADAD1B6977400022EF4D /* NaviViewController.m in Sources */,
-				72FEAD811B697C4400F0FF33 /* WikiAPIClient.m in Sources */,
-				3DEA3B341B6FEDEA00D4022B /* RestaurantCDObject.m in Sources */,
-				3DDD993C1B6A7C2F00178632 /* DataStore.m in Sources */,
 				3DDD99331B6A740600178632 /* DurationPickerViewController.m in Sources */,
 				3DEA3B371B6FF0CD00D4022B /* DollarSignTableViewController.m in Sources */,
-				DB416F481B697DDA00A1E41B /* Restaurant.m in Sources */,
-				DBE4F9A91B6BE26200569F7D /* FourSquareAPIClient.m in Sources */,
 				3DDD993F1B6AC24D00178632 /* RestaurantTypeTableViewController.m in Sources */,
 				DBF444EF1B728A5C00B97BAD /* TravelTimeViewController.m in Sources */,
-				3DDD99391B6A7C1100178632 /* TrailMix.xcdatamodeld in Sources */,
 				72A9DDA71B6FECE600870BD7 /* WikiWebViewController.m in Sources */,
 				3DDD99361B6A761B00178632 /* RestaurantPreferenceTableViewController.m in Sources */,
 				72F9A3361B69681B00E8494F /* main.m in Sources */,
 				72A9DDA61B6FECE600870BD7 /* WikiTableViewController.m in Sources */,
 				72DA65961B74F47700B35DBB /* WikiCollectionViewCell.m in Sources */,
-				72FEAD821B697C4400F0FF33 /* WikiArticle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -989,6 +1009,7 @@
 		};
 		3DE2E8501B7A802F005E71C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94130C764D58DA78B6D289DE /* Pods-TrailMixFramework.debug.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1011,6 +1032,7 @@
 		};
 		3DE2E8511B7A802F005E71C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AF1828410F2C380D0413C43 /* Pods-TrailMixFramework.release.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

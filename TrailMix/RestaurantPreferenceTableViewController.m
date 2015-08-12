@@ -5,6 +5,7 @@
 //  Created by Cong Sun on 7/30/15.
 //  Copyright (c) 2015 Team Fax Machine. All rights reserved.
 //
+@import TrailMixFramework;
 
 #import "RestaurantPreferenceTableViewController.h"
 #import "FourSquareAPIClient.h"
