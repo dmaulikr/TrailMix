@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6724" systemVersion="14A389" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider=""/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <label alignment="center" text="TrailMix" id="O7e-Z3-cmR"/>
+                        <button width="1" alignment="left" verticalAlignment="center" title="New Adventure" id="ab7-kL-5pU">
+                            <connections>
+                                <segue destination="bu5-br-Dw4" kind="push" id="qkr-nF-F3E"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" verticalAlignment="center" title="Resume" id="irY-pN-uJ8">
+                            <connections>
+                                <segue destination="3dW-e1-7AQ" kind="modal" id="dYz-XX-62m"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="60" y="350"/>
+        </scene>
+        <!--Time Selection Interface Controller-->
+        <scene sceneID="OJH-Ms-mNP">
+            <objects>
+                <controller id="bu5-br-Dw4" customClass="TimeSelectionInterfaceController">
+                    <items>
+                        <label alignment="center" text="Select Time" id="AG3-Az-AG3"/>
+                        <button width="1" alignment="left" title="5 Minutes" id="FTd-KA-jtl">
+                            <connections>
+                                <segue destination="3dW-e1-7AQ" kind="modal" id="5dG-Yy-NSc"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="10 Minutes" id="gFQ-DO-yyB">
+                            <connections>
+                                <segue destination="3dW-e1-7AQ" kind="modal" id="IrU-aN-o7t"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="20 Minutes" id="ZhF-DP-SKg">
+                            <connections>
+                                <segue destination="3dW-e1-7AQ" kind="modal" id="pad-bW-IyQ"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="30 Minutes" id="11w-5M-VET">
+                            <connections>
+                                <segue destination="3dW-e1-7AQ" kind="modal" id="yhX-Uo-Wlk"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="300" y="229.25"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -26,14 +71,33 @@
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
+            <point key="canvasLocation" x="213" y="815"/>
+        </scene>
+        <!--Navi Interface Controller-->
+        <scene sceneID="Rik-nD-VsI">
+            <objects>
+                <controller id="3dW-e1-7AQ" customClass="WKNaviInterfaceController">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Remaining" id="AZC-rG-iOx"/>
+                        <label alignment="center" verticalAlignment="center" text="Label" id="jjh-tC-3P3"/>
+                        <label height="23.5" alignment="center" verticalAlignment="center" text="Meters" id="t9E-MW-UsJ"/>
+                    </items>
+                    <connections>
+                        <outlet property="distanceLabel" destination="jjh-tC-3P3" id="Wvr-Zy-vi0"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="320" y="567"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider=""/>
+                <controller id="4sK-HA-Art" customClass="NotificationController"/>
             </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="461" y="815"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yhX-Uo-Wlk"/>
+    </inferredMetricsTieBreakers>
 </document>

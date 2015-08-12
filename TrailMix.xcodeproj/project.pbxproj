@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0971F51B7BA191002C7722 /* WKNaviInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0971F41B7BA191002C7722 /* WKNaviInterfaceController.m */; };
+		3D0971F81B7BB13E002C7722 /* TimeSelectionInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0971F71B7BB13E002C7722 /* TimeSelectionInterfaceController.m */; };
 		3DA6ADAD1B6977400022EF4D /* NaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6ADAC1B6977400022EF4D /* NaviViewController.m */; };
 		3DDD99331B6A740600178632 /* DurationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99321B6A740600178632 /* DurationPickerViewController.m */; };
 		3DDD99361B6A761B00178632 /* RestaurantPreferenceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDD99351B6A761B00178632 /* RestaurantPreferenceTableViewController.m */; };
@@ -130,6 +132,10 @@
 
 /* Begin PBXFileReference section */
 		2BEC84171143140FF8DED365 /* Pods-TrailMix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailMix.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrailMix/Pods-TrailMix.release.xcconfig"; sourceTree = "<group>"; };
+		3D0971F31B7BA191002C7722 /* WKNaviInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKNaviInterfaceController.h; sourceTree = "<group>"; };
+		3D0971F41B7BA191002C7722 /* WKNaviInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKNaviInterfaceController.m; sourceTree = "<group>"; };
+		3D0971F61B7BB13E002C7722 /* TimeSelectionInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSelectionInterfaceController.h; sourceTree = "<group>"; };
+		3D0971F71B7BB13E002C7722 /* TimeSelectionInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeSelectionInterfaceController.m; sourceTree = "<group>"; };
 		3D5FE54E1B7AA5C30040B31B /* TrailMix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TrailMix.entitlements; sourceTree = "<group>"; };
 		3D5FE54F1B7AA5DB0040B31B /* TrailMix WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TrailMix WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		3D825F111B6BB7AA007783D7 /* RestaurantCDObject+InitWithRestaurantObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RestaurantCDObject+InitWithRestaurantObject.h"; path = "Models/RestaurantCDObject+InitWithRestaurantObject.h"; sourceTree = "<group>"; };
@@ -339,6 +345,10 @@
 				3DE2E8121B7A7F6F005E71C6 /* InterfaceController.m */,
 				3DE2E8141B7A7F6F005E71C6 /* NotificationController.h */,
 				3DE2E8151B7A7F6F005E71C6 /* NotificationController.m */,
+				3D0971F61B7BB13E002C7722 /* TimeSelectionInterfaceController.h */,
+				3D0971F71B7BB13E002C7722 /* TimeSelectionInterfaceController.m */,
+				3D0971F31B7BA191002C7722 /* WKNaviInterfaceController.h */,
+				3D0971F41B7BA191002C7722 /* WKNaviInterfaceController.m */,
 				3DE2E8171B7A7F6F005E71C6 /* Images.xcassets */,
 				3DE2E80E1B7A7F6F005E71C6 /* Supporting Files */,
 			);
@@ -824,8 +834,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0971F51B7BA191002C7722 /* WKNaviInterfaceController.m in Sources */,
 				3DE2E8161B7A7F6F005E71C6 /* NotificationController.m in Sources */,
 				3DE2E8131B7A7F6F005E71C6 /* InterfaceController.m in Sources */,
+				3D0971F81B7BB13E002C7722 /* TimeSelectionInterfaceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
