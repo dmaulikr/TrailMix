@@ -48,6 +48,7 @@
 		63C8B38244F3ABD6D75E8AB9 /* libPods-TrailMix.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D40E02762E4FD5B07430F174 /* libPods-TrailMix.a */; };
 		72A9DDA61B6FECE600870BD7 /* WikiTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9DDA31B6FECE600870BD7 /* WikiTableViewController.m */; };
 		72A9DDA71B6FECE600870BD7 /* WikiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A9DDA51B6FECE600870BD7 /* WikiWebViewController.m */; };
+		72AF37A11B7AA53500BB036C /* RestaurantDestinationWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF37A01B7AA53500BB036C /* RestaurantDestinationWebViewController.m */; };
 		72DA65931B73D86E00B35DBB /* WikiCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DA65921B73D86E00B35DBB /* WikiCollectionViewController.m */; };
 		72DA65961B74F47700B35DBB /* WikiCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DA65951B74F47700B35DBB /* WikiCollectionViewCell.m */; };
 		72F9A3361B69681B00E8494F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F9A3351B69681B00E8494F /* main.m */; };
@@ -180,6 +181,8 @@
 		72A9DDA31B6FECE600870BD7 /* WikiTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiTableViewController.m; sourceTree = "<group>"; };
 		72A9DDA41B6FECE600870BD7 /* WikiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiWebViewController.h; sourceTree = "<group>"; };
 		72A9DDA51B6FECE600870BD7 /* WikiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiWebViewController.m; sourceTree = "<group>"; };
+		72AF379F1B7AA53500BB036C /* RestaurantDestinationWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDestinationWebViewController.h; sourceTree = "<group>"; };
+		72AF37A01B7AA53500BB036C /* RestaurantDestinationWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDestinationWebViewController.m; sourceTree = "<group>"; };
 		72DA65911B73D86E00B35DBB /* WikiCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiCollectionViewController.h; sourceTree = "<group>"; };
 		72DA65921B73D86E00B35DBB /* WikiCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WikiCollectionViewController.m; sourceTree = "<group>"; };
 		72DA65941B74F47700B35DBB /* WikiCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiCollectionViewCell.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				DBB6CE1E1B73CDED00FA0D81 /* FilterViewController.m */,
 				DBF444ED1B728A5C00B97BAD /* TravelTimeViewController.h */,
 				DBF444EE1B728A5C00B97BAD /* TravelTimeViewController.m */,
+				72AF379F1B7AA53500BB036C /* RestaurantDestinationWebViewController.h */,
+				72AF37A01B7AA53500BB036C /* RestaurantDestinationWebViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -873,6 +878,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F9A3391B69681B00E8494F /* AppDelegate.m in Sources */,
+				72AF37A11B7AA53500BB036C /* RestaurantDestinationWebViewController.m in Sources */,
 				DBB6CE1F1B73CDED00FA0D81 /* FilterViewController.m in Sources */,
 				72DA65931B73D86E00B35DBB /* WikiCollectionViewController.m in Sources */,
 				3DA6ADAD1B6977400022EF4D /* NaviViewController.m in Sources */,
@@ -1027,6 +1033,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94130C764D58DA78B6D289DE /* Pods-TrailMixFramework.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1050,6 +1057,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6AF1828410F2C380D0413C43 /* Pods-TrailMixFramework.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

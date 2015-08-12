@@ -14,6 +14,8 @@
 #import "WikiAPIClient.h"
 #import <JDStatusBarNotification/JDStatusBarNotification.h>
 #import "FilterViewController.h"
+#import "RestaurantDestinationWebViewController.h"
+#import "Restaurant.h"
 
 @interface NaviViewController () <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
@@ -25,13 +27,20 @@
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (assign, nonatomic) CLLocationDirection heading;
 @property (strong, nonatomic) NSMutableArray *headingArray;
+@property (weak, nonatomic) IBOutlet UILabel *arrowLabel;
+@property (weak, nonatomic) IBOutlet UIView *arrowView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *followTheArrowConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *followArrowLabel;
 @property (nonatomic, strong) DataStore *dataStore;
+@property (nonatomic) BOOL destinationReached;
 @end
 
 @implementation NaviViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.arrowView.backgroundColor = [UIColor clearColor];
+    self.arrowLabel.adjustsFontSizeToFitWidth = YES;
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.delegate = self;
     self.locationManager.pausesLocationUpdatesAutomatically = YES;
@@ -45,7 +54,7 @@
     
     RestaurantCDObject *destRestaurant = [RestaurantCDObject getLatestRestaurant];
     
-    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@",destRestaurant.name]];
+//    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@",destRestaurant.name]];
     
     self.restaurantLocation = [[CLLocation alloc]initWithLatitude:destRestaurant.latitude.floatValue longitude:destRestaurant.longitude.floatValue];
     
@@ -54,6 +63,32 @@
     self.destLocation = self.restaurantLocation;
     
     [self startLocationService];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    
+    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.followArrowLabel.alpha = 1;
+        self.followArrowLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:36];
+        self.followTheArrowConstraint.constant = 80;
+        [self.view layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+        if (finished) {
+            NSLog(@"finished");
+        [UIView animateWithDuration:0.75 delay:1.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            
+            self.followArrowLabel.alpha = 0;
+//            self.followArrowLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:13];
+            self.followTheArrowConstraint.constant = 0;
+            [self.view layoutIfNeeded];
+            
+        } completion:nil];
+        }
+    }];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -93,7 +128,7 @@
 }
 
 -(void)showRestaurantDirection{
-    self.foodImage.image = [UIImage imageNamed:@"food"];
+    self.foodImage.image = [UIImage imageNamed:@"fork"];
     self.destLocation = self.restaurantLocation;
     [self.visitButton setTitle:@"Visit This Place" forState:UIControlStateNormal];
 }
@@ -138,6 +173,7 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    
     self.currentLocation = (CLLocation *)locations[0];
     
     if (!self.dataStore.lastWikiUpdateLocation) {
@@ -150,7 +186,7 @@
         
         double distanceFromLastWikiUpdateLocation = [self.currentLocation distanceFromLocation:self.dataStore.lastWikiUpdateLocation];
         
-        [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%fm away from last wiki update location", distanceFromLastWikiUpdateLocation]];
+//        [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%fm away from last wiki update location", distanceFromLastWikiUpdateLocation]];
         
         if (distanceFromLastWikiUpdateLocation > 400) { // every quarter mile?
             
@@ -159,6 +195,20 @@
             [self updateWikiArticles];
             
         }
+        
+    }
+    
+    
+    if ([self.currentLocation distanceFromLocation:self.restaurantLocation] <= 30.0) { // if we're less then 30 meters away then we'll let the user know we're here!
+        
+        if (!self.destinationReached && self.view.window) { // if the current view controller is reached
+            
+            self.destinationReached = YES;
+            
+            [self performSegueWithIdentifier:@"DestinationReachedSegue" sender:self];
+            
+        }
+        
         
     }
     
@@ -222,11 +272,6 @@
         self.dataStore.destinationIsResaurant = YES;
     }
     
-    
-    
-    
-    
-    
 }
 
 -(void)setDestLocation:(CLLocation *)destLocation{
@@ -286,7 +331,8 @@
     CGFloat aveHeading = [self calculateRotationRadian];
     
     CGFloat headingRadian = ((0-aveHeading+destinationOffset)*M_PI/180);
-    self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian);
+    self.arrowView.transform = CGAffineTransformMakeRotation(headingRadian);
+//    self.foodImage.transform = CGAffineTransformMakeRotation(headingRadian);
 }
 
 -(CGFloat)calculateRotationRadian{
@@ -388,14 +434,23 @@
     return offsetDegress;
     
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"DestinationReachedSegue"]) {
+        
+        RestaurantDestinationWebViewController *restaurantDesinationWebViewController = segue.destinationViewController;
+        
+        restaurantDesinationWebViewController.url = self.dataStore.selectedRestaurant.webLink;
+        
+    }
+    
 }
-*/
+
 
 @end
