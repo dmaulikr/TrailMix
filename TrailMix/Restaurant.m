@@ -17,7 +17,7 @@
                            Longitude:(NSString *)longitude
                          DollarSigns:(NSNumber *)dollarSigns
                               Rating:(NSNumber *)rating
-                             WebLink:(NSURL *)webLink;
+                             WebLink:(NSString *)webLink;
 {
     self = [super init];
     
@@ -38,7 +38,7 @@
 + (instancetype)createRestaurantObject:(NSDictionary *)restaurantDictionary
 
 {
-        Restaurant *restaurant = [[Restaurant alloc] initWithCuisineType:restaurantDictionary[@"venue"][@"categories"][0][@"shortName"] VenueId:restaurantDictionary[@"venue"][@"id"] Name:restaurantDictionary[@"venue"][@"name"] Latitude:restaurantDictionary[@"venue"][@"location"][@"lat"] Longitude:restaurantDictionary[@"venue"][@"location"][@"lng"] DollarSigns:restaurantDictionary[@"venue"][@"price"][@"tier"]Rating:restaurantDictionary[@"venue"][@"rating"] WebLink:[NSURL URLWithString:[NSString stringWithFormat:@"https://foursquare.com/v/%@",restaurantDictionary[@"venue"][@"id"]]]];
+        Restaurant *restaurant = [[Restaurant alloc] initWithCuisineType:restaurantDictionary[@"venue"][@"categories"][0][@"shortName"] VenueId:restaurantDictionary[@"venue"][@"id"] Name:restaurantDictionary[@"venue"][@"name"] Latitude:restaurantDictionary[@"venue"][@"location"][@"lat"] Longitude:restaurantDictionary[@"venue"][@"location"][@"lng"] DollarSigns:restaurantDictionary[@"venue"][@"price"][@"tier"]Rating:restaurantDictionary[@"venue"][@"rating"] WebLink:[NSString stringWithFormat:@"https://foursquare.com/v/%@",restaurantDictionary[@"venue"][@"id"]]];
         
     return restaurant;
     
