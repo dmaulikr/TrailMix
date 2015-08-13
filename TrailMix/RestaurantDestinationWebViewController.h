@@ -11,5 +11,6 @@
 @interface RestaurantDestinationWebViewController : UIViewController
 
 @property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong) NSString *locationName;
 
 @end

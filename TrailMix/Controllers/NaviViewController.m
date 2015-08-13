@@ -445,7 +445,9 @@
         
         RestaurantDestinationWebViewController *restaurantDesinationWebViewController = segue.destinationViewController;
         
-        restaurantDesinationWebViewController.url = self.dataStore.selectedRestaurant.webLink;
+        RestaurantCDObject *restaurant = (RestaurantCDObject*)[RestaurantCDObject getLatestRestaurant];
+        
+        restaurantDesinationWebViewController.url = [NSURL URLWithString:restaurant.webUrl];
         
     }
     
