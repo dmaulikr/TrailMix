@@ -64,7 +64,7 @@
     //delete that from coredata
     
     [[DataStore sharedDataStore].managedObjectContext deleteObject:self.restaurant];
-    
+    [[DataStore sharedDataStore] saveContext];
     [self popToRootController];
 }
 
