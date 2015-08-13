@@ -57,7 +57,7 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     self.currentLocation = locations[0];
     self.remainingDistance = [self.currentLocation distanceFromLocation:self.destinationLocation];
-    [self.distanceLabel setText:[NSString stringWithFormat:@"%f",self.remainingDistance]];
+    [self.distanceLabel setText:[NSString stringWithFormat:@"%.2f m",self.remainingDistance]];
 }
 
 - (IBAction)cancelTripButtonTapped {

@@ -11,6 +11,7 @@
 
 @interface InterfaceController()
 @property (weak, nonatomic) IBOutlet WKInterfaceButton *resumeButton;
+@property (weak, nonatomic) IBOutlet WKInterfaceButton *adventureButton;
 
 @end
 
@@ -19,7 +20,15 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-
+//    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithString:@"      New"];
+//    NSTextAttachment *adventureAttachment = [[NSTextAttachment alloc]init];
+//    adventureAttachment.image = [UIImage imageNamed:@"foodRound"];
+//    NSLog(@"%@",adventureAttachment);
+//    NSAttributedString *attString = [NSAttributedString attributedStringWithAttachment:adventureAttachment];
+//    [string replaceCharactersInRange:NSMakeRange(4, 1) withAttributedString:attString];
+//    
+//    [self.adventureButton setAttributedTitle:string];
+    
     // Configure interface objects here.
 }
 

@@ -10,32 +10,46 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <imageView width="52" height="47" alignment="center" image="plate" contentMode="scaleAspectFit" id="a2J-P3-8OA"/>
+                        <imageView width="52" height="47" alignment="center" image="fork" contentMode="scaleAspectFit" id="a2J-P3-8OA"/>
                         <label alignment="center" text="TrailMix" id="O7e-Z3-cmR"/>
-                        <button width="1" alignment="left" verticalAlignment="center" title="New Adventure" id="ab7-kL-5pU">
+                        <button alignment="left" verticalAlignment="center" id="ab7-kL-5pU">
+                            <group key="contentGroup" width="1" alignment="left" id="E1h-O3-3Ww">
+                                <items>
+                                    <imageView width="40" height="40" alignment="left" image="foodRound" id="q4E-zH-MD1"/>
+                                    <label width="49" height="38" alignment="left" verticalAlignment="center" text="  New" id="wpz-z4-aJb"/>
+                                </items>
+                                <color key="backgroundColor" red="0.12156862745098039" green="0.12941176470588237" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                            </group>
                             <connections>
                                 <segue destination="bu5-br-Dw4" kind="push" id="qkr-nF-F3E"/>
                             </connections>
                         </button>
-                        <button width="1" alignment="left" verticalAlignment="center" title="Resume" id="irY-pN-uJ8">
+                        <button alignment="left" verticalAlignment="center" id="irY-pN-uJ8">
+                            <group key="contentGroup" width="1" alignment="left" id="ack-IB-Zn3">
+                                <items>
+                                    <imageView width="40" height="40" alignment="left" image="history" contentMode="scaleAspectFit" id="X4v-87-AjL"/>
+                                    <label alignment="left" verticalAlignment="center" text="  Resume" id="g6w-wq-1oY"/>
+                                </items>
+                                <color key="backgroundColor" red="0.12156862745098039" green="0.12941176470588237" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                            </group>
                             <connections>
                                 <segue destination="3dW-e1-7AQ" kind="push" id="dYz-XX-62m"/>
                             </connections>
                         </button>
                     </items>
                     <connections>
+                        <outlet property="adventureButton" destination="ab7-kL-5pU" id="cvL-SF-r1N"/>
                         <outlet property="resumeButton" destination="irY-pN-uJ8" id="Z38-W9-iG8"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="60" y="305.75"/>
+            <point key="canvasLocation" x="18" y="231"/>
         </scene>
-        <!--Time Selection Interface Controller-->
+        <!--Select Time-->
         <scene sceneID="OJH-Ms-mNP">
             <objects>
-                <controller id="bu5-br-Dw4" customClass="TimeSelectionInterfaceController">
+                <controller title="Select Time" id="bu5-br-Dw4" customClass="TimeSelectionInterfaceController">
                     <items>
-                        <label alignment="center" text="Select Time" id="AG3-Az-AG3"/>
                         <button width="1" alignment="left" title="5 Minutes" id="FTd-KA-jtl">
                             <connections>
                                 <action selector="fiveMinuteButtonTapped" destination="bu5-br-Dw4" id="l6E-cb-1v7"/>
@@ -59,7 +73,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="320" y="230.25"/>
+            <point key="canvasLocation" x="320" y="229.5"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -82,19 +96,23 @@
             <objects>
                 <controller identifier="WKNaviInterfaceController" id="3dW-e1-7AQ" customClass="WKNaviInterfaceController">
                     <items>
-                        <label alignment="center" verticalAlignment="center" text="Remaining" id="AZC-rG-iOx"/>
-                        <label alignment="center" verticalAlignment="center" text="Label" id="jjh-tC-3P3"/>
-                        <label height="23.5" alignment="center" verticalAlignment="center" text="Meters" id="t9E-MW-UsJ"/>
-                        <label alignment="center" verticalAlignment="bottom" text="Label" id="f8N-3l-93V"/>
+                        <imageView width="47" height="58" alignment="right" image="walking" contentMode="scaleAspectFit" id="27A-gd-1w5"/>
+                        <label width="86" height="20" alignment="left" verticalAlignment="center" text="Distance" id="AZC-rG-iOx">
+                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <label width="134" height="28" alignment="left" verticalAlignment="center" text="Label" minimumScaleFactor="0.90000000000000002" id="jjh-tC-3P3">
+                            <fontDescription key="font" type="system" pointSize="30"/>
+                        </label>
+                        <label alignment="center" verticalAlignment="bottom" text="Label" numberOfLines="2" id="f8N-3l-93V"/>
                     </items>
                     <menu key="menu" id="V99-dS-F7h">
                         <items>
-                            <menuItem title="Cancel Trip" icon="decline" id="EUD-aX-LgH">
+                            <menuItem title="Cancel" icon="decline" id="EUD-aX-LgH">
                                 <connections>
                                     <action selector="cancelTripButtonTapped" destination="3dW-e1-7AQ" id="Ita-lp-egI"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Pause Trip" icon="pause" id="MZI-mf-3YP">
+                            <menuItem title="Pause" icon="pause" id="MZI-mf-3YP">
                                 <connections>
                                     <action selector="pauseTripBUttonTapped" destination="3dW-e1-7AQ" id="3Bu-Jh-MHb"/>
                                 </connections>
@@ -107,7 +125,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="320" y="567"/>
+            <point key="canvasLocation" x="320" y="497"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
