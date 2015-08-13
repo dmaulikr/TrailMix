@@ -221,14 +221,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Distance: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwY-c2-R14">
-                                <rect key="frame" x="262" y="535" width="77" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
-                                <rect key="frame" x="480" y="33" width="104" height="30"/>
+                                <rect key="frame" x="248" y="40" width="104" height="32"/>
                                 <state key="normal" title="Visit This Place">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -236,9 +231,12 @@
                                     <action selector="visitButtonTapped:" destination="LA8-22-ULE" eventType="touchUpInside" id="xto-wr-jDq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ox-Bz-047">
-                                <rect key="frame" x="16" y="43" width="12" height="22"/>
-                                <state key="normal" image="arrow2">
+
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ox-Bz-047">
+                                <rect key="frame" x="16" y="35.5" width="102" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                <state key="normal" title="Cancel Trip">
+
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -255,10 +253,10 @@
                                 </connections>
                             </button>
                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="a5y-Az-JIc">
-                                <rect key="frame" x="175" y="151" width="250" height="299"/>
+                                <rect key="frame" x="175" y="151" width="250" height="298.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQG-wh-oU9">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="299"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="298.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="250"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -273,11 +271,30 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow the Arrow!" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-au-7SK">
-                                <rect key="frame" x="173" y="28" width="256" height="43"/>
+
+                                <rect key="frame" x="172" y="28" width="255.5" height="42.5"/>
+
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwY-c2-R14">
+                                <rect key="frame" x="262" y="535" width="77" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ika-I3-0Ps">
+                                <rect key="frame" x="489" y="36" width="95" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                <state key="normal" title="Pause Trip">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pauseButtonTapped:" destination="LA8-22-ULE" eventType="touchUpInside" id="DPY-sj-MW3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -291,23 +308,42 @@
                             <constraint firstItem="4ox-Bz-047" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leadingMargin" id="Gb1-Ng-aAX"/>
                             <constraint firstAttribute="centerY" secondItem="a5y-Az-JIc" secondAttribute="centerY" id="Sen-2o-2x5"/>
                             <constraint firstAttribute="centerY" secondItem="4ox-Bz-047" secondAttribute="centerY" multiplier="5.5" id="aM4-09-Pum"/>
+                            <constraint firstItem="4ox-Bz-047" firstAttribute="centerY" secondItem="jj0-pc-TNV" secondAttribute="centerY" constant="-1" id="bWZ-Xi-zHF"/>
+                            <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="20" id="bXK-Tu-WCM"/>
+                            <constraint firstAttribute="centerX" secondItem="jj0-pc-TNV" secondAttribute="centerX" id="e10-qn-fUS"/>
                             <constraint firstItem="oWP-zu-DEc" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leading" id="eZm-zJ-uwo"/>
+                            <constraint firstItem="jj0-pc-TNV" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leadingMargin" constant="232" id="gWV-Sz-nUH"/>
+                            <constraint firstItem="Ika-I3-0Ps" firstAttribute="trailing" secondItem="oh2-k0-mBE" secondAttribute="trailingMargin" id="gWY-wf-ClW"/>
                             <constraint firstAttribute="centerX" secondItem="a5y-Az-JIc" secondAttribute="centerX" id="kDb-qc-RCy"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="trailing" secondItem="oh2-k0-mBE" secondAttribute="trailingMargin" id="msq-Gl-SdC"/>
                             <constraint firstItem="oWP-zu-DEc" firstAttribute="top" secondItem="oh2-k0-mBE" secondAttribute="top" id="rgY-EY-h22"/>
                             <constraint firstAttribute="centerX" secondItem="nwY-c2-R14" secondAttribute="centerX" id="uOc-RA-pa0"/>
+                            <constraint firstItem="Ika-I3-0Ps" firstAttribute="centerY" secondItem="4ox-Bz-047" secondAttribute="centerY" id="wBC-n9-Lul"/>
+                            <constraint firstAttribute="centerX" secondItem="jj0-pc-TNV" secondAttribute="centerX" id="wcf-MO-v9L"/>
                             <constraint firstItem="L9g-au-7SK" firstAttribute="centerX" secondItem="oh2-k0-mBE" secondAttribute="centerX" id="xrK-tz-GdL"/>
+                            <constraint firstAttribute="centerY" secondItem="jj0-pc-TNV" secondAttribute="centerY" multiplier="4" id="y0U-rw-enq"/>
                             <constraint firstItem="6tt-rI-4yn" firstAttribute="top" secondItem="Apu-gy-1gU" secondAttribute="bottom" id="yqm-eZ-zdC"/>
                             <constraint firstItem="Apu-gy-1gU" firstAttribute="top" secondItem="nwY-c2-R14" secondAttribute="bottom" constant="14" id="yrr-dQ-bQj"/>
                             <constraint firstItem="Apu-gy-1gU" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="8" id="zm3-ZY-bh9"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9lG-ab-QAJ"/>
+                                <exclude reference="gWV-Sz-nUH"/>
+                                <exclude reference="msq-Gl-SdC"/>
+                                <exclude reference="wcf-MO-v9L"/>
+                                <exclude reference="y0U-rw-enq"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="arrowLabel" destination="OQG-wh-oU9" id="HGr-TS-csP"/>
                         <outlet property="arrowView" destination="a5y-Az-JIc" id="VgL-Rf-hKd"/>
+                        <outlet property="cancelTripButton" destination="4ox-Bz-047" id="XEG-03-7Lb"/>
                         <outlet property="distanceLabel" destination="nwY-c2-R14" id="kKg-z1-Q3m"/>
                         <outlet property="followArrowLabel" destination="L9g-au-7SK" id="922-wS-cln"/>
                         <outlet property="followTheArrowConstraint" destination="Eag-SA-c3G" id="RH4-gO-dwD"/>
+                        <outlet property="pauseButton" destination="Ika-I3-0Ps" id="JZT-jh-ci8"/>
                         <outlet property="visitButton" destination="jj0-pc-TNV" id="X1Y-Cm-0ht"/>
                         <segue destination="AyS-1r-6Il" kind="presentation" identifier="DestinationReachedSegue" id="cJw-0w-RiT"/>
                     </connections>
@@ -573,7 +609,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow2" width="12" height="20"/>
         <image name="black" width="414" height="736"/>
     </resources>
     <inferredMetricsTieBreakers>
