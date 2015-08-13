@@ -21,7 +21,6 @@
 @property (strong, nonatomic) CLLocation *destLocation;
 @property (strong, nonatomic) CLLocation *restaurantLocation;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (weak, nonatomic) IBOutlet UIImageView *foodImage;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *visitButton;
 @property (strong, nonatomic) CLLocation *currentLocation;
@@ -32,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *followTheArrowConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *followArrowLabel;
 @property (nonatomic, strong) DataStore *dataStore;
+@property (weak, nonatomic) IBOutlet UIButton *cancelTripButton;
 @property (nonatomic) BOOL destinationReached;
 @end
 
@@ -79,7 +79,7 @@
         if (finished) {
             NSLog(@"finished");
         [UIView animateWithDuration:0.75 delay:1.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            
+            self.cancelTripButton.alpha = 1;
             self.followArrowLabel.alpha = 0;
             self.followTheArrowConstraint.constant = 0;
             [self.view layoutIfNeeded];
@@ -121,13 +121,11 @@
 }
 
 -(void)showAttractionDirection{
-    self.foodImage.image = [UIImage imageNamed:@"safari"];
     self.destLocation = [[CLLocation alloc]initWithLatitude:self.dataStore.pointOfInterest.coordinate.latitude longitude:self.dataStore.pointOfInterest.coordinate.longitude];
     [self.visitButton setTitle:@"Continue to Your Food" forState:UIControlStateNormal];
 }
 
 -(void)showRestaurantDirection{
-    self.foodImage.image = [UIImage imageNamed:@"fork"];
     self.destLocation = self.restaurantLocation;
     [self.visitButton setTitle:@"Visit This Place" forState:UIControlStateNormal];
 }
