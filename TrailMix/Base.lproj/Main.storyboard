@@ -221,7 +221,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Distance: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwY-c2-R14">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwY-c2-R14">
                                 <rect key="frame" x="262" y="535" width="77" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -243,7 +243,6 @@
                                 </state>
                                 <connections>
                                     <action selector="abortButtonTapped:" destination="LA8-22-ULE" eventType="touchUpInside" id="KP9-rk-IV4"/>
-                                    <segue destination="15F-ki-IBR" kind="presentation" identifier="WikiLocationSegue" id="JFM-7v-quU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apu-gy-1gU">
@@ -251,6 +250,9 @@
                                 <state key="normal" title="Wiki Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="15F-ki-IBR" kind="presentation" id="eja-rb-lhF"/>
+                                </connections>
                             </button>
                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="a5y-Az-JIc">
                                 <rect key="frame" x="175" y="151" width="250" height="299"/>
@@ -284,6 +286,7 @@
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="13" id="9lG-ab-QAJ"/>
                             <constraint firstAttribute="bottom" secondItem="oWP-zu-DEc" secondAttribute="bottom" id="BCR-Mi-BDv"/>
                             <constraint firstAttribute="centerX" secondItem="Apu-gy-1gU" secondAttribute="centerX" constant="1" id="BEB-m9-2yo"/>
+                            <constraint firstItem="Apu-gy-1gU" firstAttribute="top" secondItem="nwY-c2-R14" secondAttribute="bottom" constant="14" id="CH7-mq-aVl"/>
                             <constraint firstItem="L9g-au-7SK" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="8" id="Eag-SA-c3G"/>
                             <constraint firstItem="4ox-Bz-047" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leadingMargin" id="Gb1-Ng-aAX"/>
                             <constraint firstAttribute="centerY" secondItem="a5y-Az-JIc" secondAttribute="centerY" id="Sen-2o-2x5"/>

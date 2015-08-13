@@ -45,8 +45,28 @@
         NSLog(@"Name = %@",object.name);
     }
     
-    return (RestaurantCDObject *)resultArray[0];
+    if(resultArray.count){
+        return (RestaurantCDObject *)resultArray[0];
+    }else{
+        return nil;
+    }
     
+    
+}
++(NSArray *)getVisitHistory{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"RestaurantCDObject"];
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]initWithKey:@"createAt" ascending:NO];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isVisited == YES"];
+    request.predicate = predicate;
+    request.sortDescriptors = @[descriptor];
+    
+    NSArray *resultArray = [[DataStore sharedDataStore].managedObjectContext executeFetchRequest:request error:nil];
+    
+    for(RestaurantCDObject *object in resultArray){
+        NSLog(@"Name = %@",object.name);
+    }
+    
+    return resultArray;
     
 }
 

@@ -14,4 +14,6 @@
 
 +(RestaurantCDObject *)getLatestRestaurant;
 
++(NSArray *)getVisitHistory;
+
 @end

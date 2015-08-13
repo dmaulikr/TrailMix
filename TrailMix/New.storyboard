@@ -585,6 +585,9 @@
                                 <state key="normal" title="Resume">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="resumeButtonTapped:" destination="l8V-XI-qmL" eventType="touchUpInside" id="awT-Zk-9jz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GP3-zV-jnt">
                                 <rect key="frame" x="145" y="425" width="309" height="49"/>
@@ -623,6 +626,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="PqS-dC-X0O"/>
                     <connections>
+                        <outlet property="resumeButton" destination="nO5-YB-H6g" id="Osc-3J-Lhw"/>
                         <outletCollection property="adventureButtons" destination="1S1-1l-o5f" id="gNG-hC-8d8"/>
                         <outletCollection property="adventureButtons" destination="nO5-YB-H6g" id="FDO-ox-KZs"/>
                         <outletCollection property="adventureButtons" destination="GP3-zV-jnt" id="WFq-dN-Rki"/>
