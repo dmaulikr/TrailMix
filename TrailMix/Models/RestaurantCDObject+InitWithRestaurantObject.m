@@ -27,6 +27,7 @@
     object.createAt = [NSDate date];
     object.isVisited = @0;
     object.venueId = restaurant.venueId;
+    object.webUrl = restaurant.webLink;
     
     [[DataStore sharedDataStore] saveContext];
 }
