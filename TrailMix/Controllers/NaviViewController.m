@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *followArrowLabel;
 @property (nonatomic, strong) DataStore *dataStore;
 @property (weak, nonatomic) IBOutlet UIButton *cancelTripButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (nonatomic) BOOL destinationReached;
 @end
 
@@ -72,13 +73,14 @@
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.followArrowLabel.alpha = 1;
         self.followArrowLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:36];
-        self.followTheArrowConstraint.constant = 80;
+        self.followTheArrowConstraint.constant = 70;
         [self.view layoutIfNeeded];
         
     } completion:^(BOOL finished) {
         if (finished) {
             NSLog(@"finished");
         [UIView animateWithDuration:0.75 delay:1.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.pauseButton.alpha = 1;
             self.cancelTripButton.alpha = 1;
             self.followArrowLabel.alpha = 0;
             self.followTheArrowConstraint.constant = 0;
@@ -96,13 +98,15 @@
     [self updateDestination];
 }
 
-- (IBAction)abortButtonTapped:(id)sender {
+- (IBAction)abortButtonTapped:(UIStoryboardSegue *)sender {
     UINavigationController *controller = (UINavigationController *)self.presentingViewController;
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        [controller popToRootViewControllerAnimated:YES];
-        NSLog(@"to the end");
-    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [controller popToRootViewControllerAnimated:YES];
+}
+- (IBAction)pauseButtonTapped:(UIStoryboardSegue *)sender {
+    UINavigationController *controller = (UINavigationController *)self.presentingViewController;
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [controller popToRootViewControllerAnimated:YES];
 }
 
 -(void)updateDestination{
