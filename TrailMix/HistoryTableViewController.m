@@ -6,33 +6,25 @@
 //  Copyright (c) 2015 Team Fax Machine. All rights reserved.
 //
 
-#import "HistoryViewController.h"
+#import "HistoryTableViewController.h"
 #import "RestaurantCDObject+InitWithRestaurantObject.h"
 #import "RestaurantDestinationWebViewController.h"
 
-@interface HistoryViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface HistoryTableViewController ()
 
 @property (nonatomic, strong) NSArray *restauratHistory;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation HistoryViewController
+@implementation HistoryTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.restauratHistory = [RestaurantCDObject getVisitHistory];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
 }
 
-- (IBAction)backButtonTapped:(id)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     

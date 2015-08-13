@@ -241,10 +241,10 @@
                                 </connections>
                             </button>
                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="a5y-Az-JIc">
-                                <rect key="frame" x="175" y="151" width="250" height="298.5"/>
+                                <rect key="frame" x="175" y="151" width="250" height="299"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQG-wh-oU9">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="298.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="299"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="250"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -259,7 +259,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow the Arrow!" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-au-7SK">
-                                <rect key="frame" x="172" y="28" width="255.5" height="42.5"/>
+                                <rect key="frame" x="172" y="28" width="256" height="43"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
