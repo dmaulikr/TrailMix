@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelTripButton;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (nonatomic) BOOL destinationReached;
+@property (strong, nonatomic) RestaurantCDObject *destRestaurantCDObject;
 @end
 
 @implementation NaviViewController
@@ -53,11 +54,11 @@
     //change when select other transporation type
     self.locationManager.activityType = CLActivityTypeFitness;
     
-    RestaurantCDObject *destRestaurant = [RestaurantCDObject getLatestRestaurant];
+    self.destRestaurantCDObject = [RestaurantCDObject getLatestRestaurant];
     
 //    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@",destRestaurant.name]];
     
-    self.restaurantLocation = [[CLLocation alloc]initWithLatitude:destRestaurant.latitude.floatValue longitude:destRestaurant.longitude.floatValue];
+    self.restaurantLocation = [[CLLocation alloc]initWithLatitude:self.destRestaurantCDObject.latitude.floatValue longitude:self.destRestaurantCDObject.longitude.floatValue];
     
     NSLog(@"%@",self.restaurantLocation);
     
@@ -99,6 +100,9 @@
 }
 
 - (IBAction)abortButtonTapped:(UIStoryboardSegue *)sender {
+    [[DataStore sharedDataStore].managedObjectContext deleteObject:self.destRestaurantCDObject];
+    [[DataStore sharedDataStore] saveContext];
+    
     UINavigationController *controller = (UINavigationController *)self.presentingViewController;
     [self dismissViewControllerAnimated:YES completion:nil];
     [controller popToRootViewControllerAnimated:YES];
