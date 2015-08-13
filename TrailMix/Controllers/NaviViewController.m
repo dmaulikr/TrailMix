@@ -79,7 +79,7 @@
     if(!self.dataStore.skipAnimation){
            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             self.followArrowLabel.alpha = 1;
-            self.followArrowLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:36];
+            self.followArrowLabel.font = [UIFont fontWithName:@"Avenir-Book" size:30];
             self.followTheArrowConstraint.constant = 70;
             [self.view layoutIfNeeded];
             
@@ -144,10 +144,10 @@
 -(void)makeButtonIcons
 {
     self.cancelIcon = [FAKFontAwesome timesIconWithSize:37];
-    [self.cancelIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    [self.cancelIcon addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:45.0/255.0 green:47.0/255.0 blue:51.0/255.0 alpha:1]];
     [self.cancelTripButton setAttributedTitle:[self.cancelIcon attributedString] forState:UIControlStateNormal];
     self.pauseIcon = [FAKFontAwesome pauseIconWithSize:30];
-    [self.pauseIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    [self.pauseIcon addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:45.0/255.0 green:47.0/255.0 blue:51.0/255.0 alpha:1]];
     [self.pauseButton setAttributedTitle:[self.pauseIcon attributedString] forState:UIControlStateNormal];
 
 }
@@ -327,7 +327,11 @@
 
 -(void)updateDistance{
     CLLocationDistance distance = [self.destLocation distanceFromLocation:self.currentLocation];
-    self.distanceLabel.text = [NSString stringWithFormat:@"%f meters away",distance];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%.2f Meters",distance];
+}
+
+-(BOOL)prefersStatusBarHidden{
+    return YES;
 }
 
 -(void)updateHeader{
