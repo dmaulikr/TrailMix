@@ -74,7 +74,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="320" y="229.5"/>
+            <point key="canvasLocation" x="271" y="311.5"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -98,7 +98,7 @@
                 <controller identifier="WKNaviInterfaceController" id="3dW-e1-7AQ" customClass="WKNaviInterfaceController">
                     <items>
                         <imageView width="47" height="58" alignment="right" image="walking" contentMode="scaleAspectFit" id="27A-gd-1w5"/>
-                        <label width="86" height="20" alignment="left" verticalAlignment="center" text="Distance" id="AZC-rG-iOx">
+                        <label width="86" height="20" alignment="left" text="Distance" id="AZC-rG-iOx">
                             <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
                         <label width="134" height="28" alignment="left" verticalAlignment="center" text="Label" minimumScaleFactor="0.90000000000000002" id="jjh-tC-3P3">
@@ -126,7 +126,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="320" y="497"/>
+            <point key="canvasLocation" x="169" y="553"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
