@@ -53,5 +53,21 @@
     
     
 }
++(NSArray *)getVisitHistory{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"RestaurantCDObject"];
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]initWithKey:@"createAt" ascending:NO];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isVisited == YES"];
+    request.predicate = predicate;
+    request.sortDescriptors = @[descriptor];
+    
+    NSArray *resultArray = [[DataStore sharedDataStore].managedObjectContext executeFetchRequest:request error:nil];
+    
+    for(RestaurantCDObject *object in resultArray){
+        NSLog(@"Name = %@",object.name);
+    }
+    
+    return resultArray;
+    
+}
 
 @end
