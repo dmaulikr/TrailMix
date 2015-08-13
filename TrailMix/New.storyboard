@@ -75,7 +75,7 @@
                                     <action selector="starButtonTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="36x-YU-Om0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRy-Ea-Y8C">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Filter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRy-Ea-Y8C">
                                 <rect key="frame" x="266" y="34" width="69" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4ML-zT-Yds"/>
@@ -504,7 +504,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Choose a travel time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8X-z9-C2W">
-                                <rect key="frame" x="134" y="72.5" width="330" height="49.5"/>
+                                <rect key="frame" x="134" y="73" width="330" height="50"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="36"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -741,7 +741,13 @@
                             <outlet property="delegate" destination="z6X-rQ-icH" id="xZW-vm-9C9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yr7-dC-LKb"/>
+                    <navigationItem key="navigationItem" id="yr7-dC-LKb">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="1hr-L3-nNh">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="z6X-rQ-icH" id="F8o-Y3-3w8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faO-kk-hM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
