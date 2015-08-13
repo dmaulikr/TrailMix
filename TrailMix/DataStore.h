@@ -26,6 +26,7 @@
 @property (assign, nonatomic) NSInteger starPref;
 @property (assign, nonatomic) BOOL destinationIsResaurant;
 @property (nonatomic, strong) Restaurant *selectedRestaurant;
+@property (nonatomic) BOOL skipAnimation;
 -(void)saveContext;
 
 -(void)filteredRestaurant;
