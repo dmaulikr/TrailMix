@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     for (UIButton *button in self.adventureButtons) {
-        [self formatButton:button];
+//        [self formatButton:button];
     }
 }
 

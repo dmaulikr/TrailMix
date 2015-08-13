@@ -7,6 +7,7 @@
 //
 
 #import "NaviViewController.h"
+#import <FAKFontAwesome.h>
 #import <CoreLocation/CoreLocation.h>
 #import "RestaurantCDObject+InitWithRestaurantObject.h"
 #import "WikiTableViewController.h"
@@ -37,12 +38,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *placeNearbyButton;
 @property (nonatomic) BOOL animationHappened;
 @property (strong, nonatomic) RestaurantCDObject *destRestaurantCDObject;
+@property (strong, nonatomic) FAKFontAwesome *pauseIcon;
+@property (strong, nonatomic) FAKFontAwesome *cancelIcon;
 @end
 
 @implementation NaviViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self makeButtonIcons];
     self.arrowView.backgroundColor = [UIColor clearColor];
     self.arrowLabel.adjustsFontSizeToFitWidth = YES;
     self.locationManager = [[CLLocationManager alloc]init];
@@ -83,6 +87,7 @@
             if (finished) {
                 NSLog(@"finished");
                 [UIView animateWithDuration:0.75 delay:1.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                    self.distanceLabel.alpha = 1;
                     self.pauseButton.alpha = 1;
                     self.cancelTripButton.alpha = 1;
                     self.followArrowLabel.alpha = 0;
@@ -141,6 +146,16 @@
     }
 }
 
+-(void)makeButtonIcons
+{
+    self.cancelIcon = [FAKFontAwesome timesIconWithSize:37];
+    [self.cancelIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    [self.cancelTripButton setAttributedTitle:[self.cancelIcon attributedString] forState:UIControlStateNormal];
+    self.pauseIcon = [FAKFontAwesome pauseIconWithSize:30];
+    [self.pauseIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    [self.pauseButton setAttributedTitle:[self.pauseIcon attributedString] forState:UIControlStateNormal];
+
+}
 -(void)showAttractionDirection{
     self.destLocation = [[CLLocation alloc]initWithLatitude:self.dataStore.pointOfInterest.coordinate.latitude longitude:self.dataStore.pointOfInterest.coordinate.longitude];
     [self.visitButton setTitle:@"Continue to Your Food" forState:UIControlStateNormal];
@@ -317,7 +332,7 @@
 
 -(void)updateDistance{
     CLLocationDistance distance = [self.destLocation distanceFromLocation:self.currentLocation];
-    self.distanceLabel.text = [NSString stringWithFormat:@"Remaining Distance: %f",distance];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%f meters away",distance];
 }
 
 -(void)updateHeader{

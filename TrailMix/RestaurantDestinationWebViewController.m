@@ -11,7 +11,6 @@
 
 @interface RestaurantDestinationWebViewController () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 @end
 
@@ -21,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationBar.topItem.title = self.locationName;
+    self.title = self.locationName;
     
     self.webView.delegate = self;
     
@@ -35,10 +34,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)backButtonTapped:(id)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 
 -(void)webViewDidStartLoad:(UIWebView *)webView {
     
