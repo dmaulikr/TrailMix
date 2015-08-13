@@ -60,6 +60,24 @@
     self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:20];
     [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor]];
     
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    NSLog(@"monitored");
+    
+    if(object == [DataStore sharedDataStore]){
+        NSLog(@"changed!!!");
+        
+        NSArray *newFoodTypes = change[NSKeyValueChangeNewKey];
+        NSLog(@"%@",newFoodTypes);
+        if(newFoodTypes.count){
+            self.startButton.enabled = YES;
+        }else{
+            self.startButton.enabled = NO;
+        }
+    }
+    
     
 }
 
@@ -76,6 +94,8 @@
 {
     [super viewWillAppear:YES];
     
+    [[DataStore sharedDataStore] addObserver:self forKeyPath:@"selectedFoodTypes" options:NSKeyValueObservingOptionNew context:nil];
+    
     //Setup icons
     [self initTheStars];
     [self initTheDollars];
@@ -83,6 +103,11 @@
     //Star Icons in selected state
     NSUInteger starPref = [self.userDefaults integerForKey:@"starPref"];
     [self updateStarPrefWithTagNum:starPref];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[DataStore sharedDataStore] removeObserver:self forKeyPath:@"selectedFoodTypes"];
 }
 
 - (void)didReceiveMemoryWarning {

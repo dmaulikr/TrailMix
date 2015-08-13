@@ -82,6 +82,7 @@
             [foodTypeArray addObject:foodType];
         }
     }
+    self.selectedFoodTypes = foodTypeArray;
     return foodTypeArray;
 }
 
