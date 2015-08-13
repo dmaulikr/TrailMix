@@ -39,6 +39,10 @@
     }
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 -(void)formatButton:(UIButton *)button
 {
     button.backgroundColor = [UIColor clearColor];

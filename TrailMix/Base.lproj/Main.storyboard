@@ -217,12 +217,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodTable" translatesAutoresizingMaskIntoConstraints="NO" id="oWP-zu-DEc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="oWP-zu-DEc">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
-                                <rect key="frame" x="248" y="40" width="104" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
+                                <rect key="frame" x="248" y="40" width="104" height="30"/>
                                 <state key="normal" title="Visit This Place">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -230,23 +230,13 @@
                                     <action selector="visitButtonTapped:" destination="LA8-22-ULE" eventType="touchUpInside" id="xto-wr-jDq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ox-Bz-047">
-                                <rect key="frame" x="16" y="35" width="102" height="38"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
-                                <state key="normal" title="Cancel Trip">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="abortButtonTapped:" destination="LA8-22-ULE" eventType="touchUpInside" id="KP9-rk-IV4"/>
-                                </connections>
-                            </button>
                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="a5y-Az-JIc">
-                                <rect key="frame" x="175" y="151" width="250" height="299"/>
+                                <rect key="frame" x="175" y="151" width="250" height="298.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQG-wh-oU9">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="299"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="298.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="250"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -259,88 +249,130 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow the Arrow!" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-au-7SK">
-                                <rect key="frame" x="172" y="28" width="256" height="43"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="158" y="20" width="283.5" height="49.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="36"/>
+                                <color key="textColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ika-I3-0Ps">
-                                <rect key="frame" x="489" y="35" width="95" height="38"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
-                                <state key="normal" title="Pause Trip">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pauseButtonTapped:" destination="LA8-22-ULE" eventType="touchUpInside" id="DPY-sj-MW3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apu-gy-1gU">
-                                <rect key="frame" x="0.0" y="558" width="600" height="42"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="23"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apu-gy-1gU">
+                                <rect key="frame" x="0.0" y="546" width="600" height="54"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
                                 <state key="normal" title="Places Nearby">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="15F-ki-IBR" kind="presentation" id="eja-rb-lhF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwY-c2-R14">
-                                <rect key="frame" x="246" y="105" width="109" height="31"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0UY-z2-D8u" userLabel="CancelPauseMetersView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwY-c2-R14">
+                                        <rect key="frame" x="234" y="19" width="132.5" height="41"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                        <color key="textColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ox-Bz-047">
+                                        <rect key="frame" x="8" y="20.5" width="102" height="38"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                        <state key="normal" title="Cancel Trip">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="abortButtonTapped:" destination="LA8-22-ULE" eventType="touchUpInside" id="KP9-rk-IV4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ika-I3-0Ps">
+                                        <rect key="frame" x="497" y="20.5" width="95" height="38"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
+                                        <state key="normal" title="Pause Trip">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pauseButtonTapped:" destination="LA8-22-ULE" eventType="touchUpInside" id="DPY-sj-MW3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Ika-I3-0Ps" firstAttribute="top" secondItem="0UY-z2-D8u" secondAttribute="top" id="4zm-tV-JKP"/>
+                                    <constraint firstItem="nwY-c2-R14" firstAttribute="centerY" secondItem="4ox-Bz-047" secondAttribute="centerY" id="7P3-Pn-o2R"/>
+                                    <constraint firstAttribute="bottom" secondItem="4ox-Bz-047" secondAttribute="bottom" id="A43-b2-F6d"/>
+                                    <constraint firstAttribute="bottom" secondItem="nwY-c2-R14" secondAttribute="bottom" id="E1K-xP-J3H"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ika-I3-0Ps" secondAttribute="trailing" constant="8" id="KJa-WH-RJ9"/>
+                                    <constraint firstItem="nwY-c2-R14" firstAttribute="centerY" secondItem="Ika-I3-0Ps" secondAttribute="centerY" id="N37-uj-HOa"/>
+                                    <constraint firstItem="nwY-c2-R14" firstAttribute="centerY" secondItem="4ox-Bz-047" secondAttribute="centerY" id="Spn-in-joq"/>
+                                    <constraint firstItem="4ox-Bz-047" firstAttribute="top" secondItem="0UY-z2-D8u" secondAttribute="top" id="nXR-t3-wzt"/>
+                                    <constraint firstItem="4ox-Bz-047" firstAttribute="leading" secondItem="0UY-z2-D8u" secondAttribute="leading" constant="8" id="q8e-C7-3fv"/>
+                                    <constraint firstAttribute="centerX" secondItem="nwY-c2-R14" secondAttribute="centerX" id="r3w-ag-LBz"/>
+                                    <constraint firstAttribute="top" secondItem="4ox-Bz-047" secondAttribute="top" id="w5x-99-ddr"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ika-I3-0Ps" secondAttribute="bottom" id="yhq-Rm-2vO"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="A43-b2-F6d"/>
+                                        <exclude reference="nXR-t3-wzt"/>
+                                        <exclude reference="w5x-99-ddr"/>
+                                        <exclude reference="Spn-in-joq"/>
+                                        <exclude reference="4zm-tV-JKP"/>
+                                        <exclude reference="yhq-Rm-2vO"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="oWP-zu-DEc" secondAttribute="trailing" id="1Ib-uE-KEc"/>
                             <constraint firstItem="oWP-zu-DEc" firstAttribute="top" secondItem="oh2-k0-mBE" secondAttribute="top" id="3U8-TY-bB9"/>
-                            <constraint firstAttribute="centerY" secondItem="nwY-c2-R14" secondAttribute="centerY" multiplier="2.5" id="5K8-Hf-DBe"/>
-                            <constraint firstAttribute="centerX" secondItem="nwY-c2-R14" secondAttribute="centerX" id="6t0-Qu-RUm"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="13" id="9lG-ab-QAJ"/>
                             <constraint firstAttribute="bottom" secondItem="oWP-zu-DEc" secondAttribute="bottom" id="BCR-Mi-BDv"/>
                             <constraint firstAttribute="centerX" secondItem="Apu-gy-1gU" secondAttribute="centerX" id="BEB-m9-2yo"/>
-                            <constraint firstItem="Apu-gy-1gU" firstAttribute="top" secondItem="nwY-c2-R14" secondAttribute="bottom" constant="14" id="CH7-mq-aVl"/>
-                            <constraint firstItem="L9g-au-7SK" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="8" id="Eag-SA-c3G"/>
-                            <constraint firstItem="4ox-Bz-047" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leadingMargin" id="Gb1-Ng-aAX"/>
+                            <constraint firstItem="6NJ-8o-PKJ" firstAttribute="top" secondItem="0UY-z2-D8u" secondAttribute="top" id="DYr-PH-G05"/>
+                            <constraint firstItem="L9g-au-7SK" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" id="Eag-SA-c3G"/>
+                            <constraint firstAttribute="width" secondItem="0UY-z2-D8u" secondAttribute="width" id="OiU-rc-SvW"/>
+                            <constraint firstItem="0UY-z2-D8u" firstAttribute="height" secondItem="oh2-k0-mBE" secondAttribute="height" multiplier="0.1" id="Py2-98-cuu"/>
                             <constraint firstAttribute="centerY" secondItem="a5y-Az-JIc" secondAttribute="centerY" id="Sen-2o-2x5"/>
+                            <constraint firstItem="0UY-z2-D8u" firstAttribute="height" secondItem="oh2-k0-mBE" secondAttribute="height" multiplier="0.7" id="WVm-gc-znY"/>
+                            <constraint firstItem="a5y-Az-JIc" firstAttribute="width" secondItem="0UY-z2-D8u" secondAttribute="width" id="Y07-3H-J3N"/>
                             <constraint firstAttribute="width" secondItem="Apu-gy-1gU" secondAttribute="width" id="Yxc-lc-25b"/>
-                            <constraint firstAttribute="centerY" secondItem="4ox-Bz-047" secondAttribute="centerY" multiplier="5.5" id="aM4-09-Pum"/>
-                            <constraint firstItem="4ox-Bz-047" firstAttribute="centerY" secondItem="jj0-pc-TNV" secondAttribute="centerY" constant="-1" id="bWZ-Xi-zHF"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="20" id="bXK-Tu-WCM"/>
                             <constraint firstAttribute="centerX" secondItem="jj0-pc-TNV" secondAttribute="centerX" id="e10-qn-fUS"/>
                             <constraint firstItem="oWP-zu-DEc" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leading" id="eZm-zJ-uwo"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leadingMargin" constant="232" id="gWV-Sz-nUH"/>
-                            <constraint firstItem="Ika-I3-0Ps" firstAttribute="trailing" secondItem="oh2-k0-mBE" secondAttribute="trailingMargin" id="gWY-wf-ClW"/>
                             <constraint firstAttribute="centerX" secondItem="a5y-Az-JIc" secondAttribute="centerX" id="kDb-qc-RCy"/>
+                            <constraint firstAttribute="centerX" secondItem="0UY-z2-D8u" secondAttribute="centerX" id="mcl-Me-36F"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="trailing" secondItem="oh2-k0-mBE" secondAttribute="trailingMargin" id="msq-Gl-SdC"/>
-                            <constraint firstItem="Apu-gy-1gU" firstAttribute="height" secondItem="oh2-k0-mBE" secondAttribute="height" multiplier="0.07" id="nKS-E6-z27"/>
+                            <constraint firstItem="Apu-gy-1gU" firstAttribute="height" secondItem="oh2-k0-mBE" secondAttribute="height" multiplier="0.09" id="nKS-E6-z27"/>
+                            <constraint firstItem="0UY-z2-D8u" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" id="oa8-M3-RRs"/>
                             <constraint firstItem="oWP-zu-DEc" firstAttribute="top" secondItem="oh2-k0-mBE" secondAttribute="top" id="rgY-EY-h22"/>
-                            <constraint firstAttribute="centerX" secondItem="nwY-c2-R14" secondAttribute="centerX" id="uOc-RA-pa0"/>
-                            <constraint firstItem="Ika-I3-0Ps" firstAttribute="centerY" secondItem="4ox-Bz-047" secondAttribute="centerY" id="wBC-n9-Lul"/>
                             <constraint firstAttribute="centerX" secondItem="jj0-pc-TNV" secondAttribute="centerX" id="wcf-MO-v9L"/>
-                            <constraint firstItem="L9g-au-7SK" firstAttribute="centerX" secondItem="oh2-k0-mBE" secondAttribute="centerX" id="xrK-tz-GdL"/>
+                            <constraint firstAttribute="centerX" secondItem="L9g-au-7SK" secondAttribute="centerX" id="xrK-tz-GdL"/>
                             <constraint firstAttribute="centerY" secondItem="jj0-pc-TNV" secondAttribute="centerY" multiplier="4" id="y0U-rw-enq"/>
                             <constraint firstItem="6tt-rI-4yn" firstAttribute="top" secondItem="Apu-gy-1gU" secondAttribute="bottom" id="yqm-eZ-zdC"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="WVm-gc-znY"/>
+                                <exclude reference="oa8-M3-RRs"/>
+                                <exclude reference="Y07-3H-J3N"/>
                                 <exclude reference="9lG-ab-QAJ"/>
                                 <exclude reference="gWV-Sz-nUH"/>
                                 <exclude reference="msq-Gl-SdC"/>
                                 <exclude reference="wcf-MO-v9L"/>
                                 <exclude reference="y0U-rw-enq"/>
-                                <exclude reference="uOc-RA-pa0"/>
-                                <exclude reference="CH7-mq-aVl"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="arrowLabel" destination="OQG-wh-oU9" id="HGr-TS-csP"/>
                         <outlet property="arrowView" destination="a5y-Az-JIc" id="VgL-Rf-hKd"/>
+                        <outlet property="cancelPauseMeterView" destination="0UY-z2-D8u" id="M4h-U1-S7e"/>
                         <outlet property="cancelTripButton" destination="4ox-Bz-047" id="XEG-03-7Lb"/>
                         <outlet property="distanceLabel" destination="nwY-c2-R14" id="kKg-z1-Q3m"/>
                         <outlet property="followArrowLabel" destination="L9g-au-7SK" id="922-wS-cln"/>
@@ -612,7 +644,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="woodTable" width="1360" height="768"/>
+        <image name="map" width="4616" height="3269"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0p4-Ny-eXw"/>

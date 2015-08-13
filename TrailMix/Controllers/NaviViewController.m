@@ -39,6 +39,7 @@
 @property (nonatomic) BOOL animationHappened;
 @property (strong, nonatomic) RestaurantCDObject *destRestaurantCDObject;
 @property (strong, nonatomic) FAKFontAwesome *pauseIcon;
+@property (weak, nonatomic) IBOutlet UIView *cancelPauseMeterView;
 @property (strong, nonatomic) FAKFontAwesome *cancelIcon;
 @end
 
@@ -79,14 +80,16 @@
     if(!self.dataStore.skipAnimation){
            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             self.followArrowLabel.alpha = 1;
-            self.followArrowLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:36];
-            self.followTheArrowConstraint.constant = 70;
+            self.followArrowLabel.font = [UIFont fontWithName:@"Avenir-Book" size:30];
+            self.followTheArrowConstraint.constant = 60;
             [self.view layoutIfNeeded];
             
         } completion:^(BOOL finished) {
             if (finished) {
                 NSLog(@"finished");
                 [UIView animateWithDuration:0.75 delay:1.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                    self.cancelPauseMeterView.alpha = 1;
+                    self.placeNearbyButton.alpha = 1;
                     self.distanceLabel.alpha = 1;
                     self.pauseButton.alpha = 1;
                     self.cancelTripButton.alpha = 1;
@@ -126,6 +129,10 @@
     [controller popToRootViewControllerAnimated:YES];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
+
 -(void)updateDestination{
     if(!self.dataStore.pointOfInterest){
         self.visitButton.enabled = NO;
@@ -143,11 +150,11 @@
 
 -(void)makeButtonIcons
 {
-    self.cancelIcon = [FAKFontAwesome timesIconWithSize:37];
-    [self.cancelIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    self.cancelIcon = [FAKFontAwesome timesIconWithSize:40];
+    [self.cancelIcon addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:45.0/255.0 green:47.0/255.0 blue:51.0/255.0 alpha:1]];
     [self.cancelTripButton setAttributedTitle:[self.cancelIcon attributedString] forState:UIControlStateNormal];
     self.pauseIcon = [FAKFontAwesome pauseIconWithSize:30];
-    [self.pauseIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    [self.pauseIcon addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:45.0/255.0 green:47.0/255.0 blue:51.0/255.0 alpha:1]];
     [self.pauseButton setAttributedTitle:[self.pauseIcon attributedString] forState:UIControlStateNormal];
 
 }
@@ -327,7 +334,7 @@
 
 -(void)updateDistance{
     CLLocationDistance distance = [self.destLocation distanceFromLocation:self.currentLocation];
-    self.distanceLabel.text = [NSString stringWithFormat:@"%f meters away",distance];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%.2f Meters",distance];
 }
 
 -(void)updateHeader{
