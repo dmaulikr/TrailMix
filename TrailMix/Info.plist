@@ -4,8 +4,6 @@
 <dict>
 	<key>UIViewEdgeAntialiasing</key>
 	<true/>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
