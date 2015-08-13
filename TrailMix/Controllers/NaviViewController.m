@@ -34,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelTripButton;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (nonatomic) BOOL destinationReached;
+@property (weak, nonatomic) IBOutlet UIButton *placeNearbyButton;
+@property (nonatomic) BOOL animationHappened;
 @end
 
 @implementation NaviViewController
@@ -69,27 +71,30 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-    
-    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.followArrowLabel.alpha = 1;
-        self.followArrowLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:36];
-        self.followTheArrowConstraint.constant = 70;
-        [self.view layoutIfNeeded];
-        
-    } completion:^(BOOL finished) {
-        if (finished) {
-            NSLog(@"finished");
-        [UIView animateWithDuration:0.75 delay:1.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            self.pauseButton.alpha = 1;
-            self.cancelTripButton.alpha = 1;
-            self.followArrowLabel.alpha = 0;
-            self.followTheArrowConstraint.constant = 0;
+    if(!self.dataStore.skipAnimation){
+           [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.followArrowLabel.alpha = 1;
+            self.followArrowLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:36];
+            self.followTheArrowConstraint.constant = 70;
             [self.view layoutIfNeeded];
             
-        } completion:nil];
-        }
-    }];
-
+        } completion:^(BOOL finished) {
+            if (finished) {
+                NSLog(@"finished");
+                [UIView animateWithDuration:0.75 delay:1.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                    self.pauseButton.alpha = 1;
+                    self.cancelTripButton.alpha = 1;
+                    self.followArrowLabel.alpha = 0;
+                    self.followTheArrowConstraint.constant = 0;
+                    [self.view layoutIfNeeded];
+                    
+                } completion:^(BOOL finished){
+                    
+                    self.dataStore.skipAnimation = YES;
+                }];
+            }
+        }];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -99,11 +104,14 @@
 }
 
 - (IBAction)abortButtonTapped:(UIStoryboardSegue *)sender {
+    self.dataStore.skipAnimation = NO;
     UINavigationController *controller = (UINavigationController *)self.presentingViewController;
     [self dismissViewControllerAnimated:YES completion:nil];
     [controller popToRootViewControllerAnimated:YES];
+    
 }
 - (IBAction)pauseButtonTapped:(UIStoryboardSegue *)sender {
+    self.dataStore.skipAnimation = NO;
     UINavigationController *controller = (UINavigationController *)self.presentingViewController;
     [self dismissViewControllerAnimated:YES completion:nil];
     [controller popToRootViewControllerAnimated:YES];
