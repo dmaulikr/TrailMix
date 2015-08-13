@@ -369,7 +369,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5H-DK-3nZ">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <items>
-                                    <navigationItem id="1bE-xs-Waw">
+                                    <navigationItem title="You Are Here!" id="1bE-xs-Waw">
                                         <barButtonItem key="rightBarButtonItem" title="Dismiss" id="WBg-4l-2a4">
                                             <connections>
                                                 <action selector="dismissButtonTapped:" destination="AyS-1r-6Il" id="mXV-ki-BFi"/>
