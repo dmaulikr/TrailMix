@@ -12,6 +12,7 @@
 @interface InterfaceController()
 @property (weak, nonatomic) IBOutlet WKInterfaceButton *resumeButton;
 @property (weak, nonatomic) IBOutlet WKInterfaceButton *adventureButton;
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *resumeText;
 
 @end
 
@@ -20,15 +21,6 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-//    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithString:@"      New"];
-//    NSTextAttachment *adventureAttachment = [[NSTextAttachment alloc]init];
-//    adventureAttachment.image = [UIImage imageNamed:@"foodRound"];
-//    NSLog(@"%@",adventureAttachment);
-//    NSAttributedString *attString = [NSAttributedString attributedStringWithAttachment:adventureAttachment];
-//    [string replaceCharactersInRange:NSMakeRange(4, 1) withAttributedString:attString];
-//    
-//    [self.adventureButton setAttributedTitle:string];
-    
     // Configure interface objects here.
 }
 
@@ -37,8 +29,10 @@
     [super willActivate];
     if(![RestaurantCDObject getLatestRestaurant]){
         [self.resumeButton setEnabled:NO];
+        [self.resumeText setTextColor:[UIColor grayColor]];
     }else{
         [self.resumeButton setEnabled:YES];
+        [self.resumeText setTextColor:[UIColor whiteColor]];
     }
 }
 

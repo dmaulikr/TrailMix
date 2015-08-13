@@ -40,6 +40,7 @@
                     <connections>
                         <outlet property="adventureButton" destination="ab7-kL-5pU" id="cvL-SF-r1N"/>
                         <outlet property="resumeButton" destination="irY-pN-uJ8" id="Z38-W9-iG8"/>
+                        <outlet property="resumeText" destination="g6w-wq-1oY" id="DIM-8L-gJL"/>
                     </connections>
                 </controller>
             </objects>
