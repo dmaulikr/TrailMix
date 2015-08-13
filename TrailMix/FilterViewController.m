@@ -60,6 +60,25 @@
     self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:20];
     [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor]];
     
+    [[DataStore sharedDataStore] addObserver:self forKeyPath:@"selectedFoodTypes" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    NSLog(@"monitored");
+    
+    if(object == [DataStore sharedDataStore]){
+        NSLog(@"changed!!!");
+        
+        NSArray *newFoodTypes = change[NSKeyValueChangeNewKey];
+        NSLog(@"%@",newFoodTypes);
+        if(newFoodTypes.count){
+            self.startButton.enabled = YES;
+        }else{
+            self.startButton.enabled = NO;
+        }
+    }
+    
     
 }
 
