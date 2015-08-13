@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="HT6-PK-YfT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newFood" translatesAutoresizingMaskIntoConstraints="NO" id="HT6-PK-YfT">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltt-4s-bbP">
@@ -75,7 +75,7 @@
                                     <action selector="starButtonTapped:" destination="IiV-kw-1Cq" eventType="touchUpInside" id="36x-YU-Om0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Filter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRy-Ea-Y8C">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRy-Ea-Y8C">
                                 <rect key="frame" x="266" y="34" width="69" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4ML-zT-Yds"/>
@@ -452,12 +452,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="vdW-90-hlZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newFood" translatesAutoresizingMaskIntoConstraints="NO" id="vdW-90-hlZ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdQ-Ce-n84">
-                                <rect key="frame" x="151" y="275" width="297" height="49"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                <rect key="frame" x="148" y="273" width="303" height="53"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
                                 <inset key="contentEdgeInsets" minX="99" minY="10" maxX="100" maxY="10"/>
                                 <state key="normal" title="5 minutes">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -468,8 +468,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V54-ca-f1Z">
-                                <rect key="frame" x="151" y="345" width="297" height="49"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                <rect key="frame" x="149" y="347" width="301" height="53"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
                                 <state key="normal" title="10 minutes">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -480,8 +480,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AB6-Bd-i7S">
-                                <rect key="frame" x="151" y="415" width="297" height="49"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                <rect key="frame" x="149" y="421" width="301" height="53"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
                                 <state key="normal" title="20 minutes">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -492,8 +492,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2j-aw-3Io">
-                                <rect key="frame" x="151" y="485" width="297" height="49"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                <rect key="frame" x="149" y="495" width="301" height="53"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
                                 <state key="normal" title="30 minutes">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -503,9 +503,9 @@
                                     <action selector="timeButtonTapped:" destination="7OE-XJ-RSs" eventType="touchUpInside" id="aWb-1D-i2A"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a travel time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8X-z9-C2W">
-                                <rect key="frame" x="146" y="79" width="307" height="43"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Choose a travel time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8X-z9-C2W">
+                                <rect key="frame" x="134" y="72.5" width="330" height="49.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="36"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -564,13 +564,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="lMI-LK-WbT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woods" translatesAutoresizingMaskIntoConstraints="NO" id="lMI-LK-WbT">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1S1-1l-o5f">
-                                <rect key="frame" x="145" y="275" width="310" height="49"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
-                                <inset key="contentEdgeInsets" minX="83" minY="10" maxX="74" maxY="10"/>
+                                <rect key="frame" x="75" y="198" width="450" height="53"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
                                 <state key="normal" title="New Adventure">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -579,8 +578,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nO5-YB-H6g">
-                                <rect key="frame" x="145" y="350" width="309" height="49"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                <rect key="frame" x="134" y="269" width="332" height="61"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
                                 <inset key="contentEdgeInsets" minX="112" minY="10" maxX="113" maxY="10"/>
                                 <state key="normal" title="Resume">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -590,8 +589,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GP3-zV-jnt">
-                                <rect key="frame" x="145" y="425" width="309" height="49"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                <rect key="frame" x="123" y="344" width="354" height="61"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
                                 <inset key="contentEdgeInsets" minX="96" minY="10" maxX="91" maxY="10"/>
                                 <state key="normal" title="View History">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -605,18 +604,19 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="nO5-YB-H6g" secondAttribute="centerX" id="74y-VM-a2w"/>
                             <constraint firstItem="lMI-LK-WbT" firstAttribute="leading" secondItem="6z4-9u-20L" secondAttribute="leading" id="9sY-Za-Ep7"/>
+                            <constraint firstItem="1S1-1l-o5f" firstAttribute="width" secondItem="6z4-9u-20L" secondAttribute="width" multiplier="0.75" id="BJu-HY-rOS"/>
                             <constraint firstAttribute="bottom" secondItem="lMI-LK-WbT" secondAttribute="bottom" id="BPn-xQ-QxI"/>
                             <constraint firstAttribute="bottom" secondItem="lMI-LK-WbT" secondAttribute="bottom" id="D3m-Ky-Nn2"/>
-                            <constraint firstItem="GP3-zV-jnt" firstAttribute="centerY" secondItem="6z4-9u-20L" secondAttribute="centerY" multiplier="1.5" id="K4A-Ec-uLp"/>
+                            <constraint firstItem="GP3-zV-jnt" firstAttribute="centerY" secondItem="6z4-9u-20L" secondAttribute="centerY" multiplier="1.25" id="K4A-Ec-uLp"/>
                             <constraint firstAttribute="bottomMargin" secondItem="lMI-LK-WbT" secondAttribute="bottom" id="XWH-eX-hhv"/>
                             <constraint firstItem="lMI-LK-WbT" firstAttribute="top" secondItem="6z4-9u-20L" secondAttribute="top" id="bnO-RH-gs9"/>
-                            <constraint firstItem="nO5-YB-H6g" firstAttribute="centerY" secondItem="6z4-9u-20L" secondAttribute="centerY" multiplier="1.25" id="cjk-vE-ViE"/>
+                            <constraint firstItem="nO5-YB-H6g" firstAttribute="centerY" secondItem="6z4-9u-20L" secondAttribute="centerY" id="cjk-vE-ViE"/>
                             <constraint firstItem="lMI-LK-WbT" firstAttribute="top" secondItem="6z4-9u-20L" secondAttribute="top" id="hY3-CB-Nyh"/>
                             <constraint firstAttribute="trailing" secondItem="lMI-LK-WbT" secondAttribute="trailing" id="kAc-gV-j4D"/>
                             <constraint firstAttribute="centerX" secondItem="GP3-zV-jnt" secondAttribute="centerX" id="pKG-ZL-d4z"/>
                             <constraint firstItem="GP3-zV-jnt" firstAttribute="width" secondItem="6z4-9u-20L" secondAttribute="width" id="rNy-I2-ngN"/>
                             <constraint firstItem="1S1-1l-o5f" firstAttribute="centerX" secondItem="6z4-9u-20L" secondAttribute="centerX" id="tkJ-i9-YhY"/>
-                            <constraint firstItem="1S1-1l-o5f" firstAttribute="centerY" secondItem="6z4-9u-20L" secondAttribute="centerY" id="zOC-Ad-WAt"/>
+                            <constraint firstItem="1S1-1l-o5f" firstAttribute="centerY" secondItem="6z4-9u-20L" secondAttribute="centerY" multiplier="0.75" id="zOC-Ad-WAt"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -750,6 +750,7 @@
     </scenes>
     <resources>
         <image name="arrow2" width="12" height="20"/>
-        <image name="black" width="414" height="736"/>
+        <image name="newFood" width="414" height="736"/>
+        <image name="woods" width="1920" height="1200"/>
     </resources>
 </document>

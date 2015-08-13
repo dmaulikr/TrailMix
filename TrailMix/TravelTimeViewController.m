@@ -29,7 +29,7 @@
     NSArray *buttons = @[self.fiveMinuteButton, self.tenMinuteButton, self.twentyMinuteButton, self.thirtyMinuteButton];
     for (UIButton *button in buttons)
     {
-        [self formatTimeButton:button];
+//        [self formatTimeButton:button];
     }
     
     self.locationManager = [[CLLocationManager alloc]init];
