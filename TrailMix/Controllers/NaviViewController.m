@@ -17,6 +17,7 @@
 #import "FilterViewController.h"
 #import "RestaurantDestinationWebViewController.h"
 #import "Restaurant.h"
+#import <AudioToolbox/AudioServices.h>
 
 @interface NaviViewController () <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
@@ -123,8 +124,9 @@
     [[DataStore sharedDataStore] saveContext];
     
     UINavigationController *controller = (UINavigationController *)self.presentingViewController;
+    [controller popToRootViewControllerAnimated:NO];
     [self dismissViewControllerAnimated:YES completion:nil];
-    [controller popToRootViewControllerAnimated:YES];
+
     
 }
 - (IBAction)pauseButtonTapped:(UIStoryboardSegue *)sender {
@@ -241,9 +243,11 @@
     
     if ([self.currentLocation distanceFromLocation:self.restaurantLocation] <= 30.0) { // if we're less then 30 meters away then we'll let the user know we're here!
         
-        if (!self.destinationReached && self.view.window) { // if the current view controller is reached
+        if (!self.destinationReached && self.dataStore.skipAnimation) { // if the animation is complete for the follow the arrow then we can show the modal
             
             self.destinationReached = YES;
+            
+            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
             
             [self performSegueWithIdentifier:@"DestinationReachedSegue" sender:self];
             
