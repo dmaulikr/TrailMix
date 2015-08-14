@@ -25,7 +25,6 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedDataStore = [[DataStore alloc]init];
-//        _sharedDataStore.selectedFoodTypes = [[NSMutableArray alloc] init];
     });
     
     return _sharedDataStore;

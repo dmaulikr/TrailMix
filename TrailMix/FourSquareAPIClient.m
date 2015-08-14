@@ -52,19 +52,8 @@
             }
                                 }
         
-//        NSLog(@"before call back %@",[DataStore sharedDataStore].restaurantDictionary);
-
-        [[DataStore sharedDataStore].selectedFoodTypes removeAllObjects];
-        
-//        NSLog(@"What is in this before for loop: %@", [DataStore sharedDataStore].selectedFoodTypes);
-        
-        for (NSArray *val in cuisineTypeWithRestaurantObjects.allKeys) {
-            [[DataStore sharedDataStore].selectedFoodTypes addObject:val];
-        }
-        
-//        NSLog(@"What is in this after for loop: %@", [DataStore sharedDataStore].selectedFoodTypes);
-
-//        [DataStore sharedDataStore].selectedFoodTypes = [cuisineTypeWithRestaurantObjects.allKeys mutableCopy];
+        NSLog(@"before call back %@",[DataStore sharedDataStore].restaurantDictionary);
+        [DataStore sharedDataStore].selectedFoodTypes = [[NSMutableArray alloc]initWithArray:cuisineTypeWithRestaurantObjects.allKeys];
         NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]initWithKey:nil ascending:YES];
         [[DataStore sharedDataStore].selectedFoodTypes sortUsingDescriptors:@[descriptor]];
         completionBlock();
