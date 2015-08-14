@@ -17,6 +17,7 @@
 #import "FilterViewController.h"
 #import "RestaurantDestinationWebViewController.h"
 #import "Restaurant.h"
+#import <AudioToolbox/AudioServices.h>
 
 @interface NaviViewController () <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
@@ -210,7 +211,7 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     
-    self.currentLocation = (CLLocation *)locations[0];
+    self.currentLocation = self.restaurantLocation;// (CLLocation *)locations[0];
     
     if (!self.dataStore.lastWikiUpdateLocation) {
         
@@ -240,6 +241,8 @@
         if (!self.destinationReached && self.dataStore.skipAnimation) { // if the animation is complete for the follow the arrow then we can show the modal
             
             self.destinationReached = YES;
+            
+            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
             
             [self performSegueWithIdentifier:@"DestinationReachedSegue" sender:self];
             
