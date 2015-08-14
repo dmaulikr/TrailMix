@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodTable" translatesAutoresizingMaskIntoConstraints="NO" id="HT6-PK-YfT">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodTable" translatesAutoresizingMaskIntoConstraints="NO" id="HT6-PK-YfT">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltt-4s-bbP">
@@ -152,7 +152,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQv-Df-ZQD">
-                                <rect key="frame" x="143" y="517" width="315" height="53"/>
+                                <rect key="frame" x="143" y="532" width="315" height="53"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
                                 <inset key="contentEdgeInsets" minX="70" minY="10" maxX="70" maxY="10"/>
                                 <state key="normal" title="Start Adventure!">
@@ -243,6 +243,7 @@
                             <constraint firstItem="TLD-Hk-ysn" firstAttribute="centerY" secondItem="tjp-qH-Pfe" secondAttribute="centerY" id="IFW-MM-Hu7"/>
                             <constraint firstItem="0eJ-UL-Xer" firstAttribute="centerY" secondItem="5VJ-ze-pTE" secondAttribute="centerY" constant="-233.5" id="IFr-MO-wkc"/>
                             <constraint firstItem="F3J-og-PZb" firstAttribute="centerY" secondItem="d9B-1o-l5h" secondAttribute="centerY" id="Iju-mQ-J63"/>
+                            <constraint firstItem="Sim-th-EWD" firstAttribute="top" secondItem="gQv-Df-ZQD" secondAttribute="bottom" constant="15" id="J2a-I0-AZG"/>
                             <constraint firstItem="5VJ-ze-pTE" firstAttribute="top" secondItem="0eJ-UL-Xer" secondAttribute="bottom" constant="72" id="JsY-6z-2sK"/>
                             <constraint firstItem="h6M-1J-nH6" firstAttribute="centerY" secondItem="0eJ-UL-Xer" secondAttribute="centerY" id="KLe-0Y-qQ4"/>
                             <constraint firstItem="5VJ-ze-pTE" firstAttribute="top" secondItem="0eJ-UL-Xer" secondAttribute="bottom" constant="25" id="LVt-lp-OU5"/>
@@ -416,6 +417,7 @@
                                 <exclude reference="MB1-oE-xq7"/>
                                 <exclude reference="hpD-Rt-FxU"/>
                                 <exclude reference="zeQ-7z-rvN"/>
+                                <exclude reference="Qie-Ju-V1Y"/>
                                 <exclude reference="3ZE-5c-IWw"/>
                                 <exclude reference="ubv-yY-C4u"/>
                             </mask>
@@ -452,12 +454,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foodView" translatesAutoresizingMaskIntoConstraints="NO" id="vdW-90-hlZ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodTable" translatesAutoresizingMaskIntoConstraints="NO" id="vdW-90-hlZ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdQ-Ce-n84">
-                                <rect key="frame" x="148" y="273" width="303" height="53"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
+                                <rect key="frame" x="136" y="269" width="328" height="61"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="30"/>
                                 <inset key="contentEdgeInsets" minX="99" minY="10" maxX="100" maxY="10"/>
                                 <state key="normal" title="5 minutes">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -468,8 +470,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V54-ca-f1Z">
-                                <rect key="frame" x="149" y="347" width="301" height="53"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
+                                <rect key="frame" x="135" y="351" width="330" height="61"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="30"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
                                 <state key="normal" title="10 minutes">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -480,8 +482,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AB6-Bd-i7S">
-                                <rect key="frame" x="149" y="421" width="301" height="53"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
+                                <rect key="frame" x="135.5" y="433" width="330" height="61"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="30"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
                                 <state key="normal" title="20 minutes">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -492,8 +494,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2j-aw-3Io">
-                                <rect key="frame" x="149" y="495" width="301" height="53"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
+                                <rect key="frame" x="135" y="515" width="330" height="61"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="30"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
                                 <state key="normal" title="30 minutes">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -503,12 +505,21 @@
                                     <action selector="timeButtonTapped:" destination="7OE-XJ-RSs" eventType="touchUpInside" id="aWb-1D-i2A"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Choose a travel time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8X-z9-C2W">
-                                <rect key="frame" x="134" y="73" width="330" height="50"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a travel time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8X-z9-C2W">
+                                <rect key="frame" x="149" y="93" width="302.5" height="45.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="33"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAQ-IU-iOu">
+                                <rect key="frame" x="16" y="20" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="7OE-XJ-RSs" eventType="touchUpInside" id="ftO-YV-Tbb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -518,10 +529,12 @@
                             <constraint firstItem="V54-ca-f1Z" firstAttribute="bottom" secondItem="AB6-Bd-i7S" secondAttribute="top" constant="-21" id="EjC-N4-zMl"/>
                             <constraint firstItem="vdW-90-hlZ" firstAttribute="leading" secondItem="z6l-Bv-rdq" secondAttribute="leading" id="HCP-JO-mfa"/>
                             <constraint firstItem="QLF-Uq-Hk8" firstAttribute="top" secondItem="vdW-90-hlZ" secondAttribute="bottom" id="Iwm-sA-a0d"/>
+                            <constraint firstItem="ZAQ-IU-iOu" firstAttribute="leading" secondItem="z6l-Bv-rdq" secondAttribute="leadingMargin" id="Q49-H2-xB0"/>
                             <constraint firstAttribute="centerY" secondItem="tdQ-Ce-n84" secondAttribute="centerY" id="Ra0-Bn-k1y"/>
                             <constraint firstAttribute="centerX" secondItem="V54-ca-f1Z" secondAttribute="centerX" id="S3q-pP-PQ3"/>
+                            <constraint firstItem="ZAQ-IU-iOu" firstAttribute="top" secondItem="hsv-WL-Zhz" secondAttribute="bottom" id="W6s-84-dke"/>
                             <constraint firstAttribute="centerX" secondItem="AB6-Bd-i7S" secondAttribute="centerX" constant="-0.25" id="Wr7-ut-m2j"/>
-                            <constraint firstItem="tdQ-Ce-n84" firstAttribute="top" secondItem="V8X-z9-C2W" secondAttribute="bottom" constant="153.5" id="bB5-st-cSm"/>
+                            <constraint firstItem="tdQ-Ce-n84" firstAttribute="top" secondItem="V8X-z9-C2W" secondAttribute="bottom" constant="130" id="bB5-st-cSm"/>
                             <constraint firstAttribute="trailing" secondItem="vdW-90-hlZ" secondAttribute="trailing" id="duy-qj-NDP"/>
                             <constraint firstItem="V8X-z9-C2W" firstAttribute="top" secondItem="hsv-WL-Zhz" secondAttribute="bottom" constant="54" id="fB1-PF-BmL"/>
                             <constraint firstItem="m2j-aw-3Io" firstAttribute="top" secondItem="AB6-Bd-i7S" secondAttribute="bottom" constant="21" id="lhO-qT-Lha"/>
@@ -541,6 +554,7 @@
                     <navigationItem key="navigationItem" id="PlQ-xf-YiB"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="backButton" destination="ZAQ-IU-iOu" id="mNd-fc-XhI"/>
                         <outlet property="fiveMinuteButton" destination="tdQ-Ce-n84" id="qej-VV-rnD"/>
                         <outlet property="tenMinuteButton" destination="V54-ca-f1Z" id="EZd-vB-UWQ"/>
                         <outlet property="thirtyMinuteButton" destination="m2j-aw-3Io" id="ghn-7Q-9f5"/>
@@ -550,7 +564,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2X-KT-A8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2033" y="17"/>
+            <point key="canvasLocation" x="2031" y="11"/>
         </scene>
         <!--Intro Adventure View Controller-->
         <scene sceneID="0yA-dG-TwL">
@@ -574,7 +588,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7OE-XJ-RSs" kind="show" id="kMJ-0U-PRv"/>
+                                    <segue destination="7OE-XJ-RSs" kind="show" identifier="newAdventureTraveTime" id="kMJ-0U-PRv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nO5-YB-H6g">
@@ -683,6 +697,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="TpL-Bu-apW">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="l8V-XI-qmL" kind="relationship" relationship="rootViewController" id="a8a-xy-F3Q"/>
                     </connections>
@@ -756,7 +773,6 @@
     </scenes>
     <resources>
         <image name="arrow2" width="12" height="20"/>
-        <image name="foodView" width="2368" height="2368"/>
         <image name="woodTable" width="1360" height="768"/>
         <image name="woods" width="1920" height="1200"/>
     </resources>

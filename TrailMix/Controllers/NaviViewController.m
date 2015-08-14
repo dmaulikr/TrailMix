@@ -29,7 +29,6 @@
 @property (strong, nonatomic) NSMutableArray *headingArray;
 @property (weak, nonatomic) IBOutlet UILabel *arrowLabel;
 @property (weak, nonatomic) IBOutlet UIView *arrowView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *followTheArrowConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *followArrowLabel;
 @property (nonatomic, strong) DataStore *dataStore;
 @property (weak, nonatomic) IBOutlet UIButton *cancelTripButton;
@@ -40,6 +39,7 @@
 @property (strong, nonatomic) RestaurantCDObject *destRestaurantCDObject;
 @property (strong, nonatomic) FAKFontAwesome *pauseIcon;
 @property (weak, nonatomic) IBOutlet UIView *cancelPauseMeterView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *followTheArrowConstraint;
 @property (strong, nonatomic) FAKFontAwesome *cancelIcon;
 @end
 
@@ -77,11 +77,16 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
+    [self animateIntro];
+}
+
+-(void)animateIntro
+{
     if(!self.dataStore.skipAnimation){
-           [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             self.followArrowLabel.alpha = 1;
-            self.followArrowLabel.font = [UIFont fontWithName:@"Avenir-Book" size:30];
-            self.followTheArrowConstraint.constant = 60;
+            self.followArrowLabel.font = [UIFont fontWithName:@"Avenir-Book" size:40];
+            self.followTheArrowConstraint.constant = -170;
             [self.view layoutIfNeeded];
             
         } completion:^(BOOL finished) {
@@ -94,7 +99,7 @@
                     self.pauseButton.alpha = 1;
                     self.cancelTripButton.alpha = 1;
                     self.followArrowLabel.alpha = 0;
-                    self.followTheArrowConstraint.constant = 0;
+                    self.followTheArrowConstraint.constant = -238;
                     [self.view layoutIfNeeded];
                     
                 } completion:^(BOOL finished){

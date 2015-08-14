@@ -59,8 +59,7 @@
         completionBlock();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-        NSLog(@"%@",error.description);
+                NSLog(@"%@",error.description);
     }];
     
     

@@ -37,6 +37,7 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    [self notifyIfBadRequest];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
@@ -58,6 +59,23 @@
     self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:20];
     [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor]];
     
+}
+
+- (void)badNetworkRequest:(NSNotification *)notification {
+    [SVProgressHUD dismiss];
+    NSLog(@"IT FUCKING WORKKKKKKKKed");
+    NSString *alertTitle = @"YOOOO";
+    NSString *alertMessage = @"SORRY BAD CONNECT, IDK";
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:alertTitle
+                                          message:alertMessage
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+-(void)notifyIfBadRequest
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(badNetworkRequest:) name:@"BadRequest" object:nil];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{

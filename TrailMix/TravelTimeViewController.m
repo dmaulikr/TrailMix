@@ -9,6 +9,7 @@
 #import "TravelTimeViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "FilterViewController.h"
+#import "IntroAdventureViewController.h"
 
 @interface TravelTimeViewController ()<CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *fiveMinuteButton;
@@ -16,9 +17,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *twentyMinuteButton;
 @property (weak, nonatomic) IBOutlet UIButton *thirtyMinuteButton;
 @property (assign, nonatomic) NSInteger selectedTime;
-
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @end
 
@@ -26,12 +27,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSArray *buttons = @[self.fiveMinuteButton, self.tenMinuteButton, self.twentyMinuteButton, self.thirtyMinuteButton];
-    for (UIButton *button in buttons)
-    {
-//        [self formatTimeButton:button];
-    }
-    
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.delegate = self;
     self.locationManager.pausesLocationUpdatesAutomatically = YES;
@@ -101,12 +96,19 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    FilterViewController *destVC = segue.destinationViewController;
-    NSInteger timeInMinute = self.selectedTime;
-    destVC.timeInMinute = timeInMinute;
-    destVC.currentLatitude = self.currentLocation.coordinate.latitude;
-    destVC.currentLongitude = self.currentLocation.coordinate.longitude;
+    if ([segue.identifier isEqualToString:@"newAdventureTraveTime"]) {
+        FilterViewController *destVC = segue.destinationViewController;
+        NSInteger timeInMinute = self.selectedTime;
+        destVC.timeInMinute = timeInMinute;
+        destVC.currentLatitude = self.currentLocation.coordinate.latitude;
+        destVC.currentLongitude = self.currentLocation.coordinate.longitude;
+    }
+    
 }
+- (IBAction)backButtonTapped:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 
 
 @end
