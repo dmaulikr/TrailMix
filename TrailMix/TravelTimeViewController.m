@@ -10,6 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import "FilterViewController.h"
 #import "IntroAdventureViewController.h"
+#import <SVProgressHUD.h>
+#import "FourSquareAPIClient.h"
+#import <FAKFontAwesome.h>
 
 @interface TravelTimeViewController ()<CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *fiveMinuteButton;
@@ -27,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupBackButton];
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.delegate = self;
     self.locationManager.pausesLocationUpdatesAutomatically = YES;
@@ -66,24 +70,40 @@
     
 }
 
--(BOOL)prefersStatusBarHidden
+-(void)setupBackButton
 {
-    return YES;
+    FAKFontAwesome *backIcon = [FAKFontAwesome angleLeftIconWithSize:40];
+    [backIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    [self.backButton setAttributedTitle:[backIcon attributedString] forState:UIControlStateNormal];
+    
 }
 
--(void)formatTimeButton:(UIButton *)button
+- (void)badNetworkRequest:(NSNotification *)notification
 {
-    button.backgroundColor = [UIColor clearColor];
-    button.layer.cornerRadius = 5;
-    button.layer.borderWidth = 1;
-    button.layer.borderColor = [UIColor whiteColor].CGColor;
+    [SVProgressHUD showErrorWithStatus:@"Not able to connect, please try again"];
+    
+}
 
+-(void)notifyIfBadRequest
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(badNetworkRequest:) name:@"BadRequest" object:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (IBAction)timeButtonTapped:(id)sender {
+    [self notifyIfBadRequest];
     UIButton *button = sender;
     self.selectedTime = button.tag;
-    [self performSegueWithIdentifier:@"goToPreference" sender:nil];
+    [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
+    [FourSquareAPIClient getNearbyRestaurantWithLatitude:self.currentLocation.coordinate.latitude Longitude:self.currentLocation.coordinate.longitude Radius:self.selectedTime*83.1495 CompletionBlock:^() {
+        [SVProgressHUD dismiss];
+        [self performSegueWithIdentifier:@"goToPreference" sender:nil];
+    }];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
@@ -94,17 +114,6 @@
 
 #pragma mark - Navigation
 
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"newAdventureTraveTime"]) {
-        FilterViewController *destVC = segue.destinationViewController;
-        NSInteger timeInMinute = self.selectedTime;
-        destVC.timeInMinute = timeInMinute;
-        destVC.currentLatitude = self.currentLocation.coordinate.latitude;
-        destVC.currentLongitude = self.currentLocation.coordinate.longitude;
-    }
-    
-}
 - (IBAction)backButtonTapped:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

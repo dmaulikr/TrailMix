@@ -23,8 +23,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltt-4s-bbP">
-                                <rect key="frame" x="16" y="43" width="12" height="22"/>
-                                <state key="normal" image="arrow2">
+                                <rect key="frame" x="0.0" y="37" width="30" height="34"/>
+                                <state key="normal" title="B">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -84,6 +84,7 @@
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="36"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="4ML-zT-Yds"/>
@@ -303,7 +304,7 @@
                             <constraint firstItem="h6M-1J-nH6" firstAttribute="leading" secondItem="034-NV-S3O" secondAttribute="trailing" constant="26" id="mRk-Ml-Fld"/>
                             <constraint firstAttribute="centerY" secondItem="0eJ-UL-Xer" secondAttribute="centerY" multiplier="1.4" id="mho-6R-7Qs"/>
                             <constraint firstItem="d9B-1o-l5h" firstAttribute="top" secondItem="jM3-eA-ISG" secondAttribute="bottom" constant="28" id="mmR-rW-81k"/>
-                            <constraint firstItem="Ltt-4s-bbP" firstAttribute="leading" secondItem="BmM-G4-NzV" secondAttribute="leadingMargin" id="nPZ-EZ-11x"/>
+                            <constraint firstItem="Ltt-4s-bbP" firstAttribute="leading" secondItem="BmM-G4-NzV" secondAttribute="leading" id="nPZ-EZ-11x"/>
                             <constraint firstItem="tjp-qH-Pfe" firstAttribute="leading" secondItem="TLD-Hk-ysn" secondAttribute="trailing" constant="18" id="nhT-iX-pDO"/>
                             <constraint firstItem="F3J-og-PZb" firstAttribute="centerY" secondItem="0eJ-UL-Xer" secondAttribute="centerY" id="npO-qZ-HoL"/>
                             <constraint firstItem="TLD-Hk-ysn" firstAttribute="centerY" secondItem="tjp-qH-Pfe" secondAttribute="centerY" id="o0f-EP-Ile"/>
@@ -424,6 +425,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="Ltt-4s-bbP" id="Hxh-bq-emZ"/>
                         <outlet property="foodTypesTableView" destination="5VJ-ze-pTE" id="o6p-WZ-UMD"/>
                         <outlet property="startButton" destination="gQv-Df-ZQD" id="yJa-s3-als"/>
                         <outlet property="tableView" destination="5VJ-ze-pTE" id="vbP-F4-A3p"/>
@@ -512,7 +514,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAQ-IU-iOu">
-                                <rect key="frame" x="16" y="20" width="35" height="30"/>
+                                <rect key="frame" x="0.0" y="20" width="35" height="30"/>
                                 <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -529,7 +531,7 @@
                             <constraint firstItem="V54-ca-f1Z" firstAttribute="bottom" secondItem="AB6-Bd-i7S" secondAttribute="top" constant="-21" id="EjC-N4-zMl"/>
                             <constraint firstItem="vdW-90-hlZ" firstAttribute="leading" secondItem="z6l-Bv-rdq" secondAttribute="leading" id="HCP-JO-mfa"/>
                             <constraint firstItem="QLF-Uq-Hk8" firstAttribute="top" secondItem="vdW-90-hlZ" secondAttribute="bottom" id="Iwm-sA-a0d"/>
-                            <constraint firstItem="ZAQ-IU-iOu" firstAttribute="leading" secondItem="z6l-Bv-rdq" secondAttribute="leadingMargin" id="Q49-H2-xB0"/>
+                            <constraint firstItem="ZAQ-IU-iOu" firstAttribute="leading" secondItem="z6l-Bv-rdq" secondAttribute="leading" id="Q49-H2-xB0"/>
                             <constraint firstAttribute="centerY" secondItem="tdQ-Ce-n84" secondAttribute="centerY" id="Ra0-Bn-k1y"/>
                             <constraint firstAttribute="centerX" secondItem="V54-ca-f1Z" secondAttribute="centerX" id="S3q-pP-PQ3"/>
                             <constraint firstItem="ZAQ-IU-iOu" firstAttribute="top" secondItem="hsv-WL-Zhz" secondAttribute="bottom" id="W6s-84-dke"/>
@@ -772,7 +774,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow2" width="12" height="20"/>
         <image name="woodTable" width="1360" height="768"/>
         <image name="woods" width="1920" height="1200"/>
     </resources>
