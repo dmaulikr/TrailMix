@@ -237,7 +237,7 @@
     
     if ([self.currentLocation distanceFromLocation:self.restaurantLocation] <= 30.0) { // if we're less then 30 meters away then we'll let the user know we're here!
         
-        if (!self.destinationReached && self.view.window) { // if the current view controller is reached
+        if (!self.destinationReached && self.dataStore.skipAnimation) { // if the animation is complete for the follow the arrow then we can show the modal
             
             self.destinationReached = YES;
             
