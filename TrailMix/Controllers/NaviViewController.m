@@ -211,7 +211,7 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     
-    self.currentLocation = self.restaurantLocation;// (CLLocation *)locations[0];
+    self.currentLocation = (CLLocation *)locations[0];
     
     if (!self.dataStore.lastWikiUpdateLocation) {
         
