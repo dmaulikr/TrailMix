@@ -17,6 +17,7 @@
 #import "FilterViewController.h"
 #import "RestaurantDestinationWebViewController.h"
 #import "Restaurant.h"
+//
 
 @interface NaviViewController () <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
