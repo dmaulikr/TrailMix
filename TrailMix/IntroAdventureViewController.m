@@ -9,6 +9,7 @@
 #import "IntroAdventureViewController.h"
 #import "NaviViewController.h"
 #import "RestaurantCDObject+InitWithRestaurantObject.h"
+#import "DataStore.h"
 
 @interface IntroAdventureViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *adventureButtons;
@@ -51,6 +52,7 @@
 
 - (IBAction)resumeButtonTapped:(id)sender {
     UIViewController *destVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateInitialViewController];
+    [DataStore sharedDataStore].destinationIsResaurant = YES;
     [self presentViewController:destVC animated:YES completion:nil];
 }
 
