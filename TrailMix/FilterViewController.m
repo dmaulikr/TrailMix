@@ -97,7 +97,9 @@
     
     //Star Icons in selected state
     NSUInteger starPref = [self.userDefaults integerForKey:@"starPref"];
+    NSUInteger dollarPref = [self.userDefaults integerForKey:@"pricingPref"];
     [self updateStarPrefWithTagNum:starPref];
+    [self updateDollarPreWithTagNum:dollarPref];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -199,6 +201,8 @@
     
 }
 
+
+
 #pragma mark - Dollar Icon Setup and Logic
 
 -(void)initTheDollars
@@ -236,6 +240,7 @@
 
 -(void)updateDollarPreWithTagNum:(NSInteger)tag
 {
+    
     for (UIButton *button in self.dollarButtons) {
         if (button.tag > tag) {
             [self unSelectDollar:button];

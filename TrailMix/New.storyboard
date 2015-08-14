@@ -460,7 +460,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdQ-Ce-n84">
-                                <rect key="frame" x="136" y="269" width="328" height="61"/>
+                                <rect key="frame" x="136" y="195" width="328" height="61"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="30"/>
                                 <inset key="contentEdgeInsets" minX="99" minY="10" maxX="100" maxY="10"/>
                                 <state key="normal" title="5 minutes">
@@ -472,7 +472,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V54-ca-f1Z">
-                                <rect key="frame" x="135" y="351" width="330" height="61"/>
+                                <rect key="frame" x="135" y="277" width="330" height="61"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="30"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
                                 <state key="normal" title="10 minutes">
@@ -484,7 +484,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AB6-Bd-i7S">
-                                <rect key="frame" x="135.5" y="433" width="330" height="61"/>
+                                <rect key="frame" x="135" y="359" width="330" height="61"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="30"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
                                 <state key="normal" title="20 minutes">
@@ -496,7 +496,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2j-aw-3Io">
-                                <rect key="frame" x="135" y="515" width="330" height="61"/>
+                                <rect key="frame" x="135" y="441" width="330" height="61"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="30"/>
                                 <inset key="contentEdgeInsets" minX="88" minY="10" maxX="97" maxY="10"/>
                                 <state key="normal" title="30 minutes">
@@ -507,14 +507,14 @@
                                     <action selector="timeButtonTapped:" destination="7OE-XJ-RSs" eventType="touchUpInside" id="aWb-1D-i2A"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a travel time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8X-z9-C2W">
-                                <rect key="frame" x="149" y="93" width="302.5" height="45.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adventure Time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8X-z9-C2W">
+                                <rect key="frame" x="182.5" y="42.5" width="236" height="45.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="33"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAQ-IU-iOu">
-                                <rect key="frame" x="0.0" y="20" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAQ-IU-iOu">
+                                <rect key="frame" x="0.0" y="50" width="35" height="30"/>
                                 <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -526,17 +526,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="V8X-z9-C2W" secondAttribute="centerY" multiplier="3" id="Bkb-Xr-0xT"/>
-                            <constraint firstAttribute="centerX" secondItem="tdQ-Ce-n84" secondAttribute="centerX" id="Dcx-ba-ZA8"/>
+                            <constraint firstItem="ZAQ-IU-iOu" firstAttribute="centerY" secondItem="V8X-z9-C2W" secondAttribute="centerY" id="Cis-cn-EZE"/>
+                            <constraint firstItem="tdQ-Ce-n84" firstAttribute="centerX" secondItem="z6l-Bv-rdq" secondAttribute="centerX" id="Dcx-ba-ZA8"/>
                             <constraint firstAttribute="centerX" secondItem="m2j-aw-3Io" secondAttribute="centerX" id="EFN-qc-Nxt"/>
                             <constraint firstItem="V54-ca-f1Z" firstAttribute="bottom" secondItem="AB6-Bd-i7S" secondAttribute="top" constant="-21" id="EjC-N4-zMl"/>
                             <constraint firstItem="vdW-90-hlZ" firstAttribute="leading" secondItem="z6l-Bv-rdq" secondAttribute="leading" id="HCP-JO-mfa"/>
                             <constraint firstItem="QLF-Uq-Hk8" firstAttribute="top" secondItem="vdW-90-hlZ" secondAttribute="bottom" id="Iwm-sA-a0d"/>
+                            <constraint firstAttribute="centerX" secondItem="V8X-z9-C2W" secondAttribute="centerX" constant="-0.5" id="NGx-h0-the"/>
                             <constraint firstItem="ZAQ-IU-iOu" firstAttribute="leading" secondItem="z6l-Bv-rdq" secondAttribute="leading" id="Q49-H2-xB0"/>
-                            <constraint firstAttribute="centerY" secondItem="tdQ-Ce-n84" secondAttribute="centerY" id="Ra0-Bn-k1y"/>
+                            <constraint firstAttribute="centerY" secondItem="tdQ-Ce-n84" secondAttribute="centerY" multiplier="1.33" id="Ra0-Bn-k1y"/>
                             <constraint firstAttribute="centerX" secondItem="V54-ca-f1Z" secondAttribute="centerX" id="S3q-pP-PQ3"/>
-                            <constraint firstItem="ZAQ-IU-iOu" firstAttribute="top" secondItem="hsv-WL-Zhz" secondAttribute="bottom" id="W6s-84-dke"/>
+                            <constraint firstItem="ZAQ-IU-iOu" firstAttribute="top" secondItem="hsv-WL-Zhz" secondAttribute="bottom" constant="30" id="W6s-84-dke"/>
                             <constraint firstAttribute="centerX" secondItem="AB6-Bd-i7S" secondAttribute="centerX" constant="-0.25" id="Wr7-ut-m2j"/>
-                            <constraint firstItem="tdQ-Ce-n84" firstAttribute="top" secondItem="V8X-z9-C2W" secondAttribute="bottom" constant="130" id="bB5-st-cSm"/>
+                            <constraint firstItem="tdQ-Ce-n84" firstAttribute="top" secondItem="V8X-z9-C2W" secondAttribute="bottom" constant="120" id="bB5-st-cSm"/>
                             <constraint firstAttribute="trailing" secondItem="vdW-90-hlZ" secondAttribute="trailing" id="duy-qj-NDP"/>
                             <constraint firstItem="V8X-z9-C2W" firstAttribute="top" secondItem="hsv-WL-Zhz" secondAttribute="bottom" constant="54" id="fB1-PF-BmL"/>
                             <constraint firstItem="m2j-aw-3Io" firstAttribute="top" secondItem="AB6-Bd-i7S" secondAttribute="bottom" constant="21" id="lhO-qT-Lha"/>
@@ -550,6 +552,8 @@
                                 <exclude reference="Bkb-Xr-0xT"/>
                                 <exclude reference="fB1-PF-BmL"/>
                                 <exclude reference="vjO-KX-9u3"/>
+                                <exclude reference="bB5-st-cSm"/>
+                                <exclude reference="rdH-we-cCm"/>
                             </mask>
                         </variation>
                     </view>
