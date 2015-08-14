@@ -21,9 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    for (UIButton *button in self.adventureButtons) {
-//        [self formatButton:button];
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated{

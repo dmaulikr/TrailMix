@@ -59,8 +59,8 @@
         completionBlock();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-        NSLog(@"%@",error.description);
+                NSLog(@"%@",error.description);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"BadRequest" object:nil];
     }];
     
     
