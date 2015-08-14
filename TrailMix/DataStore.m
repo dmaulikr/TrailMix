@@ -82,7 +82,7 @@
             [foodTypeArray addObject:foodType];
         }
     }
-    self.selectedFoodTypes = foodTypeArray;
+    self.selectedFoodTypes = [[NSMutableArray alloc]initWithArray:foodTypeArray];
     return foodTypeArray;
 }
 

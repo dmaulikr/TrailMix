@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSArray *foodTypes;
 @property (strong, nonatomic) NSMutableArray *selectedFoodTypes;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 
 @end
@@ -37,28 +38,16 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    NSLog(@"will appear filter view");
+    [[DataStore sharedDataStore] addObserver:self forKeyPath:@"selectedFoodTypes" options:NSKeyValueObservingOptionNew context:nil];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    [self formatTimeButton:self.startButton];
-    
-    [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
-    [FourSquareAPIClient getNearbyRestaurantWithLatitude:self.currentLatitude Longitude:self.currentLongitude Radius:self.timeInMinute*83.1495 CompletionBlock:^() {
-        NSLog(@"finished");
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]initWithKey:nil ascending:YES];
+           NSSortDescriptor *descriptor = [[NSSortDescriptor alloc]initWithKey:nil ascending:YES];
         self.foodTypes = [[DataStore sharedDataStore].restaurantDictionary.allKeys sortedArrayUsingDescriptors:@[descriptor]];
         self.selectedFoodTypes = [DataStore sharedDataStore].selectedFoodTypes;
-        [self.tableView reloadData];
-        
-        [SVProgressHUD dismiss];
-    }];
-    
     self.userDefaults = [NSUserDefaults standardUserDefaults];
     self.foodTypesTableView.backgroundColor = [UIColor clearColor];
-    
-    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:20];
-    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
-    self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:20];
-    [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor]];
     
 }
 
@@ -81,7 +70,13 @@
     
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+
 - (IBAction)goButtonTapped:(id)sender {
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     NaviViewController *destVC = [storyboard instantiateInitialViewController];
     [[DataStore sharedDataStore] filteredRestaurant];
@@ -93,26 +88,48 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    
-    [[DataStore sharedDataStore] addObserver:self forKeyPath:@"selectedFoodTypes" options:NSKeyValueObservingOptionNew context:nil];
+
     
     //Setup icons
     [self initTheStars];
     [self initTheDollars];
+    [self setupBackButton];
     
     //Star Icons in selected state
     NSUInteger starPref = [self.userDefaults integerForKey:@"starPref"];
     [self updateStarPrefWithTagNum:starPref];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+
+}
+
+- (void)dealloc {
+    NSLog(@"will disappear filter view");
+    [[DataStore sharedDataStore] removeObserver:self forKeyPath:@"selectedFoodTypes"];
+}
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [[DataStore sharedDataStore] removeObserver:self forKeyPath:@"selectedFoodTypes"];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setupBackButton
+{
+    FAKFontAwesome *backIcon = [FAKFontAwesome angleLeftIconWithSize:40];
+    [backIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    [self.backButton setAttributedTitle:[backIcon attributedString] forState:UIControlStateNormal];
+    
 }
 
 #pragma mark - Table view data source
@@ -182,18 +199,15 @@
     
 }
 
--(void)formatTimeButton:(UIButton *)button
-{
-    button.backgroundColor = [UIColor clearColor];
-    button.layer.cornerRadius = 5;
-    button.layer.borderWidth = 1;
-    button.layer.borderColor = [UIColor whiteColor].CGColor;
-    
-}
 #pragma mark - Dollar Icon Setup and Logic
 
 -(void)initTheDollars
 {
+    self.selectedDollarIcon = [FAKFontAwesome dollarIconWithSize:20];
+    [self.selectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    self.unSelectedDollarIcon = [FAKFontAwesome dollarIconWithSize:20];
+    [self.unSelectedDollarIcon addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor]];
+    
     for (UIButton *button in self.dollarButtons) {
         NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:[self.selectedDollarIcon attributedString]];
         for(NSInteger i = 0; i<button.tag;i++){
@@ -201,7 +215,6 @@
         }
         [button setAttributedTitle:string forState:UIControlStateNormal];
     }
-    
 }
 
 -(void)selectDollar:(UIButton *)button

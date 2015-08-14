@@ -17,7 +17,7 @@
 #import "FilterViewController.h"
 #import "RestaurantDestinationWebViewController.h"
 #import "Restaurant.h"
-//
+#import <AudioToolbox/AudioServices.h>
 
 @interface NaviViewController () <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocation *destLocation;
@@ -30,7 +30,6 @@
 @property (strong, nonatomic) NSMutableArray *headingArray;
 @property (weak, nonatomic) IBOutlet UILabel *arrowLabel;
 @property (weak, nonatomic) IBOutlet UIView *arrowView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *followTheArrowConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *followArrowLabel;
 @property (nonatomic, strong) DataStore *dataStore;
 @property (weak, nonatomic) IBOutlet UIButton *cancelTripButton;
@@ -40,6 +39,8 @@
 @property (nonatomic) BOOL animationHappened;
 @property (strong, nonatomic) RestaurantCDObject *destRestaurantCDObject;
 @property (strong, nonatomic) FAKFontAwesome *pauseIcon;
+@property (weak, nonatomic) IBOutlet UIView *cancelPauseMeterView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *followTheArrowConstraint;
 @property (strong, nonatomic) FAKFontAwesome *cancelIcon;
 @end
 
@@ -77,22 +78,29 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
+    [self animateIntro];
+}
+
+-(void)animateIntro
+{
     if(!self.dataStore.skipAnimation){
-           [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             self.followArrowLabel.alpha = 1;
-            self.followArrowLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:36];
-            self.followTheArrowConstraint.constant = 70;
+            self.followArrowLabel.font = [UIFont fontWithName:@"Avenir-Book" size:40];
+            self.followTheArrowConstraint.constant = -170;
             [self.view layoutIfNeeded];
             
         } completion:^(BOOL finished) {
             if (finished) {
                 NSLog(@"finished");
                 [UIView animateWithDuration:0.75 delay:1.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                    self.cancelPauseMeterView.alpha = 1;
+                    self.placeNearbyButton.alpha = 1;
                     self.distanceLabel.alpha = 1;
                     self.pauseButton.alpha = 1;
                     self.cancelTripButton.alpha = 1;
                     self.followArrowLabel.alpha = 0;
-                    self.followTheArrowConstraint.constant = 0;
+                    self.followTheArrowConstraint.constant = -238;
                     [self.view layoutIfNeeded];
                     
                 } completion:^(BOOL finished){
@@ -116,8 +124,9 @@
     [[DataStore sharedDataStore] saveContext];
     
     UINavigationController *controller = (UINavigationController *)self.presentingViewController;
+    [controller popToRootViewControllerAnimated:NO];
     [self dismissViewControllerAnimated:YES completion:nil];
-    [controller popToRootViewControllerAnimated:YES];
+
     
 }
 - (IBAction)pauseButtonTapped:(UIStoryboardSegue *)sender {
@@ -130,6 +139,10 @@
 -(void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion
 {
     [super presentViewController:viewControllerToPresent animated:flag completion:completion];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
 }
 
 -(void)updateDestination{
@@ -149,11 +162,11 @@
 
 -(void)makeButtonIcons
 {
-    self.cancelIcon = [FAKFontAwesome timesIconWithSize:37];
-    [self.cancelIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    self.cancelIcon = [FAKFontAwesome timesIconWithSize:40];
+    [self.cancelIcon addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:45.0/255.0 green:47.0/255.0 blue:51.0/255.0 alpha:1]];
     [self.cancelTripButton setAttributedTitle:[self.cancelIcon attributedString] forState:UIControlStateNormal];
     self.pauseIcon = [FAKFontAwesome pauseIconWithSize:30];
-    [self.pauseIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    [self.pauseIcon addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:45.0/255.0 green:47.0/255.0 blue:51.0/255.0 alpha:1]];
     [self.pauseButton setAttributedTitle:[self.pauseIcon attributedString] forState:UIControlStateNormal];
 
 }
@@ -235,9 +248,11 @@
     
     if ([self.currentLocation distanceFromLocation:self.restaurantLocation] <= 30.0) { // if we're less then 30 meters away then we'll let the user know we're here!
         
-        if (!self.destinationReached && self.view.window) { // if the current view controller is reached
+        if (!self.destinationReached && self.dataStore.skipAnimation) { // if the animation is complete for the follow the arrow then we can show the modal
             
             self.destinationReached = YES;
+            
+            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
             
             [self performSegueWithIdentifier:@"DestinationReachedSegue" sender:self];
             
@@ -333,7 +348,7 @@
 
 -(void)updateDistance{
     CLLocationDistance distance = [self.destLocation distanceFromLocation:self.currentLocation];
-    self.distanceLabel.text = [NSString stringWithFormat:@"%f meters away",distance];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%.2f Meters",distance];
 }
 
 -(void)updateHeader{

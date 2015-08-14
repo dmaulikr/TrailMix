@@ -21,9 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    for (UIButton *button in self.adventureButtons) {
-//        [self formatButton:button];
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -37,6 +34,10 @@
         [self.resumeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.resumeButton.layer.borderColor = [UIColor whiteColor].CGColor;
     }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 -(void)formatButton:(UIButton *)button
