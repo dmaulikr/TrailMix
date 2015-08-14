@@ -16,6 +16,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    [UIApplication sharedApplication].idleTimerDisabled = YES; // prevents auto lock
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
