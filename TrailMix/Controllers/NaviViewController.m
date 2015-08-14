@@ -118,8 +118,9 @@
     [[DataStore sharedDataStore] saveContext];
     
     UINavigationController *controller = (UINavigationController *)self.presentingViewController;
+    [controller popToRootViewControllerAnimated:NO];
     [self dismissViewControllerAnimated:YES completion:nil];
-    [controller popToRootViewControllerAnimated:YES];
+
     
 }
 - (IBAction)pauseButtonTapped:(UIStoryboardSegue *)sender {
