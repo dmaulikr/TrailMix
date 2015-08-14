@@ -93,7 +93,7 @@
         } completion:^(BOOL finished) {
             if (finished) {
                 NSLog(@"finished");
-                [UIView animateWithDuration:0.75 delay:1.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
+                [UIView animateWithDuration:0.75 delay:1.25 options:UIViewAnimationOptionCurveEaseIn animations:^{
                     self.cancelPauseMeterView.alpha = 1;
                     self.placeNearbyButton.alpha = 1;
                     self.distanceLabel.alpha = 1;

@@ -24,9 +24,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
-                                <rect key="frame" x="248" y="40" width="104" height="30"/>
-                                <state key="normal" title="Visit This Place">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
+                                <rect key="frame" x="184.5" y="40" width="230" height="49"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="27"/>
+                                <state key="normal" title="Point to Restaurant">
+                                    <color key="titleColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -34,10 +36,10 @@
                                 </connections>
                             </button>
                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="a5y-Az-JIc">
-                                <rect key="frame" x="175" y="151" width="250" height="299"/>
+                                <rect key="frame" x="175" y="151" width="250" height="298.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↑" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQG-wh-oU9">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="299"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="298.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="250"/>
                                         <color key="textColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -74,7 +76,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwY-c2-R14">
-                                        <rect key="frame" x="234" y="19" width="133" height="41"/>
+                                        <rect key="frame" x="234" y="19" width="132.5" height="41"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
                                         <color key="textColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -137,6 +139,7 @@
                             <constraint firstAttribute="bottom" secondItem="oWP-zu-DEc" secondAttribute="bottom" id="BCR-Mi-BDv"/>
                             <constraint firstAttribute="centerX" secondItem="Apu-gy-1gU" secondAttribute="centerX" id="BEB-m9-2yo"/>
                             <constraint firstItem="6NJ-8o-PKJ" firstAttribute="top" secondItem="0UY-z2-D8u" secondAttribute="top" id="DYr-PH-G05"/>
+                            <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="0UY-z2-D8u" secondAttribute="bottom" constant="-40" id="Duh-7H-mFs"/>
                             <constraint firstItem="L9g-au-7SK" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="8" id="Eag-SA-c3G"/>
                             <constraint firstAttribute="width" secondItem="0UY-z2-D8u" secondAttribute="width" id="OiU-rc-SvW"/>
                             <constraint firstItem="0UY-z2-D8u" firstAttribute="height" secondItem="oh2-k0-mBE" secondAttribute="height" multiplier="0.1" id="Py2-98-cuu"/>
@@ -144,7 +147,7 @@
                             <constraint firstItem="0UY-z2-D8u" firstAttribute="height" secondItem="oh2-k0-mBE" secondAttribute="height" multiplier="0.7" id="WVm-gc-znY"/>
                             <constraint firstItem="a5y-Az-JIc" firstAttribute="width" secondItem="0UY-z2-D8u" secondAttribute="width" id="Y07-3H-J3N"/>
                             <constraint firstAttribute="width" secondItem="Apu-gy-1gU" secondAttribute="width" id="Yxc-lc-25b"/>
-                            <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="20" id="bXK-Tu-WCM"/>
+                            <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="top" constant="20" id="bXK-Tu-WCM"/>
                             <constraint firstAttribute="centerX" secondItem="jj0-pc-TNV" secondAttribute="centerX" id="e10-qn-fUS"/>
                             <constraint firstItem="oWP-zu-DEc" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leading" id="eZm-zJ-uwo"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="leading" secondItem="oh2-k0-mBE" secondAttribute="leadingMargin" constant="232" id="gWV-Sz-nUH"/>
@@ -165,12 +168,13 @@
                                 <exclude reference="WVm-gc-znY"/>
                                 <exclude reference="oa8-M3-RRs"/>
                                 <exclude reference="Eag-SA-c3G"/>
-                                <exclude reference="Y07-3H-J3N"/>
                                 <exclude reference="9lG-ab-QAJ"/>
+                                <exclude reference="bXK-Tu-WCM"/>
                                 <exclude reference="gWV-Sz-nUH"/>
                                 <exclude reference="msq-Gl-SdC"/>
                                 <exclude reference="wcf-MO-v9L"/>
                                 <exclude reference="y0U-rw-enq"/>
+                                <exclude reference="Y07-3H-J3N"/>
                             </mask>
                         </variation>
                     </view>
