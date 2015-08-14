@@ -37,6 +37,9 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    NSLog(@"will appear filter view");
+    [[DataStore sharedDataStore] addObserver:self forKeyPath:@"selectedFoodTypes" options:NSKeyValueObservingOptionNew context:nil];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [SVProgressHUD showWithStatus:@"Loading" maskType:SVProgressHUDMaskTypeBlack];
@@ -96,8 +99,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    
-    [[DataStore sharedDataStore] addObserver:self forKeyPath:@"selectedFoodTypes" options:NSKeyValueObservingOptionNew context:nil];
+
     
     //Setup icons
     [self initTheStars];
@@ -108,9 +110,23 @@
     [self updateStarPrefWithTagNum:starPref];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+
+}
+
+- (void)dealloc {
+    NSLog(@"will disappear filter view");
+    [[DataStore sharedDataStore] removeObserver:self forKeyPath:@"selectedFoodTypes"];
+}
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [[DataStore sharedDataStore] removeObserver:self forKeyPath:@"selectedFoodTypes"];
+
 }
 
 - (void)didReceiveMemoryWarning {
