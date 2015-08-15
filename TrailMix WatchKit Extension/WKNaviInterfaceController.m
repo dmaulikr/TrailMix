@@ -12,6 +12,7 @@
 
 @interface WKNaviInterfaceController ()<CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *distanceLabel;
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *directionLabel;
 @property (strong, nonatomic)CLLocationManager *locationManager;
 @property (strong, nonatomic)CLLocation *destinationLocation;
 @property (strong, nonatomic)CLLocation *currentLocation;
@@ -58,6 +59,25 @@
     self.currentLocation = locations[0];
     self.remainingDistance = [self.currentLocation distanceFromLocation:self.destinationLocation];
     [self.distanceLabel setText:[NSString stringWithFormat:@"%.2f m",self.remainingDistance]];
+    [self updateDirection];
+}
+
+-(void)updateDirection{
+    
+    NSString *NW;
+    NSString *EW;
+    if(self.destinationLocation.coordinate.latitude>=self.currentLocation.coordinate.latitude){
+        NW = @"N";
+    }else{
+        NW = @"S";
+    }
+    if(self.destinationLocation.coordinate.longitude>=self.currentLocation.coordinate.longitude){
+        EW = @"E";
+    }else{
+        EW = @"W";
+    }
+    NSString *resultString = [NSString stringWithFormat:@"   %@%@",NW,EW];
+    [self.directionLabel setText:resultString];
 }
 
 - (IBAction)cancelTripButtonTapped {
