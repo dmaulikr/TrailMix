@@ -77,6 +77,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    self.tableView.tintColor = [UIColor whiteColor];
 
     
     //Setup icons
