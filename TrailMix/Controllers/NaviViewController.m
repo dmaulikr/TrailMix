@@ -42,6 +42,7 @@
 @property (weak, nonatomic) IBOutlet UIView *cancelPauseMeterView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *followTheArrowConstraint;
 @property (strong, nonatomic) FAKFontAwesome *cancelIcon;
+@property (strong, nonatomic) FAKFontAwesome *forkAndKnifeIcon;
 @end
 
 @implementation NaviViewController
@@ -172,12 +173,13 @@
 }
 -(void)showAttractionDirection{
     self.destLocation = [[CLLocation alloc]initWithLatitude:self.dataStore.pointOfInterest.coordinate.latitude longitude:self.dataStore.pointOfInterest.coordinate.longitude];
-    [self.visitButton setTitle:@"Continue to Your Food" forState:UIControlStateNormal];
+    [self.visitButton setTitle:@"Continue to Restaurant" forState:UIControlStateNormal];
 }
 
 -(void)showRestaurantDirection{
     self.destLocation = self.restaurantLocation;
-    [self.visitButton setTitle:@"Visit This Place" forState:UIControlStateNormal];
+    self.visitButton.alpha = 0;
+
 }
 
 - (void)didReceiveMemoryWarning {

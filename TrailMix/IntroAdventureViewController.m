@@ -42,14 +42,6 @@
     return UIStatusBarStyleLightContent;
 }
 
--(void)formatButton:(UIButton *)button
-{
-    button.backgroundColor = [UIColor clearColor];
-    button.layer.cornerRadius = 5;
-    button.layer.borderWidth = 1;
-    button.layer.borderColor = [UIColor whiteColor].CGColor;
-    
-}
 
 - (IBAction)resumeButtonTapped:(id)sender {
     UIViewController *destVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateInitialViewController];
