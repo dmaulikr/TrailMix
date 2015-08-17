@@ -20,12 +20,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="oWP-zu-DEc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapResized" translatesAutoresizingMaskIntoConstraints="NO" id="oWP-zu-DEc">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-pc-TNV">
-                                <rect key="frame" x="184.5" y="40" width="230" height="49"/>
+                                <rect key="frame" x="184.5" y="100" width="230" height="49"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="27"/>
                                 <state key="normal" title="Point to Restaurant">
                                     <color key="titleColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,7 +54,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follow the Arrow!" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9g-au-7SK">
-                                <rect key="frame" x="89" y="28" width="422" height="69"/>
+                                <rect key="frame" x="89.5" y="28.5" width="421.5" height="68.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="50"/>
                                 <color key="textColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -64,7 +64,7 @@
                                 <rect key="frame" x="0.0" y="546" width="600" height="54"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
-                                <state key="normal" title="Places Nearby">
+                                <state key="normal" title="Points of Interest">
                                     <color key="titleColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -139,12 +139,13 @@
                             <constraint firstAttribute="bottom" secondItem="oWP-zu-DEc" secondAttribute="bottom" id="BCR-Mi-BDv"/>
                             <constraint firstAttribute="centerX" secondItem="Apu-gy-1gU" secondAttribute="centerX" id="BEB-m9-2yo"/>
                             <constraint firstItem="6NJ-8o-PKJ" firstAttribute="top" secondItem="0UY-z2-D8u" secondAttribute="top" id="DYr-PH-G05"/>
-                            <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="0UY-z2-D8u" secondAttribute="bottom" constant="-40" id="Duh-7H-mFs"/>
+                            <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="0UY-z2-D8u" secondAttribute="bottom" constant="40" id="Duh-7H-mFs"/>
                             <constraint firstItem="L9g-au-7SK" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" constant="8" id="Eag-SA-c3G"/>
                             <constraint firstAttribute="width" secondItem="0UY-z2-D8u" secondAttribute="width" id="OiU-rc-SvW"/>
                             <constraint firstItem="0UY-z2-D8u" firstAttribute="height" secondItem="oh2-k0-mBE" secondAttribute="height" multiplier="0.1" id="Py2-98-cuu"/>
                             <constraint firstAttribute="centerY" secondItem="a5y-Az-JIc" secondAttribute="centerY" id="Sen-2o-2x5"/>
                             <constraint firstItem="0UY-z2-D8u" firstAttribute="height" secondItem="oh2-k0-mBE" secondAttribute="height" multiplier="0.7" id="WVm-gc-znY"/>
+                            <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="0UY-z2-D8u" secondAttribute="bottom" constant="20" id="WqO-0l-B87"/>
                             <constraint firstItem="a5y-Az-JIc" firstAttribute="width" secondItem="0UY-z2-D8u" secondAttribute="width" id="Y07-3H-J3N"/>
                             <constraint firstAttribute="width" secondItem="Apu-gy-1gU" secondAttribute="width" id="Yxc-lc-25b"/>
                             <constraint firstItem="jj0-pc-TNV" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="top" constant="20" id="bXK-Tu-WCM"/>
@@ -158,6 +159,7 @@
                             <constraint firstItem="0UY-z2-D8u" firstAttribute="top" secondItem="6NJ-8o-PKJ" secondAttribute="bottom" id="oa8-M3-RRs"/>
                             <constraint firstItem="oWP-zu-DEc" firstAttribute="top" secondItem="oh2-k0-mBE" secondAttribute="top" id="rgY-EY-h22"/>
                             <constraint firstItem="L9g-au-7SK" firstAttribute="centerY" secondItem="oh2-k0-mBE" secondAttribute="centerY" constant="-238" id="v6F-wk-JLL"/>
+                            <constraint firstItem="Apu-gy-1gU" firstAttribute="top" secondItem="jj0-pc-TNV" secondAttribute="bottom" constant="20" id="wXl-AF-eVu"/>
                             <constraint firstAttribute="centerX" secondItem="jj0-pc-TNV" secondAttribute="centerX" id="wcf-MO-v9L"/>
                             <constraint firstItem="L9g-au-7SK" firstAttribute="centerX" secondItem="oh2-k0-mBE" secondAttribute="centerX" id="xrK-tz-GdL"/>
                             <constraint firstAttribute="centerY" secondItem="jj0-pc-TNV" secondAttribute="centerY" multiplier="4" id="y0U-rw-enq"/>
@@ -168,13 +170,15 @@
                                 <exclude reference="WVm-gc-znY"/>
                                 <exclude reference="oa8-M3-RRs"/>
                                 <exclude reference="Eag-SA-c3G"/>
+                                <exclude reference="Y07-3H-J3N"/>
                                 <exclude reference="9lG-ab-QAJ"/>
+                                <exclude reference="Duh-7H-mFs"/>
                                 <exclude reference="bXK-Tu-WCM"/>
                                 <exclude reference="gWV-Sz-nUH"/>
                                 <exclude reference="msq-Gl-SdC"/>
                                 <exclude reference="wcf-MO-v9L"/>
                                 <exclude reference="y0U-rw-enq"/>
-                                <exclude reference="Y07-3H-J3N"/>
+                                <exclude reference="wXl-AF-eVu"/>
                             </mask>
                         </variation>
                     </view>
@@ -449,7 +453,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="map" width="4616" height="3269"/>
+        <image name="mapResized" width="3118" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0p4-Ny-eXw"/>
