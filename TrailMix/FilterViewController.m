@@ -74,17 +74,6 @@
     return UIStatusBarStyleLightContent;
 }
 
-
-- (IBAction)goButtonTapped:(id)sender {
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    NaviViewController *destVC = [storyboard instantiateInitialViewController];
-    [[DataStore sharedDataStore] filteredRestaurant];
-    [DataStore sharedDataStore].destinationIsResaurant = YES;
-    [self presentViewController:destVC animated:YES completion:nil];
-    
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
@@ -295,6 +284,17 @@
     self.foodTypes = [[DataStore sharedDataStore] filteredRestaurantArray];
     [self.tableView reloadData];
 }
+
+- (IBAction)goButtonTapped:(id)sender
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NaviViewController *destVC = [storyboard instantiateInitialViewController];
+    [[DataStore sharedDataStore] filteredRestaurant];
+    [DataStore sharedDataStore].destinationIsResaurant = YES;
+    [self presentViewController:destVC animated:YES completion:nil];
+}
+
+
 
 
 /*
