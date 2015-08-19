@@ -152,7 +152,7 @@
 // Returns the URL to the application's Documents directory.
 - (NSURL *)applicationDocumentsDirectory
 {
-    return [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.flatironschool.trailmix"];
+    return [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.congsun.trailmix"];
 }
 
 

@@ -180,8 +180,6 @@
 		3DEA3B351B6FF0CD00D4022B /* DollarSignTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DollarSignTableViewController.h; path = Controllers/DollarSignTableViewController.h; sourceTree = "<group>"; };
 		3DEA3B361B6FF0CD00D4022B /* DollarSignTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DollarSignTableViewController.m; path = Controllers/DollarSignTableViewController.m; sourceTree = "<group>"; };
 		6AF1828410F2C380D0413C43 /* Pods-TrailMixFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailMixFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrailMixFramework/Pods-TrailMixFramework.release.xcconfig"; sourceTree = "<group>"; };
-		7254A32E1B7CDE1F004139A2 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
-		7254A32F1B7CDE1F004139A2 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		7254A32E1B7CDE1F004139A2 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
 		7254A32F1B7CDE1F004139A2 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
 		72A9DDA21B6FECE600870BD7 /* WikiTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiTableViewController.h; sourceTree = "<group>"; };
@@ -901,7 +899,6 @@
 				DB428EEC1B7BD6F200303F7F /* IntroAdventureViewController.m in Sources */,
 				3DDD993F1B6AC24D00178632 /* RestaurantTypeTableViewController.m in Sources */,
 				DBF444EF1B728A5C00B97BAD /* TravelTimeViewController.m in Sources */,
-				3DDD99391B6A7C1100178632 /* TrailMix.xcdatamodeld in Sources */,
 				7254A3301B7CDE1F004139A2 /* HistoryTableViewController.m in Sources */,
 				72A9DDA71B6FECE600870BD7 /* WikiWebViewController.m in Sources */,
 				3DDD99361B6A761B00178632 /* RestaurantPreferenceTableViewController.m in Sources */,
@@ -1211,10 +1208,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = TrailMix/TrailMix.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TrailMix/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1226,10 +1226,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = TrailMix/TrailMix.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TrailMix/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
