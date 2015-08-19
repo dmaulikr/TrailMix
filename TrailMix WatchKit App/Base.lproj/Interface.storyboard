@@ -105,10 +105,10 @@
                                 </label>
                             </items>
                         </group>
-                        <label width="86" height="20" alignment="left" text="Distance" id="AZC-rG-iOx">
+                        <label width="134" height="20" alignment="left" text="Distance" id="AZC-rG-iOx">
                             <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
-                        <label width="134" height="28" alignment="left" verticalAlignment="center" text="Label" minimumScaleFactor="0.90000000000000002" id="jjh-tC-3P3">
+                        <label width="134" height="28" alignment="left" verticalAlignment="center" text="Label" minimumScaleFactor="0.10000000000000001" id="jjh-tC-3P3">
                             <fontDescription key="font" type="system" pointSize="30"/>
                         </label>
                         <label alignment="center" verticalAlignment="bottom" text="Label" numberOfLines="2" id="f8N-3l-93V"/>
@@ -130,7 +130,7 @@
                     <connections>
                         <outlet property="directionLabel" destination="oKT-cW-i86" id="Lri-9t-prd"/>
                         <outlet property="distanceLabel" destination="jjh-tC-3P3" id="Wvr-Zy-vi0"/>
-                        <outlet property="helperLabel" destination="f8N-3l-93V" id="qIL-KB-Sih"/>
+                        <outlet property="titleLabel" destination="AZC-rG-iOx" id="mSA-WM-DHu"/>
                     </connections>
                 </controller>
             </objects>

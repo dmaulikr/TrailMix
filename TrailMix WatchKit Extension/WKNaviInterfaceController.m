@@ -17,7 +17,8 @@
 @property (strong, nonatomic)CLLocation *destinationLocation;
 @property (strong, nonatomic)CLLocation *currentLocation;
 @property (assign, nonatomic)CGFloat remainingDistance;
-@property (weak, nonatomic) IBOutlet WKInterfaceLabel *helperLabel;
+//@property (weak, nonatomic) IBOutlet WKInterfaceLabel *helperLabel;
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *titleLabel;
 @property (strong, nonatomic) RestaurantCDObject *restaurant;
 @end
 
@@ -35,31 +36,28 @@
     //change when select other transporation type
     self.locationManager.activityType = CLActivityTypeFitness;
     
-    
-    
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways)
-    {
-        NSLog(@"%@ Start tracking current location", self);
-        
-        [self.locationManager startUpdatingLocation];
-    }
-    else
-    {
-        // provide some error
-    }
-    
-    
     self.restaurant = [RestaurantCDObject getLatestRestaurant];
-    [self.helperLabel setText:self.restaurant.name];
+//    [self.helperLabel setText:self.restaurant.name];
     self.destinationLocation = [[CLLocation alloc]initWithLatitude:self.restaurant.latitude.floatValue longitude:self.restaurant.longitude.floatValue];
     
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     self.currentLocation = locations[0];
+//    self.currentLocation = self.destinationLocation;
+    
     self.remainingDistance = [self.currentLocation distanceFromLocation:self.destinationLocation];
     [self.distanceLabel setText:[NSString stringWithFormat:@"%.2f m",self.remainingDistance]];
     [self updateDirection];
+    
+    if(self.remainingDistance<30){
+        [self.locationManager stopUpdatingLocation];
+        [self.distanceLabel setText:self.restaurant.name];
+        [self.directionLabel setText:@""];
+        [self.titleLabel setText:@"You made it!"];
+        self.restaurant.isVisited = @1;
+        [[DataStore sharedDataStore] saveContext];
+    }
 }
 
 -(void)updateDirection{
@@ -95,6 +93,19 @@
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways)
+    {
+        NSLog(@"%@ Start tracking current location", self);
+        
+        [self.locationManager startUpdatingLocation];
+    }
+    else
+    {
+        // provide some error
+    }
+//    [self.titleLabel setText:@"Distance"];
+//    [self.titleLabel setTextColor:[UIColor greenColor]];
+
 }
 
 
@@ -102,6 +113,7 @@
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
+    [self.locationManager stopUpdatingLocation];
 }
 
 @end
