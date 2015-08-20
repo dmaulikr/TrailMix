@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -14,9 +13,17 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woods3" translatesAutoresizingMaskIntoConstraints="NO" id="Os9-sj-ljd">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOM-I8-K8f">
+                    <rect key="frame" x="154" y="35" width="172.5" height="410"/>
+                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="300"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="centerY" secondItem="FOM-I8-K8f" secondAttribute="centerY" id="AO0-mN-FdM"/>
+                <constraint firstAttribute="centerX" secondItem="FOM-I8-K8f" secondAttribute="centerX" id="GDT-ke-Drz"/>
                 <constraint firstAttribute="trailing" secondItem="Os9-sj-ljd" secondAttribute="trailing" id="JdF-aR-Id9"/>
                 <constraint firstAttribute="bottom" secondItem="Os9-sj-ljd" secondAttribute="bottom" id="Ot7-1B-bn3"/>
                 <constraint firstItem="Os9-sj-ljd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kDO-3g-bCe"/>

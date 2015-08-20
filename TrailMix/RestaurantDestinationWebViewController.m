@@ -8,9 +8,12 @@
 
 #import "RestaurantDestinationWebViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <FAKFontAwesome.h>
 
 @interface RestaurantDestinationWebViewController () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 @end
 
@@ -20,7 +23,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = self.locationName;
+    FAKFontAwesome *backIcon = [FAKFontAwesome angleLeftIconWithSize:40];
+    [backIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    [self.backButton setAttributedTitle:[backIcon attributedString] forState:UIControlStateNormal];
+    
+    self.locationLabel.text = self.locationName;
     
     self.webView.delegate = self;
     
@@ -32,6 +39,9 @@
 - (IBAction)dismissButtonTapped:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)backButtonTapped:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(BOOL)prefersStatusBarHidden {

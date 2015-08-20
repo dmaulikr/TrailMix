@@ -62,5 +62,7 @@
 	</array>
 	<key>UIViewEdgeAntialiasing</key>
 	<true/>
+	<key>CFBundleDisplayName</key>
+	<string>Trailmix</string>
 </dict>
 </plist>
