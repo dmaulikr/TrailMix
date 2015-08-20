@@ -8,7 +8,6 @@
 
 #import "FilterViewController.h"
 #import <FAKFontAwesome.h>
-#import <MultiSelectSegmentedControl.h>
 #import "NaviViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "FourSquareAPIClient.h"

@@ -13,7 +13,6 @@
 #import "WikiTableViewController.h"
 #import "DataStore.h"
 #import "WikiAPIClient.h"
-#import <JDStatusBarNotification/JDStatusBarNotification.h>
 #import "FilterViewController.h"
 #import "RestaurantDestinationWebViewController.h"
 #import "Restaurant.h"

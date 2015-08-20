@@ -63,7 +63,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "FontAwesomeKit/FontAwesomeKit/ionicons.ttf"
   install_resource "FontAwesomeKit/FontAwesomeKit/zocial-regular-webfont.ttf"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/MaterialControls.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "FontAwesomeKit/FontAwesomeKit/FontAwesome.otf"
@@ -71,7 +70,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "FontAwesomeKit/FontAwesomeKit/ionicons.ttf"
   install_resource "FontAwesomeKit/FontAwesomeKit/zocial-regular-webfont.ttf"
   install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/MaterialControls.bundle"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

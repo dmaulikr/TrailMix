@@ -10,8 +10,9 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
-                        <imageView width="52" height="47" alignment="center" image="fork" contentMode="scaleAspectFit" id="a2J-P3-8OA"/>
-                        <label alignment="center" text="TrailMix" id="O7e-Z3-cmR"/>
+                        <label width="136" height="61.5" alignment="center" text="Trailmix" textAlignment="center" id="Ou0-id-rkO">
+                            <fontDescription key="font" type="system" weight="thin" pointSize="33"/>
+                        </label>
                         <button alignment="left" verticalAlignment="center" id="ab7-kL-5pU">
                             <group key="contentGroup" width="1" alignment="left" id="E1h-O3-3Ww">
                                 <items>

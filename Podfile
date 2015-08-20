@@ -4,13 +4,9 @@
 target 'TrailMix' do
     
 pod 'AFNetworking'
-pod 'BDBOAuth1Manager'
 pod 'SVProgressHUD'
-pod 'JDStatusBarNotification'
-pod 'MaterialControls'
 pod 'SDWebImage'
 pod 'FontAwesomeKit', '~> 2.1.0'
-pod 'MultiSelectSegmentedControl'
 end
 
 target 'TrailMixFramework' do
