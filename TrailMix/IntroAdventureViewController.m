@@ -11,6 +11,7 @@
 #import "NaviViewController.h"
 #import "RestaurantCDObject+InitWithRestaurantObject.h"
 #import "DataStore.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface IntroAdventureViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *adventureButtons;
@@ -23,6 +24,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CLLocationManager *locationManager = [[CLLocationManager alloc]init];
+    if([CLLocationManager locationServicesEnabled]){
+        
+        if([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined){
+                [locationManager requestAlwaysAuthorization];
+        }else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied){
+            //ask user to enable location permission on settings
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Location Service Disabled" message:@"Please Enable Location Service to Make App Work" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *goToSettingsAction = [UIAlertAction actionWithTitle:@"Location" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+            
+            [alertController addAction:goToSettingsAction];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+            
+        }else{
+            //no idea what will happed
+        }
+    }else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Location Service Disabled" message:@"Please Enable Location Service to Make App Work" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *goToSettingsAction = [UIAlertAction actionWithTitle:@"Location" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=Privacy&path=LOCATION"]];
+        }];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        [alertController addAction:goToSettingsAction];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+    }
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
