@@ -96,7 +96,7 @@
                 NSLog(@"finished");
                 [UIView animateWithDuration:0.75 delay:1.25 options:UIViewAnimationOptionCurveEaseIn animations:^{
                     self.cancelPauseMeterView.alpha = 1;
-                    self.placeNearbyButton.alpha = 1;
+                    //self.placeNearbyButton.alpha = 1;
                     self.distanceLabel.alpha = 1;
                     self.pauseButton.alpha = 1;
                     self.cancelTripButton.alpha = 1;
@@ -241,7 +241,7 @@
             
             self.dataStore.lastWikiUpdateLocation = self.currentLocation;
             
-            [self updateWikiArticles];
+            // [self updateWikiArticles]; // disabling this for now since it is not efficient for production use
             
         }
         
