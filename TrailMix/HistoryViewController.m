@@ -6,25 +6,32 @@
 //  Copyright (c) 2015 Team Fax Machine. All rights reserved.
 //
 
-#import "HistoryTableViewController.h"
+#import "HistoryViewController.h"
 #import "RestaurantCDObject+InitWithRestaurantObject.h"
 #import "RestaurantDestinationWebViewController.h"
 
-@interface HistoryTableViewController ()
+@interface HistoryViewController () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *restauratHistory;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation HistoryTableViewController
+@implementation HistoryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     self.restauratHistory = [RestaurantCDObject getVisitHistory];
 }
 
+- (IBAction)closeButtonTapped:(id)sender {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -36,7 +43,11 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HistoryCell" forIndexPath:indexPath];
     
+    cell.backgroundColor = [UIColor clearColor];
+    
     RestaurantCDObject *currentRestaurant = (RestaurantCDObject*)self.restauratHistory[indexPath.row];
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.textLabel.text = currentRestaurant.name;
     
@@ -52,6 +63,7 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     
     RestaurantDestinationWebViewController *restaurantDestinationWebViewController = segue.destinationViewController;
     
