@@ -36,6 +36,9 @@
     [self.webView loadRequest:request];
     
 }
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
 - (IBAction)dismissButtonTapped:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
